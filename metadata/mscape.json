@@ -1,0 +1,282 @@
+{
+    "status": "success",
+    "code": 200,
+    "data": {
+        "version": "0.1.0",
+        "fields": {
+            "adm1_country": {
+                "description": "England/Scotland/Wales/Northern Ireland.",
+                "type": "choice",
+                "required": false,
+                "values": [
+                    "ENG",
+                    "WALES",
+                    "SCOT",
+                    "NI"
+                ]
+            },
+            "adm2_region": {
+                "description": "[NOT YET SUPPORTED] Upper Tier Local Authority name as per https://geoportal.statistics.gov.uk/datasets/ons::upper-tier-local-authorities-dec-2022-names-and-codes-in-the-united-kingdom",
+                "type": "choice",
+                "required": false,
+                "values": [
+                    "NE",
+                    "NW",
+                    "SE",
+                    "SW",
+                    "OTHER"
+                ]
+            },
+            "approximate_date": {
+                "description": "",
+                "type": "choice",
+                "required": true,
+                "values": [
+                    "Y",
+                    "N"
+                ]
+            },
+            "batch_id": {
+                "description": "Used to identify samples prepared in the same laboratory batch (e.g. extraction, library and/or sequencing).",
+                "type": "text",
+                "required": false
+            },
+            "bioinformatics_protocol": {
+                "description": "Detail of initial bioinformatics protocol, for example versions of basecalling software and models used, any read quality filtering/trimming employed.",
+                "type": "text",
+                "required": false
+            },
+            "biosample_source_id": {
+                "description": "Unique identifier for an individual to permit multiple samples from the same individual to be linked.",
+                "type": "text",
+                "required": false
+            },
+            "cid": {
+                "description": "Unique identifier for a project record. Set by Onyx.",
+                "type": "text",
+                "required": true
+            },
+            "collection_date": {
+                "description": "The date the sample was collected.",
+                "type": "date (YYYY-MM)",
+                "required": false
+            },
+            "extraction_enrichment_protocol": {
+                "description": "Details of nucleic acid extraction and optional enrichment steps.",
+                "type": "text",
+                "required": false
+            },
+            "fastq_1": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "fastq_1_etag": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "fastq_2": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "fastq_2_etag": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "filtered_reads_1": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "filtered_reads_2": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "lab_sample_id": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "library_protocol": {
+                "description": "Details of sequencing library construction.",
+                "type": "text",
+                "required": false
+            },
+            "public_database_accession": {
+                "description": "The accession for the data in the public database.",
+                "type": "text",
+                "required": false
+            },
+            "public_database_name": {
+                "description": "The public repository where the data is.",
+                "type": "text",
+                "required": false
+            },
+            "public_dataset": {
+                "description": "",
+                "type": "bool",
+                "required": false
+            },
+            "published_date": {
+                "description": "The date the project record was published. Set by Onyx.",
+                "type": "date (YYYY-MM-DD)",
+                "required": true
+            },
+            "received_date": {
+                "description": "The date the sample was received by the sequencing centre (if collection_date unavailable).",
+                "type": "date (YYYY-MM)",
+                "required": false
+            },
+            "report": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "run_name": {
+                "description": "The unique identifier assigned to the run by the sequencing instrument.",
+                "type": "hash",
+                "required": true
+            },
+            "sample_id": {
+                "description": "The sequencing providers identifier for the sequenced sample.",
+                "type": "hash",
+                "required": true
+            },
+            "sample_latitude": {
+                "description": "",
+                "type": "decimal",
+                "required": false
+            },
+            "sample_longitude": {
+                "description": "",
+                "type": "decimal",
+                "required": false
+            },
+            "sample_site": {
+                "description": "The site where the sample was collected.",
+                "type": "choice",
+                "required": true,
+                "values": [
+                    "respiratory",
+                    "faecal",
+                    "tissue",
+                    "stool",
+                    "blood",
+                    "plasma",
+                    "urine",
+                    "environment",
+                    "other"
+                ]
+            },
+            "sample_type": {
+                "description": "The type of sample collected.",
+                "type": "choice",
+                "required": true,
+                "values": [
+                    "swab",
+                    "bal",
+                    "aspirate",
+                    "biopsy",
+                    "other",
+                    "stool"
+                ]
+            },
+            "sequencing_protocol": {
+                "description": "Details of sequencing.",
+                "type": "text",
+                "required": false
+            },
+            "site": {
+                "description": "",
+                "type": "choice",
+                "required": true,
+                "values": [
+                    "BIRM",
+                    "PUBLIC"
+                ]
+            },
+            "study_centre_id": {
+                "description": "Used to identify sequencing centre.",
+                "type": "text",
+                "required": false
+            },
+            "study_id": {
+                "description": "Used to identify study or if NHS residual sample.",
+                "type": "text",
+                "required": false
+            },
+            "taxa": {
+                "type": "relation",
+                "required": false,
+                "fields": {
+                    "avg_quality": {
+                        "description": "",
+                        "type": "decimal",
+                        "required": true
+                    },
+                    "fastq_1": {
+                        "description": "",
+                        "type": "text",
+                        "required": true
+                    },
+                    "fastq_2": {
+                        "description": "",
+                        "type": "text",
+                        "required": false
+                    },
+                    "human_readable": {
+                        "description": "",
+                        "type": "text",
+                        "required": true
+                    },
+                    "mean_len": {
+                        "description": "",
+                        "type": "decimal",
+                        "required": true
+                    },
+                    "n_reads": {
+                        "description": "",
+                        "type": "integer",
+                        "required": true
+                    },
+                    "tax_level": {
+                        "description": "",
+                        "type": "choice",
+                        "required": true,
+                        "values": [
+                            "U",
+                            "R",
+                            "D",
+                            "K",
+                            "P",
+                            "C",
+                            "O",
+                            "F",
+                            "G",
+                            "S"
+                        ]
+                    },
+                    "taxon_id": {
+                        "description": "",
+                        "type": "integer",
+                        "required": true
+                    }
+                }
+            },
+            "taxon_reports": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "validation_report": {
+                "description": "",
+                "type": "text",
+                "required": false
+            }
+        }
+    }
+}

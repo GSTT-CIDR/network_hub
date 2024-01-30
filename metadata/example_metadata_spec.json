@@ -1,0 +1,77 @@
+{
+    "status": "success",
+    "code": 200,
+    "data": {
+        "country": {
+            "description": "Oceania/Eurasia/Eastasia",
+            "type": "choice",
+            "required": false,
+            "values": [
+                "OCE",
+                "EUR",
+                "EAS"
+            ]
+        },
+        "batch_id": {
+            "description": "Used to identify samples prepared in the same laboratory batch (e.g. extraction, library and/or sequencing).",
+            "type": "text",
+            "required": false
+        },
+        "biosample_source_id": {
+            "description": "Unique identifier for an individual to permit multiple samples from the same individual to be linked.",
+            "type": "text",
+            "required": false
+        },
+        "collection_date": {
+            "description": "The date the sample was collected.",
+            "type": "date",
+            "required": false,
+            "format": "YYYY-MM"
+        },
+        "run_name": {
+            "description": "The unique identifier assigned to the run by the sequencing instrument.",
+            "type": "hash",
+            "required": true
+        },
+        "sample_id": {
+            "description": "The sequencing providers identifier for the sequenced sample.",
+            "type": "hash",
+            "required": true
+        },
+        "sample_latitude": {
+            "description": "",
+            "type": "numeric",
+            "required": false,
+            "format": "decimal"
+        },
+        "sample_longitude": {
+            "description": "",
+            "type": "numeric",
+            "required": false,
+            "format": "decimal"
+        },
+        "taxa": {
+            "avg_quality": {
+                "description": "",
+                "type": "numeric",
+                "required": true,
+                "format": "decimal"
+            },
+            "fastq_1": {
+                "description": "",
+                "type": "text",
+                "required": true
+            },
+            "fastq_2": {
+                "description": "",
+                "type": "text",
+                "required": false
+            },
+            "human_readable": {
+                "description": "",
+                "type": "text",
+                "required": true
+            }
+        }
+    }
+}

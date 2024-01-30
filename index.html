@@ -1,49 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Project Title</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.css">
+    <title>CIDR Metagenomics Hub </title>
     <!-- jvectormap -->
-    <link rel="stylesheet" media="all" href="../jquery-jvectormap.css"/>
-    <script src="assets/jquery-1.8.2.js"></script>
-    <script src="../jquery-jvectormap.js"></script>
-    <script src="../lib/jquery-mousewheel.js"></script>
-    <script src="../src/jvectormap.js"></script>
-    <script src="../src/abstract-element.js"></script>
-    <script src="../src/abstract-canvas-element.js"></script>
-    <script src="../src/abstract-shape-element.js"></script>
-    <script src="../src/svg-element.js"></script>
-    <script src="../src/svg-group-element.js"></script>
-    <script src="../src/svg-canvas-element.js"></script>
-    <script src="../src/svg-shape-element.js"></script>
-    <script src="../src/svg-path-element.js"></script>
-    <script src="../src/svg-circle-element.js"></script>
-    <script src="../src/svg-image-element.js"></script>
-    <script src="../src/svg-text-element.js"></script>
-    <script src="../src/vml-element.js"></script>
-    <script src="../src/vml-group-element.js"></script>
-    <script src="../src/vml-canvas-element.js"></script>
-    <script src="../src/vml-shape-element.js"></script>
-    <script src="../src/vml-path-element.js"></script>
-    <script src="../src/vml-circle-element.js"></script>
-    <script src="../src/vml-image-element.js"></script>
-    <script src="../src/map-object.js"></script>
-    <script src="../src/region.js"></script>
-    <script src="../src/marker.js"></script>
-    <script src="../src/vector-canvas.js"></script>
-    <script src="../src/simple-scale.js"></script>
-    <script src="../src/ordinal-scale.js"></script>
-    <script src="../src/numeric-scale.js"></script>
-    <script src="../src/color-scale.js"></script>
-    <script src="../src/legend.js"></script>
-    <script src="../src/data-series.js"></script>
-    <script src="../src/proj.js"></script>
-    <script src="../src/map.js"></script>
-    <script src="../src/uk_mill.js"></script>
-
+    <script src="tests/assets/jquery-1.8.2.js"></script>
+    <link rel="stylesheet" media="all" href="jquery-jvectormap.css"/>
+    <script src="jquery-jvectormap.js"></script>
+    <script src="lib/jquery-mousewheel.js"></script>
+    <script src="src/jvectormap.js"></script>
+    <script src="src/abstract-element.js"></script>
+    <script src="src/abstract-canvas-element.js"></script>
+    <script src="src/abstract-shape-element.js"></script>
+    <script src="src/svg-element.js"></script>
+    <script src="src/svg-group-element.js"></script>
+    <script src="src/svg-canvas-element.js"></script>
+    <script src="src/svg-shape-element.js"></script>
+    <script src="src/svg-path-element.js"></script>
+    <script src="src/svg-circle-element.js"></script>
+    <script src="src/svg-image-element.js"></script>
+    <script src="src/svg-text-element.js"></script>
+    <script src="src/vml-element.js"></script>
+    <script src="src/vml-group-element.js"></script>
+    <script src="src/vml-canvas-element.js"></script>
+    <script src="src/vml-shape-element.js"></script>
+    <script src="src/vml-path-element.js"></script>
+    <script src="src/vml-circle-element.js"></script>
+    <script src="src/vml-image-element.js"></script>
+    <script src="src/map-object.js"></script>
+    <script src="src/region.js"></script>
+    <script src="src/marker.js"></script>
+    <script src="src/vector-canvas.js"></script>
+    <script src="src/simple-scale.js"></script>
+    <script src="src/ordinal-scale.js"></script>
+    <script src="src/numeric-scale.js"></script>
+    <script src="src/color-scale.js"></script>
+    <script src="src/legend.js"></script>
+    <script src="src/data-series.js"></script>
+    <script src="src/proj.js"></script>
+    <script src="src/map.js"></script>
+    <script src="src/uk_mill.js"></script>
+    <!-- Bootstrap CSS -->
 
     <!-- Change news arrow colour and position -->
     <style>
@@ -70,126 +66,155 @@
 
 <!-- Title -->
 <div class="container mt-4">
-    <h1 class="text-center">UK-Metagenomics Network Hub</h1>
+    <h1 class="text-center">CIDR Metagenomics Hub</h1>
 </div>
 
 <!-- Card Grid -->
-<div class="container mt-4">
+<div class="container h-100">
     <div class="row">
-
         <!-- First Column with Three Cards -->
         <div class="col-md-4">
-            <!-- Card 1 -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">About the Network</h5>
-                    <p class="card-text">Some quick example text.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
+            <div class="h-100 d-flex flex-column justify-content-between">
+                <!-- Card 1 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Lab Protocols</h5>
+                        <p class="card-text">Resources for network lab users. Find protocols, reagents and troubleshooting here.</p>
+                        <a href="#" class="btn btn-primary">Open</a>
+                    </div>
                 </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Lab Protocols</h5>
-                    <p class="card-text">Some quick example text.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
+                <!-- Card 2 -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Bioinformatics</h5>
+                        <p class="card-text">All bioinformatics resources required for metagenomics analysis.</p>
+                        <a href="#" class="btn btn-primary">Open</a>
+                    </div>
                 </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="card mb-4">
-                <div class="card-body">
-                    <h5 class="card-title">Infomatics Hub</h5>
-                    <p class="card-text">Some quick example text.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
+                <!-- Card 3 -->
+                <div class="card mb-4 ">
+                    <div class="card-body">
+                        <h5 class="card-title">Results Interpretation</h5>
+                        <p class="card-text">Resources for guiding interpretation of metagenomics results.</p>
+                        <a href="#" class="btn btn-primary">Open</a>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Second and Third Columns for Large Cards -->
-        <div class="col-md-8">
-            <!-- Large Card 2x1 -->
-            <div class="card mb-4" style="height: 29%;">
-                <div class="card-body">
-                    <h4>News</h4>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <h6>First news item</h6> 
-                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.</a>
-                          </div>
-                          <div class="carousel-item">
-                            <h6>Second news item</h6>
-                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.</a>
-                          </div>
-                          <div class="carousel-item">
-                            <h6>Third news item</h6>
-                            <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.</a>
-                          </div>
+        
+            <!-- Second Column with Large Card spanning 3 rows -->
+            <div class="col-md-4">
+                <div class="h-100 d-flex flex-column justify-content-between">
+                    <!-- Large Card 1 (3x1) -->
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4> Network Sites </h4>
+                            <div id="ukMap" style="width: 100%; height: 100%; overflow: hidden;"></div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                      </div>
+                    </div>
                 </div>
             </div>
-            <!-- Large Card 2x2 -->
-            <div class="card mb-4" style="height: 63%;">
-                <div class="card-body">
-                    <h5 class="card-title">Network Sites</h5>
-                     <!-- Map Container -->
-    <div id="ukMap" style="width: 500px; height: 500px;"></div>
-    <!-- Your Custom Script for the Map -->
+            <!-- Third Column with Large Card spanning 3 rows -->
+            <div class="col-md-4">
+                <div class="h-100 d-flex flex-column justify-content-between">
+                    <!-- Large Card 2 (3x2) -->
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4>News</h4>
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <h6>Oliver Dowden MP visits GSTT-CIDR</h6> 
+                                    <blockquote class="twitter-tweet">
+                                        <a href="https://twitter.com/cabinetofficeuk/status/1747576224124113276?s=48"></a>
+                                    </blockquote>
+                                </div>
+                                <div class="carousel-item">
+                                    <h6>Second news item</h6>
+                                    <a><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b> Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.</a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b> Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam iaculis nisi ac dui tincidunt iaculis. Integer vehicula tortor ac auctor accumsan.</a>
+                                </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
-       <script>
+</div>
+    <script>
         $(function(){
             $('#ukMap').vectorMap({
                 map: 'uk_mill',
+                backgroundColor: "none",
+                zoomOnScroll: false,
+                zoomButtons : false,
+                regionStyle: {initial: {fill: "lightgrey"}},
+                markerStyle: {initial: {fill: '#005EB8', stroke: '#FFFFFF'}},
+                focusOn: {
+                scale: 1, // Adjust this value to set the zoom level
+                x: 0.7, // X coordinate (0 to 1, left to right)
+                y: 0.7, // Y coordinate (0 to 1, top to bottom)
+                animate: false
+                },
                 markers: [
-                    {latLng: [51.5074, -0.1278], name: 'London'},
-                    {latLng: [52.4862, -1.8904], name: 'Birmingham'},
-                    {latLng: [54.9783, -1.6178], name: 'Newcastle'},
-                    {latLng: [53.3811, -1.4701], name: 'Sheffield'}
+                    {latLng: [51.5074, -0.1278], name: 'London - GSTT CIRD - Prof. Jonathan Edgeworth and Dr. Rahul Batra'},
+                    {latLng: [52.4862, -1.8904], name: 'Birmingham - Hospital name - PI Names'},
+                    {latLng: [54.9783, -1.6178], name: 'Newcastle - Hospital name - PI Names'},
+                    {latLng: [53.3811, -1.4701], name: 'Sheffield - Hospital name - PI Names'},
+                    {latLng: [51.5054, 0.0835], name: 'London GOSH - Hospital name - PI Names'},
+                    {latLng: [50.8198, 1.0880], name: 'Portsmouth- Hospital name - PI Names'}
                 ],
                 onRegionTipShow: function (e, label, code) {
                     e.preventDefault();
                 },
-                onMarkerLabelShow: function(e, label, code){
-                    switch (this.markers[index].name) {
-                        case 'London':
-                            label.html('Custom text for London');
-                            break;
-                        case 'Birmingham':
-                            label.html('Custom text for Birmingham');
-                            break;
-                        case 'Newcastle':
-                            label.html('Custom text for Newcastle');
-                            break;
-                        case 'Sheffield':
-                            label.html('Custom text for Sheffield');
-                            break;
-                    }
+                onMarkerLabelShow: function(e, label, markerIndex){
+                var markerName = this.markers[markerIndex].name;
+                switch (markerName) {
+                    case 'London':
+                        label.html('Custom text for London');
+                        break;
+                    case 'Birmingham':
+                        label.html('<b>Birmingham</b><br><p>Custom HTML content here...</p>');
+                        break;
+                    case 'Newcastle':
+                        label.html('Custom text for Newcastle');
+                        break;
+                    case 'Sheffield':
+                        label.html('Custom text for Sheffield');
+                        break;
+                    default:
+                        label.html(markerName); // Fallback to default marker name
+                        break;
                 }
-            });
+            }
         });
+    });
     </script>
-    <script src="path/to/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd.min.js"></script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/esm/popper.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.css">
     </div>
 </body>
 </html>
