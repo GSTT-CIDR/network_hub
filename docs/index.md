@@ -4,5 +4,5 @@ The Network of Excellence is a group of metagenomics ready hospitals and their a
 
 **Outline of the workflow**
 
-![image](../img/introudction_workflow_flowchar.drawio.svg)
+![image](img/introudction_workflow_flowchar.drawio.svg)
 
