@@ -42,9 +42,9 @@ nav:
     - Lab protocols: lab_protocols.md
     - Reagents: reagents.md
   - Bioinformatics:
-    - Outline: outline.md
-    - Installation: install.md
-    - Getting started: getting_started.md
+    - Outline: bioinformatics_outline.md
+    - Installation: bioinformatics_install.md
+    - Getting started: bioinformatics_getting_started.md
   - Analysis: 
     - Clinical interpretation: clinical_interpretation.md
     
