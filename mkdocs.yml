@@ -6,6 +6,10 @@ theme:
   name: material
 
 markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -45,7 +49,7 @@ plugins:
       zoomable: true
       draggable: true
       skip_classes:
-        - custom-skip-class-name
+        - skip-lightbox
       auto_caption: false
       caption_position: bottom
       background: white
@@ -59,7 +63,8 @@ nav:
   - Bioinformatics:
     - Outline: bioinformatics_outline.md
     - Installation: bioinformatics_install.md
-    - Getting started: bioinformatics_getting_started.md
+    - Starting the metagenomics workflow: running_metagenomics_workflow.md
+    - Query a classification: running_organism_query.md
   - Analysis: 
     - Clinical interpretation: clinical_interpretation.md
     

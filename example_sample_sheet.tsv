@@ -1,0 +1,4 @@
+LabID	Experiment	SampleID	Barcode	SampleType	PatientID	Operator
+lab_id_1	sample_id_1	sample_id_1	1	test	na	JD
+lab_id_2	sample_id_1	sample_id_1	2	test	na	JD
+lab_id_3	sample_id_2	sample_id_1	12	test	na	JD
