@@ -40,6 +40,8 @@ conda env create -f apptainer.yml
 ## Install validation
 5. Navigate to the root of the ```CIDR_metagenomics_vX.X``` directory.
 6. Move ```CIDR_metagenomics_vX.X/GSTT_control_sample_XX``` to the allocated directory for MinKNOW data outputs (from Install instructions: Step 4).
+7. activate the apptainer conder environment:
+```conda activate apptainer```
 7. Initiate the run for analysing the control dataset:
 ```
 apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c 'cd /workflow ; source /opt/conda/etc/profile.d/conda.sh && conda activate cmg && for t in 0.5; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/CIDR_control_1.csv --latency-wait 15; done'
@@ -58,6 +60,8 @@ apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomi
 
 ## Implementation
 9. Build a **sample sheet** copying the structure of the example in ```CIDR_metagenomics_vX.X/sample_sheets```. Importantly, 'Experiment', 'SampleID' and 'Barcode' must be correct and correspond to the ```[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX``` scheme.
+7. activate the apptainer conder environment:
+```conda activate apptainer```
 10. Run the container, changing the flags explained in the validation step:
 ```
 apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c 'cd /workflow ; source /opt/conda/etc/profile.d/conda.sh && conda activate cmg && for t in 0.5 1 2 16 24; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/[**sample_sheet**] --latency-wait 15; done'
