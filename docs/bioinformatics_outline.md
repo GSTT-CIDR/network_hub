@@ -6,7 +6,10 @@
 # Clinical metagenomics bioinformatics
 
 ## Overview
-The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - **CIDR Metagenomics Workflow** and **Organism Query** alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. [Organism Query](running_organism_query.md) can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes, designed to provide the user with appropriate information to validate a clinically significant taxanomic classification. Users can opt in to [mSCAPE](mSCAPE_integration.md) on an individual sample basis, which enables automatic upload of sequencing data to UKHSA mSCAPE.
+The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - CIDR Metagenomics Workflow and [Organism Query](running_organism_query.md) alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. [Organism Query](running_organism_query.md) can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification. 
+
+### mSCAPE
+Users can opt in to [mSCAPE](mSCAPE_integration.md) on an per-experiment basis for an automatic upload of sequencing data to UKHSA mSCAPE. 
 
 ### Technical facets
 After loading a metagenomic library on to an ONT sequencing device and launching the sequencing experiment in ONT MinKNOW the pipeline is initialised by the user through the Metagenomics Launcher graphical user interface (GUI). The software periodically ingests base called FASTQ data from the GridION ```/data/``` directory at set intervals - 0.5, 1, 2, 16 and 24 hours. At each interval, the pipeline performs human scrubbing, taxanomic classification, AMR detection and MLST which is then consolidated in to a PDF reports which are saved in the ```/media/grid/metagenomics/results/``` directory. The diagram below illustrates further details of how the pipeline works:  
@@ -25,6 +28,6 @@ bbmask.sh in=unmasked.fasta out=masked.fasta entropy=0.7 -Xmx80g  maskrepeats=t
 ```
 #### Building a centrifuge index -
 ```
-# --bmax needs tuning based on available memory. 1042177280 uses ~100 GB
+# --bmax needs tuning based on available memory.
 centrifuge-build -p 10 --conversion-table accession2taxid.map --taxonomy-tree ./taxdump/nodes.dmp --name-table ./taxdump/names.dmp  masked.fasta centrifuge_index_v2 --bmax 1042177280
 ```

@@ -60,12 +60,13 @@ nav:
   - Introduction: index.md
   - Lab Resources: 
     - Lab protocols: lab_protocols.md
-    - Reagents: reagents.md
+#    - Reagents: reagents.md
   - Bioinformatics:
     - Outline: bioinformatics_outline.md
     - Installation: bioinformatics_install.md
     - Starting the metagenomics workflow: running_metagenomics_workflow.md
     - Query a classification: running_organism_query.md
+    - Deployment alternatives: alternative_deployment.md
   - Analysis: 
     - Clinical interpretation: clinical_interpretation.md
     
