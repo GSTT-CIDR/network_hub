@@ -40,7 +40,7 @@ conda env create -f apptainer.yml
 ## Install validation
 5. Navigate to the root of the ```CIDR_metagenomics_vX.X``` directory.
 6. Move ```CIDR_metagenomics_vX.X/GSTT_control_sample_XX``` to the allocated directory for MinKNOW data outputs (from Install instructions: Step 4).
-7. activate the apptainer conder environment:
+7. activate the apptainer conda environment:
 ```conda activate apptainer```
 7. Initiate the run for analysing the control dataset:
 ```
@@ -60,7 +60,7 @@ apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomi
 
 ## Implementation
 9. Build a **sample sheet** copying the structure of the example in ```CIDR_metagenomics_vX.X/sample_sheets```. Importantly, 'Experiment', 'SampleID' and 'Barcode' must be correct and correspond to the ```[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX``` scheme.
-7. activate the apptainer conder environment:
+7. activate the apptainer conda environment:
 ```conda activate apptainer```
 10. Run the container, changing the flags explained in the validation step:
 ```
