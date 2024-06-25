@@ -32,6 +32,3 @@ On successful completion of the install script, two icons should appear on the d
 2. Follow the instructions for [Starting the metagenomics workflow](./running_metagenomics_workflow.md). 
 3. For **Step 2** select 'load existing sample sheet' chosing **pipeline_validation.tsv** in the file browser dialogue. Select **Launch pipeline** and wait for completion.
 4. When the workflow has completed, inspect the ```/metagenomics/reports/validation_sample/``` PDF report, it should match the CIDR validation report provided [here](sample_report.pdf).
-
-
-

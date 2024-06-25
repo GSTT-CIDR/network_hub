@@ -689,7 +689,7 @@
 <ol>
 <li>Navigate to the root of the <code>CIDR_metagenomics_vX.X</code> directory.</li>
 <li>Move <code>CIDR_metagenomics_vX.X/GSTT_control_sample_XX</code> to the allocated directory for MinKNOW data outputs (from Install instructions: Step 4).</li>
-<li>activate the apptainer conder environment:
+<li>activate the apptainer conda environment:
 <code>conda activate apptainer</code></li>
 <li>Initiate the run for analysing the control dataset:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c &#39;cd /workflow ; source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg &amp;&amp; for t in 0.5; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/CIDR_control_1.csv --latency-wait 15; done&#39;
@@ -709,7 +709,7 @@
 <h2 id="implementation">Implementation</h2>
 <ol>
 <li>Build a <strong>sample sheet</strong> copying the structure of the example in <code>CIDR_metagenomics_vX.X/sample_sheets</code>. Importantly, 'Experiment', 'SampleID' and 'Barcode' must be correct and correspond to the <code>[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX</code> scheme.</li>
-<li>activate the apptainer conder environment:
+<li>activate the apptainer conda environment:
 <code>conda activate apptainer</code></li>
 <li>Run the container, changing the flags explained in the validation step:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c &#39;cd /workflow ; source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg &amp;&amp; for t in 0.5 1 2 16 24; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/[**sample_sheet**] --latency-wait 15; done&#39;
