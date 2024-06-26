@@ -1,576 +1,90 @@
+<!DOCTYPE html>
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-        <meta name="author" content="CIDR">
-      
-      
-        <link rel="canonical" href="https://CIDR-network-hub.github.io/lab_landing/">
-      
-      
-      
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
-    
-    
-      
-        <title>Analysing data - CIDR Metagenomics</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.50c56a3b.min.css">
-      
-      
-
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/lab_landing/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Analysing data - CIDR Metagenomics</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Analysing data";
+        var mkdocs_page_input_path = "lab_landing.md";
+        var mkdocs_page_url = "/lab_landing/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../cidr_metagenomics.pdf" rel="alternate" title="PDF" type="application/pdf"/> <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
-    .gscrollbar-fixer { padding-right: 15px; }
-    .gdesc-inner { font-size: 0.75rem; }
-    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
-    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#analysing-data" class="md-skip">
-          Skip to content
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> CIDR Metagenomics
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="CIDR Metagenomics" class="md-header__button md-logo" aria-label="CIDR Metagenomics" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            CIDR Metagenomics
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Analysing data
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/GSTT-CIDR/network_hub" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="CIDR Metagenomics" class="md-nav__button md-logo" aria-label="CIDR Metagenomics" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    CIDR Metagenomics
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/GSTT-CIDR/network_hub" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Introduction
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Lab Resources
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            Lab Resources
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lab_protocols/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Lab protocols
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Bioinformatics
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Bioinformatics
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bioinformatics_outline/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Outline
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bioinformatics_install/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Installation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../running_metagenomics_workflow/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Starting the metagenomics workflow
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../running_organism_query/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Query a classification
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../alternative_deployment/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Deployment alternatives
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Analysis
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Analysis
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../clinical_interpretation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Clinical interpretation
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lab Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Bioinformatics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Outline</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Starting the metagenomics workflow</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical interpretation</a>
+</li>
+</ul>
+</div>
+</div>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#onyx-client-basics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Onyx client basics
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#querying-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Querying data
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecting-some-pipeline-output-on-the-command-line" class="md-nav__link">
-    <span class="md-ellipsis">
-      Inspecting some pipeline output on the command line
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-database-output-in-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Working with database output in Python
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">CIDR Metagenomics</a>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-  
-
-
-<h1 id="analysing-data">Analysing data</h1>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Analysing data</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/lab_landing.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<div><h1 id="analysing-data">Analysing data</h1>
 <h2 id="overview">Overview</h2>
 <p>Once data and metadata have been ingested into the Onyx database, you
 can query it using the Onyx client, which provides a command line interface (CLI)
@@ -581,31 +95,31 @@ demonstrates a few principal functions.  More are described in the
 so that once installed, the Onyx client will automatically be configured.</p>
 <h2 id="onyx-client-basics">Onyx client basics</h2>
 <p>First, let's install the Onyx client, which is available through the
-<a href="https://pypi.org/project/climb-onyx-client">Python package</a> 
+<a href="https://pypi.org/project/climb-onyx-client">Python package</a>
 <code>climb-onyx-client</code> and can thus be installed
 with <code>pip</code>.  As advised in the <a href="https://docs.climb.ac.uk/notebook-servers/installing-software-with-conda/">CLIMB docs on installing
 software</a>,
 you should install the client in a new Conda environment.
 I'll name my environment <code>onyx</code> and install <code>ipykernel</code> too
-so that it's available in my Jupyter Notebooks.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jovyan:~$ conda create -n onyx ipykernel
-</span></code></pre></div>
-Let's activate this environment and install the Onyx client.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jovyan:~$ conda activate onyx
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>(onyx) jovyan:~$ pip install climb-onyx-client
-</span></code></pre></div>
-On Bryn's Notebook Servers, the client will automatically be configured.
-Try running the command-line client with
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(onyx) jovyan:~$ onyx
-</span></code></pre></div>
-This should show you some options and commands that are available.
-Have a look at your own profile with
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(onyx) jovyan:~$ onyx profile
-</span></code></pre></div>
-and which projects you have access to with
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(onyx) jovyan:~$ onyx projects
-</span></code></pre></div>
-You should see <code>mscapetest</code> listed.</p>
+so that it's available in my Jupyter Notebooks.</p>
+<pre><code>jovyan:~$ conda create -n onyx ipykernel
+</code></pre>
+<p>Let's activate this environment and install the Onyx client.</p>
+<pre><code>jovyan:~$ conda activate onyx
+(onyx) jovyan:~$ pip install climb-onyx-client
+</code></pre>
+<p>On Bryn's Notebook Servers, the client will automatically be configured.
+Try running the command-line client with</p>
+<pre><code>(onyx) jovyan:~$ onyx
+</code></pre>
+<p>This should show you some options and commands that are available.
+Have a look at your own profile with</p>
+<pre><code>(onyx) jovyan:~$ onyx profile
+</code></pre>
+<p>and which projects you have access to with</p>
+<pre><code>(onyx) jovyan:~$ onyx projects
+</code></pre>
+<p>You should see <code>mscapetest</code> listed.</p>
 <h2 id="querying-data">Querying data</h2>
 <p>As an example task, we'll see if we can find any sequencing data performed
 for ZymoBIOMICS sources.  These are designed with 
@@ -613,85 +127,85 @@ for ZymoBIOMICS sources.  These are designed with
 of DNA from eight bacteria and two yeasts.  We can use these to see if our protocol
 correctly recovers the DNA fractions. I.e. if our protocol is biased.</p>
 <p>From the command line, the main route to querying Onyx is via the <code>filter</code> command.
-On its own, this queries the database with <em>no</em> filters.  The command
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(onyx) jovyan:~$ onyx filter mscapetest
-</span></code></pre></div>
-will produce tens of thousands of lines of JSON, so let's not
+On its own, this queries the database with <em>no</em> filters.  The command</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest
+</code></pre>
+<p>will produce tens of thousands of lines of JSON, so let's not
 do that just yet.  To first see which fields are available in the database,
-we can use
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>(onyx) jovyan:~$ onyx fields mscapetest
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>...
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>│ extraction_enrichment_protocol │ optional │ text              │ Details of nucleic acid extraction and optional enrichment steps.            │                                                                             │
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>...
-</span></code></pre></div>
-Let's search the database for entries with <code>zymo</code> (case-insensitive) in this field.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>...
-</span></code></pre></div>
-That should return JSON data for a few entries.  You may wish to format the
+we can use</p>
+<pre><code>(onyx) jovyan:~$ onyx fields mscapetest
+...
+├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
+│ extraction_enrichment_protocol │ optional │ text              │ Details of nucleic acid extraction and optional enrichment steps.            │                                                                             │
+├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
+...
+</code></pre>
+<p>Let's search the database for entries with <code>zymo</code> (case-insensitive) in this field.</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo
+...
+</code></pre>
+<p>That should return JSON data for a few entries.  You may wish to format the
 data as CSV or TSV with <code>--format csv</code> or <code>--format tsv</code>, respectively.</p>
 <h2 id="inspecting-some-pipeline-output-on-the-command-line">Inspecting some pipeline output on the command line</h2>
 <p>When data is ingested into Onyx, a taxonomic classification is automatically run.
 The last part of the JSON data is usually some of this, in JSON format.
 The complete reports can be found in the S3 buckets given in the
 <code>'taxon_report'</code> field.  You can find this in the output you've already produced
-or modify the <code>filter</code> command to only request them using the <code>--include</code> flag. e.g.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include=taxon_reports
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>[
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    {
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        &quot;taxon_reports&quot;: &quot;s3://mscapetest-published-taxon-reports/C-FDE50853AD/&quot;
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    },
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    {
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        &quot;taxon_reports&quot;: &quot;s3://mscapetest-published-taxon-reports/C-04F4495068/&quot;
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    }
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>]
-</span></code></pre></div>
-If you'd like multiple fields, enter each one with another <code>--include</code> flag,
-or use bash's <a href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">brace expansion</a>, e.g.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include={cid,taxon_reports}
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>[
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    {
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        &quot;cid&quot;: &quot;C-FDE50853AD&quot;,
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        &quot;taxon_reports&quot;: &quot;s3://mscapetest-published-taxon-reports/C-FDE50853AD/&quot;
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    },
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    {
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>        &quot;cid&quot;: &quot;C-04F4495068&quot;,
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        &quot;taxon_reports&quot;: &quot;s3://mscapetest-published-taxon-reports/C-04F4495068/&quot;
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    }
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>]
-</span></code></pre></div>
-You can conversely exclude individual fields using the <code>--exclude</code>
+or modify the <code>filter</code> command to only request them using the <code>--include</code> flag. e.g.</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include=taxon_reports
+[
+    {
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-FDE50853AD/"
+    },
+    {
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-04F4495068/"
+    }
+]
+</code></pre>
+<p>If you'd like multiple fields, enter each one with another <code>--include</code> flag,
+or use bash's <a href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">brace expansion</a>, e.g.</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include={cid,taxon_reports}
+[
+    {
+        "cid": "C-FDE50853AD",
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-FDE50853AD/"
+    },
+    {
+        "cid": "C-04F4495068",
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-04F4495068/"
+    }
+]
+</code></pre>
+<p>You can conversely exclude individual fields using the <code>--exclude</code>
 flag in the same way.</p>
 <p>Either way, you now have the location of the taxonomy reports.  Let's have a look
-with <code>s3cmd</code>.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>(onyx) jovyan:~$ s3cmd ls s3://mscapetest-published-taxon-reports/C-FDE50853AD/
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2023-11-10 12:56   146K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken.json
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>2023-11-10 12:56     2G  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_assignments.tsv
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>2023-11-10 12:56   193K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
-</span></code></pre></div>
-The plain text report is what we're after, so let's download that with <code>s3cmd</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>(onyx) jovyan:~$ s3cmd get s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>download: &#39;s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt&#39; -&gt; &#39;./PlusPF.kraken_report.txt&#39;  [1 of 1]
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a> 197750 of 197750   100% in    0s     3.79 MB/s  done
-</span></code></pre></div></p>
+with <code>s3cmd</code>.</p>
+<pre><code>(onyx) jovyan:~$ s3cmd ls s3://mscapetest-published-taxon-reports/C-FDE50853AD/
+2023-11-10 12:56   146K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken.json
+2023-11-10 12:56     2G  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_assignments.tsv
+2023-11-10 12:56   193K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
+</code></pre>
+<p>The plain text report is what we're after, so let's download that with <code>s3cmd</code>:</p>
+<pre><code>(onyx) jovyan:~$ s3cmd get s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
+download: 's3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt' -&gt; './PlusPF.kraken_report.txt'  [1 of 1]
+ 197750 of 197750   100% in    0s     3.79 MB/s  done
+</code></pre>
 <p>If you've never seen one of these reports before, it's worth having a
 quick look with a tool like <code>less</code> or by opening it using the
-JupyterLab file browser.  For reference, it's worth showing the header
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>(onyx) jovyan:~$ head -n 1 PlusPF.kraken_report.txt
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>% of Seqs       Clades  Taxonomies      Rank    Taxonomy ID     Scientific Name
-</span></code></pre></div>
-The Zymo sample is prepared with 12% <em>Bacillus subtilis</em>.  Let's see how much
-was actually reported in the results:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>(onyx) jovyan:~$ grep &quot;Bacillus subtilis&quot; PlusPF.kraken_report.txt
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a> 20.30  435278  1452    G1      653685                    Bacillus subtilis group
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  0.12  2624    1952    S       1423                        Bacillus subtilis
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  0.03  565     242     S1      135461                        Bacillus subtilis subsp. subtilis
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  0.01  108     108     S2      1404258                         Bacillus subtilis subsp. subtilis str. OH 131.1
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>  ...
-</span></code></pre></div>
-Looks like 20.3%, though classified under <em>Bacillus subtilis</em> "subgroup",
+JupyterLab file browser.  For reference, it's worth showing the header</p>
+<pre><code>(onyx) jovyan:~$ head -n 1 PlusPF.kraken_report.txt
+% of Seqs       Clades  Taxonomies      Rank    Taxonomy ID     Scientific Name
+</code></pre>
+<p>The Zymo sample is prepared with 12% <em>Bacillus subtilis</em>.  Let's see how much
+was actually reported in the results:</p>
+<pre><code>(onyx) jovyan:~$ grep "Bacillus subtilis" PlusPF.kraken_report.txt
+ 20.30  435278  1452    G1      653685                    Bacillus subtilis group
+  0.12  2624    1952    S       1423                        Bacillus subtilis
+  0.03  565     242     S1      135461                        Bacillus subtilis subsp. subtilis
+  0.01  108     108     S2      1404258                         Bacillus subtilis subsp. subtilis str. OH 131.1
+  ...
+</code></pre>
+<p>Looks like 20.3%, though classified under <em>Bacillus subtilis</em> "subgroup",
 rather than <em>Bacillus subtilis</em>, which reportedly only comprises 0.12% of the sample.
 Most of that 20.3% is under <em>Bacillus spizizenii</em>.</p>
 <p>An important detail here is that the fraction reported in this output
@@ -705,58 +219,58 @@ Let's make this comparison in Python using the Onyx client's Python
 API.</p>
 <p>Let's first run the same query for the Zymo data.  We'll follow the
 examples in the Onyx documentation and run the query in a context
-manager.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">onyx</span> <span class="kn">import</span> <span class="n">OnyxConfig</span><span class="p">,</span> <span class="n">OnyxEnv</span><span class="p">,</span> <span class="n">OnyxClient</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">OnyxConfig</span><span class="p">(</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">domain</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">OnyxEnv</span><span class="o">.</span><span class="n">DOMAIN</span><span class="p">],</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">OnyxEnv</span><span class="o">.</span><span class="n">TOKEN</span><span class="p">],</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">)</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="k">with</span> <span class="n">OnyxClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="n">records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>        <span class="s2">&quot;mscapetest&quot;</span><span class="p">,</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>        <span class="n">fields</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>            <span class="s2">&quot;extraction_enrichment_protocol__icontains&quot;</span><span class="p">:</span> <span class="s2">&quot;zymo&quot;</span><span class="p">,</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        <span class="p">},</span>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="p">))</span>
-</span></code></pre></div>
-We've wrapped the <code>filter</code> call in a <code>list</code> because otherwise
+manager.</p>
+<pre><code class="language-py">import os
+from onyx import OnyxConfig, OnyxEnv, OnyxClient
+
+config = OnyxConfig(
+    domain=os.environ[OnyxEnv.DOMAIN],
+    token=os.environ[OnyxEnv.TOKEN],
+)
+
+with OnyxClient(config) as client:
+    records = list(client.filter(
+        "mscapetest",
+        fields={
+            "extraction_enrichment_protocol__icontains": "zymo",
+        },
+    ))
+</code></pre>
+<p>We've wrapped the <code>filter</code> call in a <code>list</code> because otherwise
 we get a generator.</p>
 <p>If you want to inspect the data, it's a bit easier to read if formatted with
-indentation, which can be done using the standard <code>json.dumps</code> function:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span> <span class="nn">json</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># show first record</span>
-</span></code></pre></div>
-In each record, the <code>'taxa'</code> key gives us a list of dictionaries
+indentation, which can be done using the standard <code>json.dumps</code> function:</p>
+<pre><code class="language-py">import json
+print(json.dumps(records[0], indent=2))  # show first record
+</code></pre>
+<p>In each record, the <code>'taxa'</code> key gives us a list of dictionaries
 that each has a number of reads and a mean length, the product of
 which is the total number of base pairs that were read for that
 taxon.  A simple first step is to convert the taxonomic data (for the first record)
-into a Pandas DataFrame with
-<div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;taxa&#39;</span><span class="p">])</span>
-</span></code></pre></div>
-We also need to drop a few lower-level taxa that are already
+into a Pandas DataFrame with</p>
+<pre><code class="language-py">import pandas as pd
+
+df = pd.DataFrame(records[0]['taxa'])
+</code></pre>
+<p>We also need to drop a few lower-level taxa that are already
 accounted for in higher ones. e.g. the reads for <em>Bacillus spizizenii TU-B-10</em> are
 among the reads counted for <em>Bacillus spizizenii</em>.  A quick way of doing this
-is by selecting the rows that have only two words in their names.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;human_readable&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
-</span></code></pre></div>
-Now, let's add columns for the total number of base pairs associated with
-each taxon and what proportion that is of the total.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gDNA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;n_reads&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mean_len&#39;</span><span class="p">]</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;proportion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gDNA&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;gDNA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</span></code></pre></div>
-Finally, let's make a rough plot with a black dashed line at 12%.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;human_readable&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;proportion&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">);</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mf">22.5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">);</span>
-</span></code></pre></div></p>
-<p><a class="glightbox" href="./zymo-comparison.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Measured gDNA proportions of a Zymo community" src="./zymo-comparison.png" /></a></p>
+is by selecting the rows that have only two words in their names.</p>
+<pre><code class="language-py">df = df.loc[df['human_readable'].apply(lambda name: len(name.split()) == 2)]
+</code></pre>
+<p>Now, let's add columns for the total number of base pairs associated with
+each taxon and what proportion that is of the total.</p>
+<pre><code class="language-py">df['gDNA'] = df['n_reads']*df['mean_len']
+df['proportion'] = df['gDNA']/df['gDNA'].sum()
+</code></pre>
+<p>Finally, let's make a rough plot with a black dashed line at 12%.</p>
+<pre><code class="language-py">import matplotlib.pyplot as plt
+
+plt.plot(df['human_readable'], df['proportion']*100, 'o')
+plt.axhline(12, c='k', ls='--');
+plt.xticks(rotation=22.5, ha='right');
+</code></pre>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="./zymo-comparison.png"><img alt="Measured gDNA proportions of a Zymo community" src="./zymo-comparison.png"/></a></p>
 <p>There are some clear discrepancies—<em>Pseudomonas aeruginosa</em> is
 underreported and <em>Bacillus spizizenii</em> is overreported—but this
 matches results by e.g. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6520541/">Nicholls et
@@ -764,58 +278,36 @@ al. (2019)</a>.</p>
 <p>This short example is intended as a basic demonstration of what's
 possible in CLIMB-TRE.  We're always interested to hear more examples
 of research questions that CLIMB-TRE can answer, so let us know if you
-have an example that could be included as a guide for others.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
+have an example that could be included as a guide for others.</p></div>
 </div>
-      
-    </div>
-  </div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.7389ff0e.min.js"></script>
-      
-    
-  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
 </html>
