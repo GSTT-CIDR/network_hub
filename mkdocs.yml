@@ -22,6 +22,7 @@ plugins:
             docstring_style: numpy
             docstring_section_style: spacy
             show_source: false
+  - mkdocs-pdf
   - with-pdf:
       output_path: cidr_metagenomics.pdf
       cover_subtitle: ""
@@ -49,4 +50,48 @@ nav:
     - Query a classification: running_organism_query.md
     - Deployment alternatives: alternative_deployment.md
   - Analysis: 
-    - Clinical interpretation: clinical_interpretation.md
+    - Clinical evaluation SOP: clinical_interpretation.md
+    - Validation outline: validation_outline.md
+
+site_name: "CIDR Metagenomics Hub"
+
+extra_javascript:
+  - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js
+  - assets/js/jquery-jvectormap.js
+  - assets/js/jquery-mousewheel.js
+  - assets/js/jvectormap.js
+  - assets/js/abstract-element.js
+  - assets/js/abstract-canvas-element.js
+  - assets/js/abstract-shape-element.js
+  - assets/js/svg-element.js
+  - assets/js/svg-group-element.js
+  - assets/js/svg-canvas-element.js
+  - assets/js/svg-shape-element.js
+  - assets/js/svg-path-element.js
+  - assets/js/svg-circle-element.js
+  - assets/js/svg-image-element.js
+  - assets/js/svg-text-element.js
+  - assets/js/vml-element.js
+  - assets/js/vml-group-element.js
+  - assets/js/vml-canvas-element.js
+  - assets/js/vml-shape-element.js
+  - assets/js/vml-path-element.js
+  - assets/js/vml-circle-element.js
+  - assets/js/vml-image-element.js
+  - assets/js/map-object.js
+  - assets/js/region.js
+  - assets/js/marker.js
+  - assets/js/vector-canvas.js
+  - assets/js/simple-scale.js
+  - assets/js/ordinal-scale.js
+  - assets/js/numeric-scale.js
+  - assets/js/color-scale.js
+  - assets/js/legend.js
+  - assets/js/data-series.js
+  - assets/js/proj.js
+  - assets/js/map.js
+  - assets/js/uk_mill.js
+
+extra_css:
+  - assets/js/jquery-jvectormap.css

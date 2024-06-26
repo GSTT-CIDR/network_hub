@@ -6,11 +6,12 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="None" name="description"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/" rel="canonical"/>
 <link href="img/favicon.ico" rel="shortcut icon"/>
-<title>CIDR Metagenomics</title>
+<title>CIDR Metagenomics Hub</title>
 <link href="css/theme.css" rel="stylesheet"/>
 <link href="css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <link href="assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="assets/js/jquery-jvectormap.css" rel="stylesheet"/>
 <script>
         // Current page data
         var mkdocs_page_name = "Introduction";
@@ -32,18 +33,14 @@
 <nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
 <div class="wy-side-scroll">
 <div class="wy-side-nav-search">
-<a class="icon icon-home" href="."> CIDR Metagenomics
+<a class="icon icon-home" href="."> CIDR Metagenomics Hub
         </a>
 </div>
 <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#lab-protocols">Lab protocols</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#informatics-workflow">Informatics workflow</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#reporting-framework">Reporting framework</a>
+<li class="toctree-l2"><a class="reference internal" href="#network-sites">Network Sites</a>
 </li>
 </ul>
 </li>
@@ -68,7 +65,9 @@
 </ul>
 <p class="caption"><span class="caption-text">Analysis</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="clinical_interpretation/">Clinical interpretation</a>
+<li class="toctree-l1"><a class="reference internal" href="clinical_interpretation/">Clinical evaluation SOP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validation_outline/">Validation outline</a>
 </li>
 </ul>
 </div>
@@ -77,7 +76,7 @@
 <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
 <nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
 <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
-<a href=".">CIDR Metagenomics</a>
+<a href=".">CIDR Metagenomics Hub</a>
 </nav>
 <div class="wy-nav-content">
 <div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
@@ -98,6 +97,61 @@
 <p><strong>The tools and documentation described here and on the CIDR GitHub are not validated for diagnostic use and are for research and evaluation purposes only.</strong></p>
 </div>
 <p><strong>The Network Hub is a resource for users of the CIDR clinical metagenomics workflow. Here, you can find SOPs, technical and FAQ/troubleshooting information regarding the implementation of metagenomics in a clinical evaluation/research setting.</strong></p>
+<h2 id="network-sites">Network Sites</h2>
+<h1 id="network-sites_1">Network Sites</h1>
+<div class="card-body">
+<h4>Network Sites</h4>
+<div id="ukMap" style="width: 100%; height: 500px; overflow: hidden;"></div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#ukMap').vectorMap({
+            map: 'uk_mill',
+            backgroundColor: "none",
+            zoomOnScroll: false,
+            zoomButtons: false,
+            regionStyle: {initial: {fill: "lightgrey"}},
+            markerStyle: {initial: {fill: '#005EB8', stroke: '#FFFFFF'}},
+            focusOn: {
+                scale: 1, // Adjust this value to set the zoom level
+                x: 0.7, // X coordinate (0 to 1, left to right)
+                y: 0.7, // Y coordinate (0 to 1, top to bottom)
+                animate: false
+            },
+            markers: [
+                {latLng: [51.5074, -0.1278], name: 'London - GSTT CIRD - Prof. Jonathan Edgeworth and Dr. Rahul Batra'},
+                {latLng: [52.4862, -1.8904], name: 'Birmingham - Hospital name - PI Names'},
+                {latLng: [54.9783, -1.6178], name: 'Newcastle - Hospital name - PI Names'},
+                {latLng: [53.3811, -1.4701], name: 'Sheffield - Hospital name - PI Names'},
+                {latLng: [51.5054, 0.0835], name: 'London GOSH - Hospital name - PI Names'},
+                {latLng: [50.8198, 1.0880], name: 'Portsmouth- Hospital name - PI Names'}
+            ],
+            onRegionTipShow: function (e, label, code) {
+                e.preventDefault();
+            },
+            onMarkerLabelShow: function(e, label, markerIndex){
+                var markerName = this.markers[markerIndex].name;
+                switch (markerName) {
+                    case 'London':
+                        label.html('Custom text for London');
+                        break;
+                    case 'Birmingham':
+                        label.html('<b>Birmingham</b><br><p>Custom HTML content here...</p>');
+                        break;
+                    case 'Newcastle':
+                        label.html('Custom text for Newcastle');
+                        break;
+                    case 'Sheffield':
+                        label.html('Custom text for Sheffield');
+                        break;
+                    default:
+                        label.html(markerName); // Fallback to default marker name
+                        break;
+                }
+            }
+        });
+    });
+</script>
 <h3 id="lab-protocols">Lab protocols</h3>
 <p>The lab protocol is a same-day DNA/RNA extraction, host-depletion and ONT library preparation workflow for delivery of preliminary sequencing results in &lt; 6 hours.</p>
 <h3 id="informatics-workflow">Informatics workflow</h3>
@@ -132,6 +186,42 @@
 <script>var base_url = ".";</script>
 <script src="js/theme_extra.js"></script>
 <script src="js/theme.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+<script src="assets/js/jquery-jvectormap.js"></script>
+<script src="assets/js/jquery-mousewheel.js"></script>
+<script src="assets/js/jvectormap.js"></script>
+<script src="assets/js/abstract-element.js"></script>
+<script src="assets/js/abstract-canvas-element.js"></script>
+<script src="assets/js/abstract-shape-element.js"></script>
+<script src="assets/js/svg-element.js"></script>
+<script src="assets/js/svg-group-element.js"></script>
+<script src="assets/js/svg-canvas-element.js"></script>
+<script src="assets/js/svg-shape-element.js"></script>
+<script src="assets/js/svg-path-element.js"></script>
+<script src="assets/js/svg-circle-element.js"></script>
+<script src="assets/js/svg-image-element.js"></script>
+<script src="assets/js/svg-text-element.js"></script>
+<script src="assets/js/vml-element.js"></script>
+<script src="assets/js/vml-group-element.js"></script>
+<script src="assets/js/vml-canvas-element.js"></script>
+<script src="assets/js/vml-shape-element.js"></script>
+<script src="assets/js/vml-path-element.js"></script>
+<script src="assets/js/vml-circle-element.js"></script>
+<script src="assets/js/vml-image-element.js"></script>
+<script src="assets/js/map-object.js"></script>
+<script src="assets/js/region.js"></script>
+<script src="assets/js/marker.js"></script>
+<script src="assets/js/vector-canvas.js"></script>
+<script src="assets/js/simple-scale.js"></script>
+<script src="assets/js/ordinal-scale.js"></script>
+<script src="assets/js/numeric-scale.js"></script>
+<script src="assets/js/color-scale.js"></script>
+<script src="assets/js/legend.js"></script>
+<script src="assets/js/data-series.js"></script>
+<script src="assets/js/proj.js"></script>
+<script src="assets/js/map.js"></script>
+<script src="assets/js/uk_mill.js"></script>
 <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
@@ -142,5 +232,5 @@
 </html>
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-06-26 15:18:42.348715+00:00
+Build Date UTC : 2024-06-26 17:55:45.675051+00:00
 -->
