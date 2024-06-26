@@ -3,29 +3,17 @@ site_url: https://CIDR-network-hub.github.io/
 repo_url: https://github.com/GSTT-CIDR/network_hub
 site_author: CIDR
 theme:
-  name: material
+  name: readthedocs
 
 markdown_extensions:
+  - sane_lists
   - attr_list
   - tables
   - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
 
 
 plugins:
+
   - mkdocstrings:
       default_handler: python
       handlers:
@@ -43,24 +31,17 @@ plugins:
   - glightbox:
       touchNavigation: true
       loop: false
-      effect: zoom
-      slide_effect: slide
-      width: 100%
-      height: auto
-      zoomable: true
-      draggable: true
-      skip_classes:
-        - skip-lightbox
-      auto_caption: false
-      caption_position: bottom
-      background: white
-      shadow: true
+  - mkdocs-video:
+      is_video: True
+      video_autoplay: False
+      css_style:
+        width: "50%"
+        height: "35%"
 
 nav:
   - Introduction: index.md
   - Lab Resources: 
-    - Lab protocols: lab_protocols.md
-#    - Reagents: reagents.md
+    - Lab protocols: panmetagenomics_protocol.md
   - Bioinformatics:
     - Outline: bioinformatics_outline.md
     - Installation: bioinformatics_install.md
@@ -69,4 +50,3 @@ nav:
     - Deployment alternatives: alternative_deployment.md
   - Analysis: 
     - Clinical interpretation: clinical_interpretation.md
-    

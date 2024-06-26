@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/panmetagenomics_protocol/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Panmetagenomics protocol - CIDR Metagenomics</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Panmetagenomics protocol";
+        var mkdocs_page_input_path = "panmetagenomics_protocol.md";
+        var mkdocs_page_url = "/panmetagenomics_protocol/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../cidr_metagenomics.pdf" rel="alternate" title="PDF" type="application/pdf"/> <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> CIDR Metagenomics
+        </a>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lab Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab_protocols/">Lab protocols</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Bioinformatics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Outline</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Starting the metagenomics workflow</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical interpretation</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">CIDR Metagenomics</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item active">Panmetagenomics protocol</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/panmetagenomics_protocol.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<h1 id="panmetagenomics-protocol">Panmetagenomics protocol</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Risk assessment for handling respiratory samples needs to be performed by each laboratory.</strong></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>The tools and documentation described here and on the CIDR GitHub are not validated for diagnostic use and are for research and evaluation purposes only.</strong></p>
+</div>
+<h2 id="preparation-of-quality-controls">Preparation of quality controls:</h2>
+<ul>
+<li>
+<p><strong>Positive control: NATtrol™ Respiratory Panel 2.1 (RP2.1) Controls
+  (Zeptometrix):</strong></p>
+</li>
+<li>
+<p>Mix 300ul of control 1 and 300ul of control 2 in an Eppendorf. Label
+    with date and lot number.</p>
+</li>
+<li>
+<p>Vortex for 1 minute Centrifuge at 1,200g for 5min immediately prior
+    to each use.</p>
+</li>
+<li>
+<p>Aliquot the volume specified by the manual or automated extraction
+    method and process in parallel with equivalent clinical sample
+    volumes.</p>
+</li>
+<li>
+<p>Store the mixed positive controls at 4&lt;supo&lt;/supC, it can be used
+    for two extractions.</p>
+</li>
+<li>
+<p>Run a target PCR (Viasure respiratory panel III) anytime a new box
+    is opened and recorded it on the trend analysis spreadsheet.</p>
+</li>
+<li>
+<p><strong>Negative control: Respiratory Swab Matrix Negative Control
+  (Vircell):</strong></p>
+</li>
+</ul>
+<p>Add 500ul of Microbial DNA-Free Water to a vial and mix until completely
+reconstituted as per manufacturer’s instructions. Vortex for 30 sec to
+dissolve and homogenise completely. Spike with 1ul of TMV.</p>
+<p><strong>NOTE:</strong> run the PC and NC using the same barcodes. We use barcode 11
+for the PC and 12 for the NC.</p>
+<ul>
+<li><strong>Internal control (IC): Tobacco Mosaic Virus (TMV) PC-0107 (DSMZ):</strong></li>
+</ul>
+<p>1. Reconstitute a new vial of TMV every Monday with 3mL of Microbial
+ DNA-Free Water (Qiagen).</p>
+<p>2. Vortex for 1 minute.</p>
+<p>3. Aliquot 500ul of IC into 6 Eppendorf tubes, labelling each tube
+ with the preparation date and lot number. Store at 4&lt;supo&lt;/supC.</p>
+<p>4. Use one aliquot per day to spike your samples and negative
+ control, vortex for one minute before spiking</p>
+<p>5. Do a target PCR on the aliquot used each time a new vial is
+ reconstituted and record the Ct value on the trend analysis
+ spreadsheet (see appendix 1). In our hands this is between 0.5ul and
+ 5ul of TMV to give a final Ct value in the sample of between 5 and 6.</p>
+<p>6. Discard any remaining volume from used aliquot each day and any
+ remaining aliquots by Friday.</p>
+<p>See Appendix 1 for the TMV targeted PCR.</p>
+<ul>
+<li><strong>Spiking samples with the internal control (IC):</strong></li>
+</ul>
+<p>&lt;!-- --</p>
+<ul>
+<li>Spiked the sample with &lt;u1ul of TMV&lt;/u is the following samples:</li>
+</ul>
+<p>-Broncho-alveolar lavage (BAL),</p>
+<p>-Non-directed broncho-alveolar lavage (NBL)</p>
+<p>-Endotracheal tube (ETT) aspirates</p>
+<p>-Sputum.</p>
+<ul>
+<li>Spike with &lt;u0.5ul of TMV&lt;/u the following samples:</li>
+</ul>
+<p>-Pleural fluids</p>
+<p>-Nasal throat swabs</p>
+<p><strong>&lt;uSample preparation:&lt;/u</strong></p>
+<p>-Respiratory samples validated for this protocol are: BAL, NBL, ETT,
+NTS, sputum and pleural fluids.</p>
+<p>-Samples processed should be fresh up to four days old storage in the
+fridge, older than that it could not be guarantee the RNA virus
+detection.</p>
+<p>- Samples are processed in a different way depending on the sample
+type.</p>
+<p><strong>1. Sputum and ETT:</strong></p>
+<p>Mucoid samples such as sputum or ETT should be mucolysed before starting
+the Human DNA depletion process as follows:</p>
+<p>Add approximately 2 mL sputum into a numbered, sterile, plastic
+universal container or if 2 mL already in original container then use
+this:</p>
+<ol>
+<li>
+<p>Add equal volume (2mL) of mucolytic agent Mucolyse to the sample
+    container.</p>
+</li>
+<li>
+<p>Vortex in the safety cabinet for 30 seconds.</p>
+</li>
+<li>
+<p>Leave until liquefication at RT.</p>
+</li>
+<li>
+<p>Gently agitate for a further 15 seconds before to proceed to the
+    human DNA depletion</p>
+</li>
+</ol>
+<p>If after mucolysing the sample, this is still mucoid, pipette 500ul of
+the sample and mix with 500ul of PBS, vortex well and proceed with the
+human DNA depletion.</p>
+<p><strong>&lt;uHuman DNA depletion:&lt;/u</strong></p>
+<p>The human DNA depletion is three steps: centrifugation, bead-beating and
+endonuclease treatment. However, BAL, NBL and ETT aspirates are
+processed in a different way depending on the appearance of the sample.
+This is due to the different composition of the sample.</p>
+<ol>
+<li>
+<p>&lt;uFor turbid and mucoid samples&lt;/u: the human DNA depletion is
+    performed as usual, centrifugation followed by bead-beating and
+    endonuclease treatment.</p>
+</li>
+<li>
+<p>&lt;uTransparent samples with some mucoid debris:&lt;/u the
+    centrifugation should be spiked and the only bead-beating and
+    endonuclease treatment should be performed.</p>
+</li>
+<li>
+<p>&lt;uFor clear samples with watery appearance:&lt;/u the human DNA
+    depletion should be avoided and the sample should just be extracted.</p>
+</li>
+</ol>
+<p>&lt;!-- --</p>
+<p>1)  <strong>&lt;uCentrifugation:&lt;/u</strong></p>
+<p>☐ Vortex the sample</p>
+<p>☐Centrifuge 1,200g for 10 min</p>
+<p>☐Aliquot 500ul of the supernatant into an Eppendorf tube</p>
+<p>☐Vortex the TMV aliquot</p>
+<p>☐Spike 1ul of TMV to the sample and 0.5ul if processing a pleural
+ fluid.</p>
+<p>☐Vortex the sample with the TMV</p>
+<p>☐ Procced with bead beating host-depletion step (2.)</p>
+<p>2)  <strong>&lt;uBead beating and microbial extraction&lt;/u</strong>:</p>
+<p>☐Add 500ul of the supernatant post centrifugation or 500ul of whole
+ sample to the Matrix Lysing D tube (MP biomedicals&lt;supTM&lt;/sup) after
+ vortexing for 1 minute.</p>
+<p>☐ Place the matrix tube into the TissueLyser LT (Qiagen). Bead-beat at
+ 50 osc for 3min. Note: sometimes the sample will become foamy after
+ bead-beating, this is ok.</p>
+<p>☐Transfer 200ul of the bead-beaten sample to a new Eppendorf tube,
+ placing the tip at the bottom of the tube to take-up the liquid
+ instead of the foam.</p>
+<p>☐Add 10ul of HL-SAN enzyme (ArticZymes Technology).</p>
+<p>☐Mix for 10’ at 37⁰C at 1000rpm in the Eppendorf ThermoMixer
+ (Eppendorf&lt;supTM&lt;/sup).</p>
+<p><strong>&lt;uNOTE:&lt;/u</strong> The HL-SAN is stopped by the Magnapure extraction
+ when the instrument adds proteinase k. However, not all the extraction
+ instruments/kits add proteinase k. If the extraction instrument/kit
+ does not have this step, add the proteinase K manually as followed:</p>
+<p>-Add 10ul of proteinase K to 200ul of the samples previously treated
+ with HL-SAN.</p>
+<p>-Vortex for 10 seconds.</p>
+<p>-Incubate at 56⁰C for 10 min at 1000rpm.</p>
+<p>☐Transfer 200ul to Magnapure 24 (Roche&lt;supTM&lt;/sup) for extraction or
+ proceed using alternative extraction methods validated in your own
+ laboratory.</p>
+<p>☐ Use total nucleic acid extraction kit 1.1 with pre-set BAL sample
+ parameters and 50ul elution volume. Fast pathogen 200 1.1 is used for
+ processing \&lt;8 samples and Pathogen 200 3.2 for \=8 samples. Settings
+ for other extraction robots will need to be established in user
+ laboratories.</p>
+<p><strong>Microbial nucleic acid processing and PCR amplification</strong></p>
+<ol>
+<li><strong>&lt;uRT-dsDNA:&lt;/u</strong></li>
+</ol>
+<p>☐ Transfer 16ul of the 50ul extract (from Magnapure) to a PCR tube and
+ add 4ul LunaScript® RT SuperMix. Mix by flicking the tube and briefly
+ spinning down in a small bench top Eppendorf centrifuge</p>
+<p>&lt;u☐&lt;/u Place the tube in the thermocycler and incubate at 25⁰C for 2
+ minutes, 55⁰C for 10 minutes, 95⁰C for 1 minute</p>
+<p>☐ Prepare the master mix for the double strand synthesis using the
+ Sequenase Version 2.0 DNA Polymerase</p>
+<table>
+<thead>
+<tr>
+<th><strong>dsDNA synthesis</strong></th>
+<th><strong>Volume</strong></th>
+<th><strong>x ­­­­_____ samples</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5× Sequenase Buffer</td>
+<td>2ul</td>
+<td></td>
+</tr>
+<tr>
+<td>Microbial DNA-Free Water</td>
+<td>7.7ul</td>
+<td></td>
+</tr>
+<tr>
+<td>Sequenase Dilution Buffer</td>
+<td>0.9ul</td>
+<td></td>
+</tr>
+<tr>
+<td>Enzyme</td>
+<td>0.6ul</td>
+<td></td>
+</tr>
+<tr>
+<td>Total volume</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>☐ Add 11.2 ul of the master mix to the 20 ul of product post RT step.
+ Mix by flicking the tube and briefly spin down.</p>
+<p>☐ Place the tube in the thermocycler. Incubation at 37⁰C for 8
+ minutes.</p>
+<p>☐ Prepare stock of 70% (700ul absolute ethanol+ 300ul of Microbial
+ DNA-free water for 1mL) ethanol in Microbial DNA-Free Water.</p>
+<p>☐ Add 45ul of resuspended AMPure XP Beads (AXP) into a new Eppendorf
+ tube for each sample.</p>
+<p>☐ Add all of the product post dsDNA synthesis (31.2ul) into the
+ Eppendorf tube containing the beads, mix well by flicking the tube and
+ incubate at room temperature for 5 minutes.</p>
+<p>☐ Briefly spin down the samples and pellet the beads on a magnet until
+ the eluate is clear and colourless. Keep the tubes on the magnet and
+ discard the supernatant.</p>
+<p>☐ Keep the tubes on the magnet and wash the beads with 200 µl of
+ freshly prepared 70% ethanol without disturbing the pellet. Remove the
+ ethanol using a pipette and discard.</p>
+<p>☐ Repeat the previous step.</p>
+<p>☐ Briefly spin down and place the tubes back on the magnet. Pipette
+ off any residual ethanol with the 10p pipette. Allow to dry for 30
+ seconds, but do not dry the pellet to the point of cracking.</p>
+<p>☐ Remove the tubes from the magnetic rack and resuspend the pellet in
+ 12ul the Microbial DNA free water. Spin down and incubate for 2
+ minutes at RT.</p>
+<p>☐ Pellet the beads on a magnet until the eluate is clear and
+ colourless.</p>
+<p>☐Remove and retain 10 µl of eluate for each sample into clean 1.5 ml
+ Eppendorf DNA LoBind tubes, individually.</p>
+<p><strong>NOTE:</strong> the sample can be store at -80°C after the RT or dsDNA step</p>
+<ol>
+<li><strong>&lt;uLibrary preparation Rapid PCR Barcoding Kit (SQK-RPB004) Oxford
+    Nanopore:&lt;/u</strong></li>
+</ol>
+<p>☐ Add 3 ul of the previous product (dsDNA) to a new PCR tube.</p>
+<p>☐ Add 1 ul of FRM (from ONT) into the previous Eppendorf, mix by
+ flicking the tube and briefly spin down.</p>
+<p>☐ Place the tube in the thermocycler and incubate at 30⁰ for 1 minute
+ and then 80⁰C for 1 minute.</p>
+<p>☐ Prepare the master mix for the PCR, adding 20ul of water and 25ul of
+ LongAmp Taq 2X Master Mix per sample and 1ul of the barcode primers to
+ 4 ul of the product obtained after the FRM step.</p>
+<p>☐ Mix by flicking the tube and briefly spin down.</p>
+<p>☐ Place in the thermocycler. Incubate @ 95⁰ 3’, (95⁰ 15’’, 56⁰ 15’’,
+ 65⁰ 4’) x30, 65⁰ 4’</p>
+<ol>
+<li><strong>&lt;uPost PCR:&lt;/u</strong></li>
+</ol>
+<p>☐ Perform Qubit™ 1X dsDNA High Sensitivity (HS) on the PCR products as
+ the manufacturer’s instructions.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Sample number</strong></th>
+<th><strong>Barcode</strong></th>
+<th><strong>Qbit concentration (ng/ul)</strong></th>
+<th><strong>Volume (ul) to be added to the pool</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&lt;u☐&lt;/u Pool samples as follows:</p>
+<p>Based on the qubit readings, prioritize samples with a qubit reading
+ below 1 ng/µL. For these samples, normalize the qubit concentration of
+ your PCR products to 100 ng/µL.</p>
+<p>n=sample</p>
+<p>e.g. 100/(n)0.6= 166.67 add the total volume of PCR product.</p>
+<p>&lt;u☐&lt;/u Clean up 1:1: Add the same volume of resuspended AMPure XP
+ Beads (AXP) as the pool volume to the pool sample</p>
+<p>☐ Mix well by flicking the tube, incubate for 5 minutes in the Hula
+ mixer (rotor mixer) at room temperature</p>
+<p>☐ Briefly spin down the samples and pellet the beads on a magnet until
+ the eluate is clear and colourless. Keep the tubes on the magnet and
+ discard the supernatant.</p>
+<p>☐ Keep the tubes on the magnet and wash the beads with 200 µl of
+ freshly prepared 70% ethanol without disturbing the pellet. Remove the
+ ethanol using a pipette and discard.</p>
+<p>☐ Repeat the previous step.</p>
+<p>☐ Briefly spin down and place the tubes back on the magnet. Pipette
+ off any residual ethanol with the 10p pipette. Allow to dry for 30
+ seconds, but do not dry the pellet to the point of cracking.</p>
+<p>☐ Remove the tubes from the magnetic rack and resuspend the pellet in
+ 15 µl Microbial DNA-Free Trish buffer. Spin down and incubate for 2
+ minutes at RT.</p>
+<p>☐ Pellet the beads on a magnet until the eluate is clear and
+ colourless.</p>
+<p>☐Remove and retain 10 µl of eluate into clean 1.5 ml Eppendorf DNA
+ LoBind tubes, individually.</p>
+<p>☐ Add RAP 1ul to 10ul of template, mix gently by flicking the tube,
+ spin down and incubate at RT for 5 minutes.</p>
+<p>☐ Add 25.5ul of LB</p>
+<p>☐ Add 34 of SQB</p>
+<p>☐ Add 4.5ul water</p>
+<p>☐ Mix gently pipetting up and down</p>
+<ol>
+<li><strong>&lt;uFlowcell loading:&lt;/u</strong></li>
+</ol>
+<p>☐ Thaw FLB and FLT at RT if not thawed from before</p>
+<p>☐ Add 30ul of FLT (vortex before by pipetting) to a FLB (vortex before
+ by pipetting).</p>
+<p>☐ Mix by vortex.</p>
+<p>☐ Open the GridION device lid and slide the flow cell under the clip.
+ Press down firmly on the flow cell to ensure correct thermal and
+ electrical contact.</p>
+<p>☐ Slide the flow cell priming port cover clockwise to open the priming
+ port.</p>
+<p>☐ After opening the priming port, check for a small air bubble under
+ the cover. Draw back a small volume to remove any bubbles: 1.</p>
+<p>☐ Set a P1000 pipette to 200 µl 2. Insert the tip into the priming
+ port 3.</p>
+<p>☐ Turn the wheel until the dial shows 220-230 ul, to draw back 20-30
+ ul, or until you can see a small volume of buffer entering the pipette
+ tip Note: Visually check that there is continuous buffer from the
+ priming port across the sensor array.</p>
+<p>☐ Load 800 µl of the priming mix into the flow cell via the priming
+ port, avoiding the introduction of air bubbles. Wait for five minutes.</p>
+<p>☐ Gently lift the SpotON sample port cover to make the SpotON sample
+ port accessible.</p>
+<p>☐ Load 200 µl of the priming mix into the flow cell priming port (not
+ the SpotON sample port), avoiding the introduction of air bubbles.</p>
+<p>☐ Mix the prepared library gently by pipetting up and down just prior
+ to loading.</p>
+<p>☐ Add 75 μl of the prepared library to the flow cell via the SpotON
+ sample port in a dropwise fashion. Ensure each drop flows into the
+ port before adding the next.</p>
+<p>☐ Gently replace the SpotON sample port cover, making sure the bung
+ enters the SpotON port, close the priming port and replace the MinION
+ or GridION device lid.</p>
+<ol>
+<li><strong>&lt;uGridION settings:&lt;/u</strong></li>
+</ol>
+<p>1. Select the position of your flow cell on MinKNOW.</p>
+<p>2. Type your experiment name and sample ID.</p>
+<p>3. Continue to kit selection and select Rapid PCR barcoding kit SQK
+-RPB004.</p>
+<p>4. Continue to run options and change to 24hr.</p>
+<p>5. Continue to analysis and edit options and select barcode both ends
+and mid read barcode filtering.</p>
+<p>6. Continue to output and unselect fast 5 and edit FastQ to 100 reads
+per file.</p>
+<ol>
+<li><strong>&lt;uBioinformatic pipeline and reporting&lt;/u</strong></li>
+</ol>
+<p>Curated bioinformatic pipeline will generate automatic reports at 30
+ minutes (for organism identification) and 2 hours (for AMR
+ determinants). 16-24 hours reports can be generated manually for SNP
+ typing and genomic alignment.</p>
+<p>Bioinformatic pipelines used for this SOP is based on the published
+ pipeline (Charalampous T et al A<strong>m J Resp Crit Care Med</strong>. 2024
+ 209:164-174). Further details available on request.</p>
+<p><strong>Appendix 1.</strong></p>
+<p><strong>qPCR for the TMV</strong></p>
+<p>The RT step is performed using the LunaScript master mix explained
+previously in the section 3.</p>
+<p><strong>-Master mix:</strong></p>
+<table>
+<thead>
+<tr>
+<th>**Reagent ** </th>
+<th style="text-align: center;">**Volumen ** </th>
+<th><strong>X___samples</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast Syber-green</td>
+<td style="text-align: center;">10ul</td>
+<td> </td>
+</tr>
+<tr>
+<td>Primer Forward (10uM)</td>
+<td style="text-align: center;">1ul</td>
+<td> </td>
+</tr>
+<tr>
+<td>Primer Reverse (10uM)</td>
+<td style="text-align: center;">1ul</td>
+<td> </td>
+</tr>
+<tr>
+<td>DNAse-free water  </td>
+<td style="text-align: center;">3ul</td>
+<td> </td>
+</tr>
+<tr>
+<td>Template (cDNA)</td>
+<td style="text-align: center;">5ul</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total</strong> </td>
+<td style="text-align: center;"> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<p>1 cycle at 95°C for 20 s, 40 cycles at 95°C for 1 s, 40 cycles at 60°C
+for 20 s, 1 cycle at 95°C for 15 s, 1 cycle at 60°C for 1 min, and 1
+cycle at 95°C for 15 s </p>
+<p>Ellis MD, Hoak JM, Ellis BW, Brown JA, Sit TL, Wilkinson CA, Reed TD,
+Welbaum GE. Quantitative Real-Time PCR Analysis of Individual Flue-Cured
+Tobacco Seeds and Seedlings Reveals Seed Transmission of Tobacco Mosaic
+Virus. Phytopathology. 2020 Jan;110(1):194-205. doi:
+10.1094/PHYTO-06-19-0201-FI. Epub 2019 Nov 18. PMID: 31502520.</p>
+<p><strong>Appendix 2. Sample processing sheet.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Run name</strong></th>
+<th style="text-align: center;"><strong>Date</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Sample number</strong></th>
+<th><strong>Sample lab number</strong></th>
+<th><strong>Sample type</strong></th>
+<th><strong>McFarland</strong></th>
+<th><strong>Centrifugation (Y/N)</strong></th>
+<th><strong>Volume of TMV spiked</strong></th>
+<th><strong>Barcode</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 30%"/>
+<col style="width: 18%"/>
+<col style="width: 11%"/>
+<col style="width: 20%"/>
+<col style="width: 18%"/>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Reagent</strong></th>
+<th style="text-align: center;"><strong>Company</strong></th>
+<th style="text-align: center;"><strong>Lot</strong></th>
+<th style="text-align: center;"><strong>Expiry date/received
+date</strong></th>
+<th style="text-align: center;"><strong>Extraction day</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lysis Matrix D 2mL Tube</td>
+<td>MP Biomedicals</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HL-SAN enzyme</td>
+<td>ArcticZymes Technolo</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LunaScript® RT SuperMix Kit (E3010)</td>
+<td>New England Biolabs</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sequenase Version 2.0 DNA Polymerase</td>
+<td>ThermoFisher Scientific</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LongAmp® Taq 2X Master Mix</td>
+<td>New England Biolabs</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Rapid barcoding Kit SQK-RPB004</td>
+<td>Oxford Nanopore Thechnology</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AMPure XP Beads</td>
+<td>BeckmanCoulter</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Qubit™ 1X dsDNA High Sensitivity (HS) (Q33230)</td>
+<td>ThermoFisher Scientific</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NATtrol™ Respiratory Panel 2.1 (RP2.1) Controls</td>
+<td>Zeptometrix</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Viasure respiratory panel III (PCR for PC)</td>
+<td>Pro-labs</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tobacco mosaic virus (PC-0107)</td>
+<td>DSMZ</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><p>TMV primers:</p>
+<p>TMV_fwd_aps</p>
+<p>-Catalog number: 10336022</p>
+<p>GGATATGTCTAAGTCTGTTGC</p>
+<p>10629186 Nucleotides (25 nmole)</p>
+<p>11732013 Desalted574910 W7149 (E12)</p>
+<p>TMV_fwd_aps</p>
+<p>574910 W7149 (F01)</p>
+<p>3 TMV_rvr_aps</p>
+<p>TMV_rvr_aps</p>
+<p>-Catalog number: 10336022</p>
+<p>CAGACAACTCGGGTGCG</p>
+<p>10629186 Nucleotides (25 nmole)</p>
+<p>11732013 Desalted</p></td>
+<td>Invitrogen</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fast SYBR™ Green Master Mix</td>
+<td>Applied Biosystem</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Microbial DNA-Free Water (ID: 338132) Qiagen</td>
+<td>ThermoFisher Scientific</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RESPIRATORY SWAB MATRIX NEGATIVE CONTROL</td>
+<td>Vircell</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Ethanol</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Elution buffer</td>
+<td>ONT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Equipment</strong></th>
+<th><strong>Company</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TissueLyser LT</td>
+<td>Qiagen</td>
+</tr>
+<tr>
+<td>Thermocycler for the lib prep</td>
+<td></td>
+</tr>
+<tr>
+<td>Real-time PCR for TMV and PC</td>
+<td>Quantstudio 7</td>
+</tr>
+<tr>
+<td>Eppendorf ThermoMixer</td>
+<td>Eppendorf</td>
+</tr>
+<tr>
+<td>Qubit 4 Fluorometer</td>
+<td>ThermoFisher Scientific</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><footer>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
+</span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>
