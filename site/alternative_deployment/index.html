@@ -42,7 +42,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lab Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lab_protocols/">Lab protocols</a>
+<li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
@@ -60,10 +60,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#install-instructions">Install instructions</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#install-validation">Install validation</a>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a>
 </li>
 </ul>
 </li>
@@ -95,11 +91,112 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<!-- HTML imports for lightbox image display -->
-<p><head>
-<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style></style> <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
-    html.glightbox-open { overflow: initial; height: 100%; }
-    .gslide-title { margin-top: 0px; user-select: text; }
-    .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head></p></div></div></div></div></section></div><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body></html>
+<div><h1 id="setting-up-cidr-metagenomics-bioinformatics-workflow-alternative-deployment">Setting up CIDR Metagenomics bioinformatics workflow - alternative deployment</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>The tools and documentation described here and on the CIDR GitHub are not validated for diagnostic use and are for research and evaluation purposes only.</strong></p>
+</div>
+<h2 id="overview">Overview</h2>
+<p>For collaborators outside of the Network, an alternative configuration can be provided. This will bypass the GUI allowing users to provide a <code>sample_sheet.csv</code> through a CLI. Organism query will not be available to headless users as this tools is heavily reliant on GUI I/O.</p>
+<h2 id="install-instructions">Install instructions</h2>
+<ol>
+<li>Decompress CIDR_metagenomics_vX.X.tar.gz: </li>
+</ol>
+<pre><code>tar -xvzf CIDR_metagenomics_vX.X.tar.gz
+</code></pre>
+<ol start="2">
+<li>Install conda/<a href="https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html">mamba</a>.</li>
+<li>Build the appropriate environment for running the CIDR metagenomics containers. </li>
+</ol>
+<pre><code>wget https://raw.githubusercontent.com/GSTT-CIDR/metagenomics_container/main/conda/apptainer.yml
+conda env create -f apptainer.yml
+
+</code></pre>
+<ol start="4">
+<li>Allocate a directory for MinKNOW data outputs. This will be mounted to the <code>/data</code> directory in the container in a later step.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The directory structure of data for ingest must be maintained as in standard MinKNOW outputs eg.</p>
+<p>```</p>
+<h1 id="example-for-control-sample">Example for control sample</h1>
+<p>[minknow_outputs_directory]/GSTT_control_sample_01/GSTT_control_sample_01/20240424_1408_X4_FAY88387_d3868a4f/fastq_pass/barcode11</p>
+<h1 id="naming-schema">Naming schema</h1>
+<p>[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX</p>
+<p>```</p>
+</div>
+<h2 id="install-validation">Install validation</h2>
+<ol start="5">
+<li>Navigate to the root of the <code>CIDR_metagenomics_vX.X</code> directory.</li>
+<li>Move <code>CIDR_metagenomics_vX.X/GSTT_control_sample_XX</code> to the allocated directory for MinKNOW data outputs (from Install instructions: Step 4).</li>
+<li>activate the apptainer conda environment:
+<code>conda activate apptainer</code></li>
+<li>Initiate the run for analysing the control dataset:</li>
+</ol>
+<pre><code>apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c 'cd /workflow ; source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg &amp;&amp; for t in 0.5; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/CIDR_control_1.csv --latency-wait 15; done'
+
+</code></pre>
+<ol start="8">
+<li>When the workflow has completed, inspect the <code>CIDR_metagenomics_vX.X/reports/CIDR_control_1</code> PDF report, it should match the CIDR validation report provided <a href="./CIDR_control_1_0.5_hours_report.pdf">here</a>.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Variables to change in step 3<br/>
+<strong>--bind ./:/mnt</strong> - Binding the workflow root directory to the container /mnt.<br/>
+<strong>--bind ./data:/data</strong> - binding the allocated directory for MinKNOW data outputs to /data.<br/>
+<strong>./containers/cidr_metagenomics_v3.6.sif</strong> -  launching the metagenomics container.<br/>
+<strong>for t in 0.5 1 2 16 24</strong> - time-points for analysis.<br/>
+<strong>--cores 20</strong> - number of samples to be processed simultaneously - not the same as threads.<br/>
+<strong>samples=/mnt/sample_sheets/CIDR_control_1.csv</strong> - the mounted path for the sample sheet - remember this is the relative mounted path, so <code>/mnt/sample_sheets</code> corresponds to <code>CIDR_metagenomics_vX.X/sample_sheets</code> on the host machine.<br/></p>
+</div>
+<h2 id="implementation">Implementation</h2>
+<ol start="9">
+<li>Build a <strong>sample sheet</strong> copying the structure of the example in <code>CIDR_metagenomics_vX.X/sample_sheets</code>. Importantly, 'Experiment', 'SampleID' and 'Barcode' must be correct and correspond to the <code>[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX</code> scheme.</li>
+<li>activate the apptainer conda environment:
+<code>conda activate apptainer</code></li>
+<li>Run the container, changing the flags explained in the validation step:</li>
+</ol>
+<pre><code>apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c 'cd /workflow ; source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg &amp;&amp; for t in 0.5 1 2 16 24; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/[**sample_sheet**] --latency-wait 15; done'
+
+</code></pre>
+<ol start="11">
+<li>PDF outputs should be found in <code>CIDR_metagenomics_vX.X/reports/</code> corresponding to each LabID in the <strong>sample sheet</strong> loaded.</li>
+</ol></div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../running_organism_query/" title="Query a classification"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../clinical_interpretation/" title="Clinical interpretation">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../running_organism_query/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../clinical_interpretation/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body>
+</html>

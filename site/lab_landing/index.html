@@ -42,7 +42,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Lab Resources</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../lab_protocols/">Lab protocols</a>
+<li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
@@ -84,7 +84,7 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="analysing-data">Analysing data</h1>
+<div><h1 id="analysing-data">Analysing data</h1>
 <h2 id="overview">Overview</h2>
 <p>Once data and metadata have been ingested into the Onyx database, you
 can query it using the Onyx client, which provides a command line interface (CLI)
@@ -101,25 +101,25 @@ with <code>pip</code>.  As advised in the <a href="https://docs.climb.ac.uk/note
 software</a>,
 you should install the client in a new Conda environment.
 I'll name my environment <code>onyx</code> and install <code>ipykernel</code> too
-so that it's available in my Jupyter Notebooks.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>jovyan:~$ conda create -n onyx ipykernel
-</span></code></pre></div>
-Let's activate this environment and install the Onyx client.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>jovyan:~$ conda activate onyx
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>(onyx) jovyan:~$ pip install climb-onyx-client
-</span></code></pre></div>
-On Bryn's Notebook Servers, the client will automatically be configured.
-Try running the command-line client with
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>(onyx) jovyan:~$ onyx
-</span></code></pre></div>
-This should show you some options and commands that are available.
-Have a look at your own profile with
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>(onyx) jovyan:~$ onyx profile
-</span></code></pre></div>
-and which projects you have access to with
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>(onyx) jovyan:~$ onyx projects
-</span></code></pre></div>
-You should see <code>mscapetest</code> listed.</p>
+so that it's available in my Jupyter Notebooks.</p>
+<pre><code>jovyan:~$ conda create -n onyx ipykernel
+</code></pre>
+<p>Let's activate this environment and install the Onyx client.</p>
+<pre><code>jovyan:~$ conda activate onyx
+(onyx) jovyan:~$ pip install climb-onyx-client
+</code></pre>
+<p>On Bryn's Notebook Servers, the client will automatically be configured.
+Try running the command-line client with</p>
+<pre><code>(onyx) jovyan:~$ onyx
+</code></pre>
+<p>This should show you some options and commands that are available.
+Have a look at your own profile with</p>
+<pre><code>(onyx) jovyan:~$ onyx profile
+</code></pre>
+<p>and which projects you have access to with</p>
+<pre><code>(onyx) jovyan:~$ onyx projects
+</code></pre>
+<p>You should see <code>mscapetest</code> listed.</p>
 <h2 id="querying-data">Querying data</h2>
 <p>As an example task, we'll see if we can find any sequencing data performed
 for ZymoBIOMICS sources.  These are designed with 
@@ -127,85 +127,85 @@ for ZymoBIOMICS sources.  These are designed with
 of DNA from eight bacteria and two yeasts.  We can use these to see if our protocol
 correctly recovers the DNA fractions. I.e. if our protocol is biased.</p>
 <p>From the command line, the main route to querying Onyx is via the <code>filter</code> command.
-On its own, this queries the database with <em>no</em> filters.  The command
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>(onyx) jovyan:~$ onyx filter mscapetest
-</span></code></pre></div>
-will produce tens of thousands of lines of JSON, so let's not
+On its own, this queries the database with <em>no</em> filters.  The command</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest
+</code></pre>
+<p>will produce tens of thousands of lines of JSON, so let's not
 do that just yet.  To first see which fields are available in the database,
-we can use
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>(onyx) jovyan:~$ onyx fields mscapetest
-</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>...
-</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
-</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>│ extraction_enrichment_protocol │ optional │ text              │ Details of nucleic acid extraction and optional enrichment steps.            │                                                                             │
-</span><span id="__span-6-5"><a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
-</span><span id="__span-6-6"><a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>...
-</span></code></pre></div>
-Let's search the database for entries with <code>zymo</code> (case-insensitive) in this field.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo
-</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>...
-</span></code></pre></div>
-That should return JSON data for a few entries.  You may wish to format the
+we can use</p>
+<pre><code>(onyx) jovyan:~$ onyx fields mscapetest
+...
+├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
+│ extraction_enrichment_protocol │ optional │ text              │ Details of nucleic acid extraction and optional enrichment steps.            │                                                                             │
+├────────────────────────────────┼──────────┼───────────────────┼──────────────────────────────────────────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────┤
+...
+</code></pre>
+<p>Let's search the database for entries with <code>zymo</code> (case-insensitive) in this field.</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo
+...
+</code></pre>
+<p>That should return JSON data for a few entries.  You may wish to format the
 data as CSV or TSV with <code>--format csv</code> or <code>--format tsv</code>, respectively.</p>
 <h2 id="inspecting-some-pipeline-output-on-the-command-line">Inspecting some pipeline output on the command line</h2>
 <p>When data is ingested into Onyx, a taxonomic classification is automatically run.
 The last part of the JSON data is usually some of this, in JSON format.
 The complete reports can be found in the S3 buckets given in the
 <code>'taxon_report'</code> field.  You can find this in the output you've already produced
-or modify the <code>filter</code> command to only request them using the <code>--include</code> flag. e.g.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include=taxon_reports
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>[
-</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    {
-</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-FDE50853AD/"
-</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>    },
-</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>    {
-</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-04F4495068/"
-</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>    }
-</span><span id="__span-8-9"><a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>]
-</span></code></pre></div>
-If you'd like multiple fields, enter each one with another <code>--include</code> flag,
-or use bash's <a href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">brace expansion</a>, e.g.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include={cid,taxon_reports}
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>[
-</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>    {
-</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>        "cid": "C-FDE50853AD",
-</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-FDE50853AD/"
-</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>    },
-</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>    {
-</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>        "cid": "C-04F4495068",
-</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-04F4495068/"
-</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a>    }
-</span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a>]
-</span></code></pre></div>
-You can conversely exclude individual fields using the <code>--exclude</code>
+or modify the <code>filter</code> command to only request them using the <code>--include</code> flag. e.g.</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include=taxon_reports
+[
+    {
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-FDE50853AD/"
+    },
+    {
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-04F4495068/"
+    }
+]
+</code></pre>
+<p>If you'd like multiple fields, enter each one with another <code>--include</code> flag,
+or use bash's <a href="https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html">brace expansion</a>, e.g.</p>
+<pre><code>(onyx) jovyan:~$ onyx filter mscapetest --field extraction_enrichment_protocol.icontains=zymo --include={cid,taxon_reports}
+[
+    {
+        "cid": "C-FDE50853AD",
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-FDE50853AD/"
+    },
+    {
+        "cid": "C-04F4495068",
+        "taxon_reports": "s3://mscapetest-published-taxon-reports/C-04F4495068/"
+    }
+]
+</code></pre>
+<p>You can conversely exclude individual fields using the <code>--exclude</code>
 flag in the same way.</p>
 <p>Either way, you now have the location of the taxonomy reports.  Let's have a look
-with <code>s3cmd</code>.
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>(onyx) jovyan:~$ s3cmd ls s3://mscapetest-published-taxon-reports/C-FDE50853AD/
-</span><span id="__span-10-2"><a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>2023-11-10 12:56   146K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken.json
-</span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>2023-11-10 12:56     2G  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_assignments.tsv
-</span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>2023-11-10 12:56   193K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
-</span></code></pre></div>
-The plain text report is what we're after, so let's download that with <code>s3cmd</code>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>(onyx) jovyan:~$ s3cmd get s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
-</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>download: 's3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt' -&gt; './PlusPF.kraken_report.txt'  [1 of 1]
-</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a> 197750 of 197750   100% in    0s     3.79 MB/s  done
-</span></code></pre></div></p>
+with <code>s3cmd</code>.</p>
+<pre><code>(onyx) jovyan:~$ s3cmd ls s3://mscapetest-published-taxon-reports/C-FDE50853AD/
+2023-11-10 12:56   146K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken.json
+2023-11-10 12:56     2G  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_assignments.tsv
+2023-11-10 12:56   193K  s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
+</code></pre>
+<p>The plain text report is what we're after, so let's download that with <code>s3cmd</code>:</p>
+<pre><code>(onyx) jovyan:~$ s3cmd get s3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt
+download: 's3://mscapetest-published-taxon-reports/C-FDE50853AD/PlusPF.kraken_report.txt' -&gt; './PlusPF.kraken_report.txt'  [1 of 1]
+ 197750 of 197750   100% in    0s     3.79 MB/s  done
+</code></pre>
 <p>If you've never seen one of these reports before, it's worth having a
 quick look with a tool like <code>less</code> or by opening it using the
-JupyterLab file browser.  For reference, it's worth showing the header
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>(onyx) jovyan:~$ head -n 1 PlusPF.kraken_report.txt
-</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>% of Seqs       Clades  Taxonomies      Rank    Taxonomy ID     Scientific Name
-</span></code></pre></div>
-The Zymo sample is prepared with 12% <em>Bacillus subtilis</em>.  Let's see how much
-was actually reported in the results:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>(onyx) jovyan:~$ grep "Bacillus subtilis" PlusPF.kraken_report.txt
-</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a> 20.30  435278  1452    G1      653685                    Bacillus subtilis group
-</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>  0.12  2624    1952    S       1423                        Bacillus subtilis
-</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>  0.03  565     242     S1      135461                        Bacillus subtilis subsp. subtilis
-</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>  0.01  108     108     S2      1404258                         Bacillus subtilis subsp. subtilis str. OH 131.1
-</span><span id="__span-13-6"><a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>  ...
-</span></code></pre></div>
-Looks like 20.3%, though classified under <em>Bacillus subtilis</em> "subgroup",
+JupyterLab file browser.  For reference, it's worth showing the header</p>
+<pre><code>(onyx) jovyan:~$ head -n 1 PlusPF.kraken_report.txt
+% of Seqs       Clades  Taxonomies      Rank    Taxonomy ID     Scientific Name
+</code></pre>
+<p>The Zymo sample is prepared with 12% <em>Bacillus subtilis</em>.  Let's see how much
+was actually reported in the results:</p>
+<pre><code>(onyx) jovyan:~$ grep "Bacillus subtilis" PlusPF.kraken_report.txt
+ 20.30  435278  1452    G1      653685                    Bacillus subtilis group
+  0.12  2624    1952    S       1423                        Bacillus subtilis
+  0.03  565     242     S1      135461                        Bacillus subtilis subsp. subtilis
+  0.01  108     108     S2      1404258                         Bacillus subtilis subsp. subtilis str. OH 131.1
+  ...
+</code></pre>
+<p>Looks like 20.3%, though classified under <em>Bacillus subtilis</em> "subgroup",
 rather than <em>Bacillus subtilis</em>, which reportedly only comprises 0.12% of the sample.
 Most of that 20.3% is under <em>Bacillus spizizenii</em>.</p>
 <p>An important detail here is that the fraction reported in this output
@@ -219,58 +219,58 @@ Let's make this comparison in Python using the Onyx client's Python
 API.</p>
 <p>Let's first run the same query for the Zymo data.  We'll follow the
 examples in the Onyx documentation and run the query in a context
-manager.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">os</span>
-</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">onyx</span> <span class="kn">import</span> <span class="n">OnyxConfig</span><span class="p">,</span> <span class="n">OnyxEnv</span><span class="p">,</span> <span class="n">OnyxClient</span>
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a>
-</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">OnyxConfig</span><span class="p">(</span>
-</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>    <span class="n">domain</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">OnyxEnv</span><span class="o">.</span><span class="n">DOMAIN</span><span class="p">],</span>
-</span><span id="__span-14-6"><a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>    <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">OnyxEnv</span><span class="o">.</span><span class="n">TOKEN</span><span class="p">],</span>
-</span><span id="__span-14-7"><a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="p">)</span>
-</span><span id="__span-14-8"><a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>
-</span><span id="__span-14-9"><a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="k">with</span> <span class="n">OnyxClient</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
-</span><span id="__span-14-10"><a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a>    <span class="n">records</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span>
-</span><span id="__span-14-11"><a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a>        <span class="s2">"mscapetest"</span><span class="p">,</span>
-</span><span id="__span-14-12"><a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a>        <span class="n">fields</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-14-13"><a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a>            <span class="s2">"extraction_enrichment_protocol__icontains"</span><span class="p">:</span> <span class="s2">"zymo"</span><span class="p">,</span>
-</span><span id="__span-14-14"><a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a>        <span class="p">},</span>
-</span><span id="__span-14-15"><a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a>    <span class="p">))</span>
-</span></code></pre></div>
-We've wrapped the <code>filter</code> call in a <code>list</code> because otherwise
+manager.</p>
+<pre><code class="language-py">import os
+from onyx import OnyxConfig, OnyxEnv, OnyxClient
+
+config = OnyxConfig(
+    domain=os.environ[OnyxEnv.DOMAIN],
+    token=os.environ[OnyxEnv.TOKEN],
+)
+
+with OnyxClient(config) as client:
+    records = list(client.filter(
+        "mscapetest",
+        fields={
+            "extraction_enrichment_protocol__icontains": "zymo",
+        },
+    ))
+</code></pre>
+<p>We've wrapped the <code>filter</code> call in a <code>list</code> because otherwise
 we get a generator.</p>
 <p>If you want to inspect the data, it's a bit easier to read if formatted with
-indentation, which can be done using the standard <code>json.dumps</code> function:
-<div class="language-py highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span> <span class="nn">json</span>
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># show first record</span>
-</span></code></pre></div>
-In each record, the <code>'taxa'</code> key gives us a list of dictionaries
+indentation, which can be done using the standard <code>json.dumps</code> function:</p>
+<pre><code class="language-py">import json
+print(json.dumps(records[0], indent=2))  # show first record
+</code></pre>
+<p>In each record, the <code>'taxa'</code> key gives us a list of dictionaries
 that each has a number of reads and a mean length, the product of
 which is the total number of base pairs that were read for that
 taxon.  A simple first step is to convert the taxonomic data (for the first record)
-into a Pandas DataFrame with
-<div class="language-py highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>
-</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'taxa'</span><span class="p">])</span>
-</span></code></pre></div>
-We also need to drop a few lower-level taxa that are already
+into a Pandas DataFrame with</p>
+<pre><code class="language-py">import pandas as pd
+
+df = pd.DataFrame(records[0]['taxa'])
+</code></pre>
+<p>We also need to drop a few lower-level taxa that are already
 accounted for in higher ones. e.g. the reads for <em>Bacillus spizizenii TU-B-10</em> are
 among the reads counted for <em>Bacillus spizizenii</em>.  A quick way of doing this
-is by selecting the rows that have only two words in their names.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'human_readable'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)]</span>
-</span></code></pre></div>
-Now, let's add columns for the total number of base pairs associated with
-each taxon and what proportion that is of the total.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">'gDNA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'n_reads'</span><span class="p">]</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s1">'mean_len'</span><span class="p">]</span>
-</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">df</span><span class="p">[</span><span class="s1">'proportion'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'gDNA'</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s1">'gDNA'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</span></code></pre></div>
-Finally, let's make a rough plot with a black dashed line at 12%.
-<div class="language-py highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
-</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'human_readable'</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'proportion'</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">)</span>
-</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">'--'</span><span class="p">);</span>
-</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mf">22.5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">'right'</span><span class="p">);</span>
-</span></code></pre></div></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="./zymo-comparison.png"><img alt="Measured gDNA proportions of a Zymo community" src="./zymo-comparison.png"/></a></p>
+is by selecting the rows that have only two words in their names.</p>
+<pre><code class="language-py">df = df.loc[df['human_readable'].apply(lambda name: len(name.split()) == 2)]
+</code></pre>
+<p>Now, let's add columns for the total number of base pairs associated with
+each taxon and what proportion that is of the total.</p>
+<pre><code class="language-py">df['gDNA'] = df['n_reads']*df['mean_len']
+df['proportion'] = df['gDNA']/df['gDNA'].sum()
+</code></pre>
+<p>Finally, let's make a rough plot with a black dashed line at 12%.</p>
+<pre><code class="language-py">import matplotlib.pyplot as plt
+
+plt.plot(df['human_readable'], df['proportion']*100, 'o')
+plt.axhline(12, c='k', ls='--');
+plt.xticks(rotation=22.5, ha='right');
+</code></pre>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="./zymo-comparison.png"><img alt="Measured gDNA proportions of a Zymo community" src="./zymo-comparison.png"/></a></p>
 <p>There are some clear discrepancies—<em>Pseudomonas aeruginosa</em> is
 underreported and <em>Bacillus spizizenii</em> is overreported—but this
 matches results by e.g. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6520541/">Nicholls et
@@ -278,7 +278,7 @@ al. (2019)</a>.</p>
 <p>This short example is intended as a basic demonstration of what's
 possible in CLIMB-TRE.  We're always interested to hear more examples
 of research questions that CLIMB-TRE can answer, so let us know if you
-have an example that could be included as a guide for others.</p>
+have an example that could be included as a guide for others.</p></div>
 </div>
 </div><footer>
 <hr/>
