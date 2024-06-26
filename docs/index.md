@@ -27,10 +27,15 @@
                 animate: false
             },
             markers: [
-                {latLng: [51.5074, -0.1278], name: 'London - GSTT CIRD - Prof. Jonathan Edgeworth and Dr. Rahul Batra'},
-                {latLng: [52.4862, -1.8904], name: 'Birmingham - Hospital name - PI Names'},
-                {latLng: [54.9783, -1.6178], name: 'Newcastle - Hospital name - PI Names'},
-                {latLng: [51.5054, 0.0835], name: 'London GOSH - Hospital name - PI Names'},
+                {latLng: [51.4995, -0.1248], name: 'St. Thomas\' Hospital'},
+                {latLng: [52.4862, -1.8904], name: 'University Hospitals Birmingham'},
+                {latLng: [54.9783, -1.6178], name: 'Royal Victoria Infirmary - Newcastle'},
+                {latLng: [51.752022, -1.257677], name: 'Oxford University Hospitals (OUH)'},
+                {latLng: [50.9097, -1.4044], name: 'University Hospital Southampton'},
+                {latLng: [51.5413, -0.1433], name: 'Great Ormond Street Hospital'},
+                {latLng: [52.2053, 0.1218], name: 'Cambridge University Hospitals NHS Foundation Trust'},
+                {latLng: [53.4839, -2.2446], name: 'Manchester University NHS Foundation Trust'},
+                {latLng: [51.5558, -0.1398], name: 'University Collage London Hospital'},
             ],
             onRegionTipShow: function (e, label, code) {
                 e.preventDefault();

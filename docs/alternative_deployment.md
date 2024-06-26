@@ -22,14 +22,10 @@ conda env create -f apptainer.yml
 4. Allocate a directory for MinKNOW data outputs. This will be mounted to the ```/data``` directory in the container in a later step.
 !!! Note
     The directory structure of data for ingest must be maintained as in standard MinKNOW outputs eg.
-
-    ```
-    # Example for control sample
-    [minknow_outputs_directory]/GSTT_control_sample_01/GSTT_control_sample_01/20240424_1408_X4_FAY88387_d3868a4f/fastq_pass/barcode11
-    # Naming schema
-    [minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX
-    
-    ```
+    **Example for control sample**
+    ```[minknow_outputs_directory]/GSTT_control_sample_01/GSTT_control_sample_01/20240424_1408_X4_FAY88387_d3868a4f/fastq_pass/barcode11```
+    **Naming schema**
+    ```[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX```
 
 
 ## Install validation

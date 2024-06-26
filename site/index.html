@@ -41,6 +41,14 @@
 <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction</a>
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#network-sites">Network Sites</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#lab-protocols">Lab protocols</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#informatics-workflow">Informatics workflow</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#reporting-framework">Reporting framework</a>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -91,16 +99,15 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<div><h1 id="metagenomics-network-hub">Metagenomics network hub</h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>The tools and documentation described here and on the CIDR GitHub are not validated for diagnostic use and are for research and evaluation purposes only.</strong></p>
-</div>
+<html><head><script src="assets/js/jquery-1.8.2.js"></script>
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="assets/javascripts/glightbox.min.js"></script></head><body><h1 id="metagenomics-network-hub">Metagenomics network hub</h1>
 <p><strong>The Network Hub is a resource for users of the CIDR clinical metagenomics workflow. Here, you can find SOPs, technical and FAQ/troubleshooting information regarding the implementation of metagenomics in a clinical evaluation/research setting.</strong></p>
 <h2 id="network-sites">Network Sites</h2>
-<h1 id="network-sites_1">Network Sites</h1>
 <div class="card-body">
-<h4>Network Sites</h4>
 <div id="ukMap" style="width: 100%; height: 500px; overflow: hidden;"></div>
 </div>
 <script>
@@ -119,12 +126,15 @@
                 animate: false
             },
             markers: [
-                {latLng: [51.5074, -0.1278], name: 'London - GSTT CIRD - Prof. Jonathan Edgeworth and Dr. Rahul Batra'},
-                {latLng: [52.4862, -1.8904], name: 'Birmingham - Hospital name - PI Names'},
-                {latLng: [54.9783, -1.6178], name: 'Newcastle - Hospital name - PI Names'},
-                {latLng: [53.3811, -1.4701], name: 'Sheffield - Hospital name - PI Names'},
-                {latLng: [51.5054, 0.0835], name: 'London GOSH - Hospital name - PI Names'},
-                {latLng: [50.8198, 1.0880], name: 'Portsmouth- Hospital name - PI Names'}
+                {latLng: [51.4995, -0.1248], name: 'St. Thomas\' Hospital'},
+                {latLng: [52.4862, -1.8904], name: 'University Hospitals Birmingham'},
+                {latLng: [54.9783, -1.6178], name: 'Royal Victoria Infirmary - Newcastle'},
+                {latLng: [51.752022, -1.257677], name: 'Oxford University Hospitals (OUH)'},
+                {latLng: [50.9097, -1.4044], name: 'University Hospital Southampton'},
+                {latLng: [51.5413, -0.1433], name: 'Great Ormond Street Hospital'},
+                {latLng: [52.2053, 0.1218], name: 'Cambridge University Hospitals NHS Foundation Trust'},
+                {latLng: [53.4839, -2.2446], name: 'Manchester University NHS Foundation Trust'},
+                {latLng: [51.5558, -0.1398], name: 'University Collage London Hospital'},
             ],
             onRegionTipShow: function (e, label, code) {
                 e.preventDefault();
@@ -157,7 +167,8 @@
 <h3 id="informatics-workflow">Informatics workflow</h3>
 <p>The workflow covers the end-to-end processing of respiratory samples sequencing data, delivering a metageonomic report describing the microbial communities within them. The workflow leverages ONT Nanopore sequencing at its core to produce real-time sequencing data on the GridION platform. The informatics workflow runs locally alongside the sequencing experiment, producing reports as early as 30 minutes after commencing sequencing. </p>
 <h3 id="reporting-framework">Reporting framework</h3>
-<p>This SOP is followed to parse results from the informatics workflow for application in a clinical evaluation service setting.</p></div>
+<p>This SOP is followed to parse results from the informatics workflow for application in a clinical evaluation service setting.</p><script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</script></body></html>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
@@ -227,10 +238,9 @@
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+</body>
 </html>
 <!--
 MkDocs version : 1.6.0
-Build Date UTC : 2024-06-26 17:55:45.675051+00:00
+Build Date UTC : 2024-06-26 23:14:36.952179+00:00
 -->
