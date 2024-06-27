@@ -35,7 +35,7 @@ The Organism Query tool is designed to help scrutinise taxanomic classification 
 |**Workflow hour/interval**|The timepoint, corresponding to the dataset you'd like query.|
 |**Species name**|The name of the species to be queried eg. Aspergillus fumigatus|
 
-![type:video](./videos/organism_query.m4v)
+![type:video](./videos/organism_query.mkv)
 
 4. Click on the ```Launch script``` button to start the query workflow. A Firefox browser window will appear after the workflow has finished. You can reopen the report from ```reports/{sample_id}/organism_query_XXX`` on the metagenomics SSD. 
 
