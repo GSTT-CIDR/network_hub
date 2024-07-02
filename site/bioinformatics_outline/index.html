@@ -48,7 +48,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="#">Outline</a>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Outline</a>
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
 <ul>
@@ -110,14 +110,28 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<div><h1 id="bioinformatics-for-clinical-metagenomics">Bioinformatics for clinical metagenomics</h1>
+<div><p></p>
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<script src="assets/javascripts/glightbox.min.js"></script>
+<p></head></p>
+<h1 id="clinical-metagenomics-bioinformatics">Clinical metagenomics bioinformatics</h1>
 <h2 id="overview">Overview</h2>
-<p>The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - <a href="../bioinformatics_install/">CIDR Metagenomics Workflow</a> and <a href="../running_organism_query/">Organism Query</a> alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. <a href="../running_organism_query/">Organism Query</a> can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~20 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification. </p>
+<p>The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - CIDR Metagenomics Workflow and <a href="../running_organism_query/">Organism Query</a> alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. <a href="../running_organism_query/">Organism Query</a> can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification.</p>
+<p>The key stages of performing the bioinformatics workflow are as follow:</p>
+<ol>
+<li>Install workflow (only on first use).</li>
+<li>Start MinKNOW sequencing experiment.</li>
+<li>Start the Metagenomics workflow.
+(Optional)</li>
+<li>Query a classification.</li>
+<li>Upload data to mSCAPE.</li>
+<li>Generate a summary spreadsheet.</li>
+</ol>
 <h3 id="mscape">mSCAPE</h3>
-<p>Users can opt in to <a href="../mSCAPE_integration/">mSCAPE</a> on an per-experiment basis for an automatic upload of sequencing data to mSCAPE. The mSCAPE tool collates and encrypts data directly from the metagenomics workflow outputs ready for transmission.</p>
+<p>Users can opt in to <a href="../mSCAPE_integration/">mSCAPE</a> on an per-experiment basis for an automatic upload of sequencing data to UKHSA mSCAPE. </p>
 <h3 id="technical-facets">Technical facets</h3>
-<p>After loading a metagenomic library on to an ONT sequencing device and launching the sequencing experiment in ONT MinKNOW the pipeline is initialised by the user through the Metagenomics Launcher graphical user interface (GUI). The software periodically ingests base called FASTQ data from the GridION <code>/data/</code> directory at set intervals - 0.5, 1, 2, 16 and 24 hours. At each interval, the pipeline performs human scrubbing, taxanomic classification, AMR identification, which is then consolidated in to a PDF reports which are saved in the <code>/media/grid/metagenomics/results/</code> directory. The diagram below illustrates the technical structure of the workflow:  </p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Diagram of the metagenomics software package" data-type="image" data-width="auto" href="../img/pipeline%20digram.drawio.svg"><img alt="image" data-description="" data-title="Diagram of the metagenomics software package" src="../img/pipeline%20digram.drawio.svg"/></a></p>
+<p>After loading a metagenomic library on to an ONT sequencing device and launching the sequencing experiment in ONT MinKNOW the pipeline is initialised by the user through the Metagenomics Launcher graphical user interface (GUI). The software periodically ingests base called FASTQ data from the GridION <code>/data/</code> directory at set intervals - 0.5, 1, 2, 16 and 24 hours. At each interval, the pipeline performs human scrubbing, taxanomic classification, AMR detection and MLST which is then consolidated in to a PDF reports which are saved in the <code>/media/grid/metagenomics/results/</code> directory. The diagram below illustrates further details of how the pipeline works:  </p>
+<p><a class="glightbox" href="../img/pipeline%20digram.drawio.svg" data-type="image" data-width="auto" data-height="auto" data-title="Diagram of the metagenomics software package" data-desc-position="bottom"><img alt="image" data-description="" data-title="Diagram of the metagenomics software package" src="../img/pipeline%20digram.drawio.svg" /></a></p>
 <h4 id="taxanomic-classification">Taxanomic classification</h4>
 <p>At its core, the pipeline leverages a taxanomic classification tool called <a href="https://ccb.jhu.edu/software/centrifuge/manual.shtml">Centrifuge</a>. There a numerous alternatives, the most common being Kraken. We chose centrifuge namely because of its smaller memory footprint and existing deployment in ONT's WIMP. Each read in the raw data is aligned against an index, and is assigned a confidence score and a taxonomy. Our index is an optimised database of curated eukrayotic, prokaryotic, and viral reference sequences formed primarily from <a href="https://en.wikipedia.org/wiki/RefSeq">NCBI RefSeq</a> and <a href="https://www.fda.gov/medical-devices/science-and-research-medical-devices/database-reference-grade-microbial-sequences-fda-argos">FDA-ARGOS</a> databases. This is provided on the SSD sent to each site.</p>
 <p>The index was built from the following <a href="https://raw.githubusercontent.com/GSTT-CIDR/metagenomics_workflow/main/ref/centrifuge_db_v4.map">sequences</a> - this map file contains the accession number for each sequence in the database and the accompanying taxa ID. This file is required to assemble the Centrifuge index alongside the sequences in FASTA format. Before building the index, the sequences were masked using <a href="https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmask-guide/">BBmask</a>. This tool is applied primarily to prevent false-positive matches in highly-conserved or low-complexity regions of genomes. </p>
@@ -128,7 +142,7 @@
 <h4 id="building-a-centrifuge-index-">Building a centrifuge index -</h4>
 <pre><code># --bmax needs tuning based on available memory.
 centrifuge-build -p 10 --conversion-table accession2taxid.map --taxonomy-tree ./taxdump/nodes.dmp --name-table ./taxdump/names.dmp  masked.fasta centrifuge_index_v2 --bmax 1042177280
-</code></pre></div>
+</code></pre></style></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
@@ -200,6 +214,5 @@ centrifuge-build -p 10 --conversion-table accession2taxid.map --taxonomy-tree ./
             SphinxRtdTheme.Navigation.enable(true);
         });
     </script>
-<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
-</script></body>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
