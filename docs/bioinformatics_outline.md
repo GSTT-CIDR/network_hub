@@ -1,13 +1,28 @@
-# Bioinformatics for clinical metagenomics
+<!-- HTML imports for lightbox image display -->
+<head>
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<script src="assets/javascripts/glightbox.min.js"></script>
+</head>
+# Clinical metagenomics bioinformatics
 
 ## Overview
-The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - [CIDR Metagenomics Workflow](./bioinformatics_install.md) and [Organism Query](running_organism_query.md) alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. [Organism Query](running_organism_query.md) can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~20 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification. 
+The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - CIDR Metagenomics Workflow and [Organism Query](running_organism_query.md) alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. [Organism Query](running_organism_query.md) can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification.
+
+The key stages of performing the bioinformatics workflow are as follow:
+
+1. Install workflow (only on first use).
+2. Start MinKNOW sequencing experiment.
+3. Start the Metagenomics workflow.
+(Optional)
+4. Query a classification.
+5. Upload data to mSCAPE.
+6. Generate a summary spreadsheet.
 
 ### mSCAPE
-Users can opt in to [mSCAPE](mSCAPE_integration.md) on an per-experiment basis for an automatic upload of sequencing data to mSCAPE. The mSCAPE tool collates and encrypts data directly from the metagenomics workflow outputs ready for transmission.
+Users can opt in to [mSCAPE](mSCAPE_integration.md) on an per-experiment basis for an automatic upload of sequencing data to UKHSA mSCAPE. 
 
 ### Technical facets
-After loading a metagenomic library on to an ONT sequencing device and launching the sequencing experiment in ONT MinKNOW the pipeline is initialised by the user through the Metagenomics Launcher graphical user interface (GUI). The software periodically ingests base called FASTQ data from the GridION ```/data/``` directory at set intervals - 0.5, 1, 2, 16 and 24 hours. At each interval, the pipeline performs human scrubbing, taxanomic classification, AMR identification, which is then consolidated in to a PDF reports which are saved in the ```/media/grid/metagenomics/results/``` directory. The diagram below illustrates the technical structure of the workflow:  
+After loading a metagenomic library on to an ONT sequencing device and launching the sequencing experiment in ONT MinKNOW the pipeline is initialised by the user through the Metagenomics Launcher graphical user interface (GUI). The software periodically ingests base called FASTQ data from the GridION ```/data/``` directory at set intervals - 0.5, 1, 2, 16 and 24 hours. At each interval, the pipeline performs human scrubbing, taxanomic classification, AMR detection and MLST which is then consolidated in to a PDF reports which are saved in the ```/media/grid/metagenomics/results/``` directory. The diagram below illustrates further details of how the pipeline works:  
 
 ![image](./img/pipeline%20digram.drawio.svg){data-title="Diagram of the metagenomics software package" data-description=""}
 #### Taxanomic classification
