@@ -6,7 +6,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/mSCAPE_integration/" rel="canonical"/>
 <link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>mSCAPE upload tool - CIDR Metagenomics Hub</title>
+<title>Uploading to mSCAPE - CIDR Metagenomics Hub</title>
 <link href="../css/theme.css" rel="stylesheet"/>
 <link href="../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
@@ -14,7 +14,7 @@
 <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "mSCAPE upload tool";
+        var mkdocs_page_name = "Uploading to mSCAPE";
         var mkdocs_page_input_path = "mSCAPE_integration.md";
         var mkdocs_page_url = "/mSCAPE_integration/";
       </script>
@@ -37,8 +37,9 @@
         </a>
 </div>
 <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+<li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Lab Resources</span></p>
@@ -47,14 +48,28 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Outline</a>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation</a>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Starting the metagenomics workflow</a>
+<li class="toctree-l1"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Uploading to mSCAPE</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uploading-samples">Uploading samples</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
 </li>
@@ -78,7 +93,8 @@
 <div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
-<li class="breadcrumb-item active">mSCAPE upload tool</li>
+<li class="breadcrumb-item">Bioinformatics</li>
+<li class="breadcrumb-item active">Uploading to mSCAPE</li>
 <li class="wy-breadcrumbs-aside">
 <a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/mSCAPE_integration.md"> Edit on GitHub</a>
 </li>
@@ -88,9 +104,17 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <div><h1 id="mscape-upload-tool">mSCAPE upload tool</h1>
-<p>Under construction</p></div>
+<h2 id="introduction">Introduction</h2>
+<p>Following on-boarding to the mSCAPE programme, users can elect to upload samples to mSCAPE using the mSCAPE Launcher. This tool incorporates sample metadata from the Metagenomics Launcher with some additional user inputs, packages human-scrubbed FASTQ data, producing outputs in the required format for an mSCAPE submission.</p>
+<h2 id="installation">Installation</h2>
+<p>The mSCAPE on-boarding team will provide all of the credentials required to make a test submission. These credentials should be stored in <code>metagenomics/configs/mscape_config.yaml</code>.</p>
+<h2 id="uploading-samples">Uploading samples</h2></div>
 </div>
 </div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../running_organism_query/" title="Query a classification"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../additional_tools/" title="Additional tools">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
 <hr/>
 <div role="contentinfo">
 <!-- Copyright etc -->
@@ -107,6 +131,8 @@
 <span>
 <a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
 </span>
+<span><a href="../running_organism_query/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../additional_tools/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../js/jquery-3.6.0.min.js"></script>

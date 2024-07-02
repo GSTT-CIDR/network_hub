@@ -6,12 +6,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://CIDR-network-hub.github.io/alternative_deployment/</loc>
+         <loc>https://CIDR-network-hub.github.io/additional_tools/</loc>
          <lastmod>2024-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://CIDR-network-hub.github.io/analysis_landing/</loc>
+         <loc>https://CIDR-network-hub.github.io/alternative_deployment/</loc>
          <lastmod>2024-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -52,6 +52,11 @@
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/running_metagenomics_workflow/</loc>
+         <lastmod>2024-07-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://CIDR-network-hub.github.io/running_minknow/</loc>
          <lastmod>2024-07-02</lastmod>
          <changefreq>daily</changefreq>
     </url>

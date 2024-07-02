@@ -6,7 +6,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/bioinformatics_outline/" rel="canonical"/>
 <link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>Outline - CIDR Metagenomics Hub</title>
+<title>Overview - CIDR Metagenomics Hub</title>
 <link href="../css/theme.css" rel="stylesheet"/>
 <link href="../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
@@ -14,7 +14,7 @@
 <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Outline";
+        var mkdocs_page_name = "Overview";
         var mkdocs_page_input_path = "bioinformatics_outline.md";
         var mkdocs_page_url = "/bioinformatics_outline/";
       </script>
@@ -37,8 +37,9 @@
         </a>
 </div>
 <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+<li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Lab Resources</span></p>
@@ -48,9 +49,9 @@
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href="./">Outline</a>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#mscape">mSCAPE</a>
 </li>
@@ -72,11 +73,17 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation</a>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Starting the metagenomics workflow</a>
+<li class="toctree-l1"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
 </li>
@@ -101,7 +108,7 @@
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
 <li class="breadcrumb-item">Bioinformatics</li>
-<li class="breadcrumb-item active">Outline</li>
+<li class="breadcrumb-item active">Overview</li>
 <li class="wy-breadcrumbs-aside">
 <a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/bioinformatics_outline.md"> Edit on GitHub</a>
 </li>
@@ -115,16 +122,18 @@
 <p class="admonition-title">Recent updates</p>
 <p><strong>02/07/24</strong> - Use of 'hospital number' have been changed to 'anonymised identifier'. Matagenomics and mSCAPE GUIs have been updated to reflect this. The mSCAPE Launcher's hospital number encryption function has been removed.</p>
 </div>
-<h2 id="overview">Overview</h2>
+<h2 id="introduction">Introduction</h2>
 <p>The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - CIDR Metagenomics Workflow and <a href="../running_organism_query/">Organism Query</a> alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. <a href="../running_organism_query/">Organism Query</a> can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification.</p>
 <p><strong>The key stages of performing the bioinformatics workflow are as follow:</strong></p>
 <ol>
-<li>Install workflow (only on first use).</li>
-<li>Start MinKNOW sequencing experiment.</li>
-<li>Start the Metagenomics workflow.
-<br/><strong>Optional:</strong></li>
-<li>Query a classification.</li>
-<li>Upload data to mSCAPE.</li>
+<li><a href="../bioinformatics_install/">Install workflow</a> (only on first use).</li>
+<li><a href="../running_minknow/">Start MinKNOW sequencing experiment</a>.</li>
+<li><a href="../running_metagenomics_workflow/">Start the Metagenomics workflow</a>.</li>
+</ol>
+<p><strong>Optional:</strong></p>
+<ol start="4">
+<li><a href="../running_organism_query/">Query a classification</a>.</li>
+<li><a href="../mSCAPE_integration/">Upload data to mSCAPE</a>.</li>
 <li>Generate a summary spreadsheet.</li>
 </ol>
 <h3 id="mscape">mSCAPE</h3>
@@ -147,7 +156,7 @@ centrifuge-build -p 10 --conversion-table accession2taxid.map --taxonomy-tree ./
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
 <a class="btn btn-neutral float-left" href="../panmetagenomics_protocol/" title="Lab protocols"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../bioinformatics_install/" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral float-right" href="../bioinformatics_install/" title="Installation and validation">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">
