@@ -29,7 +29,7 @@
 |**KinKNOW sample ID**|The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the ```/data/{experiment_id}/``` directory.|
 |**ONT barcode**|The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.|
 |**Lab/Sample ID**|The unique lab accession number for the sample. This data is encrypted before transmission.|
-|**Hospital number**|Hospital number corresponding to the sample. Can be anonymised. This is encrypted before transmission.|
+|**Anonymised identifier**|An anonymised identifier linked to the sample hospital number.|
 |**Collection date**|Collection data of the sample.|
 |**Sample Class**|The class of sample loaded.|
 |**Sample type**|The methodology used to collect the sample.|
