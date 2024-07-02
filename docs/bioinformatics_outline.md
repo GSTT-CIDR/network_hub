@@ -8,7 +8,7 @@ The principal output of the CIDR Metagenomics workflow is a PDF report listing o
 1. Install workflow (only on first use).
 2. Start MinKNOW sequencing experiment.
 3. Start the Metagenomics workflow.
-(Optional)
+<br>**(Optional)**
 4. Query a classification.
 5. Upload data to mSCAPE.
 6. Generate a summary spreadsheet.
