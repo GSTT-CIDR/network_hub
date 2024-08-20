@@ -13,6 +13,8 @@
 
 !!! danger "Known issues"
     The ```'geocryptfs error not found...'``` error can be ignored as it is not essential to the workflow.
+    <br>
+    If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2
 
 2. Select the number of samples to be analysed from the dropdown.
 
@@ -28,7 +30,7 @@
 |**MinKNOW experiment ID**|The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the ```/data``` directory. |
 |**KinKNOW sample ID**|The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the ```/data/{experiment_id}/``` directory.|
 |**ONT barcode**|The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.|
-|**Lab/Sample ID**|The unique lab accession number for the sample. This data is encrypted before transmission.|
+|**Lab/Sample ID**|The unique lab accession number for the sample. This data is encrypted before transmission. **If repeating a sample, append with _n**|
 |**Anonymised identifier**|An anonymised identifier linked to the sample hospital number.|
 |**Collection date**|Collection data of the sample.|
 |**Sample Class**|The class of sample loaded.|
@@ -55,7 +57,7 @@
     <br><br>
     The NTC will exhibit the same 'error' behavior as no reads are present in the corresponding barcode folder. We are working on functionality to circumvent this.
     <br><br>
-    You can stop the analysis or close the Launcher window at any point by typing ```CTRL+C``` while the terminal window is active and closing the launcher window.
+    You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the ```X``` in the top right corner.
 
 5. Click on ```Launch pipeline``` and click ```OK``` to start analysis.
 <br><br>

@@ -1,16 +1,21 @@
 # Clinical metagenomics bioinformatics
 
-## Overview
+!!! tip "Recent updates"
+    **02/07/24** - Use of 'hospital number' have been changed to 'anonymised identifier'. Matagenomics and mSCAPE GUIs have been updated to reflect this. The mSCAPE Launcher's hospital number encryption function has been removed.
+
+## Introduction
 The principal output of the CIDR Metagenomics workflow is a PDF report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - CIDR Metagenomics Workflow and [Organism Query](running_organism_query.md) alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing easily digested report. [Organism Query](running_organism_query.md) can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxanomic classification.
 
 **The key stages of performing the bioinformatics workflow are as follow:**
 
-1. Install workflow (only on first use).
-2. Start MinKNOW sequencing experiment.
-3. Start the Metagenomics workflow.
-<br>**Optional:**
-4. Query a classification.
-5. Upload data to mSCAPE.
+1. [Install workflow](./bioinformatics_install.md) (only on first use).
+2. [Start MinKNOW sequencing experiment](./running_minknow.md).
+3. [Start the Metagenomics workflow](./running_metagenomics_workflow.md).
+
+**Optional:**
+
+4. [Query a classification](./running_organism_query.md).
+5. [Upload data to mSCAPE](./mSCAPE_integration.md).
 6. Generate a summary spreadsheet.
 
 ### mSCAPE

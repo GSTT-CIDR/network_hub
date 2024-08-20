@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="None" name="description"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/" rel="canonical"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/" rel="canonical"/>
 <link href="img/favicon.ico" rel="shortcut icon"/>
-<title>CIDR Metagenomics Hub</title>
+<title>Clinical metagenomics - CIDR Metagenomics Hub</title>
 <link href="css/theme.css" rel="stylesheet"/>
 <link href="css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
@@ -14,7 +14,7 @@
 <link href="assets/js/jquery-jvectormap.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Introduction";
+        var mkdocs_page_name = "Clinical metagenomics";
         var mkdocs_page_input_path = "index.md";
         var mkdocs_page_url = "/";
       </script>
@@ -37,18 +37,17 @@
         </a>
 </div>
 <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal current" href=".">Introduction</a>
+<li class="toctree-l1 current"><a class="reference internal current" href=".">Clinical metagenomics</a>
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#network-sites">Network Sites</a>
-<ul>
-<li class="toctree-l3"><a class="reference internal" href="#lab-protocols">Lab protocols</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#informatics-workflow">Informatics workflow</a>
+<li class="toctree-l2"><a class="reference internal" href="#lab-protocols">Lab protocols</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reporting-framework">Reporting framework</a>
+<li class="toctree-l2"><a class="reference internal" href="#informatics-workflow">Informatics workflow</a>
 </li>
-</ul>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-framework">Reporting framework</a>
 </li>
 </ul>
 </li>
@@ -60,13 +59,19 @@
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="bioinformatics_outline/">Outline</a>
+<li class="toctree-l1"><a class="reference internal" href="bioinformatics_outline/">Overview</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bioinformatics_install/">Installation</a>
+<li class="toctree-l1"><a class="reference internal" href="bioinformatics_install/">Installation and validation</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="running_metagenomics_workflow/">Starting the metagenomics workflow</a>
+<li class="toctree-l1"><a class="reference internal" href="running_minknow/">Starting a MinKNOW experiment</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running_metagenomics_workflow/">Running the metagenomics workflow</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mSCAPE_integration/">Uploading to mSCAPE</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="additional_tools/">Additional tools</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="alternative_deployment/">Deployment alternatives</a>
 </li>
@@ -90,7 +95,8 @@
 <div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href="."></a></li>
-<li class="breadcrumb-item active">Introduction</li>
+<li class="breadcrumb-item">Introduction</li>
+<li class="breadcrumb-item active">Clinical metagenomics</li>
 <li class="wy-breadcrumbs-aside">
 <a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/index.md"> Edit on GitHub</a>
 </li>
@@ -118,7 +124,7 @@
             zoomOnScroll: false,
             zoomButtons: false,
             regionStyle: {initial: {fill: "lightgrey"}},
-            markerStyle: {initial: {fill: '#005EB8', stroke: '#FFFFFF'}},
+            markerStyle: {initial: {fill: '#005EB8', stroke: '#FFFFFF', size: 0.5}},
             focusOn: {
                 scale: 1, // Adjust this value to set the zoom level
                 x: 0.7, // X coordinate (0 to 1, left to right)
@@ -126,15 +132,15 @@
                 animate: false
             },
             markers: [
-                {latLng: [51.4995, -0.1248], name: 'St. Thomas\' Hospital'},
+                {latLng: [51.4995, -0.1248], name: 'Guy\'s and St Thomas\''},
                 {latLng: [52.4862, -1.8904], name: 'University Hospitals Birmingham'},
-                {latLng: [54.9783, -1.6178], name: 'Royal Victoria Infirmary - Newcastle'},
-                {latLng: [51.752022, -1.257677], name: 'Oxford University Hospitals (OUH)'},
+                {latLng: [54.9783, -1.6178], name: 'Newcastle upon Tyne Hospitals'},
+                {latLng: [51.752022, -1.257677], name: 'Oxford University Hospitals'},
                 {latLng: [50.9097, -1.4044], name: 'University Hospital Southampton'},
                 {latLng: [51.5413, -0.1433], name: 'Great Ormond Street Hospital'},
-                {latLng: [52.2053, 0.1218], name: 'Cambridge University Hospitals NHS Foundation Trust'},
-                {latLng: [53.4839, -2.2446], name: 'Manchester University NHS Foundation Trust'},
-                {latLng: [51.5558, -0.1398], name: 'University Collage London Hospital'},
+                {latLng: [52.2053, 0.1218], name: 'Cambridge University Hospitals'},
+                {latLng: [53.4839, -2.2446], name: 'Manchester University NHS Foundation'},
+                {latLng: [51.5558, -0.1398], name: 'University Collage London Hospitals'},
             ],
             onRegionTipShow: function (e, label, code) {
                 e.preventDefault();
@@ -162,11 +168,11 @@
         });
     });
 </script>
-<h3 id="lab-protocols">Lab protocols</h3>
+<h2 id="lab-protocols">Lab protocols</h2>
 <p>The lab protocol is a same-day DNA/RNA extraction, host-depletion and ONT library preparation workflow for delivery of preliminary sequencing results in &lt; 6 hours.</p>
-<h3 id="informatics-workflow">Informatics workflow</h3>
+<h2 id="informatics-workflow">Informatics workflow</h2>
 <p>The workflow covers the end-to-end processing of respiratory samples sequencing data, delivering a metageonomic report describing the microbial communities within them. The workflow leverages ONT Nanopore sequencing at its core to produce real-time sequencing data on the GridION platform. The informatics workflow runs locally alongside the sequencing experiment, producing reports as early as 30 minutes after commencing sequencing. </p>
-<h3 id="reporting-framework">Reporting framework</h3>
+<h2 id="reporting-framework">Reporting framework</h2>
 <p>This SOP is followed to parse results from the informatics workflow for application in a clinical evaluation service setting.</p><script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body></html>
 </div>
 </div><footer>
@@ -239,7 +245,3 @@
     </script>
 </body>
 </html>
-<!--
-MkDocs version : 1.5.3
-Build Date UTC : 2024-07-02 12:14:27.978183+00:00
--->

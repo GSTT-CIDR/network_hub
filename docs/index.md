@@ -19,7 +19,7 @@
             zoomOnScroll: false,
             zoomButtons: false,
             regionStyle: {initial: {fill: "lightgrey"}},
-            markerStyle: {initial: {fill: '#005EB8', stroke: '#FFFFFF'}},
+            markerStyle: {initial: {fill: '#005EB8', stroke: '#FFFFFF', size: 0.5}},
             focusOn: {
                 scale: 1, // Adjust this value to set the zoom level
                 x: 0.7, // X coordinate (0 to 1, left to right)
@@ -27,15 +27,15 @@
                 animate: false
             },
             markers: [
-                {latLng: [51.4995, -0.1248], name: 'St. Thomas\' Hospital'},
+                {latLng: [51.4995, -0.1248], name: 'Guy\'s and St Thomas\''},
                 {latLng: [52.4862, -1.8904], name: 'University Hospitals Birmingham'},
-                {latLng: [54.9783, -1.6178], name: 'Royal Victoria Infirmary - Newcastle'},
-                {latLng: [51.752022, -1.257677], name: 'Oxford University Hospitals (OUH)'},
+                {latLng: [54.9783, -1.6178], name: 'Newcastle upon Tyne Hospitals'},
+                {latLng: [51.752022, -1.257677], name: 'Oxford University Hospitals'},
                 {latLng: [50.9097, -1.4044], name: 'University Hospital Southampton'},
                 {latLng: [51.5413, -0.1433], name: 'Great Ormond Street Hospital'},
-                {latLng: [52.2053, 0.1218], name: 'Cambridge University Hospitals NHS Foundation Trust'},
-                {latLng: [53.4839, -2.2446], name: 'Manchester University NHS Foundation Trust'},
-                {latLng: [51.5558, -0.1398], name: 'University Collage London Hospital'},
+                {latLng: [52.2053, 0.1218], name: 'Cambridge University Hospitals'},
+                {latLng: [53.4839, -2.2446], name: 'Manchester University NHS Foundation'},
+                {latLng: [51.5558, -0.1398], name: 'University Collage London Hospitals'},
             ],
             onRegionTipShow: function (e, label, code) {
                 e.preventDefault();
@@ -65,11 +65,11 @@
 </script>
 
 
-### Lab protocols
+## Lab protocols
 The lab protocol is a same-day DNA/RNA extraction, host-depletion and ONT library preparation workflow for delivery of preliminary sequencing results in < 6 hours.
 
-### Informatics workflow
+## Informatics workflow
 The workflow covers the end-to-end processing of respiratory samples sequencing data, delivering a metageonomic report describing the microbial communities within them. The workflow leverages ONT Nanopore sequencing at its core to produce real-time sequencing data on the GridION platform. The informatics workflow runs locally alongside the sequencing experiment, producing reports as early as 30 minutes after commencing sequencing. 
 
-### Reporting framework 
+## Reporting framework 
 This SOP is followed to parse results from the informatics workflow for application in a clinical evaluation service setting.

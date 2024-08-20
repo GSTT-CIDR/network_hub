@@ -6,7 +6,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/running_metagenomics_workflow/" rel="canonical"/>
 <link href="../img/favicon.ico" rel="shortcut icon"/>
-<title>Starting the metagenomics workflow - CIDR Metagenomics Hub</title>
+<title>Running the metagenomics workflow - CIDR Metagenomics Hub</title>
 <link href="../css/theme.css" rel="stylesheet"/>
 <link href="../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
@@ -14,7 +14,7 @@
 <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Starting the metagenomics workflow";
+        var mkdocs_page_name = "Running the metagenomics workflow";
         var mkdocs_page_input_path = "running_metagenomics_workflow.md";
         var mkdocs_page_url = "/running_metagenomics_workflow/";
       </script>
@@ -37,8 +37,9 @@
         </a>
 </div>
 <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+<li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Lab Resources</span></p>
@@ -48,11 +49,13 @@
 </ul>
 <p class="caption"><span class="caption-text">Bioinformatics</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Outline</a>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation</a>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
 </li>
-<li class="toctree-l1 current"><a class="reference internal current" href="./">Starting the metagenomics workflow</a>
+<li class="toctree-l1"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Running the metagenomics workflow</a>
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#starting-a-run">Starting a run</a>
 </li>
@@ -61,6 +64,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
 </li>
@@ -85,7 +92,7 @@
 <ul class="wy-breadcrumbs">
 <li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
 <li class="breadcrumb-item">Bioinformatics</li>
-<li class="breadcrumb-item active">Starting the metagenomics workflow</li>
+<li class="breadcrumb-item active">Running the metagenomics workflow</li>
 <li class="wy-breadcrumbs-aside">
 <a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_metagenomics_workflow.md"> Edit on GitHub</a>
 </li>
@@ -113,7 +120,9 @@
 <p><a class="glightbox" data-desc-position="bottom" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-height="auto" data-title="GridION desktop screenshot" data-type="image" data-width="auto" href="../img/metagenomics_pipeline_clean.png"><img alt="The desktop of the GridION operating system after executing the metagenomics_launcher" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.png"/></a></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
-<p>The <code>'geocryptfs error not found...'</code> error can be ignored as it is not essential to the workflow.</p>
+<p>The <code>'geocryptfs error not found...'</code> error can be ignored as it is not essential to the workflow.
+<br/>
+If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2</p>
 </div>
 <ol start="2">
 <li>
@@ -150,7 +159,7 @@
 </tr>
 <tr>
 <td><strong>Lab/Sample ID</strong></td>
-<td>The unique lab accession number for the sample. This data is encrypted before transmission.</td>
+<td>The unique lab accession number for the sample. This data is encrypted before transmission. <strong>If repeating a sample, append with _n</strong></td>
 </tr>
 <tr>
 <td><strong>Anonymised identifier</strong></td>
@@ -219,7 +228,7 @@
 <br/><br/>
 The NTC will exhibit the same 'error' behavior as no reads are present in the corresponding barcode folder. We are working on functionality to circumvent this.
 <br/><br/>
-You can stop the analysis or close the Launcher window at any point by typing <code>CTRL+C</code> while the terminal window is active and closing the launcher window.</p>
+You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the <code>X</code> in the top right corner.</p>
 </div>
 <ol start="5">
 <li>Click on <code>Launch pipeline</code> and click <code>OK</code> to start analysis.
@@ -238,7 +247,7 @@ You can stop the analysis or close the Launcher window at any point by typing <c
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../bioinformatics_install/" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-left" href="../running_minknow/" title="Starting a MinKNOW experiment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 <a class="btn btn-neutral float-right" href="../running_organism_query/" title="Query a classification">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
@@ -257,7 +266,7 @@ You can stop the analysis or close the Launcher window at any point by typing <c
 <span>
 <a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
 </span>
-<span><a href="../bioinformatics_install/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../running_minknow/" style="color: #fcfcfc">« Previous</a></span>
 <span><a href="../running_organism_query/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
