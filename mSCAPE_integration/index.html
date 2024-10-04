@@ -105,10 +105,96 @@
 <div class="section" itemprop="articleBody">
 <div><h1 id="mscape-upload-tool">mSCAPE upload tool</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Following on-boarding to the mSCAPE programme, users can elect to upload samples to mSCAPE using the mSCAPE Launcher. This tool incorporates sample metadata from the Metagenomics Launcher with some additional user inputs, packages human-scrubbed FASTQ data, producing outputs in the required format for an mSCAPE submission.</p>
+<p>With on-boarding to the mSCAPE programme, users are encouraged to upload samples to mSCAPE using the mSCAPE Launcher. This tool incorporates sample metadata inputted when using the Metagenomics Launcher, with some additional user inputs. The tool then packages human-scrubbed FASTQ data, producing metadata outputs in the required format for an mSCAPE submission.</p>
 <h2 id="installation">Installation</h2>
-<p>The mSCAPE on-boarding team will provide all of the credentials required to make a test submission. These credentials should be stored in <code>metagenomics/configs/mscape_config.yaml</code>.</p>
-<h2 id="uploading-samples">Uploading samples</h2></div>
+<p>The mSCAPE on-boarding team will provide all of the credentials required to make a test submission. These credentials should be stored in <code>~/.aws/</code> on the host machine. Contact the bioinformatics lead at GSTT for activation of the mSCAPE Uploader.</p>
+<h2 id="uploading-samples">Uploading samples</h2>
+<p>Following the successful completion of the CIDR Metagenomics Workflow, users can double click the 'mSCAPE Launcher' on the desktop. The tool reads the sample information from the sample sheet saved when a workflow run is started and parses it in to the correct format ready for upload.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the 'filename suffix' field on the Metagenomics Launcher appends the sample sheet filename with a string of your choosing, making it easier to find during audits or mSCAPE uploads.</p>
+</div>
+<ol>
+<li>From the 'Dropdown Options' section, select the parameters appropriate for the samples to be uploaded. Some addition fields for mSCAPE are inferred from the sample sheet, the data in the dropdowns or the sequencing reads themselves. See the table below for more details.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>StudySite</strong></td>
+<td>The RMg Network site the sequencing took place.</td>
+</tr>
+<tr>
+<td><strong>Extraction Method</strong></td>
+<td>the nucleic acid extraction methodology used.</td>
+</tr>
+<tr>
+<td><strong>Spike-in</strong></td>
+<td>The spike-in control used.</td>
+</tr>
+<tr>
+<td><strong>ISOCountry</strong></td>
+<td>Country/nation.</td>
+</tr>
+<tr>
+<td><strong>Sequencing Protocol</strong></td>
+<td>The methodology used for sample preparation.</td>
+</tr>
+<tr>
+<td><strong>Library Protocol</strong></td>
+<td>the sequencing kit used for library preparation.</td>
+</tr>
+<tr>
+<td><strong>Bioinformatics protocol</strong></td>
+<td>The version of the CIDR Metagenomics bioinformatics workflow.</td>
+</tr>
+<tr>
+<td><strong>Clinical or research</strong></td>
+<td>mSCAPE clinical or research.</td>
+</tr>
+<tr>
+<td><strong>Human scrubbing</strong></td>
+<td>mSCAPE informatic Human Scrubbing protocol used.</td>
+</tr>
+<tr>
+<td><strong>Study description</strong></td>
+<td>Code provided by mSCAPE team.</td>
+</tr>
+<tr>
+<td><br/></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>
+<p>Load a sample sheet by clicking the 'Load sample sheet' button at the bottom of the interface. The file browser takes you to the 'sample sheet' directory. Find the date/time corresponding to your run (or the sheet identified by the filename suffix) and open it. With this, the Main Table section should be populated with the samples from the corresponding sequencing run. </p>
+</li>
+<li>
+<p>From the 'FASTQ Selection', select the dataset and the timepoint to be uploaded.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sample which are not intended for upload can be checked in the 'Main Table' and removed by clicking the 'Delete Selected rows' button at the bottom of the interface.</p>
+</div>
+<ol start="4">
+<li>
+<p>Once you have selected all of the timepoints for upload, choose the 'Update DataFrame' button at the bottom of the interface. </p>
+</li>
+<li>
+<p>Review the data in the 'Main Table' panel ensuring it is suitable for upload.</p>
+</li>
+<li>
+<p>Select 'Upload to S3'. You can check the terminal window for outputs confirming successful upload. A status indicator is also present in the FASTQ selection window. </p>
+</li>
+</ol>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../videos/mscape_video.m4v"><div class="video-container"><video alt="type:video" controls="" style="width:50%;height:35%"><source src="../videos/mscape_video.m4v" type="video/mp4"/></video></div></a></p></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
