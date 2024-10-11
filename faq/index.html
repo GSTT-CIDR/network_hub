@@ -77,7 +77,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current" href="./">Frequently asked questions</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="#my-30-minute-reports-are-persistently-missing">My 30 minute reports are persistently missing.</a>
+<li class="toctree-l2"><a class="reference internal" href="#1-my-30-minute-reports-are-persistently-missing">1) My 30 minute reports are persistently missing.</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#presentation">Presentation</a>
 </li>
@@ -85,9 +85,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#some-timepoint-reports-are-missing-from-my-run">Some timepoint reports are missing from my run.</a>
+<li class="toctree-l2"><a class="reference internal" href="#2-some-timepoint-reports-are-missing-from-my-run">2) Some timepoint reports are missing from my run.</a>
 <ul>
 <li class="toctree-l3"><a class="reference internal" href="#presentation_1">Presentation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#actions">Actions</a>
 </li>
 </ul>
 </li>
@@ -117,11 +119,11 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <div><h1 id="faq">FAQ</h1>
-<h2 id="my-30-minute-reports-are-persistently-missing">My 30 minute reports are persistently missing.</h2>
+<h2 id="1-my-30-minute-reports-are-persistently-missing">1) My 30 minute reports are persistently missing.</h2>
 <h3 id="presentation">Presentation</h3>
 <p>During live analysis runs only, the 30-minute reports are not being produced. All other reports are coming out fine. The clock is also running an hour behind (during BST).</p>
 <h3 id="solution">Solution</h3>
-<p>The GridION is not configured out of the factory for the UK timezone - an issue specifically during BST. <strong>Note - if other reporting timepoints are missing, this is not your solution.</strong></p>
+<p>The GridION is not configured out of the factory for the UK timezone - an issue specifically during BST. this means the data ingest script timings fail and the 30 minute timepoint is missed. <strong>Note - if other reporting timepoints are missing, this is not your solution.</strong></p>
 <ol>
 <li>
 <p><strong>Type the following in to a terminal window</strong>
@@ -131,19 +133,36 @@
 <p>Check the time is correct. If not, <a href="https://help.ubuntu.com/stable/ubuntu-help/clock-set.html.en">manually update the time</a> to be correct.</p>
 </li>
 </ol>
-<h2 id="some-timepoint-reports-are-missing-from-my-run">Some timepoint reports are missing from my run.</h2>
+<h2 id="2-some-timepoint-reports-are-missing-from-my-run">2) Some timepoint reports are missing from my run.</h2>
 <h3 id="presentation_1">Presentation</h3>
-<p>Entire samples, or timepoint reports are sporadically missing from the report folder.</p>
-<p>There are a number of causes for this. Follow the flowchart to find the correct solution.</p>
+<p>Entire samples, or timepoint reports are sporadically missing from the report folder. In many cases, reports are not generated because no microbial reads are detected - this causes the pipeline to crash. We are working on improving this error reporting and softer crashes.</p>
+<p>There are a number of causes for reports failing. Follow the flowchart to find the correct solution.</p>
 <div class="mermaid">flowchart TB
-  A[Reports before a specific timepoint are **all** missing] --&gt; B[Answer]
-  B --&gt;|Yes| C[Continue]
-  B --&gt;|No| D[Stop]
+  A["All reports before&lt;br&gt; a specific time&lt;br&gt; point are missing. eg. &lt;br&gt; (0̶.5̶h̶r̶)(1̶h̶r̶)(2̶h̶r̶)(16hr)(24hr)"] --&gt; B[In the first&lt;br&gt; available report, is &lt;br&gt; the read count very low?]
+  B --&gt;|Yes| C[The sequencing yield&lt;br&gt; is low. Previous reports&lt;br&gt; were not generated because&lt;br&gt; no microbial reads were found.]
+  B --&gt;|No| D[See Action 1]
+  E[A single report is&lt;br&gt; missing where previous&lt;br&gt; time points had&lt;br&gt; reports generated.] --&gt; F[Action 1]
+  G[All reports are missing] --&gt; H[Check MinKNOW barcode panel.&lt;br&gt; Are there reads reporting for&lt;br&gt; the barcode in question?]
+  H --&gt;|Yes| I[See Action 2]
+  H --&gt;|No| J[The sequencing run has&lt;br&gt; failed. No reads are&lt;br&gt; present to analyse.]
 </div>
-<p>a.
-b.
-c.
-d.</p></div>
+<h3 id="actions">Actions</h3>
+<ol>
+<li>
+<p>Delete the folders in <code>../metagenomics/results</code> and <code>../metagenomics/reports</code> corresponding to the specific sample with issues. Rerun the the pipeline by loading the saved sample sheet. You can do this by using the 'Load Sample Sheet' function on the metagenomics launcher - find the sample sheet corresponding to the date/time. Alternatively, you can re-enter the run information in to the launcher.</p>
+</li>
+<li>
+<p>At the moment, no report is generated if the sample consists of human reads only. Run the following command in a terminal - it opens one of the intermediate classification files which we can use to confirm a human-only run. replace {sample_id} with the appropriate (identical) problematic sample IDand {timepoint} with an appropriate timepoint eg. 0.5_hours.</p>
+<p>The number 9606 in the terminal output corresponds to the Homo sapiens taxon. If only this is present, the read is human -only. If there are other numbers, try Action 1.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Open the terminal py pressing CTRL-ALT-T</p>
+</div>
+<pre><code>zcat -f /media/grid/metagenomics/results/{sample_id}/{timepoint}/centrifuge/centrifuge_raw.tsv* | awk -F'\t' '{print $3}' | sort -u
+
+</code></pre></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
