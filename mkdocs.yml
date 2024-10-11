@@ -13,7 +13,7 @@ markdown_extensions:
 
 
 plugins:
-
+  - mermaid2
   - mkdocstrings:
       default_handler: python
       handlers:
@@ -51,11 +51,13 @@ nav:
     - Running the metagenomics workflow: running_metagenomics_workflow.md
     - Query a classification: running_organism_query.md
     - Uploading to mSCAPE: mSCAPE_integration.md
-    - Additional tools: additional_tools.md
+    - Summary report: additional_tools.md
     - Deployment alternatives: alternative_deployment.md
   - Analysis: 
     - Clinical evaluation SOP: clinical_interpretation.md
     - Validation outline: validation_outline.md
+  - FAQ:
+    - Frequently asked questions: faq.md
 
 site_name: "CIDR Metagenomics Hub"
 

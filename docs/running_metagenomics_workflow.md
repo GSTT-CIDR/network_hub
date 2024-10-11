@@ -63,11 +63,11 @@
 <br><br>
 6. After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.
 
-![type:video](./videos/./metagenomics_terminal_outputs.mkv)
+![type:video](./videos/./metagenomics_terminal_outputs.mp4)
 
 7. ~40 minutes after launching the sequencing experiment alongside the metagenomics workflow, the first reports will be available in ```/media/grid/metagenomics/reports/{sample_name}/{timepoint}```. See below for a guide on how to access this.
 
-![type:video](./videos/./opening_report.mkv)
+![type:video](./videos/./opening_report.mp4)
 
 !!! tip "Success!"
     We have now run the CIDR metagenomics workflow. The workflow will run for ~24 hours generating PDF reports for 0.5, 1, 2, 16, 24 hour time-points.

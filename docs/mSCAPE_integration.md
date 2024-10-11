@@ -15,6 +15,8 @@ Following the successful completion of the CIDR Metagenomics Workflow, users can
 !!! note
     Using the 'filename suffix' field on the Metagenomics Launcher appends the sample sheet filename with a string of your choosing, making it easier to find during audits or mSCAPE uploads.
 
+*Check out the [video at the bottom of the page](#video-tutorial) for a visual guide on how to run the uploader*
+
 1. From the 'Dropdown Options' section, select the parameters appropriate for the samples to be uploaded. Some addition fields for mSCAPE are inferred from the sample sheet, the data in the dropdowns or the sequencing reads themselves. See the table below for more details.
 
 | Parameter     | Description                          |
@@ -29,7 +31,6 @@ Following the successful completion of the CIDR Metagenomics Workflow, users can
 |**Clinical or research**|mSCAPE clinical or research.|
 |**Human scrubbing**|mSCAPE informatic Human Scrubbing protocol used.|
 |**Study description**|Code provided by mSCAPE team.|
-<br>
 
 2. Load a sample sheet by clicking the 'Load sample sheet' button at the bottom of the interface. The file browser takes you to the 'sample sheet' directory. Find the date/time corresponding to your run (or the sheet identified by the filename suffix) and open it. With this, the Main Table section should be populated with the samples from the corresponding sequencing run. 
 
@@ -44,4 +45,6 @@ Following the successful completion of the CIDR Metagenomics Workflow, users can
 
 6. Select 'Upload to S3'. You can check the terminal window for outputs confirming successful upload. A status indicator is also present in the FASTQ selection window. 
 
-![type:video](./videos/./mscape_video.m4v)
+### Video tutorial
+*Video demonstration of using mSCAPE Uploader features*
+![type:video](./videos/./mscape_video.mp4)

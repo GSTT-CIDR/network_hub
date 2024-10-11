@@ -1,7 +1,9 @@
 # Service evaluation report SOP
 
 !!! Note
-    Please reference use of this method in any presentation or publication as [Unified metagenomic method for rapid detection of bacteria, fungi and viruses in clinical samples | Research Square which is currently going through journal review process. Work conducted during development and evaluation of metagenomics protocols are published in Baldan R et al J Infect. 2021 83:167. Charalampous T et al Genome Medicine 2021 13:182  Charalampous T et al Am J Resp Crit Care Med. 2024 209:164-174.
+    Please reference use of this method in any presentation or publication as:
+
+    Alcolea-Medina, A., Alder, C., Snell, L.B. et al. Unified metagenomic method for rapid detection of microorganisms in clinical samples. Commun Med 4, 135 (2024). https://doi.org/10.1038/s43856-024-00554-3
 
 !!! danger "Important"
     **Risk assessment for handling respiratory samples needs to be performed by each laboratory.**

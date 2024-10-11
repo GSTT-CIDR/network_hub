@@ -9,7 +9,7 @@ Each Network site will receive an ONT GridION sequencing platform and an externa
 <br><br>
 2. After logging in to the GridION Ubuntu operating system, modify the file browser setting by following the video below. This is to enable the running of scripts without using the terminal.
 
-![type:video](./videos/run_on_click.mkv)
+![type:video](./videos/run_on_click.mp4)
 
 3. Using the file browser, on the taskbar on the left side of the screen, navigate to the **metagenomics** disk, which can be found in the navigation pane inside the file browser.
 !!! info
@@ -21,7 +21,7 @@ Each Network site will receive an ONT GridION sequencing platform and an externa
     <br><br>
     There may be additional outputs in you terminal window compared to the video.
 
-![type:video](./videos/./install_script.mkv)
+![type:video](./videos/./install_script.mp4)
 
 5. Some icons should appear on the desktop linking to each app. You will need right click on the icons and select ```Allow launching``` before continuing with the next stage.
 
@@ -36,11 +36,11 @@ Included with the software is a small dataset based on the Zymo community standa
 <br><br>
 2. Fill out the fields, as indicated in the video below. More information on how to fill the fields and run the launcher can be found in the [Starting the metagenomics workflow](./running_metagenomics_workflow.md) section.
 
-![type:video](./videos/./launching_metagenomics.mkv)
+![type:video](./videos/./launching_metagenomics.mp4)
 
 3. Wait ~10 minutes for the workflow to complete. Open up the PDF report which can be found in the ```reports``` folder on the metagenomics disk in a folder corresponding to the name of the sample provided in the launcher eg. gstt_control_1. See video below for further information.
 
-![type:video](./videos/./opening_report.mkv)
+![type:video](./videos/./opening_report.mp4)
 
 4. Inspect the ```/metagenomics/reports/validation_sample/``` PDF report at the **0.5 hr timepoint**, it should match the CIDR validation report provided [here](sample_report.pdf).
 
