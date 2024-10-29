@@ -19,6 +19,9 @@ Following the successful completion of the CIDR Metagenomics Workflow, users can
 
 1. From the 'Dropdown Options' section, select the parameters appropriate for the samples to be uploaded. Some addition fields for mSCAPE are inferred from the sample sheet, the data in the dropdowns or the sequencing reads themselves. See the table below for more details.
 
+!!! note
+    For more details on how to fill the metadata fields associate with the samples, for example 'Study description', [see the additional information section](#additional-information) at the bottom of the page.
+
 | Parameter     | Description                          |
 | ----------- | ------------------------------------ |
 |**StudySite**|The RMg Network site the sequencing took place. |
@@ -48,3 +51,25 @@ Following the successful completion of the CIDR Metagenomics Workflow, users can
 ### Video tutorial
 *Video demonstration of using mSCAPE Uploader features*
 ![type:video](./videos/./mscape_video.mp4)
+
+## Additional information
+
+### Study description
+
+Once onboarded by the CLIMB team, the site will be provided with a predetermined [study_centre_id] and three [study_id’s].
+
+A study_centre_id is an abbreviation of the site name e.g. name of the NHS trust. Each site will have one ID.
+
+A study_id will be used to identify if samples are from a particular research study, or an NHS residual sample. Every NHS trust will have one Study ID related to their clinical samples, and a separate verification Study ID. This is to clearly differentiate between their verification stage and clinical service. Additional study_ids can be added as desired to differentiate any research studies.
+
+A list of the predetermined site and study codes can be found here: (Link to be added soon)
+
+**See Table 1 for example of a study_centre_id, study_id and their purposes for GSTT.**
+
+Table 1. Example of a study centre ID and study ID:
+
+|study_centre_id     | study_id                        | Purpose|
+| ----------- | ------------------------------------ |-----|
+|GSTT|GSTT-CLI-01 |Clinical service samples|
+|GSTT|GSTT-VER-01|Verification|
+|GSTT|GSTT- RES-01|Research – outside of network of excellence protocol|
