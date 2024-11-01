@@ -39,10 +39,8 @@
 
 !!! note
     * Option 1 will generate a sample sheet stored in the ```metagenomics/sample_sheets``` directory. This can be reused if a repeat run is required - or quick edits need to be made to a set of samples without having to fill out the fields again.
-    <br><br>
-    * For full information on data encryption protocol visit the [mSCAPE uploader](./mSCAPE_integration.md) page.
-    <br><br>
-    * Test
+    <br>
+    * Filling the 'filename suffix' field will save the sample sheet with an appended string of your choosing to help identify your run's metadata in the 'sample_sheets' folder.
 
 4. With the metadata form filled, select the run parameter check boxes.
 
