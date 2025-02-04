@@ -12,6 +12,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
 <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet"/>
 <script>
         // Current page data
         var mkdocs_page_name = "Frequently asked questions";
@@ -93,7 +94,17 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#3-my-summary-report-has-returned-a-returned-non-zero-exit-status-1-and-is-not-generating-spreadsheets">3) My summary report has returned a "....returned non-zero exit status 1" and is not generating spreadsheets.</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#presentation_2">Presentation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#actions_1">Actions</a>
+</li>
 </ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
 </li>
 </ul>
 </div>
@@ -162,11 +173,17 @@
 </div>
 <pre><code>zcat -f /media/grid/metagenomics/results/{sample_id}/{timepoint}/centrifuge/centrifuge_raw.tsv* | awk -F'\t' '{print $3}' | sort -u
 
-</code></pre></div>
+</code></pre>
+<h2 id="3-my-summary-report-has-returned-a-returned-non-zero-exit-status-1-and-is-not-generating-spreadsheets">3) My summary report has returned a "....returned non-zero exit status 1" and is not generating spreadsheets.</h2>
+<h3 id="presentation_2">Presentation</h3>
+<p>The summary report tool outputs an error message and does not create a summary report. </p>
+<h3 id="actions_1">Actions</h3>
+<p>The tool should automatically add the correct file extension on to the filename provided by the user. If it has not, add either the '.xlsx' extension or the '.csv' extension depending on your needs.</p></div>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
 <a class="btn btn-neutral float-left" href="../validation_outline/" title="Validation outline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../genome_database/" title="Metagenomics sequence database">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">
@@ -185,6 +202,7 @@
 <a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
 </span>
 <span><a href="../validation_outline/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../genome_database/" style="color: #fcfcfc">Next »</a></span>
 </span>
 </div>
 <script src="../js/jquery-3.6.0.min.js"></script>
@@ -192,6 +210,7 @@
 <script src="../js/theme_extra.js"></script>
 <script src="../js/theme.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
 <script src="../assets/js/jquery-jvectormap.js"></script>
 <script src="../assets/js/jquery-mousewheel.js"></script>

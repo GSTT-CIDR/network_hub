@@ -58,11 +58,13 @@ nav:
     - Validation outline: validation_outline.md
   - FAQ:
     - Frequently asked questions: faq.md
+    - Metagenomics sequence database: genome_database.md
 
 site_name: "CIDR Metagenomics Hub"
 
 extra_javascript:
   - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
+  - https://cdn.datatables.net/2.2.2/js/dataTables.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js
   - assets/js/jquery-jvectormap.js
   - assets/js/jquery-mousewheel.js
@@ -101,3 +103,5 @@ extra_javascript:
 
 extra_css:
   - assets/js/jquery-jvectormap.css
+  - https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css
+

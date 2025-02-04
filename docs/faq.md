@@ -46,4 +46,10 @@ zcat -f /media/grid/metagenomics/results/{sample_id}/{timepoint}/centrifuge/cent
 
 ```
 
+## 3) My summary report has returned a "....returned non-zero exit status 1" and is not generating spreadsheets.
 
+### Presentation
+The summary report tool outputs an error message and does not create a summary report. 
+
+### Actions
+The tool should automatically add the correct file extension on to the filename provided by the user. If it has not, add either the '.xlsx' extension or the '.csv' extension depending on your needs.
