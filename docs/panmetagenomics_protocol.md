@@ -9,5 +9,9 @@
     **Risk assessment for handling respiratory samples needs to be performed by each laboratory.**
     <br><br>
     **The tools and documentation described here and on the CIDR GitHub are not validated for diagnostic use and are for research and evaluation purposes only.**
+## Version 1.2
+![Alt text](./pdfs/pan-microbial-metagenomics-protocol-v1-2.pdf){ type=application/pdf style="min-height:50vh;width:100%" }
 
+<br>
+## Version 1
 ![Alt text](./pdfs/rmg_network_panmetagenomics_lab_protocol_v1.0.pdf){ type=application/pdf style="min-height:50vh;width:100%" }
