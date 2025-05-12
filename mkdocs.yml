@@ -4,6 +4,8 @@ repo_url: https://github.com/GSTT-CIDR/network_hub
 site_author: CIDR
 theme:
   name: readthedocs
+  features:
+    - navigation.expand
 
 markdown_extensions:
   - sane_lists
@@ -47,12 +49,20 @@ nav:
   - Bioinformatics:
     - Overview: bioinformatics_outline.md
     - Installation and validation: bioinformatics_install.md
-    - Starting a MinKNOW experiment: running_minknow.md
+    - Starting a MinKNOW experiment (V1.0): running_minknow.md
+    - Starting a MinKNOW experiment (V1.1): running_minknow_new.md
     - Running the metagenomics workflow: running_metagenomics_workflow.md
     - Query a classification: running_organism_query.md
     - Uploading to mSCAPE: mSCAPE_integration.md
     - Summary report: additional_tools.md
     - Deployment alternatives: alternative_deployment.md
+    - Legacy protocols:
+      - Installation and validation: bioinformatics_install_legacy.md
+      - Running the metagenomics workflow: running_metagenomics_workflow_legacy.md
+      - Query a classification: running_organism_query_legacy.md
+      - Uploading to mSCAPE: mSCAPE_integration_legacy.md
+      - Summary report: additional_tools_legacy.md
+      - Deployment alternatives: alternative_deployment_legacy.md
   - Analysis: 
     - Clinical evaluation SOP: clinical_interpretation.md
     - Validation outline: validation_outline.md
