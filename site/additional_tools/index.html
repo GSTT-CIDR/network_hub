@@ -92,8 +92,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
-</li>
 </ul>
 </div>
 </div>
@@ -119,7 +117,11 @@
 <div class="section" itemprop="articleBody">
 <div><h1 id="summary-report-generator">Summary report generator</h1>
 <h2 id="purpose">Purpose</h2>
-<p>We have found it useful to be able to generate summaries of multiple runs for downstream analysis. This takes the form of a spreadsheet or CSV, with rows corresponding to each sample and columns containing information derived from the sample sheet and the metagenomic analyses across timepoints. The tool features an end-to-end GUI to select samples and build the sheet. </p>
+<p>We have found it useful to be able to generate summaries of multiple runs for downstream analysis. This takes the form of a spreadsheet or CSV, with rows corresponding to each sample and columns containing information derived from the sample sheet and the metagenomic analyses across timepoints. The tool features an end-to-end GUI to select samples and build the sheet.</p>
+<div class="admonition danger">
+<p class="admonition-title">Important note</p>
+<p>We ask that for the NHS RMg service evaluation, you set the Summary Report threshold cut-off to the lowest value (currently 0.1) so that all classifications are included.</p>
+</div>
 <p>A description of the fields featured in the spreadsheet is available <a href="#fields-included">here</a>.</p>
 <h2 id="instructions-for-use">Instructions for use</h2>
 <p><em>Check out the <a href="#video-tutorial-manually-selecting-samples">video at the bottom of the page</a> for an end-to-end demonstration</em></p>
@@ -152,9 +154,13 @@
 <li>
 <p>Specify the 'Relative Abundance Threshold'. The default is 1.0%. this default parameter means that no organism &lt; 1% relative abundance will will feature in the output report.</p>
 </li>
-<li>
-<p>Click 'Generate Summary'. The output will appear in the 'summary_report' directory.</p>
-</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Important note</p>
+<p>We ask that for the NHS RMg service evaluation, you set the Summary Report threshold cut-off to the lowest value (currently 0.1) so that all classifications are included.</p>
+</div>
+<ol start="6">
+<li>Click 'Generate Summary'. The output will appear in the 'summary_report' directory.</li>
 </ol>
 <h3 id="video-tutorial-manually-selecting-samples">Video tutorial - Manually selecting samples</h3>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../videos/summary_report.mp4"><div class="video-container"><video alt="type:video" controls="" style="width:50%;height:35%"><source src="../videos/summary_report.mp4" type="video/mp4"/></video></div></a></p>

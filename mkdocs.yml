@@ -58,7 +58,7 @@ nav:
     - Validation outline: validation_outline.md
   - FAQ:
     - Frequently asked questions: faq.md
-    - Metagenomics sequence database: genome_database.md
+#    - Metagenomics sequence database: genome_database.md
 
 site_name: "CIDR Metagenomics Hub"
 
