@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/3.4-3.8.0/faq/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Frequently asked questions - CIDR Metagenomics Hub</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet"/>
+<link href="../css/version-select.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Frequently asked questions";
+        var mkdocs_page_input_path = "faq.md";
+        var mkdocs_page_url = "/3.4-3.8.0/faq/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../cidr_metagenomics.pdf" rel="alternate" title="PDF" type="application/pdf"/> <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> CIDR Metagenomics Hub
+        </a>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lab Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Bioinformatics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Frequently asked questions</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#1-my-30-minute-reports-are-persistently-missing">1) My 30 minute reports are persistently missing.</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#presentation">Presentation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#solution">Solution</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#2-some-timepoint-reports-are-missing-from-my-run">2) Some timepoint reports are missing from my run.</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#presentation_1">Presentation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#actions">Actions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#3-my-summary-report-has-returned-a-returned-non-zero-exit-status-1-and-is-not-generating-spreadsheets">3) My summary report has returned a "....returned non-zero exit status 1" and is not generating spreadsheets.</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#presentation_2">Presentation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#actions_1">Actions</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">CIDR Metagenomics Hub</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item">FAQ</li>
+<li class="breadcrumb-item active">Frequently asked questions</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/faq.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<div><h1 id="faq">FAQ</h1>
+<h2 id="1-my-30-minute-reports-are-persistently-missing">1) My 30 minute reports are persistently missing.</h2>
+<h3 id="presentation">Presentation</h3>
+<p>During live analysis runs only, the 30-minute reports are not being produced. All other reports are coming out fine. The clock is also running an hour behind (during BST).</p>
+<h3 id="solution">Solution</h3>
+<p>The GridION is not configured out of the factory for the UK timezone - an issue specifically during BST. this means the data ingest script timings fail and the 30 minute timepoint is missed. <strong>Note - if other reporting timepoints are missing, this is not your solution.</strong></p>
+<ol>
+<li>
+<p><strong>Type the following in to a terminal window</strong>
+<code>sudo timedatectl set-timezone Europe/London</code></p>
+</li>
+<li>
+<p>Check the time is correct. If not, <a href="https://help.ubuntu.com/stable/ubuntu-help/clock-set.html.en">manually update the time</a> to be correct.</p>
+</li>
+</ol>
+<h2 id="2-some-timepoint-reports-are-missing-from-my-run">2) Some timepoint reports are missing from my run.</h2>
+<h3 id="presentation_1">Presentation</h3>
+<p>Entire samples, or timepoint reports are sporadically missing from the report folder. In many cases, reports are not generated because no microbial reads are detected - this causes the pipeline to crash. We are working on improving this error reporting and softer crashes.</p>
+<p>There are a number of causes for reports failing. Follow the flowchart to find the correct solution.</p>
+<div class="mermaid">flowchart TB
+  A["All reports before&lt;br&gt; a specific time&lt;br&gt; point are missing. eg. &lt;br&gt; (0̶.5̶h̶r̶)(1̶h̶r̶)(2̶h̶r̶)(16hr)(24hr)"] --&gt; B[In the first&lt;br&gt; available report, is &lt;br&gt; the read count very low?]
+  B --&gt;|Yes| C[The sequencing yield&lt;br&gt; is low. Previous reports&lt;br&gt; were not generated because&lt;br&gt; no microbial reads were found.]
+  B --&gt;|No| D[See Action 1]
+  E[A single report is&lt;br&gt; missing where previous&lt;br&gt; time points had&lt;br&gt; reports generated.] --&gt; F[Action 1]
+  G[All reports are missing] --&gt; H[Check MinKNOW barcode panel.&lt;br&gt; Are there reads reporting for&lt;br&gt; the barcode in question?]
+  H --&gt;|Yes| I[See Action 2]
+  H --&gt;|No| J[The sequencing run has&lt;br&gt; failed. No reads are&lt;br&gt; present to analyse.]
+</div>
+<h3 id="actions">Actions</h3>
+<ol>
+<li>
+<p>Delete the folders in <code>../metagenomics/results</code> and <code>../metagenomics/reports</code> corresponding to the specific sample with issues. Rerun the the pipeline by loading the saved sample sheet. You can do this by using the 'Load Sample Sheet' function on the metagenomics launcher - find the sample sheet corresponding to the date/time. Alternatively, you can re-enter the run information in to the launcher.</p>
+</li>
+<li>
+<p>At the moment, no report is generated if the sample consists of human reads only. Run the following command in a terminal - it opens one of the intermediate classification files which we can use to confirm a human-only run. replace {sample_id} with the appropriate (identical) problematic sample IDand {timepoint} with an appropriate timepoint eg. 0.5_hours.</p>
+<p>The number 9606 in the terminal output corresponds to the Homo sapiens taxon. If only this is present, the read is human -only. If there are other numbers, try Action 1.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Open the terminal py pressing CTRL-ALT-T</p>
+</div>
+<pre><code>zcat -f /media/grid/metagenomics/results/{sample_id}/{timepoint}/centrifuge/centrifuge_raw.tsv* | awk -F'\t' '{print $3}' | sort -u
+
+</code></pre>
+<h2 id="3-my-summary-report-has-returned-a-returned-non-zero-exit-status-1-and-is-not-generating-spreadsheets">3) My summary report has returned a "....returned non-zero exit status 1" and is not generating spreadsheets.</h2>
+<h3 id="presentation_2">Presentation</h3>
+<p>The summary report tool outputs an error message and does not create a summary report. </p>
+<h3 id="actions_1">Actions</h3>
+<p>The tool should automatically add the correct file extension on to the filename provided by the user. If it has not, add either the '.xlsx' extension or the '.csv' extension depending on your needs.</p></div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../validation_outline/" title="Validation outline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../validation_outline/" style="color: #fcfcfc">« Previous</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+<script src="../assets/js/jquery-jvectormap.js"></script>
+<script src="../assets/js/jquery-mousewheel.js"></script>
+<script src="../assets/js/jvectormap.js"></script>
+<script src="../assets/js/abstract-element.js"></script>
+<script src="../assets/js/abstract-canvas-element.js"></script>
+<script src="../assets/js/abstract-shape-element.js"></script>
+<script src="../assets/js/svg-element.js"></script>
+<script src="../assets/js/svg-group-element.js"></script>
+<script src="../assets/js/svg-canvas-element.js"></script>
+<script src="../assets/js/svg-shape-element.js"></script>
+<script src="../assets/js/svg-path-element.js"></script>
+<script src="../assets/js/svg-circle-element.js"></script>
+<script src="../assets/js/svg-image-element.js"></script>
+<script src="../assets/js/svg-text-element.js"></script>
+<script src="../assets/js/vml-element.js"></script>
+<script src="../assets/js/vml-group-element.js"></script>
+<script src="../assets/js/vml-canvas-element.js"></script>
+<script src="../assets/js/vml-shape-element.js"></script>
+<script src="../assets/js/vml-path-element.js"></script>
+<script src="../assets/js/vml-circle-element.js"></script>
+<script src="../assets/js/vml-image-element.js"></script>
+<script src="../assets/js/map-object.js"></script>
+<script src="../assets/js/region.js"></script>
+<script src="../assets/js/marker.js"></script>
+<script src="../assets/js/vector-canvas.js"></script>
+<script src="../assets/js/simple-scale.js"></script>
+<script src="../assets/js/ordinal-scale.js"></script>
+<script src="../assets/js/numeric-scale.js"></script>
+<script src="../assets/js/color-scale.js"></script>
+<script src="../assets/js/legend.js"></script>
+<script src="../assets/js/data-series.js"></script>
+<script src="../assets/js/proj.js"></script>
+<script src="../assets/js/map.js"></script>
+<script src="../assets/js/uk_mill.js"></script>
+<script src="../js/version-select.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script><script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
