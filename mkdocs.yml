@@ -6,6 +6,10 @@ theme:
   name: readthedocs
   features:
     - navigation.expand
+extra:
+  version:
+    provider: mike
+    default: latest
 
 markdown_extensions:
   - sane_lists
