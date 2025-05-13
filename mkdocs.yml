@@ -46,7 +46,7 @@ nav:
     - Clinical metagenomics: index.md
   - Lab Resources: 
     - Lab protocols: panmetagenomics_protocol.md
- - Bioinformatics:
+  - Bioinformatics:
     - Overview: bioinformatics_outline.md
     - Installation and validation: bioinformatics_install.md
     - Starting a MinKNOW experiment: running_minknow.md
