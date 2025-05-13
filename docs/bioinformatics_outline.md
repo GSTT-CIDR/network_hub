@@ -1,4 +1,4 @@
-# Clinical metagenomics bioinformatics
+# Clinical metagenomics bioinformatics 3.8.1
 
 !!! tip "Recent updates"
     **02/07/24** - Use of 'hospital number' have been changed to 'anonymised identifier'. Matagenomics and mSCAPE GUIs have been updated to reflect this. The mSCAPE Launcher's hospital number encryption function has been removed.
