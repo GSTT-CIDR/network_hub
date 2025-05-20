@@ -118,14 +118,21 @@
 <p class="admonition-title">Recent updates</p>
 <p>For users of Q-line V1.1 or later, ONT have replaced MinKNOW with the Gourami sequencing software.  </p>
 </div>
-<p>This document instructs users on how to use ONT MinKNOW and Goruami interfaces. These tools are used to initialise and control sequencing experiments on the GridION device. The CIDR Metagenomics Workflow is launched after completing this section.</p>
+<p>This document instructs users on how to use ONT MinKNOW and Goruami interfaces. These tools are used to initialise and control sequencing experiments on the GridION device. Following completion of the relevant section, proceed to the <a href="../running_metagenomics_workflow/">Running the metagenomics workflow</a> section to start the metagenomics analysis.</p>
 <p>For Q-line V1.1 users, jump to the <a href="#launching-a-sequencing-experiment-using-gourami">Gourami section</a> for instructions on how to start a sequencing experiment.</p>
 <p>For MinKNOW users (GridION RUO/Q-line V1.0) users follow <a href="#running-a-flow-cell-check">Running a flow cell check</a> and <a href="#starting-a-sequencing-experiment-on-minknow">Starting a sequencing experiment on MinKNOW</a> sections.</p>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
 <p>Before completing any protocols, users should check flow cells sent to them by ONT are above the warranty pore count. The pore check should be run:</p>
 <ol>
 <li>As soon as you have recieved a new batch from ONT.</li>
 <li>Immediately before starting a sequencing experiment.</li>
 </ol>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>Only <strong>after</strong> starting a sequencing experiment and it has begun generating reads can you commence analysis using the CIDR workflow. </p>
+</div>
 <h2 id="launching-a-sequencing-experiment-using-gourami">Launching a sequencing experiment using Gourami</h2>
 <ol>
 <li>Open the Sequencing Software by selecting the icon on the taskbar to the right as shown in the screenshot below.</li>
@@ -138,14 +145,25 @@
 <ol start="3">
 <li>Select the position of your flow cell on MinKNOW. If you have not already run a flow cell check, you will have to run that now by selecting “Check flow cell”. After it is complete you can press continue.</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Flow cell dashboard" data-type="image" data-width="auto" href="./img/gourami/flowcell.png"><img alt="image" data-description="" data-title="Flow cell dashboard" src="./img/gourami/flowcell.png"/></a></p>
-<ol start="4">
-<li>Open the Metagenomics launcher application and complete the 'ONT Barcode' and 'Lab/Sample ID' fields for each sample. These entries will be used to generate a sample sheet to import in to Gourami. </li>
-</ol>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Flow cell dashboard" data-type="image" data-width="auto" href="../img/gourami/flow_cell.png"><img alt="image" data-description="" data-title="Flow cell dashboard" src="../img/gourami/flow_cell.png"/></a></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The sample sheet step is only necessary if you are using the 'Gourami' software.</p>
 </div>
+<ol start="4">
+<li>Open the Metagenomics launcher application and enter: <ol>
+<li>Number of samples (rows)</li>
+<li>Experiment ID</li>
+<li>'ONT barcode' (for each sample in the library)</li>
+<li>'Lab/Sample ID' (for each sample in the library)</li>
+</ol>
+</li>
+</ol>
+<p>After filling out the above fields, click <strong>Generate Gourami sample sheet</strong>. This will create a sample sheet in the 'sample_sheet' directory in 'metagenomics'. The sample sheet will be named with the date/time and the text in the Experiment ID field. </p>
+<ol start="5">
+<li>Switching back to the Gourami sequencing software, select “Import” on the select sample sheet screen and import the sample sheet you have just created. Then make sure it is selected and the validation status says “Pass”, then press continue.</li>
+</ol>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Sample sheet loading screen" data-type="image" data-width="auto" href="../img/gourami/running_dashboard.png"><img alt="image" data-description="" data-title="Sample sheet loading screen" src="../img/gourami/running_dashboard.png"/></a></p>
 <h2 id="running-a-flow-cell-check">Running a flow cell check</h2>
 <p>Oxford Nanopore Technologies will replace any flow cell that falls below the warranty number of active pores within three months of purchase, provided that you report the results within two days of performing the flow cell check and you have followed the storage recommendations. A MinION flow cell (used also in the GridION) should have 800 pores.</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Landing screen of ONT MinKNOW software" data-type="image" data-width="auto" href="../img/minknow_landing.png"><img alt="image" data-description="" data-title="Landing screen of ONT MinKNOW software" src="../img/minknow_landing.png"/></a></p>
