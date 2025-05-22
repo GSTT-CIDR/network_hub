@@ -129,17 +129,20 @@
 <p class="admonition-title">Known issues</p>
 <p>The <code>'geocryptfs error not found...'</code> error can be ignored as it is not essential to the workflow.
 <br/>
-If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2</p>
+For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account across all previous runs. For positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.</p>
 </div>
 <ol start="2">
 <li>
 <p>Select the number of samples to be analysed from the dropdown.</p>
 </li>
 <li>
-<p>You can choose to initiate the launcher using <strong>one</strong> of the below methods:</p>
+<p>Add an appropriate experiment ID to the field. This will label the sample sheet, useful for auditing. For Gourami users, this will set the experiment ID.</p>
+</li>
+<li>
+<p>You can choose to initiate the analysis using <strong>one</strong> of the below methods:</p>
 <ul>
 <li>Fill out the fields on the form for each sample to be analysed.</li>
-<li>Loading a pre-existing TSV - <a href="https://raw.githubusercontent.com/GSTT-CIDR/network_hub/main/example_sample_sheet.tsv?token=GHSAT0AAAAAACMKGNRRLREYQKUOWOVJMRBWZPLABFA">see example</a>.</li>
+<li>Loading a pre-existing TSV.</li>
 </ul>
 </li>
 </ol>
@@ -169,36 +172,44 @@ If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2
 <td>The unique lab accession number for the sample. This data is encrypted before transmission. <strong>If repeating a sample, append with _n</strong></td>
 </tr>
 <tr>
-<td><strong>Anonymised identifier</strong></td>
-<td>An anonymised identifier linked to the sample hospital number.</td>
+<td><strong>Sample accession</strong></td>
+<td>The lab's sample ID - identifying a specific patient specimen - ANONYMISED.</td>
+</tr>
+<tr>
+<td><strong>Hospital number</strong></td>
+<td>A value identifying the individual providing the sample - ANONYMISED.</td>
 </tr>
 <tr>
 <td><strong>Collection date</strong></td>
-<td>Collection data of the sample.</td>
+<td>The date the specimen was collected. For positive and negative controls, this would be the day of library preparation.</td>
 </tr>
 <tr>
 <td><strong>Sample Class</strong></td>
-<td>The class of sample loaded.</td>
+<td>The category of the sample loaded.</td>
 </tr>
 <tr>
 <td><strong>Sample type</strong></td>
-<td>The methodology used to collect the sample.</td>
+<td>The type of specimen.</td>
 </tr>
 <tr>
 <td><strong>Operator</strong></td>
-<td>Arbitrary identifier of the user operating the sequencer.</td>
+<td>Identifier for user operating the sequencer.</td>
+</tr>
+<tr>
+<td><strong>Operator</strong></td>
+<td>An open field for notes that will appear on all reports.</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li>Option 1 will generate a sample sheet stored in the <code>metagenomics/sample_sheets</code> directory. This can be reused if a repeat run is required - or quick edits need to be made to a set of samples without having to fill out the fields again.
+<li>Launching an analysis run will save all of the data in the launcher fields to a TSV file in the <code>metagenomics/sample_sheets</code> directory, with the date/time and the contents of the Experiment ID field. This can be reused if a repeat run is required - or quick edits need to be made to a set of samples without having to fill out the fields again.
 <br/></li>
-<li>Filling the 'filename suffix' field will save the sample sheet with an appended string of your choosing to help identify your run's metadata in the 'sample_sheets' folder.</li>
+<li>Filling the 'Experiment ID' field will save the sample sheet with an appended string of your choosing to help identify your run's metadata in the 'sample_sheets' folder.</li>
 </ul>
 </div>
-<ol start="4">
+<ol start="5">
 <li>With the metadata form filled, select the run parameter check boxes.</li>
 </ol>
 <table>
@@ -211,32 +222,29 @@ If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2
 <tbody>
 <tr>
 <td><strong>Force overwrite</strong></td>
-<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data</code> directory.</td>
+<td>Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the the launcher to the <code>./metagenomics/recycle_bin</code> directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature.</td>
 </tr>
 <tr>
 <td><strong>mSCAPE prompt</strong></td>
 <td>After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.</td>
 </tr>
 <tr>
-<td><strong>Disable data ingest sleep</strong></td>
-<td><strong>Not for real-time analysis!</strong> Analyse all data immediately - do not wait for it to be generated by the sequencer.</td>
+<td><strong>Generate Gourami sample sheet</strong> This will generate a sample sheet for Gourami from the Experiment ID field (not to be be confused with MinKNOW experiment ID column), the number of rows dropdown, the ONT barcode and Lab/sample ID columns.</td>
+<td></td>
 </tr>
 <tr>
-<td><br/></td>
+<td><strong>Refresh directories</strong> This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p><br/></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
-<p>You should wait to launch the pipeline after the sequencer has reported producing reads in MinKNOW, the workflow will display errors in red if no reads have been found.
-<br/><br/>
-The NTC will exhibit the same 'error' behavior as no reads are present in the corresponding barcode folder. We are working on functionality to circumvent this.
-<br/><br/>
-You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the <code>X</code> in the top right corner.</p>
+<p>You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the <code>X</code> in the top right corner.</p>
 </div>
-<ol start="5">
-<li>Click on <code>Launch pipeline</code> and click <code>OK</code> to start analysis.
+<ol start="6">
+<li>Click on <code>Launch pipeline</code> and follow the instructions to start the analysis.
 <br/><br/></li>
 <li>After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.</li>
 </ol>
