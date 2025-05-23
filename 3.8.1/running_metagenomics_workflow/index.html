@@ -67,7 +67,7 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="#starting-a-run">Starting a run</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#field-descriptions">Field descriptions:</a>
+<li class="toctree-l2"><a class="reference internal" href="#feature-descriptions">Feature descriptions:</a>
 </li>
 </ul>
 </li>
@@ -132,13 +132,80 @@
 <ol>
 <li>Double click the <strong>Metagenomics Launcher</strong> icon on the GridION desktop, the CIDR Metagenomics Launcher should appear alongside a terminal window.</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-height="auto" data-title="GridION desktop screenshot" data-type="image" data-width="auto" href="../img/metagenomics_pipeline_clean.jpg"><img alt="The desktop of the GridION operating system after executing the metagenomics_launcher" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="Metagenomics launcher 3.8.1" data-height="auto" data-title="GridION desktop screenshot" data-type="image" data-width="auto" href="../img/metagenomics_pipeline_clean.jpg"><img alt="Metagenomics launcher 3.8.1" data-description="Metagenomics launcher 3.8.1" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.jpg"/></a></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
 <p>The <code>'geocryptfs error not found...'</code> error can be ignored as it is not essential to the workflow.
 <br/>
 For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account across all previous runs. For positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.</p>
 </div>
+<h2 id="feature-descriptions">Feature descriptions:</h2>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>MinKNOW experiment ID</strong></td>
+<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data</code> directory.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>KinKNOW sample ID</strong></td>
+<td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data/{experiment_id}/</code></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>ONT barcode</strong></td>
+<td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Lab/Sample ID</strong></td>
+<td>The unique lab accession number for the sample. This data is encrypted before transmission. <strong>If repeating a sample, append with _n</strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Sample accession</strong></td>
+<td>The lab's sample ID - identifying a specific patient specimen - ANONYMISED.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Hospital number</strong></td>
+<td>A value identifying the individual providing the sample - ANONYMISED.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Collection date</strong></td>
+<td>The date the specimen was collected. For positive and negative controls, this would be the day of library preparation.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Sample Class</strong></td>
+<td>The category of the sample loaded.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Sample type</strong></td>
+<td>The type of specimen.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Operator</strong></td>
+<td>Identifier for user operating the sequencer.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Notes</strong></td>
+<td>An open field for notes that will appear on all reports.</td>
+</tr>
+</tbody>
+</table>
 <ol start="2">
 <li>
 <p>Select the number of samples to be analysed from the dropdown.</p>
@@ -154,61 +221,6 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 </ul>
 </li>
 </ol>
-<h2 id="field-descriptions">Field descriptions:</h2>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>MinKNOW experiment ID</strong></td>
-<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data</code> directory.</td>
-</tr>
-<tr>
-<td><strong>KinKNOW sample ID</strong></td>
-<td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data/{experiment_id}/</code> directory.</td>
-</tr>
-<tr>
-<td><strong>ONT barcode</strong></td>
-<td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
-</tr>
-<tr>
-<td><strong>Lab/Sample ID</strong></td>
-<td>The unique lab accession number for the sample. This data is encrypted before transmission. <strong>If repeating a sample, append with _n</strong></td>
-</tr>
-<tr>
-<td><strong>Sample accession</strong></td>
-<td>The lab's sample ID - identifying a specific patient specimen - ANONYMISED.</td>
-</tr>
-<tr>
-<td><strong>Hospital number</strong></td>
-<td>A value identifying the individual providing the sample - ANONYMISED.</td>
-</tr>
-<tr>
-<td><strong>Collection date</strong></td>
-<td>The date the specimen was collected. For positive and negative controls, this would be the day of library preparation.</td>
-</tr>
-<tr>
-<td><strong>Sample Class</strong></td>
-<td>The category of the sample loaded.</td>
-</tr>
-<tr>
-<td><strong>Sample type</strong></td>
-<td>The type of specimen.</td>
-</tr>
-<tr>
-<td><strong>Operator</strong></td>
-<td>Identifier for user operating the sequencer.</td>
-</tr>
-<tr>
-<td><strong>Notes</strong></td>
-<td>An open field for notes that will appear on all reports.</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
