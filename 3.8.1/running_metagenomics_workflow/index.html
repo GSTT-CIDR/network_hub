@@ -235,12 +235,33 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <td><strong>Generate Gourami sample sheet</strong></td>
 <td><strong>Only for Q-line &gt;=v1.1</strong> Generates a Gourami compatible sample sheet for starting a sequencing experiment. The output can be found in the <code>./metagenomics/sample_Sheet/gourami</code> directory.</td>
 </tr>
+<tr>
+<td>18</td>
+<td><strong>Force overwrite</strong></td>
+<td>Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the the launcher to the <code>./metagenomics/recycle_bin</code> directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature.</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>mSCAPE prompt</strong></td>
+<td>After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>Select timepoints</strong></td>
+<td>Select the timepoints you'd like to be generated. If you encounter errors generating a timepoint visit the <a href="../faq/">FAQ section</a></td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>Refresh directories</strong> This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment.</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>Launch pipeline</strong></td>
+<td>Launches metagenomics analysis, saving the sample sheet to the <code>./metagenomics/sample_sheets</code>.</td>
+</tr>
 </tbody>
 </table>
-<p>||<strong>Force overwrite</strong>|Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the the launcher to the <code>./metagenomics/recycle_bin</code> directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature.  |
-||<strong>mSCAPE prompt</strong>|After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.|
-||<strong>Generate Gourami sample sheet</strong> This will generate a sample sheet for Gourami from the Experiment ID field (not to be be confused with MinKNOW experiment ID column), the number of rows dropdown, the ONT barcode and Lab/sample ID columns.|
-||<strong>Refresh directories</strong> This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment.|</p>
 <ol start="2">
 <li>
 <p>Select the number of samples to be analysed from the dropdown.</p>
