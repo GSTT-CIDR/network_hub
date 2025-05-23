@@ -152,7 +152,7 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <tbody>
 <tr>
 <td>1</td>
-<td>Load existing sample sheet</td>
+<td><strong>Load existing sample sheet</strong></td>
 <td>Load a pre-existing sample sheet. This will populate the fields below with the data from the TSV file.</td>
 </tr>
 <tr>
@@ -219,6 +219,21 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <td>14</td>
 <td><strong>Notes</strong></td>
 <td>An open field for notes that will appear on all reports.</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Anonymise</strong></td>
+<td>Anonymises the 'Sample accession' and 'Hospital number' values using an encryption cypher.</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>Deanonymise</strong></td>
+<td>Deanonymises the 'Sample accession' and 'Hospital number' values present in the launcher fields to their original values. The deanonymisation tool can be used to access previous runs.</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>Generate Gourami sample sheet</strong></td>
+<td><strong>Only for Q-line &gt;=v1.1</strong> Generates a Gourami compatible sample sheet for starting a sequencing experiment. The output can be found in the <code>./metagenomics/sample_Sheet/gourami</code> directory.</td>
 </tr>
 </tbody>
 </table>
