@@ -151,61 +151,80 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <tbody>
 <tr>
 <td>1</td>
+<td>Load existing sample sheet</td>
+<td>Load a pre-existing sample sheet. This will populate the fields below with the data from the TSV file.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Number of samples</strong></td>
+<td>The number of samples to be analysed. This will create the number of rows in the table below.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Experiment ID</strong></td>
+<td>Not to be confused with the ONT</td>
+</tr>
+<tr>
+<td>4</td>
 <td><strong>MinKNOW experiment ID</strong></td>
 <td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data</code> directory.</td>
 </tr>
 <tr>
-<td></td>
+<td>5</td>
 <td><strong>KinKNOW sample ID</strong></td>
 <td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data/{experiment_id}/</code></td>
 </tr>
 <tr>
-<td></td>
+<td>6</td>
 <td><strong>ONT barcode</strong></td>
 <td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
 </tr>
 <tr>
-<td></td>
+<td>7</td>
 <td><strong>Lab/Sample ID</strong></td>
 <td>The unique lab accession number for the sample. This data is encrypted before transmission. <strong>If repeating a sample, append with _n</strong></td>
 </tr>
 <tr>
-<td></td>
+<td>8</td>
 <td><strong>Sample accession</strong></td>
 <td>The lab's sample ID - identifying a specific patient specimen - ANONYMISED.</td>
 </tr>
 <tr>
-<td></td>
+<td>9</td>
 <td><strong>Hospital number</strong></td>
 <td>A value identifying the individual providing the sample - ANONYMISED.</td>
 </tr>
 <tr>
-<td></td>
+<td>10</td>
 <td><strong>Collection date</strong></td>
 <td>The date the specimen was collected. For positive and negative controls, this would be the day of library preparation.</td>
 </tr>
 <tr>
-<td></td>
+<td>11</td>
 <td><strong>Sample Class</strong></td>
 <td>The category of the sample loaded.</td>
 </tr>
 <tr>
-<td></td>
+<td>12</td>
 <td><strong>Sample type</strong></td>
 <td>The type of specimen.</td>
 </tr>
 <tr>
-<td></td>
+<td>13</td>
 <td><strong>Operator</strong></td>
 <td>Identifier for user operating the sequencer.</td>
 </tr>
 <tr>
-<td></td>
+<td>14</td>
 <td><strong>Notes</strong></td>
 <td>An open field for notes that will appear on all reports.</td>
 </tr>
 </tbody>
 </table>
+<p>||<strong>Force overwrite</strong>|Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the the launcher to the <code>./metagenomics/recycle_bin</code> directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature.  |
+||<strong>mSCAPE prompt</strong>|After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.|
+||<strong>Generate Gourami sample sheet</strong> This will generate a sample sheet for Gourami from the Experiment ID field (not to be be confused with MinKNOW experiment ID column), the number of rows dropdown, the ONT barcode and Lab/sample ID columns.|
+||<strong>Refresh directories</strong> This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment.|</p>
 <ol start="2">
 <li>
 <p>Select the number of samples to be analysed from the dropdown.</p>
@@ -232,32 +251,6 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <ol start="5">
 <li>With the metadata form filled, select the run parameter check boxes.</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Force overwrite</strong></td>
-<td>Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the the launcher to the <code>./metagenomics/recycle_bin</code> directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature.</td>
-</tr>
-<tr>
-<td><strong>mSCAPE prompt</strong></td>
-<td>After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.</td>
-</tr>
-<tr>
-<td><strong>Generate Gourami sample sheet</strong> This will generate a sample sheet for Gourami from the Experiment ID field (not to be be confused with MinKNOW experiment ID column), the number of rows dropdown, the ONT barcode and Lab/sample ID columns.</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Refresh directories</strong> This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <p><br/></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
