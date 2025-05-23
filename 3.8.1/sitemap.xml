@@ -2,72 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/additional_tools/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/alternative_deployment/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/bioinformatics_install/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/bioinformatics_outline/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/clinical_interpretation/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/faq/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/genome_database/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/mSCAPE_integration/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/panmetagenomics_protocol/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://CIDR-network-hub.github.io/3.8.1/running_gourami/</loc>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/running_metagenomics_workflow/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/running_minknow/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/running_organism_query/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://CIDR-network-hub.github.io/3.8.1/validation_outline/</loc>
-         <lastmod>2025-05-22</lastmod>
+         <lastmod>2025-05-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
