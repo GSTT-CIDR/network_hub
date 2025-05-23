@@ -91,6 +91,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+</li>
 </ul>
 </div>
 </div>
@@ -114,12 +116,12 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<div><h1 id="running-the-metagenomics-workflow">Running the metagenomics workflow</h1>
+<div><h1 id="running-the-cidr-metagenomics-workflow">Running the CIDR metagenomics workflow</h1>
 <div class="admonition note">
 <p class="admonition-title">Before starting</p>
 <ol>
 <li>
-<p>The CIDR metagenomics workflow must be started during a sequencing experiment or after a sequencing experiment has completed. The pipeline must not be activated before a sequencing experiment has been commenced and has <strong>started producing reads</strong> (See MinKNOW setup - Lab Protocol).</p>
+<p>The CIDR metagenomics workflow must only be executed during a sequencing experiment or after a sequencing experiment has completed. The pipeline must not be launched before a sequencing experiment has been commenced and has <strong>started producing reads</strong>.</p>
 </li>
 <li>
 <p>Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully. Test the disk has been mounted by navigating to it in the Ubuntu file explorer.</p>
@@ -130,7 +132,7 @@
 <ol>
 <li>Double click the <strong>Metagenomics Launcher</strong> icon on the GridION desktop, the CIDR Metagenomics Launcher should appear alongside a terminal window.</li>
 </ol>
-<p><a class="glightbox" data-desc-position="bottom" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-height="auto" data-title="GridION desktop screenshot" data-type="image" data-width="auto" href="../img/metagenomics_pipeline_clean.png"><img alt="The desktop of the GridION operating system after executing the metagenomics_launcher" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-height="auto" data-title="GridION desktop screenshot" data-type="image" data-width="auto" href="../img/metagenomics_pipeline_clean.jpg"><img alt="The desktop of the GridION operating system after executing the metagenomics_launcher" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.jpg"/></a></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
 <p>The <code>'geocryptfs error not found...'</code> error can be ignored as it is not essential to the workflow.
@@ -142,7 +144,7 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <p>Select the number of samples to be analysed from the dropdown.</p>
 </li>
 <li>
-<p>Add an appropriate experiment ID to the field. This will label the sample sheet, useful for auditing. For Gourami users, this will set the experiment ID.</p>
+<p>Add an appropriate experiment ID to the field. This will label the stored sample sheet, useful for auditing. For Gourami users, this will set the ONT experiment ID.</p>
 </li>
 <li>
 <p>You can choose to initiate the analysis using <strong>one</strong> of the below methods:</p>
@@ -202,7 +204,7 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <td>Identifier for user operating the sequencer.</td>
 </tr>
 <tr>
-<td><strong>Operator</strong></td>
+<td><strong>Notes</strong></td>
 <td>An open field for notes that will appear on all reports.</td>
 </tr>
 </tbody>
@@ -247,11 +249,16 @@ For all clinical specimens, positive controls and negatives, a unique Lab/sample
 <p><br/></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
-<p>You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the <code>X</code> in the top right corner.</p>
+<p>You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the <code>X</code> in the top right corner. Terminating a run before completion may results in errors when re-launching. Select the 'Force overwrite' option to delete the previous run's data and start a new analysis.</p>
 </div>
 <ol start="6">
-<li>Click on <code>Launch pipeline</code> and follow the instructions to start the analysis.
-<br/><br/></li>
+<li>
+<p>Where appropriate, apply the anonymisation functions to the data using the 'Anonymise' button. This will pseudo-anonymise the 'Sample accession' and 'Hospital number' fields. Users can deanonymise a sample sheet by loading it in to the lanucher and selecting 'Deanonymise' or by using the <a href="./deanonymisation.md">Deanonymisation tool</a>. </p>
+</li>
+<li>
+<p>Click on <code>Launch pipeline</code> and follow the instructions to start the analysis.
+<br/><br/></p>
+</li>
 <li>After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.</li>
 </ol>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../videos/metagenomics_terminal_outputs.mp4"><div class="video-container"><video alt="type:video" controls="" style="width:50%;height:35%"><source src="../videos/metagenomics_terminal_outputs.mp4" type="video/mp4"/></video></div></a></p>
