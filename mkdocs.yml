@@ -1,5 +1,5 @@
-site_name: CIDR Metagenomics
-site_url: https://CIDR-network-hub.github.io/
+site_name: "CIDR Metagenomics Hub"
+site_url: https://gstt-cidr.github.io/network_hub/
 repo_url: https://github.com/GSTT-CIDR/network_hub
 site_author: CIDR
 theme:
@@ -29,12 +29,7 @@ plugins:
             docstring_section_style: spacy
             show_source: false
   - mkdocs-pdf
-  - with-pdf:
-      output_path: cidr_metagenomics.pdf
-      cover_subtitle: ""
-      debug_html: true
-      show_anchors: true
-      verbose: true
+  - mike
   - glightbox:
       touchNavigation: true
       loop: false
@@ -65,8 +60,6 @@ nav:
   - FAQ:
     - Frequently asked questions: faq.md
 #    - Metagenomics sequence database: genome_database.md
-
-site_name: "CIDR Metagenomics Hub"
 
 extra_javascript:
   - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
