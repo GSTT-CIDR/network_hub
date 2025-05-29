@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://CIDR-network-hub.github.io/main/running_metagenomics_workflow/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Running the metagenomics workflow - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Running the metagenomics workflow";
+        var mkdocs_page_input_path = "running_metagenomics_workflow.md";
+        var mkdocs_page_url = "/main/running_metagenomics_workflow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lab Resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Running the metagenomics workflow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#starting-a-run">Starting a run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#field-descriptions">Field descriptions:</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Analysis</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Running the metagenomics workflow</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_metagenomics_workflow.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="running-the-metagenomics-workflow">Running the metagenomics workflow</h1>
+<div class="admonition note">
+<p class="admonition-title">Before starting</p>
+<ol>
+<li>
+<p>The CIDR metagenomics workflow must be started during a sequencing experiment or after a sequencing experiment has completed. The pipeline must not be activated before a sequencing experiment has started in MinKNOW and has <strong>started producing reads</strong> (See MinKNOW setup - Lab Protocol).</p>
+</li>
+<li>
+<p>Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully. Test the disk has been mounted by navigating to it in the Ubuntu file explorer.</p>
+</li>
+</ol>
+</div>
+<h4 id="starting-a-run">Starting a run</h4>
+<ol>
+<li>Double click the <strong>Metagenomics Launcher</strong> icon on the GridION desktop, the CIDR Metagenomics Launcher should appear alongside a terminal window.</li>
+</ol>
+<p><a class="glightbox" href="../img/metagenomics_pipeline_clean.png" data-type="image" data-width="auto" data-height="auto" data-title="GridION desktop screenshot" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-desc-position="bottom"><img alt="The desktop of the GridION operating system after executing the metagenomics_launcher" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.png"></a></p>
+<div class="admonition danger">
+<p class="admonition-title">Known issues</p>
+<p>The <code>'geocryptfs error not found...'</code> error can be ignored as it is not essential to the workflow.
+<br>
+If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2</p>
+</div>
+<ol start="2">
+<li>
+<p>Select the number of samples to be analysed from the dropdown.</p>
+</li>
+<li>
+<p>You can choose to initiate the launcher using <strong>one</strong> of the below methods:</p>
+<ul>
+<li>Fill out the fields on the form for each sample to be analysed.</li>
+<li>Loading a pre-existing TSV - <a href="https://raw.githubusercontent.com/GSTT-CIDR/network_hub/main/example_sample_sheet.tsv?token=GHSAT0AAAAAACMKGNRRLREYQKUOWOVJMRBWZPLABFA">see example</a>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="field-descriptions">Field descriptions:</h4>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MinKNOW experiment ID</strong></td>
+<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data</code> directory.</td>
+</tr>
+<tr>
+<td><strong>KinKNOW sample ID</strong></td>
+<td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data/{experiment_id}/</code> directory.</td>
+</tr>
+<tr>
+<td><strong>ONT barcode</strong></td>
+<td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
+</tr>
+<tr>
+<td><strong>Lab/Sample ID</strong></td>
+<td>The unique lab accession number for the sample. This data is encrypted before transmission. <strong>If repeating a sample, append with _n</strong></td>
+</tr>
+<tr>
+<td><strong>Anonymised identifier</strong></td>
+<td>An anonymised identifier linked to the sample hospital number.</td>
+</tr>
+<tr>
+<td><strong>Collection date</strong></td>
+<td>Collection data of the sample.</td>
+</tr>
+<tr>
+<td><strong>Sample Class</strong></td>
+<td>The class of sample loaded.</td>
+</tr>
+<tr>
+<td><strong>Sample type</strong></td>
+<td>The methodology used to collect the sample.</td>
+</tr>
+<tr>
+<td><strong>Operator</strong></td>
+<td>Arbitrary identifier of the user operating the sequencer.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Option 1 will generate a sample sheet stored in the <code>metagenomics/sample_sheets</code> directory. This can be reused if a repeat run is required - or quick edits need to be made to a set of samples without having to fill out the fields again.
+<br></li>
+<li>Filling the 'filename suffix' field will save the sample sheet with an appended string of your choosing to help identify your run's metadata in the 'sample_sheets' folder.</li>
+</ul>
+</div>
+<ol start="4">
+<li>With the metadata form filled, select the run parameter check boxes.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Force overwrite</strong></td>
+<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the <code>/data</code> directory.</td>
+</tr>
+<tr>
+<td><strong>mSCAPE prompt</strong></td>
+<td>After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.</td>
+</tr>
+<tr>
+<td><strong>Disable data ingest sleep</strong></td>
+<td><strong>Not for real-time analysis!</strong> Analyse all data immediately - do not wait for it to be generated by the sequencer.</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Known issues</p>
+<p>You should wait to launch the pipeline after the sequencer has reported producing reads in MinKNOW, the workflow will display errors in red if no reads have been found.
+<br><br>
+The NTC will exhibit the same 'error' behavior as no reads are present in the corresponding barcode folder. We are working on functionality to circumvent this.
+<br><br>
+You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the <code>X</code> in the top right corner.</p>
+</div>
+<ol start="5">
+<li>Click on <code>Launch pipeline</code> and click <code>OK</code> to start analysis.
+<br><br></li>
+<li>After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.</li>
+</ol>
+<p><a class="glightbox" href="../videos/metagenomics_terminal_outputs.mp4" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><video style="width:50%;height:35%" controls alt="type:video"><source src="../videos/metagenomics_terminal_outputs.mp4" type="video/mp4"></source></video></div></a></p>
+<ol start="7">
+<li>~40 minutes after launching the sequencing experiment alongside the metagenomics workflow, the first reports will be available in <code>/media/grid/metagenomics/reports/{sample_name}/{timepoint}</code>. See below for a guide on how to access this.</li>
+</ol>
+<p><a class="glightbox" href="../videos/opening_report.mp4" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><video style="width:50%;height:35%" controls alt="type:video"><source src="../videos/opening_report.mp4" type="video/mp4"></source></video></div></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Success!</p>
+<p>We have now run the CIDR metagenomics workflow. The workflow will run for ~24 hours generating PDF reports for 0.5, 1, 2, 16, 24 hour time-points.</p>
+</div></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../running_minknow/" class="btn btn-neutral float-left" title="Starting a MinKNOW experiment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../running_organism_query/" class="btn btn-neutral float-right" title="Query a classification">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../running_minknow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../running_organism_query/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
