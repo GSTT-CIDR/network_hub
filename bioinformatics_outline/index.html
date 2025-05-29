@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/bioinformatics_outline/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Overview - CIDR Metagenomics Hub</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/width.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "bioinformatics_outline.md";
+        var mkdocs_page_url = "/bioinformatics_outline/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../cidr_metagenomics.pdf" rel="alternate" title="PDF" type="application/pdf"/> <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> CIDR Metagenomics Hub
+        </a>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lab Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Bioinformatics</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#mscape">mSCAPE</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-facets">Technical facets</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#taxonomic-classification">Taxonomic classification</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#centrifuge-score-filtering">Centrifuge score filtering</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#thresholds-and-priority-organisms">Thresholds and priority organisms</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#human-scrubbing">Human scrubbing</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#antimicrobial-resistance-prediction">Antimicrobial resistance prediction</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#related-code-snippets">Related code snippets</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#masking-a-fasta-database-using-bbmask">Masking a FASTA database using BBmask</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-a-centrifuge-index-">Building a centrifuge index -</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Launching a sequencing experiment using ONT software</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../running_minknow/">MinKNOW</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../running_gourami/">Gourami</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">CIDR Metagenomics Hub</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item">Bioinformatics</li>
+<li class="breadcrumb-item active">Overview</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/bioinformatics_outline.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<div><h1 id="clinical-metagenomics-bioinformatics-381">Clinical metagenomics bioinformatics 3.8.1</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The principal output of the CIDR Metagenomics workflow is a HTML report listing organisms with detectable nucleic acids (RNA/DNA) and some additional information on AMR associated sequence data. The solution packages two applications - CIDR Metagenomics Workflow and <a href="../running_organism_query/">Organism Query</a> alongside a few scripts to help manage and analyse outputs. The Metagenomics Workflow runs ontop of MinKNOW, analysing sequencing data in real time producing an easily digested report. <a href="../running_organism_query/">Organism Query</a> can be used to scrutinise classifications contained within a report. It leverages the full NCBI nt and RefSeq databases producing a report similar to NCBI BLAST in ~15 minutes. The Organism Query report is designed to provide the user with appropriate information to scrutinise a significant taxonomic classification.</p>
+<div class="admonition tip">
+<p class="admonition-title">Recent updates</p>
+<p><strong>19/05/25</strong> - v3.8.1 now runs Organism Query on all non-viral detections above reporting threshold (including exempt taxa). <strong>See reporting SOP</strong></p>
+</div>
+<p><strong>Getting started:</strong></p>
+<ol>
+<li><a href="../bioinformatics_install/">Install workflow</a> (on first use).</li>
+<li>Starting a MinKNOW experiment:
+    -<a href="../running_minknow/">MinKNOW (MinION/GridION)</a>.
+    -<a href="../running_gourami/">Gourami (&gt;= Q-line V1.1)</a>.</li>
+<li><a href="../running_metagenomics_workflow/">Start the Metagenomics workflow</a>.</li>
+</ol>
+<p><strong>Optional:</strong></p>
+<ol start="4">
+<li><a href="../running_organism_query/">Query a classification</a>.</li>
+<li><a href="../mSCAPE_integration/">Upload data to mSCAPE</a>.</li>
+<li>Generate a summary spreadsheet.</li>
+</ol>
+<h3 id="mscape">mSCAPE</h3>
+<p>Users can opt in to <a href="../mSCAPE_integration/">mSCAPE</a> on an per-experiment basis for an automatic upload of sequencing data to UKHSA mSCAPE. No information leaves the sequencing device/CIDR workflow without expressed case-by-case authorisation. </p>
+<h3 id="technical-facets">Technical facets</h3>
+<p>After loading a metagenomic library on to an ONT sequencing device and launching the sequencing experiment in ONT MinKNOW the pipeline is initialised by the user through the Metagenomics Launcher graphical user interface (GUI). The software periodically ingests base called FASTQ data from the GridION <code>/data/</code> directory at set intervals - 0.5, 1, 2, 16 and 24 hours. At each interval, the pipeline performs human scrubbing, taxonomic classification, AMR detection and MLST which is then consolidated in to a PDF reports which are saved in the <code>/media/grid/metagenomics/results/</code> directory. The diagram below illustrates further details of how the pipeline works:  </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-title="Diagram of the metagenomics software package" data-type="image" data-width="auto" href="../img/pipeline%20digram.drawio.svg"><img alt="image" data-description="" data-title="Diagram of the metagenomics software package" src="../img/pipeline%20digram.drawio.svg"/></a></p>
+<h4 id="taxonomic-classification">Taxonomic classification</h4>
+<p>At its core, the pipeline leverages the [Centrifuge](https://ccb.jhu.edu/software/centrifuge/manual.shtml k-mer taxonomic classification tool. There are numerous similar methods, the most common being Kraken2. We chose Centrifuge namely because of its small memory footprint and existing deployment in our legacy workflows. Each read of the raw sequencing data is aligned against an the bespoke Centrifuge database, and is assigned a confidence score and a taxonomy. Our database comprises an optimised database of curated eukrayotic, prokaryotic, and viral reference sequences sourced primarily from <a href="https://en.wikipedia.org/wiki/RefSeq">NCBI RefSeq</a> and <a href="https://www.fda.gov/medical-devices/science-and-research-medical-devices/database-reference-grade-microbial-sequences-fda-argos">FDA-ARGOS</a>. </p>
+<p>The Centrifuge database is QCed using additional taxonomy databases (where available) such as <a href="https://gtdb.ecogenomic.org/">GTDB</a> and scrubbed for regions of significant sequence identity with the our human database.</p>
+<p>This database is provided on the SSD sent to each site. We recommend users have &gt; 64 GB of memory available to run the workflow.</p>
+<p>Visit the <a href="../genome_database/">Sequence database</a> for more details on the contents of the k-mer classification and Auto Query BLAST database. </p>
+<h4 id="centrifuge-score-filtering">Centrifuge score filtering</h4>
+<p>Prior to report generation, classifications/reads are subject to a scoring algorithm. This score is a function of read to reference database match length and sequence identity. Score thresholds are currently set at 5000 for all organisms except for viruses for which the score is 250. A function for modifying scoring for specific taxa is built into the workflow. Please do not modify this scoring unless instructed to do so. To add a new filtering threshold for specific taxa, a JSON file in <code>../metagenomics/db/ref/thresholds</code> with NCBI taxIDs can be provided (follow the structure of existing examples), then, add the name of the JSON file to ranking.txt file on a new line. This rank determines the priority of lists, given that across lists there may be multiple occurrences of the same taxIDs. Reads which fall below the defined thresholds are not included in the report and appear as ‘Below Threshold’ reads in the ‘Quality Control’ section of the PDF. </p>
+<h4 id="thresholds-and-priority-organisms">Thresholds and priority organisms</h4>
+<p>Taxa excluding viruses are subject to a 1% relative abundance threshold. This threshold was empirically determined through an assay performance evaluation at GSTT [1]. All classifications without the reporting threshold applied are available at the bottom of the report under the ‘Centrifuge Full’ section.  </p>
+<p>Specific detections will bypass this 1% threshold, meaning at any relative abundance, taxa will appear in the Above Threshold report section. Consult the Reporting SOP for more information on how to report these taxa. Priority organisms include: Aspergillus spp., Candida spp., Chlamydia spp., Pneumocystis spp. and Mycoplasma spp.. </p>
+<h4 id="human-scrubbing">Human scrubbing</h4>
+<p>Human read removal is required as per the project’s ethical approval. A bespoke database of human sequences from RefSeq, T2T CHM13v2.0, NCBI GenBank and HPRC have been screened for microbial sequence, and added to the classification database. Human reads are removed from the analysis workflow on the Metagenomics SSD as soon as they are identified and microbial FASTQ reads are stored in <code>./metagenomics/results/{sample_id}/{timepoint}/microbial</code>. Human reads are retained in the raw sequencing (/data) directory on the GridION local storage until deletion.</p>
+<h4 id="antimicrobial-resistance-prediction">Antimicrobial resistance prediction</h4>
+<p>Reads classified as taxa with a relative abundance above 1% are screened using CARD [3] and VFDB [4] databases using ABRicate [5]. The ABRicate outputs are parsed using Scagaire [6], which associates gene predictions with an organism. The parsed outputs of AMR and virulence predictions are added to the PDF report. Common notable detections include ESBL genes, vanA-X, mecA/C. The absence of detected resistance genes ishould not be interpreted as an indication of antimicrobial susceptibility without further validation  </p>
+<h2 id="related-code-snippets">Related code snippets</h2>
+<h4 id="masking-a-fasta-database-using-bbmask">Masking a FASTA database using BBmask</h4>
+<pre><code>bbmask.sh in=unmasked.fasta out=masked.fasta entropy=0.7 -Xmx80g  maskrepeats=t
+</code></pre>
+<h4 id="building-a-centrifuge-index-">Building a centrifuge index -</h4>
+<pre><code># --bmax needs tuning based on available memory.
+centrifuge-build -p 10 --conversion-table accession2taxid.map --taxonomy-tree ./taxdump/nodes.dmp --name-table ./taxdump/names.dmp  masked.fasta centrifuge_index_v2 --bmax 1042177280
+</code></pre></div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../panmetagenomics_protocol/" title="Lab protocols"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../bioinformatics_install/" title="Installation and validation">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../panmetagenomics_protocol/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../bioinformatics_install/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+<script src="../assets/js/jquery-jvectormap.js"></script>
+<script src="../assets/js/jquery-mousewheel.js"></script>
+<script src="../assets/js/jvectormap.js"></script>
+<script src="../assets/js/abstract-element.js"></script>
+<script src="../assets/js/abstract-canvas-element.js"></script>
+<script src="../assets/js/abstract-shape-element.js"></script>
+<script src="../assets/js/svg-element.js"></script>
+<script src="../assets/js/svg-group-element.js"></script>
+<script src="../assets/js/svg-canvas-element.js"></script>
+<script src="../assets/js/svg-shape-element.js"></script>
+<script src="../assets/js/svg-path-element.js"></script>
+<script src="../assets/js/svg-circle-element.js"></script>
+<script src="../assets/js/svg-image-element.js"></script>
+<script src="../assets/js/svg-text-element.js"></script>
+<script src="../assets/js/vml-element.js"></script>
+<script src="../assets/js/vml-group-element.js"></script>
+<script src="../assets/js/vml-canvas-element.js"></script>
+<script src="../assets/js/vml-shape-element.js"></script>
+<script src="../assets/js/vml-path-element.js"></script>
+<script src="../assets/js/vml-circle-element.js"></script>
+<script src="../assets/js/vml-image-element.js"></script>
+<script src="../assets/js/map-object.js"></script>
+<script src="../assets/js/region.js"></script>
+<script src="../assets/js/marker.js"></script>
+<script src="../assets/js/vector-canvas.js"></script>
+<script src="../assets/js/simple-scale.js"></script>
+<script src="../assets/js/ordinal-scale.js"></script>
+<script src="../assets/js/numeric-scale.js"></script>
+<script src="../assets/js/color-scale.js"></script>
+<script src="../assets/js/legend.js"></script>
+<script src="../assets/js/data-series.js"></script>
+<script src="../assets/js/proj.js"></script>
+<script src="../assets/js/map.js"></script>
+<script src="../assets/js/uk_mill.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
