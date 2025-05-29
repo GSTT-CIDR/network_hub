@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://CIDR-network-hub.github.io/3.4-3.8.0/additional_tools/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Summary report - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Summary report";
+        var mkdocs_page_input_path = "additional_tools.md";
+        var mkdocs_page_url = "/3.4-3.8.0/additional_tools/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lab Resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Summary report</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#purpose">Purpose</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#instructions-for-use">Instructions for use</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#video-tutorial-manually-selecting-samples">Video tutorial - Manually selecting samples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#video-tutorial-providing-a-list-of-sample-names">Video tutorial - Providing a list of sample names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#output-fields">Output fields</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Analysis</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Summary report</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/additional_tools.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="summary-report-generator">Summary report generator</h1>
+<h2 id="purpose">Purpose</h2>
+<p>We have found it useful to be able to generate summaries of multiple runs for downstream analysis. This takes the form of a spreadsheet or CSV, with rows corresponding to each sample and columns containing information derived from the sample sheet and the metagenomic analyses across timepoints. The tool features an end-to-end GUI to select samples and build the sheet.</p>
+<div class="admonition danger">
+<p class="admonition-title">Important note</p>
+<p>We ask that for the NHS RMg service evaluation, you set the Summary Report threshold cut-off to the lowest value (currently 0.1) so that all classifications are included.</p>
+</div>
+<p>A description of the fields featured in the spreadsheet is available <a href="#fields-included">here</a>.</p>
+<h2 id="instructions-for-use">Instructions for use</h2>
+<p><em>Check out the <a href="#video-tutorial-manually-selecting-samples">video at the bottom of the page</a> for an end-to-end demonstration</em></p>
+<ol>
+<li>Double click the Launch Summary Report icon on the desktop. The window should appear with a loading bar. Please wait until all of the samples are sourced and loaded.</li>
+</ol>
+<p><a class="glightbox" href="../img/summary_report_screenshot.png" data-type="image" data-width="auto" data-height="auto" data-title="The main window of the summary report generator." data-desc-position="bottom"><img alt="image" data-description="" data-title="The main window of the summary report generator." src="../img/summary_report_screenshot.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the above example, we have a list of samples, some of which have red indicators at specific time point. In both instances, it is likely that the reports were not generated because there were no reads present in the dataset. This is an especially frequent occurrence in NTC samples given that few reads should be detected in these samples.</p>
+</div>
+<ol start="2">
+<li>
+<p>The program reads all Metagenomics Workflow runs from the 'results' folder and populates a list. The list has a checkbox to include or exclude samples from the report, and a coloured box indicating the time point is present in the dataset. Select the samples for reporting using one of the two below methods. </p>
+<p>a. Select samples using the check boxes on the interface.</p>
+<p>b. Produce a simple list (newline delimited) of sample names, matching exactly (case sensitive) the Sample ID/Accession number used in the Metagenomics run. Save the list in the 'Sample Sheet' directory on the Metagenomics SSD. Select the 'Load list of sample names' button.</p>
+</li>
+<li>
+<p>Choose whether you'd like to export as a spreadsheet (xlsx) or a CSV using the checkboxes at the bottom of the interface.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both report formats (xlsx/CSV) contain lists of taxa in single cells. In the xlsx, this is delimited by a newline (\n). In the CSV this is swapped for a semicolon ';' to avoid parsing errors.</p>
+</div>
+<ol start="4">
+<li>
+<p>Specify the output location by clicking the 'Browse' button in the 'Output File' section at the top of the interface. Fill out the 'Save As' prompt. <strong>Please be sure add the '.xlsx' or '.csv' file extension to the filename if it not done automatically.</strong></p>
+</li>
+<li>
+<p>Specify the 'Relative Abundance Threshold'. The default is 1.0%. this default parameter means that no organism &lt; 1% relative abundance will will feature in the output report.</p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Important note</p>
+<p>We ask that for the NHS RMg service evaluation, you set the Summary Report threshold cut-off to the lowest value (currently 0.1) so that all classifications are included.</p>
+</div>
+<ol start="6">
+<li>Click 'Generate Summary'. The output will appear in the 'summary_report' directory.</li>
+</ol>
+<h3 id="video-tutorial-manually-selecting-samples">Video tutorial - Manually selecting samples</h3>
+<p><a class="glightbox" href="../videos/summary_report.mp4" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><video style="width:50%;height:35%" controls alt="type:video"><source src="../videos/summary_report.mp4" type="video/mp4"></source></video></div></a></p>
+<h3 id="video-tutorial-providing-a-list-of-sample-names">Video tutorial - Providing a list of sample names</h3>
+<p><a class="glightbox" href="../videos/summary_report_sample_list.mp4" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><video style="width:50%;height:35%" controls alt="type:video"><source src="../videos/summary_report_sample_list.mp4" type="video/mp4"></source></video></div></a></p>
+<h3 id="output-fields">Output fields</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sample</strong></td>
+<td>The Lab/sample ID.</td>
+</tr>
+<tr>
+<td><strong>Experiment</strong></td>
+<td>The specific MinKNOW experiment.</td>
+</tr>
+<tr>
+<td><strong>SampleID</strong></td>
+<td>The specific MinKNOW sample.</td>
+</tr>
+<tr>
+<td><strong>Barcode</strong></td>
+<td>The barcode used in the library.</td>
+</tr>
+<tr>
+<td><strong>AnonymisedIdentifier</strong></td>
+<td>A de-identified hospital number.</td>
+</tr>
+<tr>
+<td><strong>CollectionDate</strong></td>
+<td>The date on which the sample was collected.</td>
+</tr>
+<tr>
+<td><strong>SampleClass</strong></td>
+<td>The classification of the sample, PC, NC, NTC, specimen.</td>
+</tr>
+<tr>
+<td><strong>SampleType</strong></td>
+<td>The sample site, eg. BAL, SPT, NPS.</td>
+</tr>
+<tr>
+<td><strong>Operator</strong></td>
+<td>The name or identifier of the individual who processed or sequenced the sample.</td>
+</tr>
+<tr>
+<td><strong>Notes</strong></td>
+<td>Any additional notes or remarks related to the sample or its processing.</td>
+</tr>
+<tr>
+<td><strong>Total reads XX hrs</strong></td>
+<td>The total number of sequencing reads generated after XX hours of sequencing.</td>
+</tr>
+<tr>
+<td><strong>Human reads XX hrs</strong></td>
+<td>The number of reads identified as being from human DNA after XX hours of sequencing.</td>
+</tr>
+<tr>
+<td><strong>Human reads (%) XX hrs</strong></td>
+<td>The percentage of total reads that are identified as human DNA after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Total classified reads XX hrs</strong></td>
+<td>The number of reads that have been classified (assigned to an organism or category) after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Sequencing N50 (bp) XX hrs</strong></td>
+<td>The N50 statistic for the reads generated after XX hours, indicating read length distribution.</td>
+</tr>
+<tr>
+<td><strong>Proportion &gt;Q15 quality (%) XX hrs</strong></td>
+<td>The percentage of reads with a quality score greater than Q15 after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Median read quality (PHRED score) XX hrs</strong></td>
+<td>The median PHRED quality score of the reads after XX hours, indicating overall data quality.</td>
+</tr>
+<tr>
+<td><strong>Total bases (bp) XX hrs</strong></td>
+<td>The total number of base pairs generated by the sequencing run after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Organisms (excluding viruses) XX hrs</strong></td>
+<td>The list of organisms (excluding viruses) identified from the reads after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Organisms (excluding viruses) read counts XX hrs</strong></td>
+<td>The read counts associated with organisms (excluding viruses) after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Organism (excluding viruses) percentage abundance XX hrs</strong></td>
+<td>The percentage abundance of each organism (excluding viruses) in the sample after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Viral organisms XX hrs</strong></td>
+<td>The list of viral organisms identified from the reads after XX hours.</td>
+</tr>
+<tr>
+<td><strong>Viral read counts XX hrs</strong></td>
+<td>The read counts associated with viral organisms after XX hours.</td>
+</tr>
+</tbody>
+</table></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../mSCAPE_integration/" class="btn btn-neutral float-left" title="Uploading to mSCAPE"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../alternative_deployment/" class="btn btn-neutral float-right" title="Deployment alternatives">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../mSCAPE_integration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../alternative_deployment/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
