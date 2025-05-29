@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://CIDR-network-hub.github.io/3.8.1/running_minknow/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Starting a MinKNOW experiment - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Starting a MinKNOW experiment";
+        var mkdocs_page_input_path = "running_minknow.md";
+        var mkdocs_page_url = "/3.8.1/running_minknow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lab Resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Starting a MinKNOW experiment</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-a-flow-cell-check">Running a flow cell check</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#starting-a-sequencing-experiment-on-minknow">Starting a sequencing experiment on MinKNOW</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Analysis</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">FAQ</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Starting a MinKNOW experiment</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_minknow.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="starting-a-sequencing-experiment-in-minknow">Starting a sequencing experiment in MinKNOW</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This section documents user interactions with the ONT MinKNOW interface. The MinKNOW software is used to initialise and control sequencing experiments on the GridION device. The CIDR Metagenomics Workflow is launched after having completed this section.</p>
+<p>Before completing any protocols, users should check flow cells sent to them by ONT are above the warranty pore count. The pore check should be run:</p>
+<ol>
+<li>As soon as you have recieved a new batch from ONT.</li>
+<li>Immediately before starting a sequencing experiment.</li>
+</ol>
+<h2 id="running-a-flow-cell-check">Running a flow cell check</h2>
+<p>Oxford Nanopore Technologies will replace any flow cell that falls below the warranty number of active pores within three months of purchase, provided that you report the results within two days of performing the flow cell check and you have followed the storage recommendations. A MinION flow cell (used also in the GridION) should have 800 pores.</p>
+<p><a class="glightbox" href="../img/minknow_landing.png" data-type="image" data-width="auto" data-height="auto" data-title="Landing screen of ONT MinKNOW software" data-desc-position="bottom"><img alt="image" data-description="" data-title="Landing screen of ONT MinKNOW software" src="../img/minknow_landing.png"></a></p>
+<ol>
+<li>
+<p>Select <strong>Flow Cell Check</strong> from the MinKNOW Start screen. </p>
+</li>
+<li>
+<p>Indicate the corresponding sequencing positions you'd like to check by selecting the square icons below the 'Flow Cell Check' title. (See image below)</p>
+</li>
+<li>
+<p>Click on the green Start button and wait for the flow cell check to complete.</p>
+</li>
+<li>
+<p>If the pore count is &lt; 800 and the flow cell is still in warrant, contact ONT for a replacement within two days of completing the check.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_pore_check.png" data-type="image" data-width="auto" data-height="auto" data-title="flow cell check screen on ONT MinKNOW" data-desc-position="bottom"><img alt="image" data-description="" data-title="flow cell check screen on ONT MinKNOW" src="../img/minknow_pore_check.png"></a>
+<br>
+<br></p>
+<h2 id="starting-a-sequencing-experiment-on-minknow">Starting a sequencing experiment on MinKNOW</h2>
+<ol>
+<li>
+<p>From the Start screen in MinKNOW select 'Start Sequencing'.</p>
+</li>
+<li>
+<p>Select the position occupied by the flow cell loaded for the sequencing experiment, enter the Experiment and Sample IDs and select 'Continue to kit selection' at the bottom of the screen.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should enter a new and unique Experiment ID and Sample ID for each new sequencing library.
+<br>
+A summary of the configuration parameters is shown at the bottom of this section.</p>
+</div>
+<ol start="3">
+<li>Select the RPB-004 library preparation kit from the Kit selection screen. Click 'Continue to run options' at the bottom of the window.</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_kit.png" data-type="image" data-width="auto" data-height="auto" data-title="Kit selection window for ONT MinKNOW start experiment process" data-desc-position="bottom"><img alt="image" data-description="" data-title="Kit selection window for ONT MinKNOW start experiment process" src="../img/minknow_kit.png"></a></p>
+<ol start="4">
+<li>In the run options screen, set the sequencing experiment to last for 24 hours. Leave the read length at 200 bp and the other settings as default and select 'Continue to analysis' at the bottom of the window.</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_run_options.png" data-type="image" data-width="auto" data-height="auto" data-title="Run options window for ONT MinKNOW start experiment process" data-desc-position="bottom"><img alt="image" data-description="" data-title="Run options window for ONT MinKNOW start experiment process" src="../img/minknow_run_options.png"></a></p>
+<ol start="5">
+<li>On the Analysis window, under barcoding, select 'Edit options'. In the popup window, select 'Barcode at both ends' and 'Mid-read barcode filtering'. Select the 'Continue to output' button at the bottom of the window. </li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_analysis.png" data-type="image" data-width="auto" data-height="auto" data-title="Analysis options window for ONT MinKNOW start experiment process" data-desc-position="bottom"><img alt="image" data-description="" data-title="Analysis options window for ONT MinKNOW start experiment process" src="../img/minknow_analysis.png"></a></p>
+<ol start="6">
+<li>On the Output window, deselect the FAST5 option. Where the FASTQ checkbox is selected, click the gear icon and set 'Reads per file' to 100. Continue to final review.</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_outputs.png" data-type="image" data-width="auto" data-height="auto" data-title="FASTQ output options window for ONT MinKNOW start experiment process" data-desc-position="bottom"><img alt="image" data-description="" data-title="FASTQ output options window for ONT MinKNOW start experiment process" src="../img/minknow_outputs.png"></a></p>
+<ol start="7">
+<li>Check the parameters below match what is indicated on-screen. </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Selected Kit</strong></td>
+<td>SQK-RPB004</td>
+</tr>
+<tr>
+<td><strong>Run length</strong></td>
+<td>24 hours</td>
+</tr>
+<tr>
+<td><strong>Minimum read length</strong></td>
+<td>200 bp</td>
+</tr>
+<tr>
+<td><strong>Adaptive sampling</strong></td>
+<td>Off</td>
+</tr>
+<tr>
+<td><strong>Basecalling</strong></td>
+<td>On (High accuracy basecalling)</td>
+</tr>
+<tr>
+<td><strong>Barcoding</strong></td>
+<td>On</td>
+</tr>
+<tr>
+<td><strong>Require both ends</strong></td>
+<td>On</td>
+</tr>
+<tr>
+<td><strong>Detect mid-read barcodes</strong></td>
+<td>On</td>
+</tr>
+<tr>
+<td><strong>Alignment</strong></td>
+<td>Off</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>/data</td>
+</tr>
+<tr>
+<td><strong>FAST5</strong></td>
+<td>Off</td>
+</tr>
+<tr>
+<td><strong>FASTQ</strong></td>
+<td>On (Gzip, 100 reads per file)</td>
+</tr>
+<tr>
+<td><strong>Read filtering</strong></td>
+<td>Qscore:9 Readlength: unfiltered, Read splitting: Disabled</td>
+</tr>
+</tbody>
+</table>
+<ol start="8">
+<li>Start the sequencing experiment. After the flow cell reaches temperature, navigate to the barcodes screen to verify data has been output.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Success!</p>
+<p>After reads start to appear on the barcoding screen you can advance to <a href="../running_metagenomics_workflow/">Starting the metagenomics workflow</a>.</p>
+</div></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../bioinformatics_install/" class="btn btn-neutral float-left" title="Installation and validation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../running_metagenomics_workflow/" class="btn btn-neutral float-right" title="Running the metagenomics workflow">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../bioinformatics_install/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../running_metagenomics_workflow/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
