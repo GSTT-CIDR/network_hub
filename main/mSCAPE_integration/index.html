@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="writer-html5" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="CIDR" name="author"/><link href="https://CIDR-network-hub.github.io/main/mSCAPE_integration/" rel="canonical"/>
+<link href="../img/favicon.ico" rel="shortcut icon"/>
+<title>Uploading to mSCAPE - CIDR Metagenomics Hub</title>
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="../css/theme_extra.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../assets/js/jquery-jvectormap.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/width.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet"/>
+<link href="../css/version-select.css" rel="stylesheet"/>
+<script>
+        // Current page data
+        var mkdocs_page_name = "Uploading to mSCAPE";
+        var mkdocs_page_input_path = "mSCAPE_integration.md";
+        var mkdocs_page_url = "/main/mSCAPE_integration/";
+      </script>
+<!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<link href="../cidr_metagenomics.pdf" rel="alternate" title="PDF" type="application/pdf"/> <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+<body class="wy-body-for-nav" role="document">
+<div class="wy-grid-for-nav">
+<nav class="wy-nav-side stickynav" data-toggle="wy-nav-shift">
+<div class="wy-side-scroll">
+<div class="wy-side-nav-search">
+<a class="icon icon-home" href=".."> CIDR Metagenomics Hub
+        </a>
+</div>
+<div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+<p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Lab Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Bioinformatics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#">Launching a sequencing experiment using ONT software</a>
+<ul>
+<li class="toctree-l2"><a class="reference internal" href="../running_minknow/">MinKNOW</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../running_gourami/">Gourami</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+</li>
+<li class="toctree-l1 current"><a class="reference internal current" href="./">Uploading to mSCAPE</a>
+<ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#uploading-samples">Uploading samples</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#video-tutorial">Video tutorial</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-information">Additional information</a>
+<ul>
+<li class="toctree-l3"><a class="reference internal" href="#study-description">Study description</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+<nav aria-label="Mobile navigation menu" class="wy-nav-top" role="navigation">
+<i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+<a href="..">CIDR Metagenomics Hub</a>
+</nav>
+<div class="wy-nav-content">
+<div class="rst-content"><div aria-label="breadcrumbs navigation" role="navigation">
+<ul class="wy-breadcrumbs">
+<li><a aria-label="Docs" class="icon icon-home" href=".."></a></li>
+<li class="breadcrumb-item">Bioinformatics</li>
+<li class="breadcrumb-item active">Uploading to mSCAPE</li>
+<li class="wy-breadcrumbs-aside">
+<a class="icon icon-github" href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/mSCAPE_integration.md"> Edit on GitHub</a>
+</li>
+</ul>
+<hr/>
+</div>
+<div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+<div class="section" itemprop="articleBody">
+<div><h1 id="mscape-upload-tool">mSCAPE upload tool</h1>
+<h2 id="introduction">Introduction</h2>
+<p>With on-boarding to the mSCAPE programme, users are encouraged to upload samples to mSCAPE using the mSCAPE Launcher. This tool incorporates sample metadata inputted when using the Metagenomics Launcher, with some additional user inputs. The tool then packages human-scrubbed FASTQ data, producing metadata outputs in the required format for an mSCAPE submission.</p>
+<h2 id="installation">Installation</h2>
+<p>The mSCAPE on-boarding team will provide all of the credentials required to make a test submission. These credentials should be stored in <code>~/.aws/</code> on the host machine. Contact the bioinformatics lead at GSTT for activation of the mSCAPE Uploader.</p>
+<h2 id="uploading-samples">Uploading samples</h2>
+<p>Following the successful completion of the CIDR Metagenomics Workflow, users can double click the 'mSCAPE Launcher' on the desktop. The tool reads the sample information from the sample sheet saved when a workflow run is started and parses it in to the correct format ready for upload.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using the 'filename suffix' field on the Metagenomics Launcher appends the sample sheet filename with a string of your choosing, making it easier to find during audits or mSCAPE uploads.</p>
+</div>
+<p><em>Check out the <a href="#video-tutorial">video at the bottom of the page</a> for a visual guide on how to run the uploader</em></p>
+<ol>
+<li>From the 'Dropdown Options' section, select the parameters appropriate for the samples to be uploaded. Some addition fields for mSCAPE are inferred from the sample sheet, the data in the dropdowns or the sequencing reads themselves. See the table below for more details.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more details on how to fill the metadata fields associate with the samples, for example 'Study description', <a href="#additional-information">see the additional information section</a> at the bottom of the page.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>StudySite</strong></td>
+<td>The RMg Network site the sequencing took place.</td>
+</tr>
+<tr>
+<td><strong>Extraction Method</strong></td>
+<td>the nucleic acid extraction methodology used.</td>
+</tr>
+<tr>
+<td><strong>Spike-in</strong></td>
+<td>The spike-in control used.</td>
+</tr>
+<tr>
+<td><strong>ISOCountry</strong></td>
+<td>Country/nation.</td>
+</tr>
+<tr>
+<td><strong>Sequencing Protocol</strong></td>
+<td>The methodology used for sample preparation.</td>
+</tr>
+<tr>
+<td><strong>Library Protocol</strong></td>
+<td>the sequencing kit used for library preparation.</td>
+</tr>
+<tr>
+<td><strong>Bioinformatics protocol</strong></td>
+<td>The version of the CIDR Metagenomics bioinformatics workflow.</td>
+</tr>
+<tr>
+<td><strong>Clinical or research</strong></td>
+<td>mSCAPE clinical or research.</td>
+</tr>
+<tr>
+<td><strong>Human scrubbing</strong></td>
+<td>mSCAPE informatic Human Scrubbing protocol used.</td>
+</tr>
+<tr>
+<td><strong>Study description</strong></td>
+<td>Code provided by mSCAPE team.</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>
+<p>Load a sample sheet by clicking the 'Load sample sheet' button at the bottom of the interface. The file browser takes you to the 'sample sheet' directory. Find the date/time corresponding to your run (or the sheet identified by the filename suffix) and open it. With this, the Main Table section should be populated with the samples from the corresponding sequencing run. </p>
+</li>
+<li>
+<p>From the 'FASTQ Selection', select the dataset and the timepoint to be uploaded.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sample which are not intended for upload can be checked in the 'Main Table' and removed by clicking the 'Delete Selected rows' button at the bottom of the interface.</p>
+</div>
+<ol start="4">
+<li>
+<p>Once you have selected all of the timepoints for upload, choose the 'Update DataFrame' button at the bottom of the interface. </p>
+</li>
+<li>
+<p>Review the data in the 'Main Table' panel ensuring it is suitable for upload.</p>
+</li>
+<li>
+<p>Select 'Upload to S3'. You can check the terminal window for outputs confirming successful upload. A status indicator is also present in the FASTQ selection window. </p>
+</li>
+</ol>
+<h3 id="video-tutorial">Video tutorial</h3>
+<p><em>Video demonstration of using mSCAPE Uploader features</em>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../videos/mscape_video.mp4"><div class="video-container"><video alt="type:video" controls="" style="width:50%;height:35%"><source src="../videos/mscape_video.mp4" type="video/mp4"/></video></div></a></p>
+<h2 id="additional-information">Additional information</h2>
+<h3 id="study-description">Study description</h3>
+<p>Once onboarded by the CLIMB team, the site will be provided with a predetermined [study_centre_id] and three [study_id’s].</p>
+<p>A study_centre_id is an abbreviation of the site name e.g. name of the NHS trust. Each site will have one ID.</p>
+<p>A study_id will be used to identify if samples are from a particular research study, or an NHS residual sample. Every NHS trust will have one Study ID related to their clinical samples, and a separate verification Study ID. This is to clearly differentiate between their verification stage and clinical service. Additional study_ids can be added as desired to differentiate any research studies.</p>
+<p>A list of the predetermined site and study codes can be found here: (Link to be added soon)</p>
+<p><strong>See Table 1 for example of a study_centre_id, study_id and their purposes for GSTT.</strong></p>
+<p>Table 1. Example of a study centre ID and study ID:</p>
+<table>
+<thead>
+<tr>
+<th>study_centre_id</th>
+<th>study_id</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GSTT</td>
+<td>GSTT-CLI-01</td>
+<td>Clinical service samples</td>
+</tr>
+<tr>
+<td>GSTT</td>
+<td>GSTT-VER-01</td>
+<td>Verification</td>
+</tr>
+<tr>
+<td>GSTT</td>
+<td>GSTT- RES-01</td>
+<td>Research – outside of network of excellence protocol</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div><footer>
+<div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
+<a class="btn btn-neutral float-left" href="../running_organism_query/" title="Query a classification"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../additional_tools/" title="Summary report">Next <span class="icon icon-circle-arrow-right"></span></a>
+</div>
+<hr/>
+<div role="contentinfo">
+<!-- Copyright etc -->
+</div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+</div>
+</div>
+</section>
+</div>
+<div aria-label="Versions" class="rst-versions" role="note">
+<span class="rst-current-version" data-toggle="rst-current-version">
+<span>
+<a class="fa fa-github" href="https://github.com/GSTT-CIDR/network_hub" style="color: #fcfcfc"> GitHub</a>
+</span>
+<span><a href="../running_organism_query/" style="color: #fcfcfc">« Previous</a></span>
+<span><a href="../additional_tools/" style="color: #fcfcfc">Next »</a></span>
+</span>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script>var base_url = "..";</script>
+<script src="../js/theme_extra.js"></script>
+<script src="../js/theme.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+<script src="../assets/js/jquery-jvectormap.js"></script>
+<script src="../assets/js/jquery-mousewheel.js"></script>
+<script src="../assets/js/jvectormap.js"></script>
+<script src="../assets/js/abstract-element.js"></script>
+<script src="../assets/js/abstract-canvas-element.js"></script>
+<script src="../assets/js/abstract-shape-element.js"></script>
+<script src="../assets/js/svg-element.js"></script>
+<script src="../assets/js/svg-group-element.js"></script>
+<script src="../assets/js/svg-canvas-element.js"></script>
+<script src="../assets/js/svg-shape-element.js"></script>
+<script src="../assets/js/svg-path-element.js"></script>
+<script src="../assets/js/svg-circle-element.js"></script>
+<script src="../assets/js/svg-image-element.js"></script>
+<script src="../assets/js/svg-text-element.js"></script>
+<script src="../assets/js/vml-element.js"></script>
+<script src="../assets/js/vml-group-element.js"></script>
+<script src="../assets/js/vml-canvas-element.js"></script>
+<script src="../assets/js/vml-shape-element.js"></script>
+<script src="../assets/js/vml-path-element.js"></script>
+<script src="../assets/js/vml-circle-element.js"></script>
+<script src="../assets/js/vml-image-element.js"></script>
+<script src="../assets/js/map-object.js"></script>
+<script src="../assets/js/region.js"></script>
+<script src="../assets/js/marker.js"></script>
+<script src="../assets/js/vector-canvas.js"></script>
+<script src="../assets/js/simple-scale.js"></script>
+<script src="../assets/js/ordinal-scale.js"></script>
+<script src="../assets/js/numeric-scale.js"></script>
+<script src="../assets/js/color-scale.js"></script>
+<script src="../assets/js/legend.js"></script>
+<script src="../assets/js/data-series.js"></script>
+<script src="../assets/js/proj.js"></script>
+<script src="../assets/js/map.js"></script>
+<script src="../assets/js/uk_mill.js"></script>
+<script src="../js/version-select.js"></script>
+<script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
