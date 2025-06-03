@@ -130,13 +130,10 @@
 <p class="admonition-title">Before starting</p>
 <ol>
 <li>
-<p>The CIDR metagenomics workflow must be started during a sequencing experiment or after a sequencing experiment has completed. The pipeline must not be activated before a sequencing experiment has started in MinKNOW and has <strong>started producing reads</strong> (See MinKNOW setup - Lab Protocol).</p>
+<p>Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully.</p>
 </li>
 <li>
-<p>Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully. Test the disk has been mounted by navigating to it in the Ubuntu file explorer.</p>
-</li>
-<li>
-<p>For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account across all previous runs. For positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.</p>
+<p>For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account all previous runs. Positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.</p>
 </li>
 </ol>
 </div>
@@ -147,16 +144,12 @@
 <p><a class="glightbox" href="../img/metagenomics_pipeline_clean.jpg" data-type="image" data-width="auto" data-height="auto" data-title="GridION desktop screenshot" data-description="The CIDR metagenomics workflow launcher" data-desc-position="bottom"><img alt="The CIDR metagenomics workflow launcher" data-description="The CIDR metagenomics workflow launcher" data-title="GridION desktop screenshot" src="../img/metagenomics_pipeline_clean.jpg"></a></p>
 <div class="admonition danger">
 <p class="admonition-title">Known issues</p>
-<p>In the terminal, you might see a <code>'geocryptfs error not found...'</code> error. This can be ignored as it is not essential to the workflow.
-<br></p>
+<p>In the terminal, you might see a <code>'geocryptfs error not found...'</code> error. This can be ignored as it is not essential to the workflow.</p>
 </div>
 <ol start="2">
-<li>
-<p>Select the number of samples (including positive and negative controls) to be analysed from the dropdown (Feature 2).</p>
-</li>
-<li>
-<p>Add an appropriate experiment ID to the field (Feature 3). This will label the stored sample sheet, useful for auditing. For Gourami users, this will set the ONT experiment ID.</p>
-</li>
+<li>Select the number of ONT barcodes to be included in the analysis. (Feature 2).
+<br></li>
+<li>Add an appropriate experiment ID to the field (Feature 3). This will label the sample sheet stored in <code>./metagenomics/sample_sheets</code> which helps identify it when you use them in downstream processes. For Gourami users, this will also set the ONT experiment ID.</li>
 </ol>
 <h4 id="field-descriptions">Field descriptions:</h4>
 <table>
@@ -286,19 +279,24 @@
 </div>
 <ol start="4">
 <li>
-<p>Select the experiment and sample ID corresponding to the MinKNOW/Gourami run from the ONT Experiment ID and ONT sample ID dropdown menu (Feature 4). If your experiment is not there, click the refresh button (Feature 21).</p>
+<p>Fill out the ONT Experiment ID and ONT sample ID drop down menus corresponding to the MinKNOW/Gourami run for the sequencing experiment (Feature 4 and 5). If your experiment is not there, click the refresh button (Feature 21) or restart the Metagenomics Launcher.
+<br></p>
 </li>
 <li>
-<p>Complete the remaining fields using the table above as a guide. The NHS service evaluation and mSCAPE protocols require that all fields are completed where appropriate.</p>
+<p>Complete the remaining fields using the table above as a guide. The NHS service evaluation and mSCAPE protocols require that all fields are completed where appropriate.
+<br></p>
 </li>
 <li>
-<p>Where appropriate, apply the anonymisation functions to the data using the 'Anonymise' button. This will pseudo-anonymise the 'Sample accession' and 'Hospital number' fields. Users can deanonymise a sample sheet by loading it in to the lanucher and selecting 'Deanonymise' or by using the Deanonymisation tool.</p>
+<p>Where appropriate, apply the anonymisation functions to the data using the 'Anonymise' button. This will pseudo-anonymise the 'Sample accession' and 'Hospital number' fields. Users can deanonymise a sample sheet by loading it in to the lanucher and selecting 'Deanonymise' or by using the Deanonymisation tool.
+<br></p>
 </li>
 <li>
-<p>Click on Launch pipeline and follow the instructions to start the analysis.</p>
+<p>Click on Launch pipeline and follow the instructions to start the analysis.
+<br></p>
 </li>
 <li>
-<p>After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.</p>
+<p>After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.
+<br></p>
 </li>
 <li>
 <p>~35 minutes after launching the sequencing experiment alongside the metagenomics workflow, the first reports will be available in /media/grid/metagenomics/reports/{sample_name}/. See below for a guide on how to access this.</p>
