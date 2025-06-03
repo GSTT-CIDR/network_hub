@@ -75,7 +75,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#launching-a-run">Launching a run</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#field-descriptions">Field descriptions:</a>
+    <li class="toctree-l2"><a class="reference internal" href="#feature-descriptions">Feature descriptions:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#video-demonstration">Video demonstration</a>
     </li>
     </ul>
                   </li>
@@ -129,12 +131,11 @@
 <div class="admonition note">
 <p class="admonition-title">Before starting</p>
 <ol>
-<li>
-<p>Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully.</p>
-</li>
-<li>
-<p>For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account all previous runs. Positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.</p>
-</li>
+<li>Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully.
+<br><br></li>
+<li>For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account all previous runs. Positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.
+<br><br></li>
+<li>A video demonstration of using the workflow can be found <a href="#video-demostration">here</a></li>
 </ol>
 </div>
 <h4 id="launching-a-run">Launching a run</h4>
@@ -150,7 +151,7 @@
 2. Select the number of ONT barcodes to be included in the analysis. (Feature 2).
 <br><br>
 3. Add an appropriate experiment ID to the field (Feature 3). This will label the sample sheet stored in <code>./metagenomics/sample_sheets</code> which helps identify it when you use them in downstream processes. For Gourami users, this will also set the ONT experiment ID.</p>
-<h4 id="field-descriptions">Field descriptions:</h4>
+<h4 id="feature-descriptions">Feature descriptions:</h4>
 <table>
 <thead>
 <tr>
@@ -274,33 +275,38 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Launching an analysis run will save all of the data in the launcher fields to a TSV file in the metagenomics/sample_sheets directory, with the date/time and the contents of the Experiment ID field. This can be reused if a repeat run is required - or quick edits need to be made to a set of samples without having to fill out the fields again.</p>
+<p>Launching an analysis run will save all of the data in the launcher fields to a TSV file in the metagenomics/sample_sheets directory, with the date/time and the contents of the Experiment ID field. This feature makes identifying previous runs in down stream analyses much easier.</p>
 </div>
 <ol start="4">
 <li>
-<p>Fill out the ONT Experiment ID and ONT sample ID drop down menus corresponding to the MinKNOW/Gourami run for the sequencing experiment (Feature 4 and 5). If your experiment is not there, click the refresh button (Feature 21) or restart the Metagenomics Launcher.
-<br></p>
+<p>Fill out the 'ONT Experiment ID' and 'ONT sample ID' drop down menus corresponding to the MinKNOW/Gourami run for the sequencing experiment (Feature 4 and 5). If your experiment is not listed, click the refresh button (Feature 21) or restart the Metagenomics Launcher.
+<br><br></p>
 </li>
 <li>
-<p>Complete the remaining fields using the table above as a guide. The NHS service evaluation and mSCAPE protocols require that all fields are completed where appropriate.
-<br></p>
+<p>Complete the remaining fields using the table above as a guide. The NHS service evaluation and mSCAPE protocols require that all fields are completed.
+<br><br></p>
 </li>
 <li>
-<p>Where appropriate, apply the anonymisation functions to the data using the 'Anonymise' button. This will pseudo-anonymise the 'Sample accession' and 'Hospital number' fields. Users can deanonymise a sample sheet by loading it in to the lanucher and selecting 'Deanonymise' or by using the Deanonymisation tool.
-<br></p>
+<p>Where required, apply the anonymisation functions to the data using the 'Anonymise' button. This will pseudo-anonymise the 'Sample accession' and 'Hospital number' fields. Users can deanonymise a sample sheet by loading it in to the launcher and selecting 'Deanonymise' or by using the Deanonymisation tool.
+<br><br></p>
 </li>
 <li>
 <p>Click on Launch pipeline and follow the instructions to start the analysis.
-<br></p>
+<br><br></p>
 </li>
 <li>
 <p>After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.
-<br></p>
+<br><br></p>
 </li>
 <li>
-<p>~35 minutes after launching the sequencing experiment alongside the metagenomics workflow, the first reports will be available in /media/grid/metagenomics/reports/{sample_name}/. See below for a guide on how to access this.</p>
+<p>~35 minutes after initiating the sequencing experiment followed by the metagenomics workflow, the first reports will be available in /media/grid/metagenomics/reports/{sample_name}/.</p>
 </li>
-</ol></div>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>HEad to the <a href="../faq/">FAQ section</a></p>
+</div>
+<h3 id="video-demonstration">Video demonstration</h3></div>
               
             </div>
           </div><footer>
