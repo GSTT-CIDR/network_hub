@@ -1,0 +1,129 @@
+/* Genome Database Specific Styles */
+.genome-database-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.genome-database-container .page-header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 2rem;
+}
+
+.genome-database-container .stats-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+}
+
+.genome-database-container .stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.genome-database-container .stats-card .card-body {
+    padding: 1.5rem;
+}
+
+.genome-database-container .stats-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.genome-database-container .search-section {
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.genome-database-container .column-filter input {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    font-size: 0.875rem;
+}
+
+.genome-database-container .column-filter input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.genome-database-container #organismTable {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genome-database-container #organismTable thead th {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 1rem 0.75rem;
+}
+
+.genome-database-container #organismTable tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.genome-database-container .table-container {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genome-database-container .btn-custom {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.genome-database-container .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* DataTables specific styling within genome database */
+.genome-database-container .dataTables_wrapper .dataTables_length,
+.genome-database-container .dataTables_wrapper .dataTables_filter,
+.genome-database-container .dataTables_wrapper .dataTables_info,
+.genome-database-container .dataTables_wrapper .dataTables_paginate {
+    margin: 1rem 0;
+}
+
+.genome-database-container .dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .genome-database-container .stats-card .card-body {
+        text-align: center;
+    }
+    
+    .genome-database-container .stats-card .d-flex {
+        flex-direction: column;
+    }
+    
+    .genome-database-container .stats-icon {
+        margin-bottom: 1rem;
+        margin-right: 0 !important;
+    }
+}

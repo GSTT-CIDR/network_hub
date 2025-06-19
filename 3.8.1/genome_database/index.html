@@ -13,6 +13,7 @@
         <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
         <link href="../assets/stylesheets/width.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
         <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
@@ -127,138 +128,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIDR RMg Genome Database</title>
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --success-color: #198754;
-            --info-color: #0dcaf0;
-            --warning-color: #ffc107;
-            --danger-color: #dc3545;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .navbar {
-            box-shadow: 0 2px 4px rgba(0,0,0,.1);
-        }
-
-        .stats-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .stats-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .stats-card .card-body {
-            padding: 1.5rem;
-        }
-
-        .stats-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .search-section {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,.1);
-        }
-
-        .column-filter input {
-            border-radius: 6px;
-            border: 1px solid #ced4da;
-            font-size: 0.875rem;
-        }
-
-        .column-filter input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-        }
-
-        #organismTable {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,.1);
-        }
-
-        #organismTable thead th {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            font-weight: 600;
-            padding: 1rem 0.75rem;
-        }
-
-        #organismTable tbody tr:hover {
-            background-color: rgba(13, 110, 253, 0.05);
-        }
-
-        .table-container {
-            background: white;
-            border-radius: 10px;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,.1);
-        }
-
-        .btn-custom {
-            border-radius: 6px;
-            font-weight: 500;
-        }
-
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-    </style>
  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
     .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="#">
+    <!-- Main Content -->
+    <div class="genome-database-container">
+        <!-- Page Header -->
+        <div class="page-header mb-4">
+            <h1 class="display-5">
                 <i class="fas fa-dna me-2"></i>
                 CIDR RMg Genome Database
-            </a>
+            </h1>
+            <p class="lead">Comprehensive genomic data analysis and exploration platform</p>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="container mt-4">
         <!-- Summary Statistics Cards -->
         <div class="row mb-4">
             <div class="col-md-4 mb-3">
