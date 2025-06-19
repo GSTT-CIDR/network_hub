@@ -79,8 +79,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#launching-organism-query">Launching organism query</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interpreting-results">Interpreting results</a>
+    <li class="toctree-l2"><a class="reference internal" href="#interpreting-organism-query-results">Interpreting Organism Query results</a>
         <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#key-metrics">Key metrics</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#interactive-plot">Interactive plot</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#blast-alignments">BLAST alignments</a>
@@ -106,6 +108,8 @@
               <p class="caption"><span class="caption-text">FAQ</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
                   </li>
               </ul>
       </div>
@@ -135,15 +139,25 @@
               
                 <div><h1 id="bioinformatics-organism-query">Bioinformatics - Organism query</h1>
 <p>The Organism Query tool is designed to help scrutinise taxonomic classification outputs from the CIDR metagenomics workflow. It uses a local (offline) version of NCBI BLASTn, with the full NCBI nt, RefSeq, and CIDR databases to produce a report, similar to that found on the NCBI BLAST website, providing the user with a second opinion on classifications.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CIDR Metagenomics workflow v3.8.1 runs Organism Query automatically for all non-viral taxa above threshold - see <a href="../auto_query/">Auto Query</a>.
+<br><br></p>
+</div>
 <h2 id="technical-information">Technical information</h2>
 <ul>
-<li>The tool searches the classified reads for an organism indicated by the user. Selecting a random subset of 50 (max) reads assigned to that taxa.</li>
-<li>The centrifuge score is not used in this analysis, all reads matching a taxon are valid for selection</li>
-<li>Reads are extracted from the microbial FASTQ file stored in the workflow <code>results</code> folder and BLASTed against the prescribed database. The subsetted reads are saved as a FASTA file in the <code>./metagenomics/reports/{sample_id}/organism_query_XXX</code> directory.</li>
+<li>Organism Query searches the classified reads for an organism indicated by the user. Selecting a random subset of 50 reads assigned to that taxon (and taxonomic children).</li>
+<li>The centrifuge score is not considered in this analysis, all reads matching a taxon are valid for selection.</li>
+<li>Reads are extracted from the microbial FASTQ file stored in the workflow <code>results/{sample_id}/{timepoint}/microbial</code> folder and BLASTed against the indicated database. The queried reads are saved as a FASTA file in the <code>./metagenomics/reports/{sample_id}/organism_query_XXX</code> directory.</li>
 <li>The results are parsed in to a HTML report with an interactive plot designed to help the user explore the different metrics of alignment.</li>
 <li>A full BLAST alignment report is available at the bottom of the HTML report.</li>
 <li>The report is stored in the <code>./metagenomics/reports/{sample_id}/organism_query_XXX</code> folder, with the other PDF reports from the metagenomics run.</li>
 </ul>
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>All NCBI sequence databases can contain contaminated sequences, mis-annotated sequences, sequences that are not representative of the organism they are assigned to.</p>
+<p>While the 'nt' database offers the most comprehensive search, the 'euk', 'prok' and 'viruses' databases are more curated and quicker.</p>
+</div>
 <p><a class="glightbox" href="../img/organism_query_blank.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../img/organism_query_blank.png"></a></p>
 <h2 id="launching-organism-query">Launching organism query</h2>
 <ol>
@@ -181,25 +195,28 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Note</p>
-<p>The 'prok' and 'viruses' databases run quickly but have a limited span
-+. 'nt' databases are used </p>
+<p>Consider using the 'euk', 'prok' or 'viruses' databases for a quick search. The 'nt' database is the most comprehensive, but can be slower to search and may contain more mis-annotated sequences. </p>
 </div>
-<p><a class="glightbox" href="../videos/organism_query.mp4" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><video style="width:50%;height:35%" controls alt="type:video"><source src="../videos/organism_query.mp4" type="video/mp4"></source></video></div></a></p>
 <ol start="4">
-<li>Click on the <code>Launch script</code> button to start the query workflow. A Firefox browser window will appear after the workflow has finished. You can reopen the report from <code>`reports/{sample_id}/organism_query_XXX</code> on the metagenomics SSD. </li>
+<li>Click on the <code>Launch script</code> button to start the query workflow. A Chrome browser window will appear after the workflow has finished. You can reopen the report from <code>`reports/{sample_id}/organism_query_XXX</code> on the metagenomics SSD. </li>
 </ol>
-<h2 id="interpreting-results">Interpreting results</h2>
-<p>Interpreting the results can be subjective. The interactive plot has been designed to help guide decision making. Using a combination of the alignment length (relative to the read length), the identity score and the e-score can be an informative approach.</p>
+<h2 id="interpreting-organism-query-results">Interpreting Organism Query results</h2>
+<p>Organism Query has been designed to help guide decision making in cases where the validity of a taxonomic classification is in doubt, or a taxon is listed in the Reporting SOP as requiring validation. Organism Query is not a gold standard for classification. </p>
+<p>Please consult with a bioinformatician if the validity of a detection is in question. Always follow local governance and perform reflex testing where appropriate. </p>
+<h3 id="key-metrics">Key metrics</h3>
 <ul>
 <li>Query Coverage: Percent of the query sequence length that is included in alignments against the sequence match.</li>
 <li>E-value: Indicates the number of hits or alignments that are expected to be seen by random chance with the same score or better. The lower the E-value, the more significant the alignment (the closer to 0, the better). E-value is the default metric used to sort the Descriptions table. Click here for a discussion of E-value thresholds.</li>
 <li>Percent Identity: Percent of nucleotides or amino acids that are identical between the aligned query and database sequences. A query sequence can share low percent identity with a sequence and still be a significant hit. It is essential to take the E-value into account and look for similarity between conserved regions (this will be more evident at the amino acid level).</li>
+<li>Ave. query length: Average length of the input query sequencing read.
+'Supporting reads': The number of reads for which that taxon is the highest scored alignment.</li>
 </ul>
 <h3 id="interactive-plot">Interactive plot</h3>
-<p>In a situation where there is either no confident match or no convergence across the read subset on an organism, or a alignments indicating a number of similar, closely related organisms, the plot appears disordered in a single cluster.
-<a class="glightbox" href="../img/organism_query_plot_undecided.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../img/organism_query_plot_undecided.png"></a></p>
-<p>Situations where a convergent set of alignments are indicated results in a plot with two clusters, usually with one clear homogenous taxa. In this case, the Tobacco Mosaic virus.</p>
-<p><a class="glightbox" href="../img/plot_decided.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../img/plot_decided.png"></a></p>
+<p>Is there meaningful convergence or clustering in the classification of reads? </p>
+<p>See Figure 8. The plot shows two clusters. Is there a consensus cluster with greater % identity and higher bit-score? In this example, we have a homogeneous blue cluster of high identity alignments (~95%) and bit-scores, compared to a less supported cluster of incorrect, closely related taxa with lower identities and bit-scores. </p>
+<p>See Figure 9. One cluster is present. Are the classifications closely related and is the identity high? Or does the cluster have a largely low % identity with seemingly unrelated disparate taxa? In this example, it is the former. We have reads with relatively high identity &gt;80% all forming alignments within a genus, Treponema spp., yielding no clear consensus cluster. In this case, we can be fairly sure we are dealing with Treponema spp. as the identity and bit-scores are high. Given the clinical context (a respiratory sample), I might classify these as Treponema denticola.  </p>
+<p>Figure 9 Organism query interactive plot - undistinguished outputs </p>
+<p>On changing the colour variable to ‘Query read ID’, are there any patterns shown? Specifically, are clusters on the plot formed from the same read(s) or comprise many different reads. If clusters are formed from single reads, it may be the case that reads in the analysis are from different organisms and results may not be valid. </p>
 <h3 id="blast-alignments">BLAST alignments</h3>
 <p>Scrolling to the bottom of the report is a conventional BLAST alignment. We recommend looking at each read, the <strong>Length</strong> (query readlength), the <strong>Score</strong> and <strong>Identities</strong> values. </p>
 <ul>
