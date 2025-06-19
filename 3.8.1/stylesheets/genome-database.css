@@ -51,7 +51,7 @@
 }
 
 .genome-database-container .column-filter input:focus {
-    border-color: #0d6efd;
+    border-color: #2980b9;
     box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
@@ -63,7 +63,7 @@
 }
 
 .genome-database-container #organismTable thead th {
-    background-color: #0d6efd;
+    background-color: #2980b9;
     color: white;
     border: none;
     font-weight: 600;
