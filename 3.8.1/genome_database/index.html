@@ -137,30 +137,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root {
+        .genome-database-container {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
             --success-color: #27ae60;
             --warning-color: #f39c12;
-        }
 
-        body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 1rem;
         }
 
-        .main-container {
+        .genome-database-container .main-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             margin: 2rem auto;
             padding: 2rem;
+            max-width: 1400px;
         }
 
-        .header-section {
+        .genome-database-container .header-section {
             text-align: center;
             margin-bottom: 2rem;
             padding: 1rem;
@@ -169,18 +169,18 @@
             border-radius: 15px;
         }
 
-        .stats-card {
+        .genome-database-container .stats-card {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border-radius: 15px;
             transition: transform 0.3s ease;
         }
 
-        .stats-card:hover {
+        .genome-database-container .stats-card:hover {
             transform: translateY(-5px);
         }
 
-        .search-section {
+        .genome-database-container .search-section {
             background: #f8f9fa;
             border-radius: 15px;
             padding: 1.5rem;
@@ -188,63 +188,84 @@
             border: 2px solid #e9ecef;
         }
 
-        .column-filter {
+        .genome-database-container .column-filter {
             margin-bottom: 0.5rem;
         }
 
-        .column-filter input {
+        .genome-database-container .column-filter input {
             border-radius: 10px;
             border: 1px solid #ddd;
             padding: 0.5rem;
             font-size: 0.9rem;
         }
 
-        #organismTable {
+        .genome-database-container #organismTable {
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        #organismTable thead th {
-            background-color: #f8f9fa;
-            color: #495057;
-            border: 1px solid #dee2e6;
-            padding: 0.75rem;
-            font-weight: 600;
-            border-bottom: 2px solid #dee2e6;
+        .genome-database-container #organismTable thead th {
+            background-color: #f8f9fa !important;
+            color: #495057 !important;
+            border: 1px solid #dee2e6 !important;
+            padding: 0.75rem !important;
+            font-weight: 600 !important;
+            border-bottom: 2px solid #dee2e6 !important;
         }
 
-        #organismTable tbody tr:hover {
-            background-color: #f8f9fa;
+        .genome-database-container #organismTable tbody tr:hover {
+            background-color: #f8f9fa !important;
             transition: all 0.2s ease;
         }
 
-        #organismTable tbody td {
-            border: 1px solid #dee2e6;
-            padding: 0.75rem;
+        .genome-database-container #organismTable tbody td {
+            border: 1px solid #dee2e6 !important;
+            padding: 0.75rem !important;
         }
 
-        .btn-custom {
+        .genome-database-container .btn-custom {
             border-radius: 10px;
             padding: 0.5rem 1rem;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
-        .btn-custom:hover {
+        .genome-database-container .btn-custom:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .loading-spinner {
+        .genome-database-container .loading-spinner {
             text-align: center;
             padding: 3rem;
         }
 
-        .alert-custom {
+        .genome-database-container .alert-custom {
             border-radius: 15px;
             border: none;
             padding: 1rem 1.5rem;
+        }
+
+        /* DataTables specific overrides */
+        .genome-database-container .dataTables_wrapper {
+            font-family: inherit !important;
+        }
+
+        .genome-database-container .dataTables_filter,
+        .genome-database-container .dataTables_length,
+        .genome-database-container .dataTables_info,
+        .genome-database-container .dataTables_paginate {
+            font-size: 0.9rem !important;
+        }
+
+        .genome-database-container .dt-buttons {
+            margin-bottom: 1rem;
+        }
+
+        /* Ensure container doesn't interfere with parent styles */
+        .genome-database-container * {
+            box-sizing: border-box;
         }
     </style>
  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
@@ -253,7 +274,7 @@
     .gslide-desc { color: #666; user-select: text; }
     .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body>
-    <div class="container-fluid">
+    <div class="genome-database-container">
         <div class="main-container">
             <!-- Header Section -->
             <div class="header-section">
@@ -351,6 +372,206 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        // Wrap all JavaScript in an IIFE to avoid global scope pollution
+        (function() {
+            let dataTable;
+            let rawData = [];
+
+            // Wait for DOM to be ready, but don't interfere with other jQuery ready handlers
+            function initializeGenomeDatabase() {
+                loadData();
+            }
+
+            function loadData() {
+                fetch('../consolidated_taxa_table.csv')
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        return response.text();
+                    })
+                    .then(csvText => {
+                        Papa.parse(csvText, {
+                            header: true,
+                            skipEmptyLines: true,
+                            complete: function(results) {
+                                if (results.errors.length > 0) {
+                                    throw new Error('CSV parsing errors: ' + results.errors.map(e => e.message).join(', '));
+                                }
+                                rawData = results.data;
+                                initializeTable();
+                                createStatistics();
+                                hideLoading();
+                            },
+                            error: function(error) {
+                                throw new Error('CSV parsing failed: ' + error.message);
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        showError('Error loading data: ' + error.message);
+                        hideLoading();
+                    });
+            }
+
+            function initializeTable() {
+                if (rawData.length === 0) return;
+
+                const headers = Object.keys(rawData[0]);
+                const tableHead = document.getElementById("tableHead");
+                const tableBody = document.getElementById("tableBody");
+
+                // Clear existing content
+                tableHead.innerHTML = '';
+                tableBody.innerHTML = '';
+
+                // Create headers
+                headers.forEach(header => {
+                    const th = document.createElement("th");
+                    th.textContent = header;
+                    tableHead.appendChild(th);
+                });
+
+                // Create column filters
+                createColumnFilters(headers);
+
+                // Create data rows
+                rawData.forEach(row => {
+                    const tr = document.createElement("tr");
+                    headers.forEach(header => {
+                        const td = document.createElement("td");
+                        td.textContent = row[header] || '';
+                        tr.appendChild(td);
+                    });
+                    tableBody.appendChild(tr);
+                });
+
+                // Initialize DataTable
+                dataTable = $('#organismTable').DataTable({
+                    paging: true,
+                    searching: true,
+                    ordering: true,
+                    lengthMenu: [[25, 50, 100, 250, -1], [25, 50, 100, 250, "All"]],
+                    pageLength: 50,
+                    responsive: true,
+                    colReorder: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        {
+                            extend: 'excelHtml5',
+                            text: '<i class="fas fa-file-excel me-1"></i>Export Excel',
+                            className: 'btn btn-success btn-custom me-2'
+                        },
+                        {
+                            extend: 'csvHtml5',
+                            text: '<i class="fas fa-file-csv me-1"></i>Export CSV',
+                            className: 'btn btn-info btn-custom'
+                        }
+                    ],
+                    language: {
+                        search: "Global Search:",
+                        lengthMenu: "Show _MENU_ records per page",
+                        info: "Showing _START_ to _END_ of _TOTAL_ entries",
+                        emptyTable: "No genome data available",
+                        zeroRecords: "No matching records found"
+                    },
+                    columnDefs: [
+                        {
+                            targets: [1, 2], // contig_count and total_bp columns
+                            render: function(data, type, row) {
+                                if (type === 'display' && !isNaN(data)) {
+                                    return parseInt(data).toLocaleString();
+                                }
+                                return data;
+                            }
+                        }
+                    ]
+                });
+
+                document.getElementById('tableContainer').style.display = 'block';
+            }
+
+            function createColumnFilters(headers) {
+                const filtersContainer = document.getElementById('columnFilters');
+                filtersContainer.innerHTML = '';
+
+                headers.forEach((header, index) => {
+                    const colDiv = document.createElement('div');
+                    colDiv.className = 'col-md-4 column-filter';
+
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'form-control form-control-sm';
+                    input.placeholder = `Filter ${header}...`;
+                    input.addEventListener('keyup', function() {
+                        dataTable.column(index).search(this.value).draw();
+                    });
+
+                    const label = document.createElement('label');
+                    label.className = 'form-label small text-muted';
+                    label.textContent = header;
+
+                    colDiv.appendChild(label);
+                    colDiv.appendChild(input);
+                    filtersContainer.appendChild(colDiv);
+                });
+            }
+
+            function createStatistics() {
+                const totalRecords = rawData.length;
+                const totalContigs = rawData.reduce((sum, row) => sum + (parseInt(row.contig_count) || 0), 0);
+                const totalBP = rawData.reduce((sum, row) => sum + (parseInt(row.total_bp) || 0), 0);
+
+                document.getElementById('totalRecords').textContent = totalRecords.toLocaleString();
+                document.getElementById('totalContigs').textContent = totalContigs.toLocaleString();
+                document.getElementById('totalBasePairs').textContent = (totalBP / 1e9).toFixed(2) + 'B';
+
+                document.getElementById('statsSection').style.display = 'block';
+            }
+
+            // Event Handlers - use specific selectors
+            document.addEventListener('DOMContentLoaded', function() {
+                const clearButton = document.getElementById('clearFilters');
+                const toggleButton = document.getElementById('toggleColumns');
+
+                if (clearButton) {
+                    clearButton.addEventListener('click', function() {
+                        if (dataTable) {
+                            dataTable.search('').columns().search('').draw();
+                            document.querySelectorAll('.genome-database-container .column-filter input').forEach(input => input.value = '');
+                        }
+                    });
+                }
+
+                if (toggleButton) {
+                    toggleButton.addEventListener('click', function() {
+                        const button = this;
+                        button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
+                        setTimeout(() => {
+                            button.innerHTML = '<i class="fas fa-columns me-2"></i>Toggle Columns';
+                            alert('Column visibility controls available in right-click menu on table headers');
+                        }, 1000);
+                    });
+                }
+
+                // Initialize the database
+                initializeGenomeDatabase();
+            });
+
+            function hideLoading() {
+                const spinner = document.getElementById('loadingSpinner');
+                if (spinner) spinner.style.display = 'none';
+            }
+
+            function showError(message) {
+                const errorMessage = document.getElementById('errorMessage');
+                const errorAlert = document.getElementById('errorAlert');
+                if (errorMessage) errorMessage.textContent = message;
+                if (errorAlert) errorAlert.style.display = 'block';
+            }
+        })();
+    </script>
+
+    <!-- Load external scripts after our custom code -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
@@ -359,187 +580,8 @@
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-    <script src="https://cdn.datatables.net/colreorder/1.7.0/js/dataTables.colReorder.min.js"></script>
+    <script src="https://cdn.datatables.net/colreorder/1.7.0/js/dataTables.colReOrder.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
-    <script>
-        let dataTable;
-        let rawData = [];
-
-        $(document).ready(function() {
-            loadData();
-        });
-
-        function loadData() {
-            fetch('../consolidated_taxa_table.csv')
-                .then(response => {
-                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                    return response.text();
-                })
-                .then(csvText => {
-                    Papa.parse(csvText, {
-                        header: true,
-                        skipEmptyLines: true,
-                        complete: function(results) {
-                            if (results.errors.length > 0) {
-                                throw new Error('CSV parsing errors: ' + results.errors.map(e => e.message).join(', '));
-                            }
-                            rawData = results.data;
-                            initializeTable();
-                            createStatistics();
-                            hideLoading();
-                        },
-                        error: function(error) {
-                            throw new Error('CSV parsing failed: ' + error.message);
-                        }
-                    });
-                })
-                .catch(error => {
-                    showError('Error loading data: ' + error.message);
-                    hideLoading();
-                });
-        }
-
-        function initializeTable() {
-            if (rawData.length === 0) return;
-
-            const headers = Object.keys(rawData[0]);
-            const tableHead = document.getElementById("tableHead");
-            const tableBody = document.getElementById("tableBody");
-
-            // Clear existing content
-            tableHead.innerHTML = '';
-            tableBody.innerHTML = '';
-
-            // Create headers
-            headers.forEach(header => {
-                const th = document.createElement("th");
-                th.textContent = header;
-                tableHead.appendChild(th);
-            });
-
-            // Create column filters
-            createColumnFilters(headers);
-
-            // Create data rows
-            rawData.forEach(row => {
-                const tr = document.createElement("tr");
-                headers.forEach(header => {
-                    const td = document.createElement("td");
-                    td.textContent = row[header] || '';
-                    tr.appendChild(td);
-                });
-                tableBody.appendChild(tr);
-            });
-
-            // Initialize DataTable
-            dataTable = $('#organismTable').DataTable({
-                paging: true,
-                searching: true,
-                ordering: true,
-                lengthMenu: [[25, 50, 100, 250, -1], [25, 50, 100, 250, "All"]],
-                pageLength: 50,
-                responsive: true,
-                colReorder: true,
-                dom: 'Bfrtip',
-                buttons: [
-                    {
-                        extend: 'excelHtml5',
-                        text: '<i class="fas fa-file-excel me-1"></i>Export Excel',
-                        className: 'btn btn-success btn-custom me-2'
-                    },
-                    {
-                        extend: 'csvHtml5',
-                        text: '<i class="fas fa-file-csv me-1"></i>Export CSV',
-                        className: 'btn btn-info btn-custom'
-                    }
-                ],
-                language: {
-                    search: "Global Search:",
-                    lengthMenu: "Show _MENU_ records per page",
-                    info: "Showing _START_ to _END_ of _TOTAL_ entries",
-                    emptyTable: "No genome data available",
-                    zeroRecords: "No matching records found"
-                },
-                columnDefs: [
-                    {
-                        targets: [1, 2], // contig_count and total_bp columns
-                        render: function(data, type, row) {
-                            if (type === 'display' && !isNaN(data)) {
-                                return parseInt(data).toLocaleString();
-                            }
-                            return data;
-                        }
-                    }
-                ]
-            });
-
-            document.getElementById('tableContainer').style.display = 'block';
-        }
-
-        function createColumnFilters(headers) {
-            const filtersContainer = document.getElementById('columnFilters');
-            filtersContainer.innerHTML = '';
-
-            headers.forEach((header, index) => {
-                const colDiv = document.createElement('div');
-                colDiv.className = 'col-md-4 column-filter';
-
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.className = 'form-control form-control-sm';
-                input.placeholder = `Filter ${header}...`;
-                input.addEventListener('keyup', function() {
-                    dataTable.column(index).search(this.value).draw();
-                });
-
-                const label = document.createElement('label');
-                label.className = 'form-label small text-muted';
-                label.textContent = header;
-
-                colDiv.appendChild(label);
-                colDiv.appendChild(input);
-                filtersContainer.appendChild(colDiv);
-            });
-        }
-
-        function createStatistics() {
-            const totalRecords = rawData.length;
-            const totalContigs = rawData.reduce((sum, row) => sum + (parseInt(row.contig_count) || 0), 0);
-            const totalBP = rawData.reduce((sum, row) => sum + (parseInt(row.total_bp) || 0), 0);
-
-            document.getElementById('totalRecords').textContent = totalRecords.toLocaleString();
-            document.getElementById('totalContigs').textContent = totalContigs.toLocaleString();
-            document.getElementById('totalBasePairs').textContent = (totalBP / 1e9).toFixed(2) + 'B';
-
-            document.getElementById('statsSection').style.display = 'block';
-        }
-
-        // Event Handlers
-        document.getElementById('clearFilters').addEventListener('click', function() {
-            dataTable.search('').columns().search('').draw();
-            document.querySelectorAll('.column-filter input').forEach(input => input.value = '');
-        });
-
-        document.getElementById('toggleColumns').addEventListener('click', function() {
-            // Toggle column visibility - simplified implementation
-            const button = this;
-            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Processing...';
-            setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-columns me-2"></i>Toggle Columns';
-                alert('Column visibility controls available in right-click menu on table headers');
-            }, 1000);
-        });
-
-        function hideLoading() {
-            document.getElementById('loadingSpinner').style.display = 'none';
-        }
-
-        function showError(message) {
-            document.getElementById('errorMessage').textContent = message;
-            document.getElementById('errorAlert').style.display = 'block';
-        }
-    </script>
 <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
               
