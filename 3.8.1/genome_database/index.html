@@ -407,7 +407,7 @@
 
         function loadData() {
             showLoading();
-            fetch('../CIDR_v8.csv')
+            fetch('../consolidated_taxa_table.csv')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Failed to load CSV file. Status: ${response.status}`);
