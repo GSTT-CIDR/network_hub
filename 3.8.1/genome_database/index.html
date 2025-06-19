@@ -132,11 +132,9 @@
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.7.0/css/colReorder.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/colreorder/1.7.0/css/colReOrder.bootstrap5.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
@@ -204,21 +202,26 @@
         #organismTable {
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         #organismTable thead th {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            padding: 1rem 0.75rem;
+            background-color: #f8f9fa;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            padding: 0.75rem;
             font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
         }
 
         #organismTable tbody tr:hover {
-            background-color: rgba(52, 152, 219, 0.1);
-            transform: scale(1.002);
+            background-color: #f8f9fa;
             transition: all 0.2s ease;
+        }
+
+        #organismTable tbody td {
+            border: 1px solid #dee2e6;
+            padding: 0.75rem;
         }
 
         .btn-custom {
@@ -236,14 +239,6 @@
         .loading-spinner {
             text-align: center;
             padding: 3rem;
-        }
-
-        .chart-container {
-            background: white;
-            border-radius: 15px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
         .alert-custom {
@@ -271,16 +266,16 @@
 
             <!-- Statistics Dashboard -->
             <div id="statsSection" class="row mb-4" style="display: none;">
-                <div class="col-md-3 mb-3">
+                <div class="col-md-4 mb-3">
                     <div class="card stats-card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-database fa-2x mb-2"></i>
                             <h3 id="totalRecords" class="card-title">-</h3>
-                            <p class="card-text">Total Records</p>
+                            <p class="card-text">Total Species/Strains</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-4 mb-3">
                     <div class="card stats-card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-layer-group fa-2x mb-2"></i>
@@ -289,38 +284,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-3">
+                <div class="col-md-4 mb-3">
                     <div class="card stats-card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-ruler fa-2x mb-2"></i>
                             <h3 id="totalBasePairs" class="card-title">-</h3>
                             <p class="card-text">Total Base Pairs</p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                    <div class="card stats-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fas fa-sitemap fa-2x mb-2"></i>
-                            <h3 id="uniqueRanks" class="card-title">-</h3>
-                            <p class="card-text">Taxonomic Ranks</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Charts Section -->
-            <div id="chartsSection" class="row mb-4" style="display: none;">
-                <div class="col-md-6">
-                    <div class="chart-container">
-                        <h5 class="text-center mb-3">Top 10 Organisms by Contig Count</h5>
-                        <canvas id="contigChart"></canvas>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="chart-container">
-                        <h5 class="text-center mb-3">Taxonomic Rank Distribution</h5>
-                        <canvas id="rankChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -395,7 +365,6 @@
     <script>
         let dataTable;
         let rawData = [];
-        let contigChart, rankChart;
 
         $(document).ready(function() {
             loadData();
@@ -418,7 +387,6 @@
                             rawData = results.data;
                             initializeTable();
                             createStatistics();
-                            createCharts();
                             hideLoading();
                         },
                         error: function(error) {
@@ -539,77 +507,12 @@
             const totalRecords = rawData.length;
             const totalContigs = rawData.reduce((sum, row) => sum + (parseInt(row.contig_count) || 0), 0);
             const totalBP = rawData.reduce((sum, row) => sum + (parseInt(row.total_bp) || 0), 0);
-            const uniqueRanks = new Set(rawData.map(row => row.Rank).filter(Boolean)).size;
 
             document.getElementById('totalRecords').textContent = totalRecords.toLocaleString();
             document.getElementById('totalContigs').textContent = totalContigs.toLocaleString();
             document.getElementById('totalBasePairs').textContent = (totalBP / 1e9).toFixed(2) + 'B';
-            document.getElementById('uniqueRanks').textContent = uniqueRanks;
 
             document.getElementById('statsSection').style.display = 'block';
-        }
-
-        function createCharts() {
-            // Top 10 organisms by contig count
-            const topOrganisms = rawData
-                .sort((a, b) => (parseInt(b.contig_count) || 0) - (parseInt(a.contig_count) || 0))
-                .slice(0, 10);
-
-            const contigCtx = document.getElementById('contigChart').getContext('2d');
-            contigChart = new Chart(contigCtx, {
-                type: 'bar',
-                data: {
-                    labels: topOrganisms.map(row => row.Name?.substring(0, 20) + '...' || 'Unknown'),
-                    datasets: [{
-                        label: 'Contig Count',
-                        data: topOrganisms.map(row => parseInt(row.contig_count) || 0),
-                        backgroundColor: 'rgba(52, 152, 219, 0.8)',
-                        borderColor: 'rgba(52, 152, 219, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        y: { beginAtZero: true }
-                    }
-                }
-            });
-
-            // Taxonomic rank distribution
-            const rankCounts = {};
-            rawData.forEach(row => {
-                const rank = row.Rank || 'Unknown';
-                rankCounts[rank] = (rankCounts[rank] || 0) + 1;
-            });
-
-            const rankCtx = document.getElementById('rankChart').getContext('2d');
-            rankChart = new Chart(rankCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: Object.keys(rankCounts),
-                    datasets: [{
-                        data: Object.values(rankCounts),
-                        backgroundColor: [
-                            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0',
-                            '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        }
-                    }
-                }
-            });
-
-            document.getElementById('chartsSection').style.display = 'block';
         }
 
         // Event Handlers
