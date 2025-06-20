@@ -413,6 +413,58 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <script>
+// Column definitions - customize display names and data types here
+const columnDefinitions = {
+    // Example mappings - adjust these to match your actual CSV columns
+    'taxid': {
+        displayName: 'TaxID',
+        type: 'number',
+        thousandsSeparator: false,
+        description: 'NCBI taxid for the organism'
+    },
+    'contig_count': {
+        displayName: 'Number of contigs',
+        type: 'number',
+        thousandsSeparator: true,
+        description: 'Number of contigs in the assembly'
+    },
+    'total_bp': {
+        displayName: 'Total base pairs',
+        type: 'number',
+        thousandsSeparator: true,
+        description: 'Total base pairs assigned to taxon'
+    },
+    'Name': {
+        displayName: 'Taxon name',
+        type: 'text',
+        description: 'Name of the taxon at the specified rank'
+    },
+    'Rank': {
+        displayName: 'Taxon rank',
+        type: 'text',
+        description: 'Taxonomic rank of the organism'
+    },
+    'FullLineage': {
+        displayName: 'Taxonomic lineage',
+        type: 'text',
+        description: 'Full NCBI taxonomic lineage'
+    },
+    'FullLineageTaxIDs': {
+        displayName: 'Taxonomic lineage (TaxIDs)',
+        type: 'text',
+        thousandsSeparator: false,
+        description: 'Full NCBI taxonomic lineage (TaxIDs)'
+    },
+    'FillLineageRanks': {
+        displayName: 'Taxonomic lineage ranks',
+        type: 'text',
+        description: 'Full NCBI taxonomic lineage results'
+    }
+    // Add more column mappings as needed
+    // Supported types: 'text', 'number', 'percentage', 'date'
+    // For 'number' type: set thousandsSeparator: true/false
+};
+
 let dataTable;
 let rawData = [];
 
@@ -486,8 +538,18 @@ function createTableHeaders(headers) {
 
     headers.forEach(header => {
         const th = document.createElement("th");
-        th.textContent = header;
+        const columnDef = columnDefinitions[header];
+        const displayName = columnDef ? columnDef.displayName : header;
+
+        th.textContent = displayName;
         th.style.whiteSpace = 'nowrap';
+
+        // Add tooltip with description if available
+        if (columnDef && columnDef.description) {
+            th.title = columnDef.description;
+            th.style.cursor = 'help';
+        }
+
         tableHead.appendChild(th);
     });
 }
@@ -505,11 +567,14 @@ function createColumnFilters(headers) {
         label.style.fontSize = '0.875rem';
         label.style.marginBottom = '0.25rem';
         label.style.display = 'block';
-        label.textContent = header;
+
+        const columnDef = columnDefinitions[header];
+        const displayName = columnDef ? columnDef.displayName : header;
+        label.textContent = displayName;
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = `Search ${header}...`;
+        input.placeholder = `Search ${displayName}...`;
         input.setAttribute('data-column', index);
 
         input.addEventListener('keyup', function() {
@@ -532,8 +597,46 @@ function populateTableData(headers) {
         headers.forEach(header => {
             const td = document.createElement("td");
             const value = row[header] || '';
+            const columnDef = columnDefinitions[header];
 
-            if (['contig_count', 'total_bp'].includes(header) && value && !isNaN(value)) {
+            // Format value based on column type
+            if (columnDef && value) {
+                switch (columnDef.type) {
+                    case 'number':
+                        if (!isNaN(value)) {
+                            if (columnDef.thousandsSeparator === true) {
+                                td.textContent = parseInt(value).toLocaleString();
+                            } else {
+                                td.textContent = parseInt(value).toString();
+                            }
+                        } else {
+                            td.textContent = value;
+                        }
+                        break;
+                    case 'percentage':
+                        if (!isNaN(value)) {
+                            td.textContent = parseFloat(value).toFixed(2) + '%';
+                        } else {
+                            td.textContent = value;
+                        }
+                        break;
+                    case 'date':
+                        if (value) {
+                            const date = new Date(value);
+                            if (!isNaN(date.getTime())) {
+                                td.textContent = date.toLocaleDateString();
+                            } else {
+                                td.textContent = value;
+                            }
+                        }
+                        break;
+                    case 'text':
+                    default:
+                        td.textContent = value;
+                        break;
+                }
+            } else if (['contig_count', 'total_bp'].includes(header) && value && !isNaN(value)) {
+                // Fallback for legacy numeric formatting
                 td.textContent = parseInt(value).toLocaleString();
             } else {
                 td.textContent = value;
