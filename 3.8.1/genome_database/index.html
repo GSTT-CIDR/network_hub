@@ -124,7 +124,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="cidr-rmg-genome-database">CIDR RMg Genome Database</h1>
+                <div><h1 id="cidr-rmg-genome-database-v15">CIDR RMg Genome Database (V15)</h1>
 <style>
 .genome-db {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -533,7 +533,7 @@ function populateTableData(headers) {
             const td = document.createElement("td");
             const value = row[header] || '';
 
-            if (['contig_count', 'total_bp', 'taxid'].includes(header) && value && !isNaN(value)) {
+            if (['contig_count', 'total_bp'].includes(header) && value && !isNaN(value)) {
                 td.textContent = parseInt(value).toLocaleString();
             } else {
                 td.textContent = value;
