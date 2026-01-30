@@ -1,72 +1,77 @@
-# Running the metagenomics workflow
+# Launching CIDR metagenomics analysis workflow
 
 !!! note "Before starting"
     
-    1. The CIDR metagenomics workflow must be started during a sequencing experiment or after a sequencing experiment has completed. The pipeline must not be activated before a sequencing experiment has started in MinKNOW and has **started producing reads** (See MinKNOW setup - Lab Protocol).
-    
-    2. Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully. Test the disk has been mounted by navigating to it in the Ubuntu file explorer.
+    1. Ensure the SSD is inserted in to one of the rear USB 3.1 ports, has been mounted and the encryption key has been entered successfully.
+    <br><br>
+    2. For all clinical specimens, positive controls and negatives, a unique Lab/sample ID must be used, taking in to account all previous runs. Positive controls, for example, add the date to each Lab/sample ID (POS_25_01_18) - you can not use only 'POS' as this will overwrite the previous run's control sample with the same name.
+    <br><br>
+    3. A video demonstration of using the workflow can be found [here](#video-demostration)
+#### Launching a run
 
-#### Starting a run
 1. Double click the **Metagenomics Launcher** icon on the GridION desktop, the CIDR Metagenomics Launcher should appear alongside a terminal window.
 
-![The desktop of the GridION operating system after executing the metagenomics_launcher](./img/metagenomics_pipeline_clean.png){ data-title="GridION desktop screenshot" data-description="The desktop of the GridION operating system after executing the metagenomics launcher" }
+![The CIDR metagenomics workflow launcher](./img/metagenomics_pipeline_clean.jpg){ data-title="GridION desktop screenshot" data-description="The CIDR metagenomics workflow launcher" }
 
 !!! danger "Known issues"
-    The ```'geocryptfs error not found...'``` error can be ignored as it is not essential to the workflow.
-    <br>
-    If a sample is repeated, append the Lab ID accordingly (_2) - eg. 123mre123456_2
-
-2. Select the number of samples to be analysed from the dropdown.
-
-3.  You can choose to initiate the launcher using **one** of the below methods:
-    * Fill out the fields on the form for each sample to be analysed.
-    * Loading a pre-existing TSV - [see example](https://raw.githubusercontent.com/GSTT-CIDR/network_hub/main/example_sample_sheet.tsv?token=GHSAT0AAAAAACMKGNRRLREYQKUOWOVJMRBWZPLABFA).
+    In the terminal, you might see a ```'geocryptfs error not found...'``` error. This can be ignored as it is not essential to the workflow.
+<br><br>
+2. Select the number of ONT barcodes to be included in the analysis. (Feature 2).
+<br><br>
+3. Add an appropriate experiment ID to the field (Feature 3). This will label the sample sheet stored in ```./metagenomics/sample_sheets``` which helps identify it when you use them in downstream processes. For Gourami users, this will also set the ONT experiment ID.
 
 
-#### Field descriptions:
+#### Feature descriptions:
 
-| Field      | Description                          |
-| ----------- | ------------------------------------ |
-|**MinKNOW experiment ID**|The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the ```/data``` directory. |
-|**KinKNOW sample ID**|The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the ```/data/{experiment_id}/``` directory.|
-|**ONT barcode**|The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.|
-|**Lab/Sample ID**|The unique lab accession number for the sample. This data is encrypted before transmission. **If repeating a sample, append with _n**|
-|**Anonymised identifier**|An anonymised identifier linked to the sample hospital number.|
-|**Collection date**|Collection data of the sample.|
-|**Sample Class**|The class of sample loaded.|
-|**Sample type**|The methodology used to collect the sample.|
-|**Operator**|Arbitrary identifier of the user operating the sequencer.|
+| Number | Field                             | Description |
+|--------|-----------------------------------|-------------|
+| 1      | Load existing sample sheet        | Load a pre-existing sample sheet. This will populate the fields below with the data from the TSV file. |
+| 2      | Number of samples                 | The number of samples to be analysed. This will create the number of rows in the table below. |
+| 3      | Experiment ID                     | Not to be confused with the ONT Experiment ID |
+| 4      | ONT experiment ID                 | The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data directory. |
+| 5      | ONT sample ID                     | The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data/{experiment_id}/ |
+| 6      | ONT barcode                       | The ONT library index/barcode used. Green colour indicates the barcode directory has been validated. |
+| 7      | Lab/Sample ID                     | The unique lab accession number for the sample. This data is encrypted before transmission. If repeating a sample, append with _n |
+| 8      | Sample accession                  | The lab's sample ID - identifying a specific patient specimen (Anonymised). |
+| 9      | Hospital number                   | A value identifying the individual providing the sample (Anonymised). |
+| 10     | Collection date                   | The date the specimen was collected. For positive and negative controls, this would be the day of library preparation. |
+| 11     | Sample Class                      | The category of the sample loaded. |
+| 12     | Sample type                       | The type of specimen. |
+| 13     | Operator                          | Identifier for user operating the sequencer. |
+| 14     | Notes                             | An open field for notes that will appear on all reports. |
+| 15     | Anonymise                         | Anonymises the 'Sample accession' and 'Hospital number' values using an encryption cypher. |
+| 16     | Deanonymise                       | Deanonymises the 'Sample accession' and 'Hospital number' values present in the launcher fields to their original values. The deanonymisation tool can be used to access previous runs. |
+| 17     | Generate Gourami sample sheet     | Only for Q-line >=v1.1 Generates a Gourami compatible sample sheet for starting a sequencing experiment. The output can be found in the ./metagenomics/sample_Sheet/gourami directory. |
+| 18     | Force overwrite                   | Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the launcher to the ./metagenomics/recycle_bin directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature. |
+| 19     | mSCAPE prompt                     | After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation. |
+| 20     | Select timepoints                 | Select the timepoints you'd like to be generated. If you encounter errors generating a timepoint visit the FAQ section |
+| 21     | Refresh directories               | This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment. |
+| 22     | Launch pipeline                   | Launches metagenomics analysis, saving the sample sheet to the ./metagenomics/sample_sheets. |
+
 
 !!! note
-    * Option 1 will generate a sample sheet stored in the ```metagenomics/sample_sheets``` directory. This can be reused if a repeat run is required - or quick edits need to be made to a set of samples without having to fill out the fields again.
-    <br>
-    * Filling the 'filename suffix' field will save the sample sheet with an appended string of your choosing to help identify your run's metadata in the 'sample_sheets' folder.
+    Launching an analysis run will save all of the data in the launcher fields to a TSV file in the metagenomics/sample_sheets directory, with the date/time and the contents of the Experiment ID field. This feature makes identifying previous runs in down stream analyses much easier.
 
-4. With the metadata form filled, select the run parameter check boxes.
-
-| Parameter     | Description                          |
-| ----------- | ------------------------------------ |
-|**Force overwrite**|The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the ```/data``` directory. |
-|**mSCAPE prompt**|After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.|
-|**Disable data ingest sleep**|**Not for real-time analysis!** Analyse all data immediately - do not wait for it to be generated by the sequencer.|
-<br>
-!!! danger "Known issues"
-    You should wait to launch the pipeline after the sequencer has reported producing reads in MinKNOW, the workflow will display errors in red if no reads have been found.
-    <br><br>
-    The NTC will exhibit the same 'error' behavior as no reads are present in the corresponding barcode folder. We are working on functionality to circumvent this.
-    <br><br>
-    You can stop the analysis or close the Launcher window at any point by closing the terminal window. The terminal window can be closed using the ```X``` in the top right corner.
-
-5. Click on ```Launch pipeline``` and click ```OK``` to start analysis.
+4. Fill out the 'ONT Experiment ID' and 'ONT sample ID' drop down menus corresponding to the MinKNOW/Gourami run for the sequencing experiment (Feature 4 and 5). If your experiment is not listed, click the refresh button (Feature 21) or restart the Metagenomics Launcher.
 <br><br>
-6. After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.
 
-![type:video](./videos/./metagenomics_terminal_outputs.mp4)
+5. Complete the remaining fields using the table above as a guide. The NHS service evaluation and mSCAPE protocols require that all fields are completed.
+<br><br>
 
-7. ~40 minutes after launching the sequencing experiment alongside the metagenomics workflow, the first reports will be available in ```/media/grid/metagenomics/reports/{sample_name}/{timepoint}```. See below for a guide on how to access this.
+6. Where required, apply the anonymisation functions to the data using the 'Anonymise' button. This will pseudo-anonymise the 'Sample accession' and 'Hospital number' fields. Users can deanonymise a sample sheet by loading it in to the launcher and selecting 'Deanonymise' or by using the Deanonymisation tool.
+<br><br>
 
-![type:video](./videos/./opening_report.mp4)
+7. Click on Launch pipeline and follow the instructions to start the analysis.
+<br><br>
 
-!!! tip "Success!"
-    We have now run the CIDR metagenomics workflow. The workflow will run for ~24 hours generating PDF reports for 0.5, 1, 2, 16, 24 hour time-points.
+8. After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. See below for an example.
+<br><br>
+
+9. ~35 minutes after initiating the sequencing experiment followed by the metagenomics workflow, the first reports will be available in /media/grid/metagenomics/reports/{sample_name}/.
+
+!!! note
+    Head to the [FAQ section](faq.md) if you encounter any issues with the workflow or launching a run.
+
+### Video demonstration
+
 

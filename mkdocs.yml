@@ -48,7 +48,9 @@ nav:
   - Bioinformatics:
     - Overview: bioinformatics_outline.md
     - Installation and validation: bioinformatics_install.md
-    - Starting a MinKNOW experiment: running_minknow.md
+    - Starting an experiment on the sequencing device:   
+      - Starting a MinKNOW experiment: running_minknow.md
+      - Starting a Gourami experiment: running_gourami.md
     - Running the metagenomics workflow: running_metagenomics_workflow.md
     - Query a classification: running_organism_query.md
     - Uploading to mSCAPE: mSCAPE_integration.md
@@ -59,7 +61,7 @@ nav:
     - Validation outline: validation_outline.md
   - FAQ:
     - Frequently asked questions: faq.md
-#    - Metagenomics sequence database: genome_database.md
+    - Metagenomics sequence database: genome_database.md
 
 extra_javascript:
   - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
@@ -102,5 +104,7 @@ extra_javascript:
 
 extra_css:
   - assets/js/jquery-jvectormap.css
+  - assets/stylesheets/width.css
   - https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css
+  - stylesheets/genome-database.css
 

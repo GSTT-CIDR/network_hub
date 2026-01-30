@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/3.8.1/alternative_deployment/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/3.8.1/running_gourami/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Deployment alternatives - CIDR Metagenomics Hub</title>
+    <title>Starting a Gourami experiment - CIDR Metagenomics Hub</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -18,9 +18,9 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Deployment alternatives";
-        var mkdocs_page_input_path = "alternative_deployment.md";
-        var mkdocs_page_url = "/network_hub/3.8.1/alternative_deployment/";
+        var mkdocs_page_name = "Starting a Gourami experiment";
+        var mkdocs_page_input_path = "running_gourami.md";
+        var mkdocs_page_url = "/network_hub/3.8.1/running_gourami/";
       </script>
     
     <!--[if lt IE 9]>
@@ -64,11 +64,17 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Starting an experiment on the sequencing device</a>
-    <ul>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Starting an experiment on the sequencing device</a>
+    <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../running_gourami/">Starting a Gourami experiment</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Starting a Gourami experiment</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#launching-a-sequencing-experiment-using-gourami">Launching a sequencing experiment using Gourami</a>
+    </li>
+    </ul>
                 </li>
     </ul>
                   </li>
@@ -80,17 +86,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Deployment alternatives</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#install-instructions">Install instructions</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#install-validation">Install validation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Analysis</span></p>
@@ -122,9 +118,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Bioinformatics</li>
-      <li class="breadcrumb-item active">Deployment alternatives</li>
+          <li class="breadcrumb-item">Starting an experiment on the sequencing device</li>
+      <li class="breadcrumb-item active">Starting a Gourami experiment</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/alternative_deployment.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_gourami.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -132,81 +129,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="setting-up-cidr-metagenomics-bioinformatics-workflow-alternative-deployment">Setting up CIDR Metagenomics bioinformatics workflow - alternative deployment</h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>The tools and documentation described here and on the CIDR GitHub are not validated for diagnostic use and are for research and evaluation purposes only.</strong></p>
+                <div><h1 id="starting-a-sequencing-experiment-in-gourami">Starting a sequencing experiment in Gourami</h1>
+<h2 id="introduction">Introduction</h2>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>This section applies only to users with GridION version 1.1 or greater. For users with MinION or GridION RUO/1.0 platforms, please refer to the MinKNOW sections.</p>
 </div>
-<h2 id="overview">Overview</h2>
-<p>For collaborators outside of the Network, an alternative configuration can be provided. This will bypass the GUI allowing users to provide a <code>sample_sheet.csv</code> through a CLI. Organism query will not be available to headless users as this tools is heavily reliant on GUI I/O.</p>
-<h2 id="install-instructions">Install instructions</h2>
+<p>This document instructs users on how to use the Goruami interface. These tools are used to initialise and control sequencing experiments on the GridION device. Following completion of the relevant section, proceed to the <a href="../running_metagenomics_workflow/">Running the metagenomics workflow</a> section to start the metagenomics analysis.</p>
+<h2 id="launching-a-sequencing-experiment-using-gourami">Launching a sequencing experiment using Gourami</h2>
 <ol>
-<li>Decompress CIDR_metagenomics_vX.X.tar.gz: </li>
+<li>Open the Sequencing Software by selecting the icon on the taskbar to the right as shown in the screenshot below.</li>
 </ol>
-<pre><code>tar -xvzf CIDR_metagenomics_vX.X.tar.gz
-</code></pre>
+<p><a class="glightbox" href="../img/gourami/taskbar.png" data-type="image" data-width="auto" data-height="auto" data-title="GridION taskbar" data-desc-position="bottom"><img alt="image" data-description="" data-title="GridION taskbar" src="../img/gourami/taskbar.png"></a></p>
 <ol start="2">
-<li>Install conda/<a href="https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html">mamba</a>.</li>
-<li>Build the appropriate environment for running the CIDR metagenomics containers. </li>
+<li>From assay selection, select “RPB004 prerelease” and press continue.</li>
 </ol>
-<pre><code>wget https://raw.githubusercontent.com/GSTT-CIDR/metagenomics_container/main/conda/apptainer.yml
-conda env create -f apptainer.yml
-
-</code></pre>
+<p><a class="glightbox" href="../img/gourami/protocol.png" data-type="image" data-width="auto" data-height="auto" data-title="Selecting a protocol on Gourami" data-desc-position="bottom"><img alt="image" data-description="" data-title="Selecting a protocol on Gourami" src="../img/gourami/protocol.png"></a></p>
+<ol start="3">
+<li>Select the position of the flow cell on the interface. If you have not already run a flow cell check, you will have to run that now by selecting “Check flow cell”. After it is complete you can press continue.</li>
+</ol>
+<p><a class="glightbox" href="../img/gourami/flow_cell.png" data-type="image" data-width="auto" data-height="auto" data-title="Flow cell dashboard" data-desc-position="bottom"><img alt="image" data-description="" data-title="Flow cell dashboard" src="../img/gourami/flow_cell.png"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The sample sheet step is only necessary if you are using the 'Gourami' software.</p>
+</div>
 <ol start="4">
-<li>Allocate a directory for MinKNOW data outputs. This will be mounted to the <code>/data</code> directory in the container in a later step.</li>
+<li>Open the Metagenomics launcher application and enter: <ol>
+<li>Number of samples (rows)</li>
+<li>Experiment ID</li>
+<li>'ONT barcode' (for each sample in the library)</li>
+<li>'Lab/Sample ID' (for each sample in the library)</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The directory structure of data for ingest must be maintained as in standard MinKNOW outputs eg.
-<strong>Example for control sample</strong>
-<code>[minknow_outputs_directory]/GSTT_control_sample_01/GSTT_control_sample_01/20240424_1408_X4_FAY88387_d3868a4f/fastq_pass/barcode11</code>
-<strong>Naming schema</strong>
-<code>[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX</code></p>
-</div>
-<h2 id="install-validation">Install validation</h2>
+</li>
+</ol>
+<p>After filling out the above fields, click <strong>Generate Gourami sample sheet (5)</strong>. This will create a sample sheet in the 'sample_sheet' directory in 'metagenomics'. The sample sheet will be named with the date/time and the text in the Experiment ID field. </p>
+<p><a class="glightbox" href="../img/gourami/sample_sheet.png" data-type="image" data-width="auto" data-height="auto" data-title="CIDR metagenomics launcher - building a sample sheet" data-desc-position="bottom"><img alt="image" data-description="" data-title="CIDR metagenomics launcher - building a sample sheet" src="../img/gourami/sample_sheet.png"></a></p>
 <ol start="5">
-<li>Navigate to the root of the <code>CIDR_metagenomics_vX.X</code> directory.</li>
-<li>Move <code>CIDR_metagenomics_vX.X/GSTT_control_sample_XX</code> to the allocated directory for MinKNOW data outputs (from Install instructions: Step 4).</li>
-<li>activate the apptainer conda environment:
-<code>conda activate apptainer</code></li>
-<li>Initiate the run for analysing the control dataset:</li>
+<li>Switching back to the Gourami sequencing software, select “Import” on the select sample sheet screen and import the sample sheet you have just created. Then make sure it is selected and the validation status says “Pass”, then press continue.</li>
 </ol>
-<pre><code>apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c 'cd /workflow ; source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg &amp;&amp; for t in 0.5; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/CIDR_control_1.csv --latency-wait 15; done'
-
-</code></pre>
-<ol start="8">
-<li>When the workflow has completed, inspect the <code>CIDR_metagenomics_vX.X/reports/CIDR_control_1</code> PDF report, it should match the CIDR validation report provided <a href="./CIDR_control_1_0.5_hours_report.pdf">here</a>.</li>
+<p><a class="glightbox" href="../img/gourami/running_dashboard.png" data-type="image" data-width="auto" data-height="auto" data-title="Sample sheet loading screen" data-desc-position="bottom"><img alt="image" data-description="" data-title="Sample sheet loading screen" src="../img/gourami/running_dashboard.png"></a></p>
+<ol start="6">
+<li>
+<p>On the “Prime and load” screen ensure flow cell is correctly loaded as per SOP and press continue.</p>
+</li>
+<li>
+<p>On the final “Review and start” screen, select “Run assay” to begin the run. Please wait all the sample barcodes to appear as found before starting the metagenomics pipeline. </p>
+</li>
+<li>
+<p>Proceed to the <a href="../running_metagenomics_workflow/">Running the metagenomics workflow</a> section to start the analysis.</p>
+</li>
 </ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Variables to change in step 3<br>
-<strong>--bind ./:/mnt</strong> - Binding the workflow root directory to the container /mnt.<br>
-<strong>--bind ./data:/data</strong> - binding the allocated directory for MinKNOW data outputs to /data.<br>
-<strong>./containers/cidr_metagenomics_v3.6.sif</strong> -  launching the metagenomics container.<br>
-<strong>for t in 0.5 1 2 16 24</strong> - time-points for analysis.<br>
-<strong>--cores 20</strong> - number of samples to be processed simultaneously - not the same as threads.<br>
-<strong>samples=/mnt/sample_sheets/CIDR_control_1.csv</strong> - the mounted path for the sample sheet - remember this is the relative mounted path, so <code>/mnt/sample_sheets</code> corresponds to <code>CIDR_metagenomics_vX.X/sample_sheets</code> on the host machine.<br></p>
-</div>
-<h2 id="implementation">Implementation</h2>
-<ol start="9">
-<li>Build a <strong>sample sheet</strong> copying the structure of the example in <code>CIDR_metagenomics_vX.X/sample_sheets</code>. Importantly, 'Experiment', 'SampleID' and 'Barcode' must be correct and correspond to the <code>[minknow_outputs_directory]/[experiemnt]/[sample_id]/[*]/fastq_pass/barcodeXX</code> scheme.</li>
-<li>activate the apptainer conda environment:
-<code>conda activate apptainer</code></li>
-<li>Run the container, changing the flags explained in the validation step:</li>
-</ol>
-<pre><code>apptainer exec --bind ./:/mnt  --bind ./data:/data  ./containers/cidr_metagenomics_v3.6.sif bash -c 'cd /workflow ; source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg &amp;&amp; for t in 0.5 1 2 16 24; do snakemake --directory /mnt --cores 20 -k --config time=$t samples=/mnt/sample_sheets/[**sample_sheet**] --latency-wait 15; done'
-
-</code></pre>
-<ol start="11">
-<li>PDF outputs should be found in <code>CIDR_metagenomics_vX.X/reports/</code> corresponding to each LabID in the <strong>sample sheet</strong> loaded.</li>
-</ol></div>
+<div class="admonition tip">
+<p class="admonition-title">Success!</p>
+<p>After reads start to appear on the barcoding screen you can advance to <a href="../running_metagenomics_workflow/">Starting the metagenomics workflow</a>.</p>
+</div></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../additional_tools/" class="btn btn-neutral float-left" title="Summary report"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../clinical_interpretation/" class="btn btn-neutral float-right" title="Clinical evaluation SOP">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../running_minknow/" class="btn btn-neutral float-left" title="Starting a MinKNOW experiment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../running_metagenomics_workflow/" class="btn btn-neutral float-right" title="Running the metagenomics workflow">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -233,10 +215,10 @@ conda env create -f apptainer.yml
         </span>
     
     
-      <span><a href="../additional_tools/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../running_minknow/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../clinical_interpretation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../running_metagenomics_workflow/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
