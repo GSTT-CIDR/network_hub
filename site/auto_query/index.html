@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/3.8.1/auto_query/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/auto_query/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>Auto query - CIDR Metagenomics Hub</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -14,13 +14,14 @@
         <link href="../assets/stylesheets/width.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
         <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
         <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "Auto query";
         var mkdocs_page_input_path = "auto_query.md";
-        var mkdocs_page_url = "/network_hub/3.8.1/auto_query/";
+        var mkdocs_page_url = "/network_hub/Agnes/auto_query/";
       </script>
     
     <!--[if lt IE 9]>
@@ -42,9 +43,6 @@
       <div class="wy-side-nav-search">
           <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
         </a>
-        <div class="version">
-          {'provider': 'mike', 'default': 'latest'}
-        </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -53,9 +51,15 @@
                   <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Lab Resources</span></p>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Bioinformatics</span></p>
@@ -64,37 +68,41 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Starting an experiment on the sequencing device</a>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../running_gourami/">Starting a Gourami experiment</a>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../running_organism_query/">Query a classification</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Analysis</span></p>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">FAQ</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
                   </li>
               </ul>
       </div>
@@ -157,6 +165,7 @@
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
+      <script src="../assets/javascripts/version-label.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>

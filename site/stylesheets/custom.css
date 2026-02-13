@@ -1,0 +1,120 @@
+/* Custom badges for MinKNOW and Gourami platform indicators */
+.badge-minknow, .badge-gourami {
+  display: inline-block;
+  padding: 0px 0px;
+  margin: 0 0px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+
+.badge-minknow {
+  background-color: #005EB8;
+  border: 1px solid #004494;
+}
+
+.badge-gourami {
+  background-color: #FF6600;
+  border: 1px solid #CC5200;
+}
+
+/* Ensure badges work well in headings */
+h1 .badge-minknow, h1 .badge-gourami,
+h2 .badge-minknow, h2 .badge-gourami,
+h3 .badge-minknow, h3 .badge-gourami,
+h4 .badge-minknow, h4 .badge-gourami {
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
+/* Add vertical spacing to numbered lists */
+ol li {
+  margin-bottom: 0.5em;
+}
+
+/* Optional: Remove extra spacing from the last item */
+ol li:last-child {
+  margin-bottom: 0;
+}
+
+/* Theme color customization */
+/* Change the primary/accent color to #201452 */
+.wy-side-nav-search {
+    background-color: #201452; /* Sidebar header background */
+}
+
+.wy-side-nav-search a {
+    color: white; /* Site title in sidebar */
+}
+
+.wy-nav-top {
+    background-color: #201452; /* Mobile top nav background */
+}
+
+.wy-nav-top a {
+    color: white; /* Site title in mobile nav */
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: white; /* Navigation section headers */
+}
+
+.wy-nav-side {
+    background-color: #201452; /* Mobile top nav background */
+}
+/* Change link colors */
+a {
+    color: #201452;
+}
+
+a:hover {
+    color: #150d3a; /* Darker shade for hover */
+}
+
+/* Change navigation active item */
+.wy-menu-vertical li.current a {
+    border-right: solid 2px #201452;
+}
+
+/* Change button colors */
+.btn-neutral {
+    background-color: #201452 !important;
+}
+
+.btn-neutral:hover {
+    background-color: #150d3a !important;
+}
+
+/* CSS-only logo in sidebar */
+.wy-side-nav-search::before {
+    content: "";
+    display: block;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto 10px;
+    background-image: url("../img/nhs_rmg_logo.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Mike version selector adjustments */
+#version-selector {
+    display: block !important;
+    margin: 10px auto 0.809em !important;
+    padding: 2px;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Add "Select version" label before the dropdown */
+#version-selector::before {
+    content: "Select version";
+    display: block;
+    color: white;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    font-weight: normal;
+}

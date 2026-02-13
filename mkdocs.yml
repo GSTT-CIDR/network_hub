@@ -6,10 +6,7 @@ theme:
   name: readthedocs
   features:
     - navigation.expand
-extra:
-  version:
-    provider: mike
-    default: latest
+
 
 markdown_extensions:
   - sane_lists
@@ -43,25 +40,30 @@ plugins:
 nav:
   - Introduction: 
     - Clinical metagenomics: index.md
-  - Lab Resources: 
+  - Additional resources: 
     - Lab protocols: panmetagenomics_protocol.md
+    - Clinical evaluation SOP: clinical_interpretation.md
+    - Validation outline: validation_outline.md
+    - Changelog: changelog.md
   - Bioinformatics:
     - Overview: bioinformatics_outline.md
     - Installation and validation: bioinformatics_install.md
-    - Starting an experiment on the sequencing device:   
-      - Starting a MinKNOW experiment: running_minknow.md
-      - Starting a Gourami experiment: running_gourami.md
-    - Running the metagenomics workflow: running_metagenomics_workflow.md
-    - Query a classification: running_organism_query.md
+    - Launching a sequencing experiment and analysis:   
+      - Starting a MinKNOW experiment: running_metagenomics_workflow.md
+      - Starting a Gourami experiment: running_metagenomics_workflow_gourami.md
+      - Anonymising specimen data: anonymisation.md
+    - Orthogonal analysis: 
+      - Running organism queries: running_organism_query.md
+      - Interpreting organism query results: interpreting_query.md
+    - Limitations and bugs: limitations.md
     - Uploading to mSCAPE: mSCAPE_integration.md
-    - Summary report: additional_tools.md
-    - Deployment alternatives: alternative_deployment.md
-  - Analysis: 
-    - Clinical evaluation SOP: clinical_interpretation.md
-    - Validation outline: validation_outline.md
-  - FAQ:
-    - Frequently asked questions: faq.md
+    - Summary report: summary_report.md
+  - Additional information: 
+    - Technical descriptions: technical_information.md
     - Metagenomics sequence database: genome_database.md
+  - Frequently asked questions: 
+    - faq.md
+
 
 extra_javascript:
   - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
@@ -107,4 +109,5 @@ extra_css:
   - assets/stylesheets/width.css
   - https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css
   - stylesheets/genome-database.css
+  - stylesheets/custom.css
 

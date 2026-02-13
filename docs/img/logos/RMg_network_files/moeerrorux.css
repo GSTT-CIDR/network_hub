@@ -1,0 +1,186 @@
+.moe-infobar-body {
+    background-color: #fcf7b6;
+    border: 1px solid #d9d98b;
+    position: relative;
+    max-height: 110px;
+    overflow: hidden;
+    white-space: normal;
+    display: inline-block;
+}
+.moe-infobar-body:hover {
+    background-color: #fef294;
+}
+.moe-infobar-infotable {
+    width: 100%;
+    height: 100%;
+    max-height: 110px;
+}
+.moe-infobar-top-left-cell {
+    width: 30px;
+    min-width: 30px;
+    max-width: 30px;
+    vertical-align: top;
+    padding: 1px;
+}
+.moe-infobar-message-cell {
+    padding: 7px 7px 3px 0px;
+    vertical-align: top;
+}
+.moe-infobar-top-right-cell {
+    width: 20px;
+    min-width: 20px;
+    max-width: 20px;
+    vertical-align: top;
+}
+.moe-infobar-button-cell {
+    padding: 0px 10px 6px 0px;
+}
+.moe-status-warning-icon {
+    position: absolute;
+    clip: rect(0px 42px 41px 0px);
+    top: 0px;
+    left: 0px;
+}
+.moe-status-warning-icon_ie {
+    position: absolute;
+    clip: rect(0px 42px 41px 0px);
+    top: 0px;
+    left: 0px;
+}
+.moe-status-warning-icon:hover {
+    cursor: default;
+}
+.moe-status-error-icon {
+    position: absolute;
+    clip: rect(42px 42px 83px 0px);
+    top: -42px;
+    left: 0px;
+}
+.moe-status-error-icon_ie {
+    position: absolute;
+    clip: rect(42px 42px 83px 0px);
+    top: -42px;
+    left: 0px;
+}
+.moe-status-error-icon:hover {
+    cursor: default;
+}
+.moe-status-info-icon {
+    position: absolute;
+    clip: rect(84px 42px 125px 0px);
+    top: -84px;
+    left: 0px;
+}
+.moe-status-info-icon_ie {
+    position: absolute;
+    clip: rect(84px 42px 125px 0px);
+    top: -84px;
+    left: 0px;
+}
+.moe-status-info-icon:hover {
+    cursor: default;
+}
+.moe-status-secinfo-icon {
+    position: absolute;
+    clip: rect(210px 42px 251px 0px);
+    top: -210px;
+    left: 0px;
+}
+.moe-status-secinfo-icon_ie {
+    position: absolute;
+    clip: rect(210px 42px 251px 0px);
+    top: -210px;
+    left: 0px;
+}
+.moe-status-secinfo-icon:hover {
+    cursor: default;
+}
+.moe-infobar-warning {
+    position: absolute;
+    clip: rect(0px 75px 23px 50px);
+    top: 0px;
+    left: -50px;
+    margin: 7px 2px 1px 2px;
+}
+.moe-infobar-error {
+    position: absolute;
+    clip: rect(26px 75px 47px 50px);
+    top: -26px;
+    left: -50px;
+    margin: 7px 2px 1px 2px;
+}
+.moe-infobar-info {
+    position: absolute;
+    clip: rect(52px 75px 75px 50px);
+    top: -52px;
+    left: -50px;
+    margin: 7px 2px 1px 2px;
+}
+.moe-infobar-secinfo {
+    position: absolute;
+    clip: rect(175px 75px 199px 50px);
+    top: -178px;
+    left: -50px;
+    margin: 7px 2px 1px 2px;
+}
+.moe-infobar-dismiss {
+    position: absolute;
+    clip: rect(83px 71px 98px 55px);
+    top: -83px;
+    right: 0px;
+    margin: 2px 1px 1px 2px;
+}
+.moe-infobar-dismiss:hover {
+    cursor: default;
+}
+.moe-infobar-message-div {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    max-height: 68px;
+}
+.moe-infobar-title {
+    font-style: Normal;
+    font-size: 8pt;
+    color: #444444;
+    font-weight: bold;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.moe-infobar-message {
+    font-style: normal;
+    font-size: 8pt;
+    color: #444444;
+    margin: 7px 10px 0px 6px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.moe-infobar-message-with-url {
+    color: #0000ff;
+}
+button.moe-infobar-button {
+    text-transform: uppercase;
+    font-size: 8pt;
+    background-color: #fff19d;
+    border: 1px solid #b4a555;
+    color: #444444;
+    text-align: center;
+    vertical-align: middle;
+    margin: 3px 3px 3px 0px;
+    padding: 3px 15px;
+    display: inline;
+    overflow: visible;
+}
+button.moe-infobar-button:hover {
+    background-color: #fef8d8;
+    border-color: #b4a555;
+    cursor: default;
+}
+button.moe-infobar-button:active {
+    background-color: #f3e282;
+    border-color: #b4a555;
+}
+.moe-background {
+    position: relative;
+    width: 100%;
+}

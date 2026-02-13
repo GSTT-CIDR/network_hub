@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/limitations/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Limitations and bugs - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Limitations and bugs";
+        var mkdocs_page_input_path = "limitations.md";
+        var mkdocs_page_url = "/network_hub/Agnes/limitations/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Limitations and bugs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#organism-database-representation">Organism database representation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#misclassification">Misclassification</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#human-metapneumovirus-sensitivity">Human metapneumovirus sensitivity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#report-transmission">Report transmission</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#eukaryotic-binning">Eukaryotic binning</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#divergent-sequence-detection">Divergent sequence detection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unclassified-reads">Unclassified reads</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#database-changes">Database changes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-concurrent-instances-of-the-workflow">Running concurrent instances of the workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-bugs">Software bugs</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Limitations and bugs</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/limitations.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="known-limitations">Known Limitations</h1>
+<p>See below a list of limitations identified during testing. This is not an exhaustive list. Classification results should always be scrutinised by a trained bioinformaticican. Always defer to internal governance and <em>in-vitro</em> reflex testing. </p>
+<h2 id="organism-database-representation">Organism database representation</h2>
+<p>The workflow will not detect organisms which are not represented in the classification databases. For a list of taxa included in the database, visit the Network Hub 'Genome Database' section.</p>
+<h2 id="misclassification">Misclassification</h2>
+<p>All taxonomic classification tools are prone to misclassifying reads. In cases where low accuracy is suspected, run an Organism Query and perform reflex lab testing following internal governance. We flag three common causes for misclassification below. Consider these when analysing report data.</p>
+<ol>
+<li>
+<p><strong>Closely related species</strong>, conserved genes across related species, sometimes across genera, confound k-mer based analyses. As with MALDI-TOF or 16S, genera like <em>Streptococcus</em> prove difficult to differentiate. Multiple occurrences of species from the same genus or closely related genera may be shown on reports, which are often from a single or fewer source species.</p>
+</li>
+<li>
+<p><strong>Mobile genetic elements</strong>: Plasmids and phage genomes are present in the reference database. When a plasmid sequence is associated with a specific reference taxon, detection of that plasmid in an unrelated organism can result in misclassification to the original reference taxon. Two prominent examples of this are:</p>
+<ol>
+<li><em>Bacillus anthracis</em> - Sometimes indicated green on Auto Query. Elements of a plasmid associated with the reference sequence of <em>B.anthracis</em> found in both the CIDR and BLAST databases which can originate from Non-<em>Bacillus</em> spp.. </li>
+<li><em>Klebsiella pneumoniae</em> (seen regularly in the Negative Control) - A plasmid derived from the kit-ome, classified incorrectly as <em>Klebsiella pneumoniae</em> or E.<em>coli</em> detections.</li>
+<li><em>Neisseria gonorrhoeae</em> -  A plasmid commonly found across commensal <em>Neisseria</em> spp. falsely identified as <em>Neisseria gonorrhoeae</em> in reports. Run Organism Query to verify non-plasmid reads.</li>
+</ol>
+</li>
+<li>
+<p><strong>Low complexity regions</strong>: Homopolymers, repeats, GC rich/poor sequences. For suspected spurious classifications, check the BLAST alignment section of the Organism Report. Disregard detections featuring consistently low quality sequence data. </p>
+</li>
+<li>
+<p><strong>Limited or no representation in the classification database</strong>. Reads originating from taxa without sufficient representation in the database will often find <em>the next best match</em>. Inspect the Organism Report plot for % identity to better understand the <em>fit</em> of the alignment subject sequence. Reads originating from species without adequate representation may also appear in the 'Unclassified' section on the report.</p>
+</li>
+</ol>
+<p><strong>Other noteworthy systematic misclassifications:</strong>
+Aspergillus, Pneumocystis, Candida and other common fungi - low quality reference sequences and conserved genes result in frequent misclassification, confounding both primary and orthogonal analysis  </p>
+<h2 id="human-metapneumovirus-sensitivity">Human metapneumovirus sensitivity</h2>
+<p>Version 16 of the classification database (bundled with Agnes) has exhibited a decline in read count for HPMV detections. We have not observed any false-negatives because of this, but there is a possibility this may happen.</p>
+<h2 id="report-transmission">Report transmission</h2>
+<p>Metagenomics HTML reports must be bundled with the <code>automated_queries</code> directory and its contents in the same relative path as published for the 'Open report' function to operate on the primary Metagenomics Report page. When transmitting reports outside of the NHS RMg platform environment, we suggest zipping the relevant report directory (including HTML/PDF reports and automated_queries) in place.</p>
+<p>The Organism Query reports are fully portable with interactive plots.</p>
+<h2 id="eukaryotic-binning">Eukaryotic binning</h2>
+<p>In cases where there is an abundance of eukaryotic rRNA/mitochondrial material reads, low-abundance fungal detections comprised only of rRNA read data may be missed through a 'smokescreen' effect. For example, there may be 80 eukaryotic rRNA/mitochondrial material reads originating from the <em>Nicotiana tabacum</em> often introduced to the library by the TMV spike-in. There may be a single read of <em>Aspergillus</em> spp. which may not appear in the Auto Query report which will only automatically query a subsample of 25 reads. This scenario has not been observed throughout validation.</p>
+<h2 id="divergent-sequence-detection">Divergent sequence detection</h2>
+<p>Divergent sequences, those which differ significantly from their representatives in our databases, are less likely to be detected by k-mer classification tools which are featured in this workflow. For example, virus strains with limited representation in the database may not be detected. Consider alternative analyses employing larger databases or more appropriate alignment techniques where novel pathogens or divergeant strains are suspected.</p>
+<h2 id="unclassified-reads">Unclassified reads</h2>
+<p>Users should check the 'Unclassified' count in the 'Quality Control' section on Metagenomics Reports. Abnormal rates of unclassified reads are indicative of either low quality read data or the presence of a taxon not well represented in the Centrifuge database. </p>
+<p>Organism Query is capable of analysing a small subset (50) of reads from the unclassified bin, however, this may not be sufficient to make low abundance detections in large sets of unclassified reads. Consider alternative analyses employing larger databases or more appropriate alignment techniques if consequential unclassified reads are suspected. </p>
+<h2 id="database-changes">Database changes</h2>
+<p>New versions of the classification database yield different results compared to previous versions of the workflow. In some cases, virus read counts can be diminished, and in some cases, detections may be lost. </p>
+<p>See the GSTT/Synnovis change control document for more information.</p>
+<h2 id="running-concurrent-instances-of-the-workflow">Running concurrent instances of the workflow</h2>
+<p>This workflow version consumes significantly more computational resources than previous releases. To prevent system instability and workflow crashes, <strong>do not run more than two concurrent workflow instances simultaneously</strong> on a GridION device.</p>
+<p>To mitigate this limitation, users should:</p>
+<ul>
+<li>Stage and group analysis runs to launch together from a single Metagenomics Launcher instance. Analyse multiple flow cells or libraries simultaneously by populating all samples in one Launcher window before initiating the workflow.</li>
+</ul>
+<p>Multiple parallel experiments in MinKNOW/Gourami can be launched at any point. This section refers only to the Metagenomics Launcher.</p>
+<p>Changing the <code>blast_slots</code> count and <code>mem_slots</code> in the configuration file can adapt performance to machines with fewer or more resources. See 'Technical Information -&gt; Metagenomics config parameters' For example:</p>
+<p><strong>For devices with 128 GB memory and 64 CPI threads:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parallel_instances</td>
+<td>16</td>
+</tr>
+<tr>
+<td>mem_slots</td>
+<td>5</td>
+</tr>
+<tr>
+<td>blast_slots</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>For devices &lt; 64 GB memory and &lt; 18 CPU threads:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>parallel_instances</td>
+<td>8</td>
+</tr>
+<tr>
+<td>mem_slots</td>
+<td>1</td>
+</tr>
+<tr>
+<td>blast_slots</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="software-bugs">Software bugs</h2>
+<ol>
+<li>
+<p>The Auto Query traffic light tooltips will not appear if there is insifficient room on the browser window. Increase the size of the window, scroll up/down or zoom out if the tooltip is not appearing.</p>
+</li>
+<li>
+<p>Auto Query reports are overwritten at each timepoint and only the latest is kept. For example: an Auto Query report linked to the Metagenomics Report at 0.5 hours shortly after the 0.5 hour publication timepoint will change when the next timepoint's Auto Query reports are generated. Note: This will only affect the Organism Report, not the 'traffic light' or the information on the traffic light popup.</p>
+</li>
+<li>
+<p>If the 'FullPath' header is present in a sample sheet, the workflow will use the content of that field only to find input data. Ensure the header is not present if legacy data ingest is required. See 'Technical Information -&gt; Metagenomics Workflow -&gt;  Q-line raw data storage and Force legacy ingest' for more info.</p>
+</li>
+<li>
+<p>When only human reads are present in the sequencing dataset '<em>Homo sapiens</em>' will be shown in the 'above threshold' section of the report. This is intended behaviour. However, the 'microbial' count on the report will erroneously show the count of human reads.</p>
+</li>
+</ol></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../interpreting_query/" class="btn btn-neutral float-left" title="Interpreting organism query results"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mSCAPE_integration/" class="btn btn-neutral float-right" title="Uploading to mSCAPE">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../interpreting_query/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../mSCAPE_integration/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/javascripts/version-label.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/3.8.1/running_organism_query/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/running_organism_query/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Query a classification - CIDR Metagenomics Hub</title>
+    <title>Running organism queries - CIDR Metagenomics Hub</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -14,13 +14,14 @@
         <link href="../assets/stylesheets/width.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
         <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
         <link href="../css/version-select.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Query a classification";
+        var mkdocs_page_name = "Running organism queries";
         var mkdocs_page_input_path = "running_organism_query.md";
-        var mkdocs_page_url = "/network_hub/3.8.1/running_organism_query/";
+        var mkdocs_page_url = "/network_hub/Agnes/running_organism_query/";
       </script>
     
     <!--[if lt IE 9]>
@@ -42,9 +43,6 @@
       <div class="wy-side-nav-search">
           <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
         </a>
-        <div class="version">
-          {'provider': 'mike', 'default': 'latest'}
-        </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -53,9 +51,15 @@
                   <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Lab Resources</span></p>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Bioinformatics</span></p>
@@ -64,53 +68,51 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Starting an experiment on the sequencing device</a>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../running_minknow/">Starting a MinKNOW experiment</a>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../running_gourami/">Starting a Gourami experiment</a>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../running_metagenomics_workflow/">Running the metagenomics workflow</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Query a classification</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Orthogonal analysis</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#technical-information">Technical information</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Running organism queries</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#auto-query">Auto Query</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#launching-organism-query">Launching organism query</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interpreting-organism-query-results">Interpreting Organism Query results</a>
+    <li class="toctree-l3"><a class="reference internal" href="#organism-query">Organism Query</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#key-metrics">Key metrics</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#interactive-plot">Interactive plot</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#blast-alignments">BLAST alignments</a>
+    <li class="toctree-l4"><a class="reference internal" href="#initiating-an-organism-query">Initiating an Organism Query</a>
     </li>
         </ul>
     </li>
     </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Summary report</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../alternative_deployment/">Deployment alternatives</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Analysis</span></p>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">FAQ</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../faq/">Frequently asked questions</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
                   </li>
               </ul>
       </div>
@@ -128,7 +130,8 @@
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Bioinformatics</li>
-      <li class="breadcrumb-item active">Query a classification</li>
+          <li class="breadcrumb-item">Orthogonal analysis</li>
+      <li class="breadcrumb-item active">Running organism queries</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_organism_query.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -138,99 +141,96 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div><h1 id="bioinformatics-organism-query">Bioinformatics - Organism query</h1>
-<p>The Organism Query tool is designed to help scrutinise taxonomic classification outputs from the CIDR metagenomics workflow. It uses a local (offline) version of NCBI BLASTn, with the full NCBI nt, RefSeq, and CIDR databases to produce a report, similar to that found on the NCBI BLAST website, providing the user with a second opinion on classifications.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The CIDR Metagenomics workflow v3.8.1 runs Organism Query automatically for all non-viral taxa above threshold - see <a href="../auto_query/">Auto Query</a>.
-<br><br></p>
-</div>
-<h2 id="technical-information">Technical information</h2>
+                <div><h1 id="secondary-orthogonal-classification-analysis">Secondary (orthogonal) classification analysis</h1>
+<p>The Organism Query platform is provided to enable further scrutiny of taxonomic classification outputs from the CIDR metagenomics workflow. This tool serves both the Auto Query (<em>traffic light</em>) function on the Metagenomics Workflow outputs and the manual Organism Query interface. It leverages a local (offline) implementation of NCBI BLASTn to analyse a subset of reads from a given detection, summarised in a portable HTML report, with added analyses and logic to consolidate and visualise results.</p>
+<h2 id="auto-query">Auto Query</h2>
+<p>The Metagenomics Workflow submits reads to Organism Query automatically for non-viral detections above threshold or organisms on the Exception List (See 'Technical information -&gt; Metagenomics Workflow' for more information and configuration). Auto Query results are summarised on the Metagenomics Reports in two tiers. First, the <em>traffic light</em> system, which communicates concordance between primary classification (k-mer - centrifuge) and secondary (orthogonal) classification Auto Query results. Importantly, like all outputs of this workflow, indications made by this function are not guaranteed to be accurate. A green light indicates that no discrepancy was detected between classification stages, it does not infer certainty. </p>
 <ul>
-<li>Organism Query searches the classified reads for an organism indicated by the user. Selecting a random subset of 50 reads assigned to that taxon (and taxonomic children).</li>
-<li>The centrifuge score is not considered in this analysis, all reads matching a taxon are valid for selection.</li>
-<li>Reads are extracted from the microbial FASTQ file stored in the workflow <code>results/{sample_id}/{timepoint}/microbial</code> folder and BLASTed against the indicated database. The queried reads are saved as a FASTA file in the <code>./metagenomics/reports/{sample_id}/organism_query_XXX</code> directory.</li>
-<li>The results are parsed in to a HTML report with an interactive plot designed to help the user explore the different metrics of alignment.</li>
-<li>A full BLAST alignment report is available at the bottom of the HTML report.</li>
-<li>The report is stored in the <code>./metagenomics/reports/{sample_id}/organism_query_XXX</code> folder, with the other PDF reports from the metagenomics run.</li>
+<li>A <span style="color: ForestGreen;">green circle</span> indicates that &gt; 50% of the highest ranking BLAST alignments in the analysis match the taxon identified in primary classification. i.e. In a standard 25 read subsample, &gt; 12 of the reads' best alignments match the taxon indicated on the report. </li>
+<li>A <span style="color: orange;">yellow circle</span> indicates that &lt; 50% of the highest ranking BLAST alignments in the analysis match the taxon identified in primary classification. Amber indicators on clinically-relevant detections should always be investigated further. </li>
+<li>A <span style="color: gray;">gray circle</span> indicates that either the analysis/process failed or there were no alignments resulting from the query reads provided. Repeat the analysis using a larger database via the Organism Query tool.</li>
+<li>A <span style="color: RoyalBlue;">blue circle</span> indicates the taxon in question was not eligible for Auto Query analysis, due to it being below threshold. Use the manual Organism Query tool to analyse these taxa further. </li>
 </ul>
+<p>The auto query database contains a similar set of sequences to the primary classification database, with the addition of RefSeq prokaryote and virus representatives.</p>
+<p>Take a look at an example report here to familiarise yourself with the interface: <a href="../reports/demonstration_2/demonstration_2_24_hours_report.html">See report</a></p>
+<p><strong>More information on configuring this function and its thresholds can be found in the 'Technical Information -&gt; Metagenomics config parameters' section.</strong></p>
+<p><a class="glightbox" href="../img/auto_query_report.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the Organism Query interface." src="../img/auto_query_report.png"></a></p>
+<p>The second tier of results are revealed when the <em>traffic light</em> is clicked on. The popover contains a brief summary of the Organism Query metrics, which are <strong>derived only from the best (highest scoring) BLAST alignment</strong> for each query read. These include:</p>
+<ul>
+<li><strong>'First'</strong> - The most frequently observed alignment subject taxon, and the percentage representation of that taxon in the Query subsample.</li>
+<li><strong>Second</strong> - The second-most frequently observed alignment subject taxon, and the percentage representation of that taxon in the Query dataset.</li>
+<li><strong>Avg length</strong> - The average length (sequence overlap) of the alignments.</li>
+<li><strong>Avg identity</strong> - Average percentage of identical positions across alignments.</li>
+</ul>
+<p>The 'Open Report' button links to the full Organism Query report. Go to the 'Interpreting an Organism Query report' section for a guide on Auto Query reports.</p>
 <div class="admonition danger">
-<p class="admonition-title">Caution</p>
-<p>All NCBI sequence databases can contain contaminated sequences, mis-annotated sequences, sequences that are not representative of the organism they are assigned to.</p>
-<p>While the 'nt' database offers the most comprehensive search, the 'euk', 'prok' and 'viruses' databases are more curated and quicker.</p>
+<p class="admonition-title">Warning</p>
+<p>The Auto Query traffic light tooltip popups will not appear when clicked if there is insufficient room on the browser window. Increase the size of the window, scroll up/down or zoom out if the tooltip is not appearing.</p>
 </div>
-<p><a class="glightbox" href="../img/organism_query_blank.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="alt text" src="../img/organism_query_blank.png"></a></p>
-<h2 id="launching-organism-query">Launching organism query</h2>
+<h2 id="organism-query">Organism Query</h2>
+<p>Organism Query is an interface for manually initiating BLAST analyses on taxa identified in Metagenomics reports. Its main uses, aside from those covered by Auto Query, are:</p>
+<ul>
+<li>Users can query reads from taxa above or below threshold at any timepoint.</li>
+<li>Users can select which BLAST database to use, including domain-specific Refseq databases, nt-core and nt.</li>
+<li>Users can query a small subset of unclassified reads.</li>
+<li>Organism Query by default analyses 50 reads.</li>
+</ul>
+<h3 id="initiating-an-organism-query">Initiating an Organism Query</h3>
 <ol>
-<li>Load the relevant report for the run you'd like to query.
-<br><br></li>
-<li>Click on the Organism Query launcher desktop icon.
-<br><br></li>
-<li>Fill out the fields detailed below. Multiple queries can be run at once by selecting the <code>+</code> button. A separate report will be generated for each.</li>
+<li>
+<p>Double click on the 'Organism Query' icon on the desktop.</p>
+</li>
+<li>
+<p>Open the Metagenomics Report with the taxon on you'd like to query.</p>
+</li>
+<li>
+<p>Fill out the four fields (highlighted on the image below):</p>
+</li>
+<li>
+<p>Lab/Sample ID.</p>
+</li>
+<li>Workflow interval (timepoint).</li>
+<li>Organism Keyword - Copy and paste as it appears on the report. Any taxa below the rank of the keyword will be included in the search. </li>
+<li>
+<p>Choose the BLAST subject database. (See below)</p>
+</li>
+<li>
+<p>Click on 'Launch Script' to begin. The attached debugging output will display analysis progress.</p>
+</li>
+<li>
+<p>The Organism Report should appear automatically. If it does not, navigate to the <code>NHS_RMg_platform/reports/{sample_id}/organism_query_{query_organism}_{datetime}/organism_report.html</code> and open in browser.</p>
+</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>CIDR workflow Lab/sample ID</strong></td>
-<td>The Lab/Sample ID matching that of the report in question.</td>
-</tr>
-<tr>
-<td><strong>Workflow hour/interval</strong></td>
-<td>The time-point corresponding to the dataset you'd like query.</td>
-</tr>
-<tr>
-<td><strong>Organism keyword</strong></td>
-<td>A keyword identifying the taxa to be queried eg. 'Aspergillus' (capturing all aspergillus spp.) or 'Bordetella parapertussis' for this species and all taxonomic children (eg strains)</td>
-</tr>
-<tr>
-<td><strong>BLAST database</strong></td>
-<td>Select the BLASTn database for the search.</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition tip">
-<p class="admonition-title">Note</p>
-<p>Consider using the 'euk', 'prok' or 'viruses' databases for a quick search. The 'nt' database is the most comprehensive, but can be slower to search and may contain more mis-annotated sequences. </p>
+<p class="admonition-title">Quick Tip</p>
+<p>In addition to exact organism names, uses can put a genus, strain or 'Unclassified' in to the Organism Keyword field. The latter will query Unclassified reads.</p>
 </div>
-<ol start="4">
-<li>Click on the <code>Launch script</code> button to start the query workflow. A Chrome browser window will appear after the workflow has finished. You can reopen the report from <code>`reports/{sample_id}/organism_query_XXX</code> on the metagenomics SSD. </li>
+<p><a class="glightbox" href="../img/organism_query_blank.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the Organism Query interface." src="../img/organism_query_blank.png"></a></p>
+<h4 id="choosing-a-blast-database">Choosing a BLAST database</h4>
+<p>BLAST databases contain the reference sequences used to screen queries. Results can be vastly different and possibly misleading if the wrong database is chosen. A conventional NCBI Online BLAST search utilises the 'core-nt' database. We recommend a tiered approach when choosing a database for Queries. Starting your investigation with fast and curated databases, ending with the largest and most inclusive, balancing reliability and turn-around-time. It's important to consider that the 'nt' databases are not curated and therefore could produce misleading results.</p>
+<ol>
+<li>
+<p>Auto Query database (CIDR_vXX) - Curated, inclusive and fast. Will produce similar results to Auto Query results. Contains a mirror of the CIDR_v16 Centrifuge database (Human, parasites, fungi, virus and prokaryote genomes), with the addition of Refseq virus and prokaryotic databases.</p>
+</li>
+<li>
+<p>RefSeq - euk, prok, viruses or all. NCBI Refseq (a curated database) representative genomes split by domain or all together. Using the 'Refseq Viruses' database takes &lt; 1 minute and is perfect for investigating high-confidence viral detections further.</p>
+</li>
+<li>
+<p>core-nt and nt - nucleotide sequence database, with entries from all traditional divisions of GenBank, EMBL, and DDBJ; excluding bulk divisions (gss, sts, pat, est, htg). core-nt is more compact, and therefore runs faster. It enables faster searches, but is lacking large eukaryotic chromosomal assemblies.</p>
+</li>
 </ol>
-<h2 id="interpreting-organism-query-results">Interpreting Organism Query results</h2>
-<p>Organism Query has been designed to help guide decision making in cases where the validity of a taxonomic classification is in doubt, or a taxon is listed in the Reporting SOP as requiring validation. Organism Query is not a gold standard for classification. </p>
-<p>Please consult with a bioinformatician if the validity of a detection is in question. Always follow local governance and perform reflex testing where appropriate. </p>
-<h3 id="key-metrics">Key metrics</h3>
-<ul>
-<li>Query Coverage: Percent of the query sequence length that is included in alignments against the sequence match.</li>
-<li>E-value: Indicates the number of hits or alignments that are expected to be seen by random chance with the same score or better. The lower the E-value, the more significant the alignment (the closer to 0, the better). E-value is the default metric used to sort the Descriptions table. Click here for a discussion of E-value thresholds.</li>
-<li>Percent Identity: Percent of nucleotides or amino acids that are identical between the aligned query and database sequences. A query sequence can share low percent identity with a sequence and still be a significant hit. It is essential to take the E-value into account and look for similarity between conserved regions (this will be more evident at the amino acid level).</li>
-<li>Ave. query length: Average length of the input query sequencing read.
-'Supporting reads': The number of reads for which that taxon is the highest scored alignment.</li>
-</ul>
-<h3 id="interactive-plot">Interactive plot</h3>
-<p>Is there meaningful convergence or clustering in the classification of reads? </p>
-<p>See Figure 8. The plot shows two clusters. Is there a consensus cluster with greater % identity and higher bit-score? In this example, we have a homogeneous blue cluster of high identity alignments (~95%) and bit-scores, compared to a less supported cluster of incorrect, closely related taxa with lower identities and bit-scores. </p>
-<p>See Figure 9. One cluster is present. Are the classifications closely related and is the identity high? Or does the cluster have a largely low % identity with seemingly unrelated disparate taxa? In this example, it is the former. We have reads with relatively high identity &gt;80% all forming alignments within a genus, Treponema spp., yielding no clear consensus cluster. In this case, we can be fairly sure we are dealing with Treponema spp. as the identity and bit-scores are high. Given the clinical context (a respiratory sample), I might classify these as Treponema denticola.  </p>
-<p>Figure 9 Organism query interactive plot - undistinguished outputs </p>
-<p>On changing the colour variable to ‘Query read ID’, are there any patterns shown? Specifically, are clusters on the plot formed from the same read(s) or comprise many different reads. If clusters are formed from single reads, it may be the case that reads in the analysis are from different organisms and results may not be valid. </p>
-<h3 id="blast-alignments">BLAST alignments</h3>
-<p>Scrolling to the bottom of the report is a conventional BLAST alignment. We recommend looking at each read, the <strong>Length</strong> (query readlength), the <strong>Score</strong> and <strong>Identities</strong> values. </p>
-<ul>
-<li>If only a small alignment (80 bp) has been made from a long 2000 bp read, this is not likely to be a robust estimation. </li>
-<li>Check the alignment visualisation for long repeats, regions of low complexity etc. These regions often confound BLAST and taxonomic classification tools.</li>
-</ul>
-<p><a class="glightbox" href="../img/organism_query_blast.png" data-type="image" data-width="auto" data-height="auto" data-title="BLAST screenshot" data-description="An example of a Organism Query BLAST output" data-desc-position="bottom"><img alt="" data-description="An example of a Organism Query BLAST output" data-title="BLAST screenshot" src="../img/organism_query_blast.png"></a></p></div>
+<p><a class="glightbox" href="../img/blast_timig_plot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Time taken to complete Organism Queries using different BLAST databases." src="../img/blast_timig_plot.png" width="50%"></a></p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Misclassification can occur when no representaive for a query read is present in a reference database.</p>
+<p>Choosing a domain-specific databases can produce misleading results if the true query origin is not contained within the database/domain chosen.</p>
+</div></div>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../running_metagenomics_workflow/" class="btn btn-neutral float-left" title="Running the metagenomics workflow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../mSCAPE_integration/" class="btn btn-neutral float-right" title="Uploading to mSCAPE">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../anonymisation/" class="btn btn-neutral float-left" title="Anonymising specimen data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../interpreting_query/" class="btn btn-neutral float-right" title="Interpreting organism query results">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -257,10 +257,10 @@
         </span>
     
     
-      <span><a href="../running_metagenomics_workflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../anonymisation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../mSCAPE_integration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../interpreting_query/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
@@ -268,6 +268,7 @@
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
+      <script src="../assets/javascripts/version-label.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>

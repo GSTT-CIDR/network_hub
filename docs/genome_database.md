@@ -1,4 +1,6 @@
-# CIDR RMg Genome Database (V15)
+# CIDR RMg Genome Database (V16 - Agnes)
+
+This page contains a database of all taxa in the primary classification database. It taxa featured here can appear on the main report. The Auto Query database contains everything listed here, plus RefSeq prok and viruses.
 
 <style>
 .genome-db {
@@ -154,7 +156,7 @@
 <div class="genome-db">
     <!-- Summary Statistics Cards -->
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="stats-card">
                 <div class="card-body">
                     <div class="stats-icon" style="background-color: #007bff;">
@@ -167,20 +169,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="stats-card">
-                <div class="card-body">
-                    <div class="stats-icon" style="background-color: #28a745;">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
-                    <div>
-                        <h5 style="margin-bottom: 0.5rem;">Total Contigs</h5>
-                        <h3 style="margin: 0;" id="totalContigs">-</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="stats-card">
                 <div class="card-body">
                     <div class="stats-icon" style="background-color: #17a2b8;">
@@ -291,50 +280,34 @@
 <script>
 // Column definitions - customize display names and data types here
 const columnDefinitions = {
-    // Example mappings - adjust these to match your actual CSV columns
+    // Updated mappings for new CSV structure
+    'taxon_name': {
+        displayName: 'Taxon Name',
+        type: 'text',
+        description: 'Name of the taxon'
+    },
+    'total_bases': {
+        displayName: 'Total Base Pairs',
+        type: 'number',
+        thousandsSeparator: true,
+        description: 'Total base pairs assigned to taxon'
+    },
+    'full_lineage': {
+        displayName: 'Taxonomic Lineage',
+        type: 'text',
+        description: 'Full NCBI taxonomic lineage'
+    },
+    'taxid_lineage': {
+        displayName: 'Taxonomic Lineage (TaxIDs)',
+        type: 'text',
+        thousandsSeparator: false,
+        description: 'Full NCBI taxonomic lineage (TaxIDs)'
+    },
     'taxid': {
         displayName: 'TaxID',
         type: 'number',
         thousandsSeparator: false,
         description: 'NCBI taxid for the organism'
-    },
-    'contig_count': {
-        displayName: 'Number of contigs',
-        type: 'number',
-        thousandsSeparator: true,
-        description: 'Number of contigs in the assembly'
-    },
-    'total_bp': {
-        displayName: 'Total base pairs',
-        type: 'number',
-        thousandsSeparator: true,
-        description: 'Total base pairs assigned to taxon'
-    },
-    'Name': {
-        displayName: 'Taxon name',
-        type: 'text',
-        description: 'Name of the taxon at the specified rank'
-    },
-    'Rank': {
-        displayName: 'Taxon rank',
-        type: 'text',
-        description: 'Taxonomic rank of the organism'
-    },
-    'FullLineage': {
-        displayName: 'Taxonomic lineage',
-        type: 'text',
-        description: 'Full NCBI taxonomic lineage'
-    },
-    'FullLineageTaxIDs': {
-        displayName: 'Taxonomic lineage (TaxIDs)',
-        type: 'text',
-        thousandsSeparator: false,
-        description: 'Full NCBI taxonomic lineage (TaxIDs)'
-    },
-    'FullLineageRanks': {
-        displayName: 'Taxonomic lineage ranks',
-        type: 'text',
-        description: 'Full NCBI taxonomic lineage results'
     }
     // Add more column mappings as needed
     // Supported types: 'text', 'number', 'percentage', 'date'
@@ -350,7 +323,7 @@ $(document).ready(function() {
 
 function loadData() {
     showLoading();
-    fetch('../consolidated_taxa_table_dropped.csv')
+    fetch('../taxon_summary_table.csv')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to load CSV file. Status: ${response.status}`);
@@ -511,9 +484,6 @@ function populateTableData(headers) {
                         td.textContent = value;
                         break;
                 }
-            } else if (['contig_count', 'total_bp'].includes(header) && value && !isNaN(value)) {
-                // Fallback for legacy numeric formatting
-                td.textContent = parseInt(value).toLocaleString();
             } else {
                 td.textContent = value;
             }
@@ -566,18 +536,12 @@ function initializeDataTable() {
 function updateStatistics() {
     const totalEntries = rawData.length;
     
-    const totalContigs = rawData.reduce((sum, row) => {
-        const count = parseInt(row.contig_count) || 0;
-        return sum + count;
-    }, 0);
-    
     const totalBases = rawData.reduce((sum, row) => {
-        const bases = parseInt(row.total_bp) || 0;
+        const bases = parseInt(row.total_bases) || 0;
         return sum + bases;
     }, 0);
 
     document.getElementById('totalEntries').textContent = totalEntries.toLocaleString();
-    document.getElementById('totalContigs').textContent = totalContigs.toLocaleString();
     
     if (totalBases >= 1e12) {
         document.getElementById('totalBases').textContent = (totalBases / 1e12).toFixed(2) + 'T';

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/technical_information/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Technical descriptions - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Technical descriptions";
+        var mkdocs_page_input_path = "technical_information.md";
+        var mkdocs_page_url = "/network_hub/Agnes/technical_information/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Technical descriptions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#metagenomics-workflow">Metagenomics Workflow</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#feature-descriptions">Feature descriptions:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logging">Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#file-outputs">File outputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#analysis-thresholds">Analysis thresholds</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#threshold-exceptions">Threshold exceptions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#variable-thresholds">Variable thresholds</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#force-overwrite-and-recycle-bin">Force overwrite and recycle bin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#query-data-outputs">Query data outputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#q-line-raw-data-storage-and-force-legacy-ingest">Q-line raw data storage and 'Force legacy ingest'</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#eukaryote-binning">Eukaryote binning</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-sheets-loading-and-structure">Sample sheets - loading and structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#metagenomics-config-parameters">Metagenomics config parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#taxon-name-replacement-function">Taxon name replacement function</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#summary-report">Summary report</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#description-of-features">Description of features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#description-of-outputs">Description of outputs</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#network-hub-app">Network hub app</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#customising-workflow-outputs">Customising workflow outputs</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Additional information</li>
+      <li class="breadcrumb-item active">Technical descriptions</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/technical_information.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="technical-information">Technical Information</h1>
+<h2 id="metagenomics-workflow">Metagenomics Workflow</h2>
+<p><a class="glightbox" href="../img/workflow_diagram.drawio_3.8.3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Schematic of the CIDR Metagenomics Workflow" src="../img/workflow_diagram.drawio_3.8.3.png"></a></p>
+<p>* Data sharing processes are removed for all NHS-external distributions.</p>
+<h3 id="feature-descriptions">Feature descriptions:</h3>
+<p><a class="glightbox" href="../img/metagenomics_interface_diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Diagram of the metagenomics workflow GUI" src="../img/metagenomics_interface_diagram.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Load existing sample sheet</td>
+<td>Load a pre-existing sample sheet. This will populate the fields below with the data from the TSV file.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Number of samples</td>
+<td>The number of samples to be analysed. This will create the number of rows in the table below.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Experiment ID</td>
+<td>Not to be confused with the ONT Experiment ID</td>
+</tr>
+<tr>
+<td>4</td>
+<td>ONT experiment ID</td>
+<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data directory.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>ONT sample ID</td>
+<td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data/{experiment_id}/</td>
+</tr>
+<tr>
+<td>6</td>
+<td>ONT barcode</td>
+<td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Lab/Sample ID</td>
+<td>The unique lab accession number for the sample. This data is encrypted before transmission. If repeating a sample, append with _n</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Sample accession</td>
+<td>The lab's sample ID - identifying a specific patient specimen (Anonymised).</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Hospital number</td>
+<td>A value identifying the individual providing the sample (Anonymised).</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Collection date</td>
+<td>The date the specimen was collected. For positive and negative controls, this would be the day of library preparation.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Sample Class</td>
+<td>The category of the sample loaded.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Sample type</td>
+<td>The type of specimen.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Operator</td>
+<td>Identifier for user operating the sequencer.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Notes</td>
+<td>An open field for notes that will appear on all reports.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Anonymise</td>
+<td>Anonymises the 'Sample accession' and 'Hospital number' values using an encryption cypher.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Deanonymise</td>
+<td>Deanonymises the 'Sample accession' and 'Hospital number' values present in the launcher fields to their original values. The deanonymisation tool can be used to access previous runs.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Generate Gourami sample sheet</td>
+<td>Only for Q-line &gt;=v1.1 Generates a Gourami compatible sample sheet for starting a sequencing experiment. The output can be found in the ./NHS_RMg_platform/sample_Sheet/gourami directory.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Force overwrite</td>
+<td>Checking this box will move results and reports for all timepoints matching the 'Lab/sample ID' filed in the launcher to the ./NHS_RMg_platform/recycle_bin directory and 'unlock' all directories. If you have aborted a run, or the terminal is reporting failures, try using this feature. Anyting overwritten will be moved to the <code>NHS_RMG_platform/recycle_bin</code> directory.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>mSCAPE prompt</td>
+<td>After the sequencing and analysis run has completed, open the mSCAPE uploader for user input. No data is uploaded without par-sample expressed authorisation.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Select timepoints</td>
+<td>Select the timepoints you'd like to be generated. If you encounter errors generating a timepoint visit the FAQ section</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Refresh directories</td>
+<td>This button refreshes the contents of the MinKNOW experiment ID and MinKNOW sample ID columns. Useful if you have started the launcher before commencing the sequencing experiment.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Launch pipeline</td>
+<td>Launches metagenomics analysis, saving the sample sheet to the ./NHS_RMg_platform/sample_sheets.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Force legacy data ingest</td>
+<td>Relaunches the interface using the legacy data ingest method. ONT Experiment and Sample dropdowns will be populated directly from <code>/data</code>rather than the Gourami SQL database.</td>
+</tr>
+</tbody>
+</table>
+<p>: Feature description table for metagenomics workflow </p>
+<h3 id="logging">Logging</h3>
+<p>The outputs seen in the terminal while running the workflow are saved in the <code>NHS_RMg_platform/logs</code> directory with the date and time of the run. Opening this in the terminal with a <code>cat</code> command will preserve the colouration of the original outputs. Reading the file conventionally in a text editor, special charaters delimiting colouration will be visible. </p>
+<p>Additionally, the debugging data from Auto Query subprocesses are saved. The 'File Outputs' section for Auto Query tabulated data or further debugging.</p>
+<p>A log containing a list of the FASTQ files ingested at each timepoint is available in the <code>NHS_RMG_platform/results/{sample_id}/{timepoint}/logs</code> directory.</p>
+<h3 id="file-outputs">File outputs</h3>
+<p>Analysis files can be found in the <code>NHS_RMg_platform/results</code> directory. Briefly, the folders contain intermediate outputs of the constituent workflow tools for each sample and timepoint.</p>
+<p><code>amr</code> - TSV files for abracate and scagire AMR detection tools
+<code>centrifuge</code> - Intermediate files for centrifuge classification <code>read_assignments.tsv</code> contains per-read classification after threshold filtering.
+<code>files</code> - Contains the sample sheet matching the data input on launch. Can be used to repeat analyse a dataset. Contains summarised data from Auto Query analysis. Used by Summary report for obtaining Auto Query results. 
+<code>host</code> - Lists of reads removed during human depletion.
+<code>log</code> - A list of files moved in the data acqusition step of the workflow.
+<code>microbial</code> - Human-scrubbed FASTQ file containing classified and unclassified read data. Good for sharing with 3rd parties for analysis.
+<code>qc</code> - Nanostat outputs parsed for the repoirt QC section</p>
+<h3 id="analysis-thresholds">Analysis thresholds</h3>
+<p>Three thresholds are applied throughout Metagenomics analysis. They appear here in the order of application:</p>
+<ol>
+<li>
+<p><strong>Centrifuge threshold:</strong> A scoring metric used to assess the quality of a match in the k-mer classification (Centrifuge) phase. Any reads falling below are not considered in further analyses and are not visible to the user. The count of reads failing this threshold is shown on the Metagenomics Report in the 'Quality Control' section under 'Below Threshold', not to be confused with the 'Unclassified' metric. This is currently set at 250 for virus taxa and 5000 for everything else. See 'Variable thresholds' section below for configuration.</p>
+</li>
+<li>
+<p><strong>Relative abundance:</strong> A taxon's relative abundance (read-count relative to other <strong>non-viral</strong> taxa in the metagenome) must exceed this value to be included in the 'Organisms above threshold' section of the report. Taxa falling below this threshold are shown in the 'Centrifuge Full' section at the bottom of the report. This threshold is set at 1% for non-virus taxa. Viruses are not subject to an abundance threshold. This can be configured to operate as a read-count threshold. See 'Technical information -&gt; Metagenomics Workflow -&gt; Metagenomics config parameters' for info on how to set.</p>
+</li>
+<li>
+<p><strong>Auto Query support:</strong> See the 'Secondary (orthogonal) classification analysis -&gt; Auto Query' section for more info on Auto Query operation and interpretation. The <em>traffic light</em> system in the Auto Query indicates green if &gt; 50 % of the top alignments in the query read subset matches the primary k-mer classification step.</p>
+</li>
+</ol>
+<h4 id="threshold-exceptions">Threshold exceptions</h4>
+<p>A subset of taxa will always be shown 'above threshold' regardless of the readcount and reletive abundance. These are user configurable (see 'Technical information -&gt; Metagenomics Workflow -&gt; Metagenomics config parameters').</p>
+<p><strong>Current exceptions are:</strong></p>
+<ul>
+<li><em>Aspergillus spp.</em></li>
+<li><em>Candida spp.</em></li>
+<li><em>Chlamydia spp.</em></li>
+<li><em>Pneumocystis spp.</em></li>
+<li><em>Mycoplasmoides spp.</em></li>
+<li><em>Neosartorya spp.</em></li>
+<li><em>Nakaseomyces spp.</em></li>
+<li><em>Mycobacterium spp.</em></li>
+<li><em>Mycobacteroides spp.</em></li>
+<li>Any eukaryotic rRNA/mtDNA filter detection</li>
+</ul>
+<h4 id="variable-thresholds">Variable thresholds</h4>
+<p>The workflow loads a dynamic score threshold configuration file when applying the centrifuge threshold filter. This is located in the <code>NHS_RMg_platform/db/ref/thresholds</code> directory. </p>
+<p>To add a new threshold, create a JSON file in the same format of existing threshold configs. Provide a name, score and list of taxids.</p>
+<p><code>ranking.txt</code> specifies the order in which lists with redundant taxids/threshold combinations should be read and applied. For example, the viruses_10239.json file contains all virus tax IDs, which sets their threshold to 250. To set a new threshold for only <em>Enterovirus</em> spp. that will override the 250 threshold set in viruses_10239.json, create a new JSON file containing all <em>Enterovirus</em> taxids and add the name of the json file above viruses_10239.json in <code>ranking.txt</code> and above any existing lists where <em>Enteroviruses</em> might appear.</p>
+<h3 id="force-overwrite-and-recycle-bin">Force overwrite and recycle bin</h3>
+<p>The 'Force Overwrite' function on the metagenomics launcher moves any existing analysis data matching the Lab/sample ID on the Metagenomics Launcher window (to be overwritten) in the <code>reports</code> or <code>results</code> directories in to <code>NHS_RMg_platform/recycle_bin</code>. This directory should be emptied periodically.  </p>
+<h3 id="query-data-outputs">Query data outputs</h3>
+<p>Both Auto Query and Organism Query store intermediate analysis data for downstream usage. They are stored in the <code>reports/{sample_id}</code> directory. For Auto Query, this is in the <code>automated_queries</code> directory, with a subdirectory for each queried taxon. For manual Organism Queries, this will be in a directory named with the query organism with the date and time. </p>
+<p>The Query subdirectories contain:
+* A compressed FASTA file containing all query reads.
+* A list of all read IDs matching the queried taxon.
+* The portable Organism Report HTML file.
+* A HTML file containing the BLAST plot only.
+* A TSV file containing the raw BLAST alignments. The columns headers are 'qseqid sseqid pident staxids sscinames length mismatch gapopen qstart qend sstart send evalue bitscore qseq qlen'. See <a href="https://www.metagenomics.wiki/tools/blast/blastn-output-format-6">this website for a full explainer</a>.</p>
+<h3 id="q-line-raw-data-storage-and-force-legacy-ingest">Q-line raw data storage and 'Force legacy ingest'</h3>
+<p>Newer 'Gourami' Q-line (v1.1) devices do not store data in the conventional <code>/data/{experiment}/{sample}/{metadata}/fastq_pass/{barcodeXX}</code> structure. Instead, metadata is stored in an SQL database at <code>/data/gourami/data.sqlite</code>, and the raw sequencing data is stored in a convoluted structure at <code>/data/output/sequences/no_group/no_sample</code>. It is not easy to identify which datasets belong to which experiments. This is solved by workflow by storeing linkage in the <code>NHS_RMg_platform/results/{sample_id}/{timepoint}/files/sample_sheet.tsv</code> file. The 'FullPath' contains the path to the corresponding FASTQ dataset.</p>
+<p>The workflow automatically detects 'Gourami' devices and will load metadata from the SQL database by default. To force the workflow to ingest data from the <code>/data</code> directory in the typical structure, use the 'Force legacy ingest' function on the main launcher. </p>
+<h3 id="eukaryote-binning">Eukaryote binning</h3>
+<p>To reduce occurrences of misclassified fungi, eukaryotic rRNA and mtDNA sequence data are processed separately and shown as Eukaryotic rRNA/mitochondrial material on the Metagenomics Report. These detections are elevated above threshold and subject to Auto Query analysis. Users should always inspect every read in the the Organism Report generated by Auto Query when Eukaryotic rRNA/mitochondrial material is detected. </p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Changing values in the configuration file can lead to system instability and the publication of misleading results. NHS sites should not edit the configuration without consultation.</p>
+<p>See the table below for explanations on the function of configuration fields:</p>
+<h3 id="sample-sheets-loading-and-structure">Sample sheets - loading and structure</h3>
+<p>A sample sheet is generated every time the Metagenomics Launcher is run. They are stored in <code>NHS_RMg_platform/sample_sheets</code> with the time and date of initialisation. Users can append the filename with any string by using the Experiment ID (feature #3) on the launcher. This will make it easier to identify runs for audit or downstream application use. </p>
+<p>Sample sheets are copied also to <code>NHS_RMg_platform/results/{sample_id}/{timepoint}/files/sample_sheet.tsv</code> for all samples and timepoints.</p>
+<p>For repeat/failed runs, sample sheets can be loaded in to the launcher, which will automatically populate the launcher with the preconfigured fields. </p>
+<h3 id="metagenomics-config-parameters">Metagenomics config parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>device</code></td>
+<td>ONT sequencing device name (e.g., "GridION") - appears on reports and summaries</td>
+</tr>
+<tr>
+<td><code>site</code></td>
+<td>Site identifier for the installation (e.g., "GSTT")</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>Timezone setting for the system - must match between host and container (e.g., "UTC")</td>
+</tr>
+<tr>
+<td><code>parallel_instances</code></td>
+<td>Number of parallel workflow instances (fed to snakemake 'cores' variable)</td>
+</tr>
+<tr>
+<td><code>mem_slots</code></td>
+<td>Number of parallel samples for Centrifuge analysis - increase if more RAM available</td>
+</tr>
+<tr>
+<td><code>blast_slots</code></td>
+<td>Number of parallel samples for HTML report generation (per sample)</td>
+</tr>
+<tr>
+<td><code>abundance_threshold</code></td>
+<td>Minimum abundance percentage for reporting taxa (default: 1.0%)</td>
+</tr>
+<tr>
+<td><code>count_threshold</code></td>
+<td>Minimum read count for reporting taxa (this is superseded by abundance)</td>
+</tr>
+<tr>
+<td><code>cfg_score</code></td>
+<td>Centrifuge score threshold - can be superseded by variable threshold function (default: 5000)</td>
+</tr>
+<tr>
+<td><code>metagenomics_version</code></td>
+<td>Workflow version number - appears on reports and summaries</td>
+</tr>
+<tr>
+<td><code>data_dir</code></td>
+<td>MinKNOW output data directory to search in (default: "/data")</td>
+</tr>
+<tr>
+<td><code>targets</code></td>
+<td>Deprecated: Not implemented</td>
+</tr>
+<tr>
+<td><code>parameters.hg38.index</code></td>
+<td>Deprecated: Human genome (hg38) minimap2 index path</td>
+</tr>
+<tr>
+<td><code>parameters.centrifuge.index.cmg</code></td>
+<td>Centrifuge database index path</td>
+</tr>
+<tr>
+<td><code>taxonomy.exceptions</code></td>
+<td>List of organism (partial match strings) exempt from standard thresholds</td>
+</tr>
+<tr>
+<td><code>taxonomy.viral_taxid</code></td>
+<td>Deprecated: Path to viral taxonomy ID list</td>
+</tr>
+<tr>
+<td><code>taxonomy.threshold_config</code></td>
+<td>Directory containing organism-specific threshold configurations</td>
+</tr>
+<tr>
+<td><code>taxonomy.skip_taxid</code></td>
+<td>Deprecated: Path to taxonomy IDs to skip in analysis</td>
+</tr>
+<tr>
+<td><code>taxonomy.replacement_list</code></td>
+<td>CSV file for organism name replacements in reports</td>
+</tr>
+<tr>
+<td><code>taxonomy.dictFile</code></td>
+<td>ARGOS taxonomy dictionary file</td>
+</tr>
+<tr>
+<td><code>taxonomy.taxdump</code></td>
+<td>NCBI taxonomy dump directory</td>
+</tr>
+<tr>
+<td><code>taxonomy.names</code></td>
+<td>NCBI taxonomy names.dmp file</td>
+</tr>
+<tr>
+<td><code>taxonomy.nodes</code></td>
+<td>NCBI taxonomy nodes.dmp file</td>
+</tr>
+<tr>
+<td><code>taxonomy.refseqDir</code></td>
+<td>RefSeq genomes directory</td>
+</tr>
+<tr>
+<td><code>taxonomy.speciesFileNames</code></td>
+<td>File containing paths to species reference files</td>
+</tr>
+<tr>
+<td><code>taxonomy.speciesTaxMeta</code></td>
+<td>Combined assembly summary metadata file</td>
+</tr>
+<tr>
+<td><code>amr.scagaire</code></td>
+<td>Path to Scagaire AMR genes reference file</td>
+</tr>
+<tr>
+<td><code>viral.targets</code></td>
+<td>TSV file containing viral targets information</td>
+</tr>
+<tr>
+<td><code>mlst.directory</code></td>
+<td>Directory containing PubMLST database files</td>
+</tr>
+<tr>
+<td><code>mlst.list</code></td>
+<td>Not implemented: TSV file listing organisms with MLST schemes</td>
+</tr>
+<tr>
+<td><code>pdf.html</code></td>
+<td>HTML template file for PDF reports</td>
+</tr>
+<tr>
+<td><code>pdf.css</code></td>
+<td>CSS stylesheet for report styling</td>
+</tr>
+<tr>
+<td><code>pdf.bootstrap</code></td>
+<td>Bootstrap CSS file for report styling</td>
+</tr>
+<tr>
+<td><code>pdf.version</code></td>
+<td>PDF template version (use "null" if not applicable)</td>
+</tr>
+<tr>
+<td><code>blast_read_count</code></td>
+<td>Number of reads to use for BLAST Auto Query analysis (default: 25)</td>
+</tr>
+<tr>
+<td><code>blast.db</code></td>
+<td>Path to BLAST database for Auto Query</td>
+</tr>
+<tr>
+<td><code>blast.threshold</code></td>
+<td>Auto Query: Score threshold for BLAST hit inclusion (default: 500)</td>
+</tr>
+<tr>
+<td><code>blast.blast_instances</code></td>
+<td>Auto Query:Number of parallel Organism Query processes per report instance</td>
+</tr>
+<tr>
+<td><code>blast.blast_threads</code></td>
+<td>Auto Query:Number of threads per BLAST instance</td>
+</tr>
+<tr>
+<td><code>blast.html</code></td>
+<td>Auto Query:HTML template for Auto Query reports</td>
+</tr>
+<tr>
+<td><code>blast.inclusion_threshold</code></td>
+<td>Auto Query: Disabling this will result in all non-viral taxa being analysed by Auto Query, regardless of threshold.</td>
+</tr>
+<tr>
+<td><code>blast.quiet</code></td>
+<td>Auto Query: Suppress verbose BLAST output (default: True)</td>
+</tr>
+<tr>
+<td><code>blast.max_target_seqs</code></td>
+<td>Auto Query: Maximum number of aligned sequences to keep</td>
+</tr>
+<tr>
+<td><code>blast.word_size</code></td>
+<td>Auto Query: Word size for BLAST alignment (larger = faster but less sensitive)</td>
+</tr>
+<tr>
+<td><code>blast.perc_identity</code></td>
+<td>Auto Query: Minimum percent identity for BLAST hits (default: 70.0%)</td>
+</tr>
+<tr>
+<td><code>blast.dust</code></td>
+<td>Auto Query: Enable low-complexity region filtering ("yes"/"no")</td>
+</tr>
+<tr>
+<td><code>blast.culling_limit</code></td>
+<td>Auto Query: Delete hits that are enveloped by at least this many higher-scoring hits</td>
+</tr>
+<tr>
+<td><code>blast.max_hsps</code></td>
+<td>Auto Query: Maximum number of HSPs (alignments) per subject sequence</td>
+</tr>
+<tr>
+<td><code>blast.evalue</code></td>
+<td>Auto Query: Expectation value threshold for reporting alignments (default: 1e-5)</td>
+</tr>
+<tr>
+<td><code>sylph.min_ani</code></td>
+<td>Not implemented: Minimum Average Nucleotide Identity for Sylph matches (default: 90%)</td>
+</tr>
+<tr>
+<td><code>sylph.index1</code></td>
+<td>Not implemented:  Path to primary Sylph database index (GTDB)</td>
+</tr>
+<tr>
+<td><code>sylph.index2</code></td>
+<td>Not implemented: Path to secondary Sylph database index (IMG/VR)</td>
+</tr>
+<tr>
+<td><code>sylph.tax1</code></td>
+<td>Not implemented: Taxonomy metadata for primary Sylph database</td>
+</tr>
+<tr>
+<td><code>sylph.tax2</code></td>
+<td>Not implemented:  Taxonomy metadata for secondary Sylph database</td>
+</tr>
+<tr>
+<td><code>force_anonymisation</code></td>
+<td>Require anonymisation before launching analysis (default: false)</td>
+</tr>
+<tr>
+<td><code>SQL_DB_PATH</code></td>
+<td>Path to Gourami SQLite database</td>
+</tr>
+<tr>
+<td><code>SYS_CONF_PATH</code></td>
+<td>Path to Gourami system configuration file</td>
+</tr>
+<tr>
+<td><code>OLD_MINKNOW_DATA_DIR</code></td>
+<td>Legacy MinKNOW data directory path</td>
+</tr>
+<tr>
+<td><code>version_strings</code></td>
+<td>Term to search for inside of the target indicator file</td>
+</tr>
+<tr>
+<td><code>app_icon_path</code></td>
+<td>Path to application icon image</td>
+</tr>
+<tr>
+<td><code>header_image_path</code></td>
+<td>Path to header logo image for launcher</td>
+</tr>
+<tr>
+<td><code>instructions_link_text</code></td>
+<td>Text for instructions hyperlink</td>
+</tr>
+<tr>
+<td><code>instructions_url</code></td>
+<td>URL for workflow instructions/documentation</td>
+</tr>
+<tr>
+<td><code>columns[].name</code></td>
+<td>Display name of the column in the launcher UI</td>
+</tr>
+<tr>
+<td><code>columns[].output_column_name</code></td>
+<td>Column header name in the output sample sheet</td>
+</tr>
+<tr>
+<td><code>columns[].autofill</code></td>
+<td>Enable automatic filling with default/previous values</td>
+</tr>
+<tr>
+<td><code>columns[].check</code></td>
+<td>Enable validation checking for this field</td>
+</tr>
+<tr>
+<td><code>columns[].width</code></td>
+<td>Column width in the UI</td>
+</tr>
+<tr>
+<td><code>columns[].check_func</code></td>
+<td>Name of validation function to apply (e.g., "barcode_path_check")</td>
+</tr>
+<tr>
+<td><code>columns[].dropdown</code></td>
+<td>Enable dropdown selection for this field</td>
+</tr>
+<tr>
+<td><code>columns[].values</code></td>
+<td>List of allowed values for dropdown (or empty array/null if not applicable)</td>
+</tr>
+<tr>
+<td><code>columns[].tooltip</code></td>
+<td>Help text displayed on hover</td>
+</tr>
+<tr>
+<td><code>columns[].anonymise</code></td>
+<td>Mark field for anonymisation</td>
+</tr>
+<tr>
+<td><code>columns[].dir_exists_check.enabled</code></td>
+<td>Enable directory existence checking</td>
+</tr>
+<tr>
+<td><code>columns[].dir_exists_check.prefix</code></td>
+<td>Directory path prefix to check</td>
+</tr>
+<tr>
+<td><code>columns[].dir_exists_check.should_exist</code></td>
+<td>Whether directory should exist (true) or not exist (false)</td>
+</tr>
+<tr>
+<td><code>columns[].dir_exists_check.fail_tooltip</code></td>
+<td>Message shown if directory check fails</td>
+</tr>
+<tr>
+<td><code>move</code></td>
+<td>Deprecated:  Enable moving of files (legacy function, default: true)</td>
+</tr>
+<tr>
+<td><code>samples</code></td>
+<td>Deprecated: Default sample table filename (default: "sample_table.tsv")</td>
+</tr>
+<tr>
+<td><code>viral_score</code></td>
+<td>Deprecated:  Legacy viral score threshold (default: 100)</td>
+</tr>
+</tbody>
+</table>
+<p>: Config YAML fields </p>
+<h3 id="taxon-name-replacement-function">Taxon name replacement function</h3>
+<p>We provide a pre-configured list for adding a 'common name' or replacing how taxa are represented alltogether on the report. This is especially useful where the globally accepted taxonomy differs from the names used in common practice. This is especially useful with the recent latinisation of the virus taxonomy.</p>
+<p>Modified taxa will appear in the format {old scientific name} - {acronyms} - {common name} {(Accepted scientific name)}</p>
+<table>
+<thead>
+<tr>
+<th>Internationally accepted taxonomy</th>
+<th>Replacement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lymphocryptovirus humangamma4</td>
+<td>Human herpesvirus 4 - HHV-4 - Epstein–Barr virus (Lymphocryptovirus humangamma4)</td>
+</tr>
+<tr>
+<td>Nakaseomyces glabratus</td>
+<td>Candida glabrata (Nakaseomyces glabratus)</td>
+</tr>
+<tr>
+<td>Alphainfluenzavirus influenzae</td>
+<td>Influenza A virus (Alphainfluenzavirus influenzae)</td>
+</tr>
+</tbody>
+</table>
+<p>: Taxon name replacement examples</p>
+<p>The configuration file for this function can be found at:</p>
+<p><code>NHS_RMg_platform/db/ref/reporting_name_replacement_list.csv</code></p>
+<h2 id="summary-report">Summary report</h2>
+<h3 id="description-of-features">Description of features</h3>
+<p>See the diagram below and the associated table for explanations on Summary Report features.</p>
+<p><a class="glightbox" href="../img/summary_report_diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Summary report feature diagram. " src="../img/summary_report_diagram.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Results directory</td>
+<td>Path selection for the Metagenomics Workflow's <code>results</code> directory. Useful if users move/organise outputs for archiving.*</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Output file</td>
+<td>The output file path for Summary Report.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sample search bar</td>
+<td>Enter key phrases to subset available samples.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Available Samples panel</td>
+<td>Populated automatically from the provided <code>results</code> directory.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sample selection controls</td>
+<td>Move selected or all samples to and from the Selected Samples panel. Clear and refresh to start again.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Selected Samples panel</td>
+<td>A list of the samples included for summary</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Sample paste bin</td>
+<td>Paste a list (newline delimited) of sample names from an external source to quickly load on to Selected Samples.**</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Relative abundance</td>
+<td>Set a threshold of relative abundance for the non-viral taxa. Taxa falling below will be excluded entirely from the report.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Format output</td>
+<td>Change default XLSX output to CSV. Change janky newline delimitation of nested lists to ';' for easier parsing.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Generate summary</td>
+<td>Run the script</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Status indicator</td>
+<td>Data on available samples and selections</td>
+</tr>
+</tbody>
+</table>
+<p>: Summary report diagram legend </p>
+<p><em>Will not be able to see outside of mounted directories of the container (Default: the NHS RMg platform SSD). Modify the launch script to mount additional host directories.
+</em>*No path checking is performed on pasted samples. They will be excluded from the Summary Report if missing. See terminal output for list of missing samples.</p>
+<h3 id="description-of-outputs">Description of outputs</h3>
+<table>
+<thead>
+<tr>
+<th>Column Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample</td>
+<td>LabID provided on launching the Metagenomics Workflow</td>
+</tr>
+<tr>
+<td>Experiment</td>
+<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data directory.</td>
+</tr>
+<tr>
+<td>SampleID</td>
+<td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data/{experiment_id}/</td>
+</tr>
+<tr>
+<td>Barcode</td>
+<td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
+</tr>
+<tr>
+<td>LabID</td>
+<td>LabID provided on launching the Metagenomics Workflow</td>
+</tr>
+<tr>
+<td>biosample_id</td>
+<td>The Sample Accession (if provided). May also be an anonymised study number derived from the Sample Accession.</td>
+</tr>
+<tr>
+<td>biosample_source_id</td>
+<td>The Hospital number provided to the Metagenomics Launcher.  May also be an anonymised study number derived from the Hospital Number.</td>
+</tr>
+<tr>
+<td>Collection Date</td>
+<td>Provided to the Metagenomics Launcher</td>
+</tr>
+<tr>
+<td>SampleClass</td>
+<td>Specimen, postive contol, standard etc. Provided to the launcher.</td>
+</tr>
+<tr>
+<td>SampleType</td>
+<td>Sampling site: BAL, SPT, NDL, ETT, NPA, PFL etc.</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>Operator initials. Sourced from Launcher.</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Additional notes. Sourced from Launcher, shown or reports.</td>
+</tr>
+<tr>
+<td>RunID</td>
+<td>Identifier assigned to the experiment by the sequencing device. Derived from FASTQ.</td>
+</tr>
+<tr>
+<td>Flow_Cell_ID</td>
+<td>Flow cell ID - derived from FASTQ</td>
+</tr>
+<tr>
+<td>Total reads X hrs</td>
+<td>Total reads - pre-human scrubbing</td>
+</tr>
+<tr>
+<td>Human reads X hrs</td>
+<td>Human reads removed</td>
+</tr>
+<tr>
+<td>Human reads (%) X hrs</td>
+<td>Proportion of total reads identified as human and removed</td>
+</tr>
+<tr>
+<td>Total classified reads X hrs</td>
+<td>Total reads post-human scrubbing</td>
+</tr>
+<tr>
+<td>Sequencing N50 (bp) X hrs</td>
+<td>Post human-scrubbing (microbial reads) read length metric</td>
+</tr>
+<tr>
+<td>Proportion &gt;Q15 quality (%) X hrs</td>
+<td>Proportion of microbial reads with a PHRED score &gt;15</td>
+</tr>
+<tr>
+<td>Median read quality (PHRED score) N</td>
+<td>Median PHRED core for microbial reads</td>
+</tr>
+<tr>
+<td>Total bases (bp) X hrs</td>
+<td>Total bases sequenced including human</td>
+</tr>
+<tr>
+<td>Organisms (excluding viruses) X hrs</td>
+<td>A list of organism identified except for viruses</td>
+</tr>
+<tr>
+<td>Organisms (excluding viruses) read counts X hrs</td>
+<td>Counts of reads for each non-viral taxa identified</td>
+</tr>
+<tr>
+<td>Organism (excluding viruses) percentage abundance X hrs</td>
+<td></td>
+</tr>
+<tr>
+<td>Viral organisms X hrs</td>
+<td>Virus taxa list</td>
+</tr>
+<tr>
+<td>Viral read counts X hrs</td>
+<td>Counts of viruses identified</td>
+</tr>
+<tr>
+<td>Auto Query top taxon X hrs</td>
+<td>Auto Query's most supported taxon - note by default taxa below threshold will not be subject to Auto Query an therefore will be shown as 'missing' here. See 'configuration' section for more info.</td>
+</tr>
+<tr>
+<td>Auto Query top percent X hrs</td>
+<td>The percentage of top alignments supporting the the top taxon</td>
+</tr>
+<tr>
+<td>Auto Query 2nd taxon X hrs</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Query 2nd percent X hrs</td>
+<td>Auto Query's second most supported taxon</td>
+</tr>
+<tr>
+<td>AvgLength 0.5 hrs</td>
+<td>Average length of Auto Query alignments for the top hit</td>
+</tr>
+<tr>
+<td>AvgPID 0.5 hrs</td>
+<td>Average percent identity of Auto Query alignments for the top hit</td>
+</tr>
+<tr>
+<td>IsMatched50 0.5 hrs</td>
+<td>Would a 'green light' be shown on the report</td>
+</tr>
+</tbody>
+</table>
+<p>: Summary report output fields </p>
+<h2 id="network-hub-app">Network hub app</h2>
+<p>The platform has a cached version of the Network Hub website for users without an internet connection requiring access. Double click on the desktop icon and connectivity should be autonatically determined. </p>
+<h2 id="customising-workflow-outputs">Customising workflow outputs</h2>
+<p>The logo on output reports is embedded in base64 on to the HTML template, which ensures portability. For custom logos, resize an image appropriately, then encode using the tool linked below. Insert the image on to the HTML templates at the paths given below:</p>
+<ul>
+<li><code>NHS_RMg_platform/db/ref/Template/report_template.html</code> - PDF reports</li>
+<li><code>NHS_RMg_platform/db/ref/Template/report_template_html.html</code> - HTML Metagenomics reports</li>
+<li><code>NHS_RMg_platform/db/ref/Template/organism_query/report_template.html</code> - Organism Query reports</li>
+</ul>
+<p>https://codebeautify.org/image-to-base64-converter</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../summary_report/" class="btn btn-neutral float-left" title="Summary report"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../genome_database/" class="btn btn-neutral float-right" title="Metagenomics sequence database">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../summary_report/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../genome_database/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../assets/javascripts/version-label.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
