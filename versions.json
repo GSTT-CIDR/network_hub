@@ -2,7 +2,9 @@
   {
     "version": "Agnes",
     "title": "Agnes",
-    "aliases": []
+    "aliases": [
+      "stable"
+    ]
   },
   {
     "version": "3.8.1",
