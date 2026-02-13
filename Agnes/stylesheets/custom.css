@@ -91,34 +91,30 @@ a:hover {
 .wy-side-nav-search::before {
     content: "";
     display: block;
-    width: 150%;
-    padding-bottom: 25%; /* Controls height as a ratio of the width */
+    width: 300px;
+    height: 100px;
     margin: 0 auto 10px;
     background-image: url("../img/nhs_rmg_logo.jpg");
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 /* Mike version selector adjustments */
-.wy-side-nav-search {
-    position: relative;
+#version-selector {
+    display: block !important;
+    margin: 10px auto 0.809em !important;
+    padding: 2px;
+    position: relative !important;
+    z-index: 100 !important;
 }
 
-/* "Select version" label above the dropdown */
-.wy-side-nav-search::after {
+/* Add "Select version" label before the dropdown */
+#version-selector::before {
     content: "Select version";
     display: block;
     color: white;
     font-size: 0.9em;
     margin-bottom: 5px;
     font-weight: normal;
-    text-align: center;
-}
-
-#version-selector {
-    display: block !important;
-    margin: 0 auto 0.809em !important;
-    padding: 2px;
-    position: relative !important;
-    z-index: 100 !important;
 }
