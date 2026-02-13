@@ -91,7 +91,7 @@ a:hover {
 .wy-side-nav-search::before {
     content: "";
     display: block;
-    width: 110%;
+    width: 80%;
     padding-bottom: 25%; /* Controls height as a ratio of the width */
     margin: 0 auto 10px;
     background-image: url("../img/nhs_rmg_logo.jpg");
