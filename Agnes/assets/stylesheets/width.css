@@ -1,3 +1,7 @@
 .wy-nav-content {
     max-width: 70%;
 }
+
+body {
+    zoom: 0.8;
+}
