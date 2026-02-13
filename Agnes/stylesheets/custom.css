@@ -87,25 +87,6 @@ a:hover {
     background-color: #150d3a !important;
 }
 
-/* CSS-only logo in sidebar */
-.wy-side-nav-search::before {
-    content: "";
-    display: block;
-    width: 300px;
-    height: 100px;
-    margin: 0 auto 10px;
-    background-image: url("../img/nhs_rmg_logo.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* Reduce navbar font size */
-.wy-menu-vertical a,
-.wy-menu-vertical p.caption {
-    font-size: 85%;
-}
-
 /* Reduce navbar item spacing */
 .wy-menu-vertical li a,
 .wy-menu-vertical li.toctree-l1 > a,
