@@ -549,6 +549,9 @@ $(document).ready(function(){
     $(window).on('resize', function() {
         setTimeout(drawConnectors, 100);
     });
+
+    // Counteract readthedocs theme scrollIntoView on nav items
+    setTimeout(function() { window.scrollTo(0, 0); }, 0);
 });
 </script>
 
