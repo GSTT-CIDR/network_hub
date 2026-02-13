@@ -91,8 +91,8 @@ a:hover {
 .wy-side-nav-search::before {
     content: "";
     display: block;
-    width: 300px;
-    height: 80px;
+    width: 80%;
+    padding-bottom: 25%; /* Controls height as a ratio of the width */
     margin: 0 auto 10px;
     background-image: url("../img/nhs_rmg_logo.jpg");
     background-size: contain;
@@ -101,20 +101,25 @@ a:hover {
 }
 
 /* Mike version selector adjustments */
-#version-selector {
-    display: block !important;
-    margin: 10px auto 0.809em !important;
-    padding: 2px;
-    position: relative !important;
-    z-index: 100 !important;
+.wy-side-nav-search {
+    position: relative;
 }
 
-/* Add "Select version" label before the dropdown */
-#version-selector::before {
+/* "Select version" label above the dropdown */
+.wy-side-nav-search::after {
     content: "Select version";
     display: block;
     color: white;
     font-size: 0.9em;
     margin-bottom: 5px;
     font-weight: normal;
+    text-align: center;
+}
+
+#version-selector {
+    display: block !important;
+    margin: 0 auto 0.809em !important;
+    padding: 2px;
+    position: relative !important;
+    z-index: 100 !important;
 }
