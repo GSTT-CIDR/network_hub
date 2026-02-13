@@ -106,6 +106,14 @@ a:hover {
     font-size: 85%;
 }
 
+/* Reduce navbar item spacing */
+.wy-menu-vertical li a,
+.wy-menu-vertical li.toctree-l1 > a,
+.wy-menu-vertical li.toctree-l2 > a,
+.wy-menu-vertical li.toctree-l3 > a {
+    padding: 0.2em 1.2em;
+}
+
 /* Mike version selector adjustments */
 #version-selector {
     display: block !important;
