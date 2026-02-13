@@ -45,8 +45,16 @@ ol li:last-child {
     background-color: #201452; /* Sidebar header background */
 }
 
+.wy-side-nav-search a {
+    color: white; /* Site title in sidebar */
+}
+
 .wy-nav-top {
     background-color: #201452; /* Mobile top nav background */
+}
+
+.wy-nav-top a {
+    color: white; /* Site title in mobile nav */
 }
 
 /* Change link colors */
