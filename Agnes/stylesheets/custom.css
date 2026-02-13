@@ -94,7 +94,7 @@ a:hover {
     width: 150px;
     height: 80px;
     margin: 0 auto 10px;
-    background-image: url("../../img/nhs_rmg_logo.jpg");
+    background-image: url("../img/nhs_rmg_logo.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
