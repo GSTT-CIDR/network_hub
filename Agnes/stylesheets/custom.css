@@ -87,12 +87,30 @@ a:hover {
     background-color: #150d3a !important;
 }
 
-/* Add "Select version" label before the dropdown */
-#version-selector::before {
-    content: "Select version";
+/* CSS-only logo in sidebar */
+.wy-side-nav-search::before {
+    content: "";
     display: block;
-    color: white;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-    font-weight: normal;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto 10px;
+    background-image: url("../img/nhs_rmg_logo.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+/* Reduce navbar font size */
+.wy-menu-vertical a,
+.wy-menu-vertical p.caption {
+    font-size: 80%;
+}
+
+/* Reduce navbar item spacing */
+.wy-menu-vertical li a,
+.wy-menu-vertical li.toctree-l1 > a,
+.wy-menu-vertical li.toctree-l2 > a,
+.wy-menu-vertical li.toctree-l3 > a {
+    padding: 0.2em 1.2em;
+}
+
