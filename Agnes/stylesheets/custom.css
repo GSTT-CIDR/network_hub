@@ -87,13 +87,26 @@ a:hover {
     background-color: #150d3a !important;
 }
 
+/* CSS-only logo in sidebar */
+.wy-side-nav-search::before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 80px;
+    margin: 0 auto 10px;
+    background-image: url("../../img/nhs_rmg_logo.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 /* Mike version selector adjustments */
 #version-selector {
     display: block !important;
-    margin: 20px auto 0.809em !important; /* Move down to avoid logo overlap */
+    margin: 10px auto 0.809em !important;
     padding: 2px;
     position: relative !important;
-    z-index: 100 !important; /* Ensure it stays above the logo */
+    z-index: 100 !important;
 }
 
 /* Add "Select version" label before the dropdown */
@@ -104,12 +117,4 @@ a:hover {
     font-size: 0.9em;
     margin-bottom: 5px;
     font-weight: normal;
-}
-
-/* Adjust logo positioning to make room for version selector */
-.wy-side-nav-search > a img.logo, .wy-side-nav-search .wy-dropdown > a img.logo {
-    display: block;
-    margin: auto auto 10px;
-    max-width: 100%;
-    height: auto;
 }
