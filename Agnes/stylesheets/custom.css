@@ -92,6 +92,7 @@ a:hover {
     content: "";
     display: block;
     width: 300px;
+    height: 80px;
     margin: 0 auto 10px;
     background-image: url("../img/nhs_rmg_logo.jpg");
     background-size: contain;
