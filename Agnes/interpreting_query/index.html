@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/interpreting_query/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Interpreting organism query results - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Interpreting organism query results";
+        var mkdocs_page_input_path = "interpreting_query.md";
+        var mkdocs_page_url = "/network_hub/Agnes/interpreting_query/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Orthogonal analysis</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Interpreting organism query results</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#scenario-1">Scenario 1:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scenario-2">Scenario 2:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#scenario-3">Scenario 3</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+          <li class="breadcrumb-item">Orthogonal analysis</li>
+      <li class="breadcrumb-item active">Interpreting organism query results</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/interpreting_query.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h2 id="interpreting-query-results">Interpreting Query results</h2>
+<p>Organism Query has been designed to help guide decision making in cases where the validity of primary taxonomic classification is in doubt, or a taxon is listed in the Reporting SOP as requiring validation. Organism Query is not a gold standard for classification. Please consult with a bioinformatician if the validity of a detection is in doubt, or request appropriate <em>in-vitro</em> reflex tests. Always follow internal governance.</p>
+<p><strong>Key considerations for analysing Organism Reports:</strong></p>
+<ul>
+<li>Is there meaningful convergence illustrated on the BLAST report section or BLAST hit graph? i.e. Are the majority of reads supporting the same taxon? Does the graph show a homogeneous plausible cluster of alignments?</li>
+<li>What is the average percent identity of the alignments? Do you expect the identities reported for the subject taxon? Viruses and poorly represented taxa may yield lower identity % than others. Check the alignment for gaps.</li>
+<li>Are the resulting alignments of sufficient length and complexity to yield robust alignments? Short (&lt; 100 bp) or highly repetitive alignments should be disregarded.</li>
+<li>Is the organism in question likely to be included in the database I have chosen?</li>
+<li>Does the query dataset represent sequence suitable for making confident classifications? </li>
+<li>Many reference sequences contain mobile genetic elements or phage material - these confound Query assignment and should be verified manually (see below).</li>
+<li>Certain genomic loci are highly conserved, such as rRNA genes and mtDNA, yielding ambiguous/undifferentiated alignments. Closely related species and poorly represented genera are particularly prone.</li>
+</ul>
+<h4 id="scenario-1">Scenario 1:</h4>
+<p>The image below shows two clusters. Is there a consensus cluster with greater % identity and higher bit-score? In this example, we have a homogeneous blue cluster of high identity alignments (~95%) and bit-scores, compared to a less supported cluster of incorrect, closely related taxa with lower identities and bit-scores. Along with 100% reads supporting the same taxon and 98% ave identity this represents a high confidence indication. </p>
+<p><a class="glightbox" href="../img/organism_query_tmv_cluster.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Organism report plot clustering." src="../img/organism_query_tmv_cluster.png"></a></p>
+<h4 id="scenario-2">Scenario 2:</h4>
+<p>In the image below there is no clustering. Are the alignment subject taxa closely related and is the identity high? Or does the cluster have a largely low % identity with seemingly unrelated disparate taxa? In this example, it is the former. We have alignments with relatively high average identity (&gt;90%) in a single cluster of <em>Streptococcus</em> spp., which are proving difficult to differentiate consistently. It is therefore not appropriate to attempt a species-level call based on this analysis.</p>
+<p>If we see a similar distribution with no distinct clustering, low identity (&lt; 90%) and disparate genera, this usually indicates that there is poor representation for the true query taxon in the chosen database (consider expanding the search) or significant divergence in the query sequence, naturally or artificially (chimera, sequencing/PCR errors etc).</p>
+<p><a class="glightbox" href="../img/organism_query_low_confidence.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Organism report plot clustering - low confidence." src="../img/organism_query_low_confidence.png"></a></p>
+<h4 id="scenario-3">Scenario 3</h4>
+<p>The image below shows a Negative Control report with several taxa flagged by Auto Query. In this case, both the E.coli and Klebsiella are the product of misclassification through the identification of plasmids associated with a specific reference/taxon. In some cases, plasmids are included in reference sequences which can confound accurate classification when similar plasmids or conserved elements are found in other species.</p>
+<p><a class="glightbox" href="../img/organism_query_plasmid_report.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Organism report plot clustering - low confidence." src="../img/organism_query_plasmid_report.png"></a></p>
+<p>The next image depicts an Organism Report where the E.coli alignments subjects are primarily plasmid sequences. The detection should be disregarded in this instance. We recommend regularly checking the subject alignments on the Organism Report to verify the detection is not a plasmid.</p>
+<p><a class="glightbox" href="../img/organism_query_plasmid.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Organism report plasmid subject alignment." src="../img/organism_query_plasmid.png"></a></p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../running_organism_query/" class="btn btn-neutral float-left" title="Running organism queries"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../limitations/" class="btn btn-neutral float-right" title="Limitations and bugs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../running_organism_query/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../limitations/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

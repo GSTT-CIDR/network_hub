@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Clinical metagenomics - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="stylesheets/custom.css" rel="stylesheet" />
+        <link href="css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Clinical metagenomics";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/network_hub/Agnes/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Clinical metagenomics</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#network-sites">Network Sites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#lab-protocols">Lab protocols</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#informatics-workflow">Informatics workflow</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reporting-framework">Reporting framework</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#software-versions-included-in-the-agnes-release">Software versions included in the 'Agnes' release:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#related-documents">Related documents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#some-history">Some history</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Introduction</li>
+      <li class="breadcrumb-item active">Clinical metagenomics</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <html><head><script src="assets/js/jquery-1.8.2.js"></script>
+
+ <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="assets/javascripts/glightbox.min.js"></script></head><body><h1 id="respiratory-metagenomics-network-hub">Respiratory Metagenomics Network Hub</h1>
+<p>The NHS Respiratory Metagenomics platform is a collection of software tools designed to enable rapid on-premises informatic analysis of metagenomic sequencing data on Oxford Nanopore Technologies (ONT) sequencing devices. All elements of setup and use are designed to be accessible to non-bioinformatician audiences. The software environment is set up for intuitive operation through graphical user interfaces with extensive workflow automation, yielding concise and actionable reports. </p>
+<p>Visit our new website for more information on the programme: <a href="https://metagenomics.nhs.uk/">https://metagenomics.nhs.uk/</a></p>
+<h2 id="network-sites">Network Sites</h2>
+<style>
+.map-container {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    height: 600px;
+    margin: 20px 0;
+}
+
+.annotation-column {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+    flex-shrink: 0;
+}
+
+.annotation-column.left { padding-right: 10px; }
+.annotation-column.right { padding-left: 10px; }
+
+.annotation-slot {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+}
+
+.annotation-slot.left { justify-content: flex-end; }
+.annotation-slot.right { justify-content: flex-start; }
+
+.annotation-card {
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    padding: -1px;
+    text-align: center;
+    box-shadow: none;
+    max-width: 300px;
+}
+
+.annotation-card img {
+    width: 230px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+.annotation-card .site-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.2;
+}
+
+.map-wrapper {
+    flex: 1;
+    position: relative;
+    min-width: 300px;
+}
+
+#ukMap {
+    width: 100%;
+    height: 100%;
+}
+
+.connector-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.connector-line {
+    stroke: #005EB8;
+    stroke-width: 1.5;
+    stroke-dasharray: 5, 3;
+    stroke-opacity: 0.5;
+    fill: none;
+}
+
+.connector-dot {
+    fill: #005EB8;
+    fill-opacity: 0.5;
+}
+</style>
+
+<div class="map-container" id="mapContainer">
+
+    <svg class="connector-svg" id="connectorSvg"></svg>
+    <div class="annotation-column left" id="leftColumn"></div>
+    <div class="map-wrapper">
+        <div id="ukMap"></div>
+    </div>
+    <div class="annotation-column right" id="rightColumn"></div>
+</div>
+
+<script>
+$(document).ready(function(){
+    // Configuration: 10 slots per side (1-10), null for empty slot
+    // side: 'left' or 'right', slot: 1-10 (top to bottom)
+    // imageWidth/imageHeight: dimensions in pixels for each logo
+    // lineOffsetX/lineOffsetY: adjust where line connects to card (positive/negative pixels)
+    var siteConfig = [
+        {
+            id: 'newcastle',
+            name: '',
+            latLng: [54.9783, -1.6178],
+            image: 'img/logos/newcastle.svg',
+            side: 'right',
+            slot: 2,
+            imageWidth: 230,
+            imageHeight: 80,
+            lineOffsetX: 0,
+            lineOffsetY: 0
+        },
+        {
+            id: 'manchester',
+            name: '',
+            latLng: [53.4839, -2.2446],
+            image: 'img/logos/manchester.png',
+            side: 'left',
+            slot: 3,
+            imageWidth: 180,
+            imageHeight: 60,
+            lineOffsetX: 0,
+            lineOffsetY: 0
+        },
+        {
+            id: 'cambridge',
+            name: '',
+            latLng: [52.2053, 0.1218],
+            image: 'img/logos/cambridge.png',
+            side: 'right',
+            slot: 5,
+            imageWidth: 180,
+            imageHeight: 60,
+            lineOffsetX: 20,
+            lineOffsetY: 10
+        },
+                {
+            id: 'belfast',
+            name: '',
+            latLng: [54.5973, -5.9301],
+            image: 'img/logos/belfast.png',
+            side: 'left',
+            slot: 5,
+            imageWidth: 180,
+            imageHeight: 60,
+            lineOffsetX: 0,
+            lineOffsetY: 0
+        },
+        {
+            id: 'bristol',
+            name: '',
+            latLng: [51.4545, -2.5879],
+            image: 'img/logos/bristol.jpg',
+            side: 'left',
+            slot: 9,
+            imageWidth: 180,
+            imageHeight: 60,
+            lineOffsetX: -40,
+            lineOffsetY: 0
+        },
+        {
+            id: 'cardiff',
+            name: '',
+            latLng: [51.4837, -3.1681],
+            image: 'img/logos/cardiff.png',
+            side: 'left',
+            slot: 7,
+            imageWidth: 230,
+            imageHeight: 80,
+            lineOffsetX: 0,
+            lineOffsetY: 0
+        },
+                {
+            id: 'barts',
+            name: '',
+            latLng: [51.5174, -0.0685],
+            image: 'img/logos/barts.svg',
+            side: 'right',
+            slot: 6,
+            imageWidth: 180,
+            imageHeight: 50,
+            lineOffsetX: 40,
+            lineOffsetY: 0
+        },
+        {
+            id: 'uclh',
+            name: '',
+            latLng: [51.5558, -0.1398],
+            image: 'img/logos/uclh.jpg',
+            side: 'right',
+            slot: 8,
+            imageWidth: 200,
+            imageHeight: 80,
+            lineOffsetX: -5,
+            lineOffsetY: 0
+        },
+        {
+            id: 'gosh',
+            name: '',
+            latLng: [51.5413, -0.1433],
+            image: 'img/logos/gosh.png',
+            side: 'right',
+            slot: 9,
+            imageWidth: 160,
+            imageHeight: 50,
+            lineOffsetX: 20,
+            lineOffsetY: 0
+        },
+        {
+            id: 'gstt',
+            name: "",
+            latLng: [51.4995, -0.1248],
+            image: 'img/logos/gstt.png',
+            side: 'right',
+            slot: 7,
+            imageWidth: 140,
+            imageHeight: 50,
+            lineOffsetX: -5,
+            lineOffsetY: 0
+        },
+        {
+            id: 'edinburgh',
+            name: "",
+            latLng: [55.9533395, -3.1891069],
+            image: 'img/logos/lothian.png',
+            side: 'right',
+            slot: 2,
+            imageWidth: 140,
+            imageHeight: 50,
+            lineOffsetX: 25,
+            lineOffsetY: 0
+        },
+        {
+            id: 'leicester',
+            name: "",
+            latLng: [52.6369, -1.1398],
+            image: 'img/logos/leicester.png',
+            side: 'right',
+            slot: 4,
+            imageWidth: 140,
+            imageHeight: 60,
+            lineOffsetX: 0,
+            lineOffsetY: 0
+        },
+        {
+            id: 'southampton',
+            name: '',
+            latLng: [50.9097, -1.4044],
+            image: 'img/logos/southampton.png',
+            side: 'left',
+            slot: 10,
+            imageWidth: 200,
+            imageHeight: 60,
+            lineOffsetX: -30,
+            lineOffsetY: 0
+        }
+    ];
+
+    var SLOTS_PER_SIDE = 10;
+
+    // Build slot arrays
+    var leftSlots = new Array(SLOTS_PER_SIDE).fill(null);
+    var rightSlots = new Array(SLOTS_PER_SIDE).fill(null);
+
+    siteConfig.forEach(function(site) {
+        var slotIndex = site.slot - 1;
+        if (site.side === 'left' && slotIndex >= 0 && slotIndex < SLOTS_PER_SIDE) {
+            leftSlots[slotIndex] = site;
+        } else if (site.side === 'right' && slotIndex >= 0 && slotIndex < SLOTS_PER_SIDE) {
+            rightSlots[slotIndex] = site;
+        }
+    });
+
+    // Render annotation slots
+    function renderSlots(slots, columnId, side) {
+        var $column = $('#' + columnId);
+        $column.empty();
+        slots.forEach(function(site, index) {
+            var $slot = $('<div class="annotation-slot ' + side + '" data-slot="' + (index + 1) + '"></div>');
+            if (site) {
+                var imgWidth = site.imageWidth || 230;
+                var imgHeight = site.imageHeight || 80;
+                var $card = $(
+                    '<div class="annotation-card" data-site-id="' + site.id + '">' +
+                        '<img src="' + site.image + '" alt="' + site.name + '" style="width:' + imgWidth + 'px;height:' + imgHeight + 'px;" onerror="this.style.display=\'none\'">' +
+                        '<div class="site-name">' + site.name + '</div>' +
+                    '</div>'
+                );
+                $slot.append($card);
+            }
+            $column.append($slot);
+        });
+    }
+
+    renderSlots(leftSlots, 'leftColumn', 'left');
+    renderSlots(rightSlots, 'rightColumn', 'right');
+
+    // Initialize map
+    var mapObj = $('#ukMap').vectorMap({
+        map: 'uk_mill',
+        backgroundColor: 'none',
+        zoomOnScroll: false,
+        zoomButtons: false,
+        regionStyle: {initial: {fill: '#e8e8e8'}},
+        markerStyle: {
+            initial: {
+                fill: '#005EB8',
+                stroke: '#FFFFFF',
+                'stroke-width': 2,
+                r: 6
+            }
+        },
+        focusOn: {
+            scale: 1,
+            x: 0.5,
+            y: 0.5,
+            animate: false
+        },
+        markers: siteConfig.map(function(site) {
+            return {latLng: site.latLng, name: site.name};
+        }),
+        onRegionTipShow: function(e) { e.preventDefault(); },
+        onMarkerTipShow: function(e) { e.preventDefault(); }
+    }).vectorMap('get', 'mapObject');
+
+    // Draw connector lines
+    function drawConnectors() {
+        var $svg = $('#connectorSvg');
+        $svg.empty();
+
+        var $container = $('#mapContainer');
+        var containerOffset = $container.offset();
+        var $mapDiv = $('#ukMap');
+        var mapOffset = $mapDiv.offset();
+
+        siteConfig.forEach(function(site, index) {
+            var markerPos = mapObj.latLngToPoint(site.latLng[0], site.latLng[1]);
+            if (!markerPos) return;
+
+            var $card = $('.annotation-card[data-site-id="' + site.id + '"]');
+            if ($card.length === 0) return;
+
+            var cardRect = $card[0].getBoundingClientRect();
+
+            // Marker position relative to container
+            var markerX = markerPos.x + (mapOffset.left - containerOffset.left);
+            var markerY = markerPos.y + (mapOffset.top - containerOffset.top);
+
+            // Card connection point relative to container
+            var cardX, cardY;
+            var offsetX = site.lineOffsetX || 0;
+            var offsetY = site.lineOffsetY || 0;
+            if (site.side === 'left') {
+                cardX = cardRect.right - containerOffset.left + window.scrollX + offsetX;
+                cardY = cardRect.top + cardRect.height / 2 - containerOffset.top + window.scrollY + offsetY;
+            } else {
+                cardX = cardRect.left - containerOffset.left + window.scrollX + offsetX;
+                cardY = cardRect.top + cardRect.height / 2 - containerOffset.top + window.scrollY + offsetY;
+            }
+
+            // Create line
+            var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', cardX);
+            line.setAttribute('y1', cardY);
+            line.setAttribute('x2', markerX);
+            line.setAttribute('y2', markerY);
+            line.setAttribute('class', 'connector-line');
+            $svg.append(line);
+
+        });
+    }
+
+    // Draw connectors after map renders
+    setTimeout(drawConnectors, 500);
+    $(window).on('resize', function() {
+        setTimeout(drawConnectors, 100);
+    });
+});
+</script>
+
+<h2 id="lab-protocols">Lab protocols</h2>
+<p>The lab protocol is a same-day DNA/RNA extraction, host-depletion and ONT library preparation workflow for delivery of preliminary sequencing results in &lt; 6 hours.</p>
+<h2 id="informatics-workflow">Informatics workflow</h2>
+<p>The software runs from containers incorporating all dependencies for operation, leaving a minimal footprint on the host devices. Sequence databases sourced from publicly available NCBI databases are included, tuned specifically for respiratory specimen metagenome analysis. </p>
+<p>This document describes all facets of operating the NHS RMg platform, from initiation of sequencing experiments to generating reports.</p>
+<h2 id="reporting-framework">Reporting framework</h2>
+<p>Speak to the GSTT clinical team for a copy of the reporting SOP. We recommend using this to help interpret results from the informatics workflow. </p>
+<h2 id="software-versions-included-in-the-agnes-release">Software versions included in the 'Agnes' release:</h2>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CIDR Metagenomics Workflow</td>
+<td>v3.8.3</td>
+</tr>
+<tr>
+<td>Organism Query</td>
+<td>v1.7.1</td>
+</tr>
+<tr>
+<td>Summary Report</td>
+<td>v1.4</td>
+</tr>
+<tr>
+<td>Deanonymisation tool</td>
+<td>v1.0</td>
+</tr>
+<tr>
+<td>Network Hub Launcher</td>
+<td>v1.0</td>
+</tr>
+</tbody>
+</table>
+<p>: Agnes software version table</p>
+<h2 id="related-documents">Related documents</h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Respiratory metagenomics network: validation outline</td>
+<td>v1.0</td>
+</tr>
+<tr>
+<td>Reporting of clinical metagenomic diagnostic test on respiratory samples</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>Processing of Respiratory Samples for Metagenomic Sequencing</td>
+<td>v1.0</td>
+</tr>
+<tr>
+<td>nhs_rmg_cyber_sec</td>
+<td>v1.1</td>
+</tr>
+<tr>
+<td>mscape_rmg_protocol</td>
+<td>v1.0</td>
+</tr>
+<tr>
+<td>metagenomics_release_notes</td>
+<td>v1.0</td>
+</tr>
+</tbody>
+</table>
+<p>: Related documents table</p>
+<h2 id="some-history">Some history</h2>
+<p>St Thomas’ Hospital was founded in the 1100s. This release is named after two matrons of Royal St. Thomas’ Hospital in the 1500s. Agnes Lott and Agnes Snappe were the third and fifth recorded matrons of St. Thomas’ hospital. Agnes Lott was matron at St. Thomas’ from 1562-1572 and was succeeded by Ann Reader. Reader, however, was dismissed after three court appearances for "her fault with drink [alcohol], for that she hath been found very faulty of late." Agnes Snappe took over from Reader from 1580-1583. Reader’s name is not listed on the Matron’s board seen today at St. Thomas’ hospital, suggesting that her dismissal was considered significant enough to erase her from the hospital’s official record. </p>
+<p>In the 1500s, the title “matron” referred to a senior housekeeper and supervisor of female staff, not a trained nurse. The matron at St Thomas’ oversaw around ten ward sisters and was primarily responsible for domestic tasks rather than medical care. These tasks included laundry and cooking alongside a ‘number of odd jobs’ such as presenting the cases of offence for that week to the weekly governors meeting and helping the daytime baker make loaves of bread after the nighttime baker was sacked in 1563 for under-making bread.</p>
+<p><em>Research by Miren Sowden - Project Manager</em></p>
+<p><em>Sources: The history of St. Thomas's Hospital (urn:oclc:record:1041046451)</em></p><script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body></html>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="panmetagenomics_protocol/" class="btn btn-neutral float-right" title="Lab protocols">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+      <span><a href="panmetagenomics_protocol/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="assets/js/jquery-jvectormap.js"></script>
+      <script src="assets/js/jquery-mousewheel.js"></script>
+      <script src="assets/js/jvectormap.js"></script>
+      <script src="assets/js/abstract-element.js"></script>
+      <script src="assets/js/abstract-canvas-element.js"></script>
+      <script src="assets/js/abstract-shape-element.js"></script>
+      <script src="assets/js/svg-element.js"></script>
+      <script src="assets/js/svg-group-element.js"></script>
+      <script src="assets/js/svg-canvas-element.js"></script>
+      <script src="assets/js/svg-shape-element.js"></script>
+      <script src="assets/js/svg-path-element.js"></script>
+      <script src="assets/js/svg-circle-element.js"></script>
+      <script src="assets/js/svg-image-element.js"></script>
+      <script src="assets/js/svg-text-element.js"></script>
+      <script src="assets/js/vml-element.js"></script>
+      <script src="assets/js/vml-group-element.js"></script>
+      <script src="assets/js/vml-canvas-element.js"></script>
+      <script src="assets/js/vml-shape-element.js"></script>
+      <script src="assets/js/vml-path-element.js"></script>
+      <script src="assets/js/vml-circle-element.js"></script>
+      <script src="assets/js/vml-image-element.js"></script>
+      <script src="assets/js/map-object.js"></script>
+      <script src="assets/js/region.js"></script>
+      <script src="assets/js/marker.js"></script>
+      <script src="assets/js/vector-canvas.js"></script>
+      <script src="assets/js/simple-scale.js"></script>
+      <script src="assets/js/ordinal-scale.js"></script>
+      <script src="assets/js/numeric-scale.js"></script>
+      <script src="assets/js/color-scale.js"></script>
+      <script src="assets/js/legend.js"></script>
+      <script src="assets/js/data-series.js"></script>
+      <script src="assets/js/proj.js"></script>
+      <script src="assets/js/map.js"></script>
+      <script src="assets/js/uk_mill.js"></script>
+      <script src="js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

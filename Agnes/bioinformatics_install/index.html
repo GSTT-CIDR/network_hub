@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/bioinformatics_install/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Installation and validation - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation and validation";
+        var mkdocs_page_input_path = "bioinformatics_install.md";
+        var mkdocs_page_url = "/network_hub/Agnes/bioinformatics_install/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation and validation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-from-the-cloud">Downloading from the cloud</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#verification">Verification</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#running-verification-on-a-minknow-device">Running verification on a MinKNOW device.</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-verification-on-a-gourami-device">Running verification on a Gourami device.</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Installation and validation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/bioinformatics_install.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="installation-and-verification">Installation and Verification</h1>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>An ONT sequencing device</li>
+<li>Ubuntu 20 or greater (some VMs are unsupported)</li>
+<li>Root access (required only for install*)</li>
+<li>64 GB Memory (32 GB for slower turn-around**)</li>
+<li>18 CPU threads</li>
+<li>1 TB GB Storage for software only (100 GB without NCBI-nt Organism Query). - Disregard if using SSD.</li>
+<li>1 TB disk space for sequencing data. </li>
+</ul>
+<p>*Can be circumvented. Manually install libfuse, uidmap and apptainer.</p>
+<p>**See 'Limitations -&gt; Running concurrent instances of the workflow' for more info on performance.</p>
+<h2 id="downloading-from-the-cloud">Downloading from the cloud</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For recipients of the NHS RMg platform SSD, please skip to the 'Installation' step</p>
+</div>
+<p>The NHS RMg platform software and databases are ~1 TB in size, which is impractical to distribute over the internet with a simple browser download. Here we provide instructions to download the package using a global cloud infrastructure provider, Cloudflare (similar to AWS). To download the files, we recommend using <a href="https://rclone.org/">Rclone</a>, a widely-used open source tool for interfacing with cloud storage platforms.</p>
+<ol>
+<li>Download and install rclone by entering the code snippet below in to a linux terminal and following the instructions. You will be prompted for a superuser password. For GridION users, this is usually <code>grid</code>.</li>
+</ol>
+<pre><code>sudo -v ; curl https://rclone.org/install.sh | sudo bash
+</code></pre>
+<ol start="2">
+<li>Configure rclone with the command below. Swap the KEY1, KEY2 and KEY3 sections with the corresponding keys sent by email and press <kbd>Enter</kbd>. <strong>(All on one line)</strong></li>
+</ol>
+<pre><code>rclone config create r2 s3 provider Cloudflare access_key_id KEY1 secret_access_key KEY2 endpoint KEY3
+</code></pre>
+<ol start="3">
+<li>Find a suitable destination for the download and operation of the workflow. Open that directory in the terminal and execute the command below <strong>(All on one line)</strong>:</li>
+</ol>
+<pre><code>rclone copy --verbose --checksum r2:rmg-platform-agnes-redist/NHS_RMg_platform/ ./NHS_RMg_platform
+</code></pre>
+<ol start="4">
+<li>
+<p>The download can take several days depending on the speed of the connection to download servers. The expected size of the download directory will be shared with the download credentials. Check this matches the download by right-clicking and viewing the 'properties' of the directory.</p>
+</li>
+<li>
+<p>Once the download has completed, set execution permissions for the scripts at the top level of the workflow directory. Open a terminal in the NHS_RMg_platform directory and run:</p>
+</li>
+</ol>
+<pre><code>chmod +x *.sh
+</code></pre>
+<ol start="6">
+<li>
+<p>Configure the workflow by opening the <code>NHS_RMg_platform/configs/metagenomics_config_3.8.3_XXX.yaml</code> in a text editor and modifying the 'device', 'site' and 'timezone' variables. We do not recommend changing other values in this file without consultation.</p>
+</li>
+<li>
+<p>Proceed to the Installation section below.</p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>We recommend a volume with at least 2 TB available space. The storage device should be an appropriately resourced solid-state drive (SSD). Running the workflow from a slower device like an external hard disk drive will result in a significant extension in turn-around-times.</p>
+</div>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>
+<p>Navigate to the NHS RMg platform environment on the File Browser application.</p>
+<ol>
+<li>SSD storage device recipients, the top level of the NHS_RMg_platform drive.</li>
+<li>Download users, this will be the top level of the NHS_RMg_platform directory. </li>
+</ol>
+</li>
+<li>
+<p>Right click on <code>launch_installer_**.sh</code>. Select 'Properties'. Navigate to the 'Permissions' section and select 'Allow executing file as a program'. If it is already checked then skip this step.</p>
+</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Some versions of Ubuntu/Linux will have different processes for enabling execution of the install script and launching. If the script isn't launching or the option to ' Run as a program' does not appear, go to this section on the Network Hub website for a video guide. Or, navigate to the directory in the terminal and run the following:</p>
+</div>
+<p><code>chmod +x *.sh
+  ./launch_installer_**.sh</code></p>
+<ol start="3">
+<li>Right click on <code>launch_installer_**.sh</code> again and select 'Run as a program'.</li>
+</ol>
+<p><a class="glightbox" href="../img/install_screenshot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the install script superuser prompt" src="../img/install_screenshot.png"></a></p>
+<ol start="4">
+<li>
+<p>When prompted for a password, enter the local user's password and press enter. No typed characters will appear as you type.</p>
+</li>
+<li>
+<p>Read the terminal output from the install script to verify correct operation. </p>
+</li>
+<li>
+<p>Minimise all windows. On the desktop, right click on the grey icons and select 'Allow Launching'</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/icon_enable_launch.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Allow desktop shortcut launching" src="../img/icon_enable_launch.png"></a></p>
+<ol start="7">
+<li>See the FAQ section on the Network Hub for any issues.</li>
+</ol>
+<h2 id="verification">Verification</h2>
+<p>The platform ships with pre-sequenced datasets for <em>in-silico</em> workflow verification. These can be accessed through the Metagenomics Workflow launcher as an user-generated sequencing dataset would. Follow the instructions below to verify Metagenomics Workflow operation. </p>
+<h3 id="running-verification-on-a-minknow-device">Running verification on a <span class="badge-minknow">MinKNOW</span> device.</h3>
+<p>A full guide on initiating an analysis run can be found in the 'Starting a sequencing experiment and launching metagenomics analysis <span class="badge-minknow">MinKNOW</span>' section of this document. Go to the 'Technical Information -&gt; Metagenomics Workflow' section of this document for a full description of Launcher features. </p>
+<ol>
+<li>
+<p>Open the Metagenomics Launcher by clicking on the desktop icon.</p>
+</li>
+<li>
+<p>Load the 'install_validation.tsv' sample sheet using the 'Load existing sample sheet' function.</p>
+</li>
+<li>
+<p>Launch the analysis. Open the HTML reports in the <code>NHS_RMg_platform/reports/</code> directory. </p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Reports usually take between 10 - 20 minutes to publish after data acquisition timepoints elapse.</li>
+<li>The workflow generates reports at five timepoints: 0.5, 1, 2, 16, and 24 hours.</li>
+<li>For real-time sequencing runs, the workflow waits for each timepoint to elapse before publishing the corresponding report, spanning a 24-hour period.</li>
+<li>For retrospective analysis of existing datasets, reports are generated immediately for the same timepoints based on when the data was originally acquired, without waiting between timepoints.</li>
+</ul>
+</div>
+<ol start="4">
+<li>
+<p>Check the example HTML report here with the 24-hour timepoint output from the validation run. <a href="../reports/demonstration_2/demonstration_2_24_hours_report.html">See report</a></p>
+</li>
+<li>
+<p>Any malfunctions or red text in the terminal output, head to the FAQ section on the Network Hub.</p>
+</li>
+</ol>
+<h3 id="running-verification-on-a-gourami-device">Running verification on a <span class="badge-gourami">Gourami</span> device.</h3>
+<p>A full guide on initiating an analysis run can be found in the "Starting a sequencing experiment and launching metagenomics analysis <span class="badge-gourami">Gourami</span>" section of this document. Go to the 'Technical Information -&gt; Metagenomics Workflow' section of this document for a full description of Launcher features. </p>
+<ol>
+<li>
+<p>Open the Metagenomics Launcher by clicking on the desktop icon.</p>
+</li>
+<li>
+<p>Click on the 'Force legacy data ingest' button. The launcher window will close and reopen. This step is not necessary for analysing sequencing data generated on the GridION. See 'Technical Information -&gt; Metagenomics Workflow' for more information on this feature.</p>
+</li>
+<li>
+<p>Load the 'install_validation.tsv' sample sheet using the 'Load existing sample sheet' function.</p>
+</li>
+<li>
+<p>Launch the analysis. Open the HTML reports in the <code>NHS_RMg_platform/reports/</code> directory. </p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Reports usually take between 10 - 20 minutes to publish after data acquisition timepoints elapse.</li>
+<li>The workflow generates reports at five timepoints: 0.5, 1, 2, 16, and 24 hours.</li>
+<li>For real-time sequencing runs, the workflow waits for each timepoint to elapse before publishing the corresponding report, spanning a 24-hour period.</li>
+<li>For retrospective analysis of existing datasets, reports are generated immediately for the same timepoints based on when the data was originally acquired, without waiting between timepoints.</li>
+</ul>
+</div>
+<ol start="4">
+<li>
+<p>Check the example HTML report here with the 24-hour timepoint output from the validation run. <a href="../reports/demonstration_2/demonstration_2_24_hours_report.html">See report</a></p>
+</li>
+<li>
+<p>Any malfunctions or red text in the terminal output, head to the FAQ section on the Network Hub.</p>
+</li>
+</ol></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../bioinformatics_outline/" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../running_metagenomics_workflow/" class="btn btn-neutral float-right" title="Starting a MinKNOW experiment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../bioinformatics_outline/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../running_metagenomics_workflow/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

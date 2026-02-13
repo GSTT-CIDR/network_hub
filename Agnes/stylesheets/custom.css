@@ -1,0 +1,40 @@
+/* Custom badges for MinKNOW and Gourami platform indicators */
+.badge-minknow, .badge-gourami {
+  display: inline-block;
+  padding: 0px 0px;
+  margin: 0 0px;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+
+.badge-minknow {
+  background-color: #005EB8;
+  border: 1px solid #004494;
+}
+
+.badge-gourami {
+  background-color: #FF6600;
+  border: 1px solid #CC5200;
+}
+
+/* Ensure badges work well in headings */
+h1 .badge-minknow, h1 .badge-gourami,
+h2 .badge-minknow, h2 .badge-gourami,
+h3 .badge-minknow, h3 .badge-gourami,
+h4 .badge-minknow, h4 .badge-gourami {
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
+/* Add vertical spacing to numbered lists */
+ol li {
+  margin-bottom: 0.5em;
+}
+
+/* Optional: Remove extra spacing from the last item */
+ol li:last-child {
+  margin-bottom: 0;
+}

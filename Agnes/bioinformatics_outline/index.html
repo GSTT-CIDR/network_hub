@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/bioinformatics_outline/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Overview - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "bioinformatics_outline.md";
+        var mkdocs_page_url = "/network_hub/Agnes/bioinformatics_outline/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#important-considerations">Important considerations</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#determine-whether-you-are-using-minknow-or-gourami">Determine whether you are using MinKNOW or Gourami</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#equipment-preparation">Equipment preparation</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/bioinformatics_outline.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="metagenomics-workflow-agnes-release">Metagenomics workflow - 'Agnes' release.</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The <strong>Metagenomics workflow</strong> is the primary analysis tool. It packages a graphical launcher for capturing specimen data from users, and an automated workflow which ingests data periodically from the sequencing device, yielding clear reports shortly after ~40 mins of sequencing. The reports describe the sampled metagenome, leveraging k-mer classification with a bespoke sequence database and a secondary orthogonal analysis tool (Auto Query), with empirically defined thresholds for increased accuracy, and provision for rudimentary AMR detection through gene alignment. </p>
+<p><strong>Organism Query</strong> is the engine for orthogonal analysis of Metagenomics Workflow outputs. It leverages the NCBI BLASTn toolset with enhanced user-friendly visualisations and summaries, assembled into an information-rich report to inform users further on putative detections. </p>
+<p><strong>Summary Report</strong> creates spreadsheets and data-scientist-friendly CSV files collating outputs from the workflows for meta-analysis.</p>
+<p>For reporting results, see the Clinical Reporting SOP and the UK NHS RMG Guidelines (in press). Please read the ‘Limitations and Known Issues’ section before use.</p>
+<h2 id="getting-started">Getting started</h2>
+<p><strong>The key stages of performing the bioinformatics workflow are as follow:</strong></p>
+<ol>
+<li><a href="../bioinformatics_install/">Install workflow</a> (only on first use).</li>
+<li><a href="../running_metagenomics_workflow/">Start MinKNOW sequencing experiment</a>.</li>
+<li><a href="../running_metagenomics_workflow/">Start the Metagenomics workflow</a>.</li>
+</ol>
+<p><strong>Optional:</strong></p>
+<ol start="4">
+<li><a href="../running_organism_query/">Query a classification</a>.</li>
+<li><a href="../mSCAPE_integration/">Upload data to mSCAPE</a>.</li>
+<li>Generate a summary spreadsheet.</li>
+</ol>
+<h2 id="important-considerations">Important considerations</h2>
+<ol>
+<li>If using a GridION, do not run more than two concurrent instances of the Metagenomics Launcher application. See 'Technical information -&gt; Running concurrent instances of the workflow' for more information.</li>
+<li>All outputs from MinKNOW/Gourami and the Metagenomics Workflow must be left in their original output directory output structure for downstream tools to work as intended.</li>
+<li>References to the 'NHS RMg platform SSD' are made throughout the document. For users who have downloaded the NHS Respiratory Metagenomics Analysis Platform, this term refers to the directory in which the install was run. See the 'Downloading from the cloud' section for more information.</li>
+<li>Users should provision appropriate backup infrastructure for the NHS RMg platform outputs in the event of disk failure.</li>
+<li>For mSCAPE users, please refer to the relevant mSCAPE SOP.</li>
+</ol>
+<h2 id="determine-whether-you-are-using-minknow-or-gourami">Determine whether you are using MinKNOW or Gourami</h2>
+<p>Where sections are relevant only to respective platforms, they will be labelled: <span class="badge-minknow">MinKNOW</span> or <span class="badge-gourami">Gourami</span>. An absence of labels indicate the process is not platform specific.</p>
+<p><a class="glightbox" href="../img/gourami_disambiguation.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Screenshots to distinguish MinKNOW and Gourami software." src="../img/gourami_disambiguation.png"></a></p>
+<h2 id="equipment-preparation">Equipment preparation</h2>
+<ul>
+<li>Ensure there is sufficient space for sequencing in the GridION <code>/data</code> directory. Users can check available space by opening a terminal <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> and typing <code>df -h</code> and pressing <kbd>Enter</kbd>. The storage available on the GridION is shown under <code>/data</code>.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>The SSD drive should be placed on top of the GridION ensuring the removable SSD drive is not in the exhaust path of any device emitting hot air. The SSD is prone to overheating which will cause system instability and analysis failure.</p>
+</div>
+<h1 id="citations">Citations</h1>
+<p>For a full list of dependencies, visit our GitHub: https://github.com/GSTT-CIDR</p>
+<p>Alcolea-Medina, A., Snell, L. B., Humayun, G., Al-Yaakoubi, N., Ward, D., Alder, C., ... &amp; Whitehorn, J. (2025). Rapid pan-microbial metagenomics for pathogen detection and personalised therapy in the intensive care unit: a single-centre prospective observational study. The Lancet Microbe, 6(10).</p>
+<p>Alcolea-Medina, A., Alder, C., Snell, L. B., Charalampous, T., Aydin, A., Nebbia, G., ... &amp; Edgeworth, J. D. (2024). Unified metagenomic method for rapid detection of microorganisms in clinical samples. Communications Medicine, 4(1), 135.</p>
+<p>Kim D, Song L, Breitwieser FP, Salzberg SL. Centrifuge: rapid and sensitive classification of metagenomic sequences. Genome Res. 2016;26(12):1721-1729. doi:10.1101/gr.210641.116</p>
+<p>Madden, T. (2013). The BLAST sequence analysis tool. The NCBI handbook, 2(5), 425-436</p>
+<p>Scagaire, Andrew J Page, Thanh Le Viet, Justin O'Grady https://github.com/quadram-institute-bioscience/scagaire</p>
+<p>Seemann T, Abricate, Github https://github.com/tseemann/abricate</p>
+<p>CARD - doi:10.1093/nar/gkac920</p>
+<p>VFDB - doi:10.1093/nar/gkv1239</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../validation_outline/" class="btn btn-neutral float-left" title="Validation outline"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bioinformatics_install/" class="btn btn-neutral float-right" title="Installation and validation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../validation_outline/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../bioinformatics_install/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

@@ -1,0 +1,1119 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <meta charset="utf-8" />
+<link rel="canonical" href="https://nanoporetech.com/platform/technology" />
+<meta http-equiv="content-language" content="en" />
+<meta name="description" content="Oxford Nanopore has developed a new generation of DNA/RNA sequencing technology. It is the only sequencing technology that offers real-time analysis (for rapid insights), in fully scalable formats from pocket to population scale, that can analyse native DNA or RNA and sequence any length of fragment to achieve short to ultra-long read lengths." />
+<meta name="keywords" content=", No video" />
+<meta property="og:site_name" content="Oxford Nanopore Technologies" />
+<meta property="og:type" content="flexible" />
+<meta property="og:url" content="https://nanoporetech.com/platform/technology" />
+<meta property="og:title" content="How nanopore sequencing works" />
+<meta property="og:description" content="Oxford Nanopore has developed a new generation of DNA/RNA sequencing technology. It is the only sequencing technology that offers real-time analysis (for rapid insights), in fully scalable formats from pocket to population scale, that can analyse native DNA or RNA and sequence any length of fragment to achieve short to ultra-long read lengths." />
+<meta property="og:image" content="https://nanoporetech.com/sites/default/files/s3/How%20low%20can%20you%20go%20Driving%20down%20the%20DNA%20input%20requirements%20for%20nanopore%20sequencing.jpg" />
+<meta property="og:image" content="https://nanoporetech.com/sites/default/files/s3/How%20low%20can%20you%20go%20Driving%20down%20the%20DNA%20input%20requirements%20for%20nanopore%20sequencing.jpg" />
+<meta property="og:updated_time" content="2023-10-27T10:50:23+01:00" />
+<meta property="article:section" content="Flexible" />
+<meta property="article:tag" content="No video" />
+<meta property="article:published_time" content="2021-11-29" />
+<meta property="article:modified_time" content="2023-10-27T10:50:23+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@nanopore" />
+<meta name="twitter:description" content="Oxford Nanopore has developed a new generation of DNA/RNA sequencing technology. It is the only sequencing technology that offers real-time analysis (for rapid insights), in fully scalable formats from pocket to population scale, that can analyse native DNA or RNA and sequence any length of fragment to achieve short to ultra-long read lengths." />
+<meta name="twitter:title" content="How nanopore sequencing works" />
+<meta name="twitter:site:id" content="37732219" />
+<meta name="twitter:url" content="https://nanoporetech.com/platform/technology" />
+<meta name="Generator" content="Drupal 9 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="/sites/default/files/s3/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://nanoporetech.com/platform/technology" />
+<link rel="alternate" hreflang="zh-hans" href="https://nanoporetech.com/cn/platform/technology" />
+<link rel="alternate" hreflang="ja" href="https://nanoporetech.com/ja/platform/technology" />
+
+    <title>How nanopore sequencing works</title>
+
+    <style>
+    nano-global-nav{visibility:hidden}.hydrated{visibility:inherit}
+    </style>
+
+    
+        <script src="https://cdn.jsdelivr.net/npm/@nanoporetech-digital/components@5.10/dist/nano-components/nano-components.esm.js" type="module"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@nanoporetech-digital/components@5.10/dist/nano-components/nano-components.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@nanoporetech-digital/components@5.10/dist/themes/nanopore.css" rel="stylesheet" />
+
+          <!-- OneTrust Cookies Consent Notice start for nanoporetech.com -->
+      <script type="text/javascript" src="https://cdn.cookielaw.org/consent/39882d66-275e-4733-9c1d-979cc7bd324e-test/OtAutoBlock.js" ></script>
+      <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="39882d66-275e-4733-9c1d-979cc7bd324e-test" ></script>
+      <script type="text/javascript">
+      function OptanonWrapper() { }
+      </script>
+      <!-- OneTrust Cookies Consent Notice end for nanoporetech.com -->
+    
+    <link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/ajax-progress.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/align.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/autocomplete-loading.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/fieldgroup.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/container-inline.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/clearfix.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/details.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/hidden.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/item-list.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/js.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/nowrap.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/position-container.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/progress.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/reset-appearance.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/resize.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/sticky-header.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-counter.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-counters.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/system-status-report-general-info.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tabledrag.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tablesort.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/core/themes/stable/css/system/components/tree-child.module.css?s71n99" />
+<link rel="stylesheet" media="all" href="/modules/contrib/paragraphs/css/paragraphs.unpublished.css?s71n99" />
+<link rel="stylesheet" media="all" href="/modules/contrib/entity_reference_layout/modules/erl_layouts/css/erl_layouts.css?s71n99" />
+<link rel="stylesheet" media="all" href="/themes/custom/nanopore/assets/css/main.css?s71n99" />
+
+    
+
+  
+  </head>
+  <body class="path-platform-technology path-node page-node-type-flexible">
+    <!-- Docksal -->
+    
+    <nano-global-nav env="prod">
+                                      <nano-nav-item slot="main" selected="false" id="products" class="mega-dropdown mega-dropdown--products">
+                  Products
+                                <div slot="secondary">
+          <div class="mdd-content">
+            <div class="megadd megadd--products">
+              <div class="megadd__wrapper">
+                <nano-grid s-cols="1" l-cols="2">
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-1">
+                    <h2>Discover nanopore sequencing</h2>
+                    <ul>
+                      <li><a href="/platform">What can it do?</a></li>
+                      <li><a href="/platform/technology">How does it work?</a></li>
+                      <li><a href="/platform/accuracy">Our platform performance and accuracy</a></li>
+                    </ul>
+                  </nano-grid-item>
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-1">
+                    <h2>Explore products</h2>
+                    <ul>
+                      <li><a href="/products/prepare">Prepare<span>Sample and library prep solutions</span></a></li>
+                      <li><a href="/products/sequence">Sequence<span>Flow cells and nanopore devices</span></a></li>
+                      <li><a href="/products/analyse">Analyse<span>Software and informatics tools</span></a></li>
+                    </ul>
+                  </nano-grid-item>
+                </nano-grid>
+              </div>
+            </div>
+          </div>
+          <div class="burger-content burger-menu">
+            <button class="back-btn"><nano-icon name="solid/chevron-left" slot="icon-end"></nano-icon>Products</button>
+            <h3>Discover nanopore sequencing</h3>
+            <nano-nav-item>
+              <a href="/platform">What can it do?</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/platform/technology">How does it work?</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/platform/accuracy">Our platform performance and accuracy</a>
+            </nano-nav-item>
+            <h3>Explore products</h3>
+            <nano-nav-item>
+              <a href="/products/prepare">Prepare</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/products/sequence">Sequence</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/products/analyse">Analyse</a>
+            </nano-nav-item>
+          </div>
+        </div>
+                              </nano-nav-item>
+          <nano-nav-item slot="main" selected="false" id="applications" class="mega-dropdown mega-dropdown--applications">
+                  Applications
+                                        <div slot="secondary">
+          <div class="mdd-content">
+            <div class="megadd megadd--applications">
+              <div class="megadd__wrapper">
+                <nano-grid s-cols="1" l-cols="8">
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-2">
+                    <p>Nanopore sequencing offers advantages in all areas of research. Our offering includes DNA sequencing, as well as RNA and gene expression analysis and future technology for analysing proteins.</p>
+                    <a href="/applications" class="button button--primary button--keyline">Learn about applications</a>
+                  </nano-grid-item>
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-2">
+                    <h2>Research areas</h2>
+                    <ul class="megadd__links">
+                      <li><a href="/applications/research-areas/microbiology">Microbiology</a></li>
+                      <li><a href="/applications/research-areas/human-genomics">Human genetics</a></li>
+                      <li><a href="/applications/research-areas/microbiome">Microbiome</a></li>
+                      <li><a href="/applications/research-areas/clinical-research">Clinical research</a></li>
+                      <li><a href="/applications/research-areas/cancer-research-and-sequencing">Cancer</a></li>
+                      <li><a href="/applications/research-areas/plant-research">Plant</a></li>
+                      <li><a href="/applications/research-areas/transcriptome-sequencing">Transcriptome</a></li>
+                      <li><a href="/applications/research-areas/animal-sequencing">Animal</a></li>
+                      <li><a href="/applications/research-areas/population-genomics">Population genomics</a></li>
+                      <li><a href="/applications/research-areas/covid-19">COVID-19</a></li>
+                      <li><a href="/applications/research-areas/environmental-research-and-conservation">Environmental research & conservation</a></li>
+                      <li><a href="/applications/research-areas/infectious-disease">Infectious disease</a></li>
+                    </ul>
+                  </nano-grid-item>
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-2">
+                    <h2>Investigations</h2>
+                    <ul class="megadd__links">
+                      <li><a href="/applications/investigations/structural-variation">Structural variation</a></li>
+                      <li><a href="/applications/investigations/single-nucleotide-variants-snvs-and-phasing">SNVs and phasing</a></li>
+                      <li><a href="/applications/investigations/gene-expression">Gene expression</a></li>
+                      <li><a href="/applications/investigations/identification">Identification</a></li>
+                      <li><a href="/applications/investigations/splice-variation">Splice variation</a></li>
+                      <li><a href="/applications/investigations/genome-assembly">Assembly</a></li>
+                      <li><a href="/applications/investigations/fusion-transcripts">Fusion transcripts</a></li>
+                      <li><a href="/applications/investigations/epigenetics-and-methylation-analysis">Epigenetics</a></li>
+                      <li><a href="/applications/investigations/single-cell-sequencing">Single cell</a></li>
+                      <li><a href="/applications/investigations/chromatin-conformation">Chromatin conformation</a></li>
+                    </ul>
+                  </nano-grid-item>
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-2">
+                    <h2>Techniques</h2>
+                    <ul>
+                      <li><a href="/applications/techniques/whole-genome-sequencing">Whole genome</a></li>
+                      <li><a href="/applications/techniques/targeted-sequencing">Targeted</a></li>
+                      <li><a href="/applications/techniques/rna-and-cdna-sequencing">RNA & cDNA sequencing</a></li>
+                      <li><a href="/applications/techniques/metagenomics-and-microbiome-analysis-with-nanopore-technology">Metagenomics</a></li>
+                      <li><a href="/applications/techniques/short-fragment-mode">Short fragment mode</a></li>
+                    </ul>
+                  </nano-grid-item>
+                </nano-grid>
+              </div>
+            </div>
+          </div>
+          <div class="burger-content burger-menu">
+            <button class="back-btn"><nano-icon name="solid/chevron-left" slot="icon-end"></nano-icon>Applications</button>
+            <h3>Research areas</h3>
+            <nano-nav-item><a href="/applications/research-areas/microbiology">Microbiology</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/human-genomics">Human genetics</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/microbiome">Microbiome</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/clinical-research">Clinical research</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/cancer-research-and-sequencing">Cancer</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/plant-research">Plant</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/transcriptome-sequencing">Transcriptome</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/animal-research">Animal</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/population-genomics">Population genomics</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/covid-19">COVID-19</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/environmental-research-and-conservation">Environmental research & conservation</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/research-areas/infectious-disease">Infectious disease</a></nano-nav-item>
+            <h3>Investigations</h3>
+            <nano-nav-item><a href="/applications/investigations/structural-variation">Structural variation</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/single-nucleotide-variants-snvs-and-phasing">SNVs and phasing</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/gene-expression">Gene expression</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/identification">Identification</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/splice-variation">Splice variation</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/genome-assembly">Assembly</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/fusion-transcripts">Fusion transcripts</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/epigenetics-and-methylation-analysis">Epigenetics</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/single-cell-sequencing">Single cell</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/investigations/chromatin-conformation">Chromatin conformation</a></nano-nav-item>
+            <h3>Techniques</h3>
+            <nano-nav-item><a href="/applications/techniques/whole-genome-sequencing">Whole genome</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/techniques/targeted-sequencing">Targeted</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/techniques/rna-and-cdna-sequencing">Whole transcriptome</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/techniques/metagenomics-and-microbiome-analysis-with-nanopore-technology">Metagenomics</a></nano-nav-item>
+            <nano-nav-item><a href="/applications/techniques/short-fragment-mode">Short fragment mode</a></nano-nav-item>
+            <nano-nav-item><a href="/applications">View all Applications</a></nano-nav-item>
+          </div>
+        </div>
+                      </nano-nav-item>
+          <nano-nav-item slot="main" selected="false" id="store" class="mega-dropdown mega-dropdown--store">
+                  <a href="https://store.nanoporetech.com" class="store">Store</a>
+                                              </nano-nav-item>
+          <nano-nav-item slot="main" selected="false" id="resources" class="mega-dropdown mega-dropdown--resources">
+                  <a href="/resource-centre" class="resources" data-drupal-link-system-path="node/342961">Resources</a>
+                                              </nano-nav-item>
+          <nano-nav-item slot="main" selected="false" id="support" class="mega-dropdown mega-dropdown--support">
+                  <a href="/support" class="support" data-drupal-link-system-path="node/405786">Support</a>
+                                              </nano-nav-item>
+          <nano-nav-item slot="main" selected="false" id="about" class="mega-dropdown mega-dropdown--about">
+                  About
+                                                <div slot="secondary">
+          <div class="mdd-content">
+            <div class="megadd megadd--about">
+              <div class="megadd__wrapper">
+                <nano-grid s-cols="1" l-cols="7">
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-2">
+                    <h2>Company</h2>
+                    <ul class="megadd__links">
+                      <li><a href="/about-us">About us</a></li>
+                      <li><a href="/about-us/board">Board members</a></li>
+                      <li><a href="/about-us/executive-team">Executive team</a></li>
+                      <li><a href="/about-us/investors">Investor centre</a></li>
+                      <li><a href="/about-us/history">Company history</a></li>
+                      <li><a href="/about-us/environmental-and-social-responsibilities">Sustainability</a></li>
+                      <li><a href="/about-us/careers">Careers</a></li>
+                      <li><a href="/about-us/for-the-media">Media resources</a></li>
+                    </ul>
+                  </nano-grid-item>
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-1">
+                    <h2>News & Events</h2>
+                    <ul>
+                      <li><a href="/about-us/news">News</a></li>
+                      <li><a href="/about/events">Events</a></li>
+                      <li><a href="/about/events/nanopore-days">Nanopore Days</a></li>
+                      <li><a href="/about-us/blogs">Blogs</a></li>
+                    </ul>
+                  </nano-grid-item>
+                  <nano-grid-item grid-states="s-col-span-1 l-col-span-2">
+                    <h2>Global partners</h2>
+                    <ul>
+                      <li><a href="/about-us/services/distributors">Global distributors</a></li>
+                      <li><a href="/jp/about-us/dealers">Japanese dealers</a></li>
+                      <li><a href="/about-us/services/providers">Sequencing service providers</a></li>
+                      <li><a href="/about-us/for-partners">For partners</a></li>
+                    </ul>
+                  </nano-grid-item>
+                </nano-grid>
+              </div>
+            </div>
+          </div>
+          <div class="burger-content burger-menu">
+            <button class="back-btn"><nano-icon name="solid/chevron-left" slot="icon-end"></nano-icon>About</button>
+            <h3>About</h3>
+            <nano-nav-item>
+              <a href="/about-us">About us</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/board">Board members</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/executive-team">Executive team</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/investors">Investor centre</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/history">Company history</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/environmental-and-social-responsibilities">Sustainability</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/careers">Careers</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/for-the-media">Media resources</a>
+            </nano-nav-item>
+            <h3>News & Events</h3>
+            <nano-nav-item>
+              <a href="/about-us/news">News</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about/events">Events</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about/events/nanopore-days">Nanopore Days</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/blogs">Blogs</a>
+            </nano-nav-item>
+            <h3>Global partners</h3>
+            <nano-nav-item>
+              <a href="/about-us/services/distributors">Global distributors</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/jp/about-us/dealers">Japanese dealers</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/services/providers">Sequencing service providers</a>
+            </nano-nav-item>
+            <nano-nav-item>
+              <a href="/about-us/for-partners">For partners</a>
+            </nano-nav-item>
+          </div>
+        </div>
+              </nano-nav-item>
+      
+
+
+<nano-nav-item slot="promotion" class="promo-slot">
+  <div class="promotion">
+    <a class="promotion__content" href="/lc24">
+      <h3 class="promotion__content_header">London Calling 2024
+        <nano-icon class="use-font" name="light/chevron-right"></nano-icon>
+      </h3>
+                  <div class="button button--secondary">Find out more</div>
+    </a>
+  </div>
+</nano-nav-item>
+
+
+
+
+      <nano-global-search-results>
+        <div class="home__actions">
+          <a href="/getting-started-with-minion" class="button button--secondary">Get started</a>
+          <a class="button button--primary" id="bookCall">Talk to us</a>
+          <a href="#subscribe" class="button button--light">Subscribe</a>
+        </div>
+        
+        <div class="nav__main" id="main-content">
+          <div class="modal-container modal-container--bar" id="subscribe">
+            <div class="subscribe-form"></div>
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]--><script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script><script>
+              hbspt.forms.create({
+                css: '',
+                portalId: '2427914',
+                formId: '9aa855c9-71ba-4757-b4ff-72793e7e249a',
+            target: '.subscribe-form',
+            formInstanceId: '66',
+                onFormReady: function(form) { hbsptNpPreprocess(form); }
+              });
+            </script>
+            <div class="modal-container__toolbar">
+            </div>
+          </div>
+            <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <main>
+        <div data-drupal-messages-fallback class="hidden"></div><div id="block-nanopore-mainpagecontent" class="block block-system block-system-main-block">
+
+
+
+	<article role="article" about="/platform/technology">
+
+
+
+    <nano-hero level="top" img-src="/sites/default/files/s3/How%20low%20can%20you%20go%20Driving%20down%20the%20DNA%20input%20requirements%20for%20nanopore%20sequencing.jpg">
+        
+    <h1 slot="primary-content"><span>How nanopore sequencing works </span>
+</h1>
+    <div slot="primary-content">
+            <div><p>Oxford Nanopore has developed a new generation of DNA/RNA sequencing technology. It is the only sequencing technology that offers real-time analysis (for rapid insights), in fully scalable formats from pocket to population scale, that can analyse native DNA or RNA and sequence any length of fragment to achieve short to ultra-long read lengths.</p>
+</div>
+      </div>
+  <div slot="secondary-content">
+
+      </div>
+      <div class="hero__ctas" slot="secondary-ctas">
+    <a class="button button--secondary" href="#subscribe">Subscribe</a>
+    <a class="button button--primary" href="/getting-started-with-minion">Get started</a>
+    <a class="button button--light button--keyline intercom_launch">Talk to us</a>
+  </div>
+  </nano-hero>
+
+<div class="flexible__wrapper nav__header">
+  <nav class="flexible-nav sub-nav nav__sub-nav js-sub-nav--pageanchors">
+    <div class="sub-nav__inner">
+                        <a class="sub-nav__link" href="#_animation">Animation</a> 
+                                              <a class="sub-nav__link" href="#_nanopores">Nanopores</a> 
+                                <a class="sub-nav__link" href="#_dnarna-sequencing">DNA/RNA sequencing</a> 
+                                <a class="sub-nav__link" href="#_why-dnarna">Why DNA/RNA?</a> 
+                                <a class="sub-nav__link" href="#_the-power-of-long-reads">The power of long reads</a> 
+                                <a class="sub-nav__link" href="#_fully-scalable">Fully scalable</a> 
+                  </div>
+  </nav>
+</div>
+
+<div>
+  
+      <div>
+              <div>      	  <div class="flexible__section--wide paragraph paragraph--type--container paragraph--view-mode--default" id="_animation">
+  					  <div class="data-align=center layout l--layout-onecolumn">
+    <div class="l--padded">
+      
+      <div class="l__main">
+        
+        
+        
+                
+            </div>
+
+          </div>
+  </div>
+
+			</div>
+</div>
+              <div><div class="video-header">
+  <div class="video-header__wrapper">
+    <video autoplay loop muted>
+      <source src="/sites/default/files/s3/Animation_%20Nanopore%20sequencing.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="video-header__content">
+    <h2></h2>
+        <div class="modal-container modal-container--bar" id="fullVideo">
+      <div style="padding:56.25% 0 0 0;position:relative;">
+        <iframe src="https://player.vimeo.com/video/337258910?byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <script src="https://player.vimeo.com/api/player.js"></script>
+      <div class="modal-container__toolbar"></div>
+    </div>
+    <div class="video-header__actions">
+      <a class="button button--primary button--keyline button--icon modal-container_link" data-icon="&#xf054" href="#fullVideo">Watch full video</a>
+    </div>
+            <div class="video-header__features">
+            <nano-grid s-cols="1" xl-cols="5">
+                  <nano-grid-item>
+            <h4>Real-time</h4>
+
+<p>The only sequencing technology that offers real-time analysis</p>
+  
+          </nano-grid-item>
+                  <nano-grid-item>
+            <h4>Fully scalable</h4>
+
+<p>From pocket to population-scale devices</p>
+  
+          </nano-grid-item>
+                  <nano-grid-item>
+            <h4>Direct DNA/RNA sequencing</h4>
+
+<p>Call base modifications simultaneously with nucleotide sequence</p>
+  
+          </nano-grid-item>
+                  <nano-grid-item>
+            <h4>Ultra-long reads</h4>
+
+<p>Improve assembly and characterise repetitive and difficult regions with ultra-long reads</p>
+  
+          </nano-grid-item>
+                  <nano-grid-item>
+            <h4>Sequence anywhere</h4>
+
+<p>MinION is being&nbsp;used outside the traditional lab environment —&nbsp;taking the analysis to the sample.</p>
+  
+          </nano-grid-item>
+              </nano-grid>
+    </div>
+      </div>
+</div></div>
+              <div>      	  <div class="flexible__section flexible__section--white paragraph paragraph--type--container paragraph--view-mode--default" id="_nanopores">
+  					  <div class="layout l--layout-twocolumn-halves">
+    <div class="l--padded">
+      
+      <div class="l__main">
+        
+                  <div  class="l__region l__primary">
+              <div class="paragraph paragraph--type--heading paragraph--view-mode--default">
+          
+            <div><h2>Nanopores</h2></div>
+      
+      </div>
+  <div class="paragraph paragraph--type--paragraph paragraph--view-mode--default">
+          
+            <div><p>All Oxford Nanopore sequencing devices use flow cells which contain an array of tiny holes — nanopores — embedded in an electro-resistant membrane. Each nanopore corresponds to its own electrode connected to a channel and sensor chip, which measures the electric current that flows through the nanopore. When a molecule passes through a nanopore, the current is disrupted to produce a characteristic ‘squiggle’. The squiggle is then decoded using basecalling algorithms to determine the DNA or RNA sequence in real time.</p>
+</div>
+      
+      </div>
+	<a href="https://nanoporetech.com/flow-cells-and-nanopores" target="_self" class="
+            button button--secondary
+      ">Learn more about flow cells and nanopores</a>
+  <div class="paragraph paragraph--type--paragraph paragraph--view-mode--default">
+          
+            <div><p>&nbsp; &nbsp;</p>
+</div>
+      
+      </div>
+	<a href="https://nanoporetech.com/how-it-works/basecalling" target="_self" class="
+            button button--secondary
+      ">Learn how basecalling works</a>
+
+          </div>
+        
+                  <div  class="l__region l__secondary">
+              <div class="paragraph paragraph--type--figure paragraph--view-mode--default">
+          <figure>
+                  
+            <div>  <img src="/sites/default/files/s3/How%20it%20works/Basecalling/MinION_GIF_08.gif" width="725" height="408" alt="Basecalling" loading="lazy" typeof="foaf:Image" />
+
+</div>
+      
+                        <figcaption>
+          
+            <div><p>You can think of the current as water flowing through a pipe. When an object enters the pipe, the flow of water is disrupted, just as DNA disrupts the current as it passes through the nanopore.</p>
+</div>
+      
+        </figcaption>
+              </figure>
+      </div>
+
+          </div>
+        
+                
+            </div>
+
+          </div>
+  </div>
+
+			</div>
+</div>
+              <div>      	  <div class="flexible__section flexible__section--lightblue paragraph paragraph--type--container paragraph--view-mode--default" id="_dnarna-sequencing">
+  					  <div class="layout l--layout-twocolumn-halves">
+    <div class="l--padded">
+      
+      <div class="l__main">
+        
+                  <div  class="l__region l__primary">
+              <div class="paragraph flexible__image paragraph--type--image paragraph--view-mode--default">
+                  
+            <div>  <img src="/sites/default/files/s3/How%20it%20works/Basecalling/MinION_GIF_06.gif" width="640" height="360" alt="nanopore" loading="lazy" typeof="foaf:Image" />
+
+</div>
+      
+            </div>
+
+          </div>
+        
+                  <div  class="l__region l__secondary">
+              <div class="paragraph paragraph--type--heading paragraph--view-mode--default">
+          
+            <div><h2>DNA/RNA sequencing</h2></div>
+      
+      </div>
+  <div class="paragraph paragraph--type--paragraph paragraph--view-mode--default">
+          
+            <div><p>A strand of DNA or RNA is made up of a sequence of different combinations of four nucleotide bases: A, T (or U for RNA), G and C. Each base that passes through the nanopore can be identified through the&nbsp;characteristic disruption it causes to the current in real-time. This makes nanopore sequencing unique, in that it is the only sequencing technology that enables direct, real-time analysis of short to ultra-long fragments of DNA/RNA, in fully scalable formats. Advantages of real-time sequencing include rapid access to time critical information (e.g. pathogen identification), the generation of early sample insights and more control over the&nbsp;sequencing experiment.</p>
+
+<p>&nbsp;</p>
+</div>
+      
+      </div>
+	<a href="https://nanoporetech.com/how-it-works/advantages-of-real-time-sequencing" target="_self" class="
+            button button--secondary
+      ">Learn more about the advantages of real-time sequencing</a>
+
+          </div>
+        
+                
+            </div>
+
+          </div>
+  </div>
+
+			</div>
+</div>
+              <div>      	  <div class="flexible__section flexible__section--blue paragraph paragraph--type--container paragraph--view-mode--default" id="_why-dnarna">
+  					  <div class="layout l--layout-twocolumn-halves">
+    <div class="l--padded">
+      
+      <div class="l__main">
+        
+                  <div  class="l__region l__primary">
+              <div class="paragraph paragraph--type--heading paragraph--view-mode--default">
+          
+            <div><h2>Why DNA / RNA?</h2></div>
+      
+      </div>
+  <div class="paragraph paragraph--type--paragraph paragraph--view-mode--default">
+          
+            <div><p>DNA and RNA are molecules that are present in all living things. DNA is the genetic code of life, the instructions for building and operating an organism. RNA is primarily a messenger molecule, carrying instructions from the DNA code to control the synthesis of proteins —&nbsp;the building blocks of organisms. Sequencing can answer a range of biological questions, providing information on&nbsp;pathogen identity, genetic disease risk or how an organism has evolved.</p>
+
+<p>&nbsp;</p>
+</div>
+      
+      </div>
+	<a href="https://nanoporetech.com/applications" target="_self" class="
+            button button--secondary
+      ">Learn about the applications of nanopore sequencing</a>
+
+          </div>
+        
+                  <div  class="l__region l__secondary">
+              <div class="paragraph paragraph--type--figure paragraph--view-mode--default">
+          <figure>
+                  
+            <div>  <img src="/sites/default/files/s3/DNA%20sequnecing.jpeg" width="3868" height="2175" alt="DNA Sequencing" loading="lazy" typeof="foaf:Image" />
+
+</div>
+      
+                        <figcaption>
+          
+            <div><p>You can think of sequencing DNA/RNA like reading music&nbsp;— the&nbsp;bases being the notes, which when&nbsp;played in the correct order, produces a recognisable the song. Nanopore sequencing is used to determine the sequence of DNA/RNA bases.</p>
+</div>
+      
+        </figcaption>
+              </figure>
+      </div>
+
+          </div>
+        
+                
+            </div>
+
+          </div>
+  </div>
+
+			</div>
+</div>
+              <div>      	  <div class="flexible__section flexible__section--lightblue paragraph paragraph--type--container paragraph--view-mode--default" id="_the-power-of-long-reads">
+  					  <div class="layout l--layout-twocolumn-halves">
+    <div class="l--padded">
+      
+      <div class="l__main">
+        
+                  <div  class="l__region l__primary">
+              <div class="paragraph paragraph--type--figure paragraph--view-mode--default">
+          <figure>
+                  
+            <div>  <img src="/sites/default/files/s3/How%20it%20works/Learn%20more/ONT_Graphic1_Herpes_160421_ml.png" width="1287" height="662" alt="the power of long reads" loading="lazy" typeof="foaf:Image" />
+
+</div>
+      
+                        <figcaption>
+          
+            <div><p>You can think of this like trying to complete two jigsaws of the same photograph — one with significantly larger pieces than the other. A jigsaw with only 9 pieces is much easier to assemble than one with 900.</p>
+</div>
+      
+        </figcaption>
+              </figure>
+      </div>
+
+          </div>
+        
+                  <div  class="l__region l__secondary">
+              <div class="paragraph paragraph--type--heading paragraph--view-mode--default">
+          
+            <div><h2>The power of long reads</h2></div>
+      
+      </div>
+  <div class="paragraph paragraph--type--paragraph paragraph--view-mode--default">
+          
+            <div><p>Traditional methods are only able to sequence short lengths of DNA which must then be reassembled. It is therefore difficult to sequence repetitive regions for accurate genome assemblies without gaps, resolve large structural variations, or differentiate isoforms. Nanopore sequencing is limited only by the length of the DNA/RNA fragment presented to the pore and&nbsp;can therefore span entire repetitive regions, resolve structural variants, and differentiate between different isoforms. The ability to sequence native DNA and RNA without the requirement for amplification, eliminates PCR bias and allows for the identification of base modifications, such as methylation, alongside nucleotide sequence.</p>
+</div>
+      
+      </div>
+	<a href="https://nanoporetech.com/advantages-nanopore-sequencing" target="_self" class="
+            button button--secondary
+      ">Learn more about the advantages of nanopore sequencing</a>
+
+          </div>
+        
+                
+            </div>
+
+          </div>
+  </div>
+
+			</div>
+</div>
+              <div>      	  <div class="flexible__section flexible__section--white paragraph paragraph--type--container paragraph--view-mode--default" id="_fully-scalable">
+  					  <div class="layout l--layout-onecolumn">
+    <div class="l--padded">
+      
+      <div class="l__main">
+        
+                  <div  class="l__region l__primary">
+              <div class="paragraph paragraph--type--heading paragraph--view-mode--default">
+          
+            <div><h2>Nanopore sequencing is fully scalable</h2></div>
+      
+      </div>
+  <div class="paragraph paragraph--type--paragraph paragraph--view-mode--default">
+          
+            <div><p>Nanopore sequencing is the only sequencing technology to enable real-time analysis&nbsp;in fully scalable formats.&nbsp;From the pocket-sized MinION&nbsp;to the high-throughput, population-scale&nbsp;PromethION&nbsp;— scale nanopore sequencing to suit any experimental needs.</p>
+</div>
+      
+      </div>
+
+          </div>
+        
+        
+                
+            </div>
+
+          </div>
+  </div>
+
+			</div>
+</div>
+          </div>
+  
+</div>
+
+  <div class="flexible__devices">
+  <div class="content-container">
+    <nano-slides navbtns="true" class="device-slides">
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/promethion-48-2023.png" alt="PromethION 48">
+          </span>
+          <h4>PromethION 48</h4>
+          <p>Flexible, population-scale sequencing using up to 48 independent, high-capacity flow cells — complete genomic and transcriptomic characterisation of large sample numbers.</p>
+          <a class="device-slides__slide-link" href="/products/promethion">View product</a>
+        </div>
+      </nano-slide>
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/promethion-24-2023.png" alt="PromethION 24">
+          </span>
+          <h4>PromethION 24</h4>
+          <p>Combining up to 24 independently addressable, high-capacity flow cells with powerful, integrated compute, PromethION 24 delivers flexible, on-demand access to terabases of sequencing data — ideal for cost-effective, high-throughput sequencing.</p>
+          <a class="device-slides__slide-link" href="/products/promethion">View product</a>
+        </div>
+      </nano-slide>
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/p2-solo-2023.png" alt="PromethION 2 & 2 Solo">
+          </span>
+          <h4>PromethION 2 & 2 Solo</h4>
+          <p>Flexible, high-yield nanopore sequencing for every lab. The PromethION 2 devices are designed to be compact and accessible, utilising 2 PromethION Flow Cells that can generate hundreds of gigabases of data each.</p>
+          <a class="device-slides__slide-link" href="/products/promethion-2">View products</a>
+        </div>
+      </nano-slide>
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/gridion-2023.png" alt="GridION">
+          </span>
+          <h4>GridION</h4>
+          <p>From genome assembly to gene expression, run multiple experiments on-demand using 5 independent MinION flow cells.</p>
+          <a class="device-slides__slide-link" href="/products/gridion">View product</a>
+        </div>
+      </nano-slide>
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/minions-2023.png" alt="MinION">
+          </span>
+          <h4>MinION</h4>
+          <p>Integrated sequencing and analysis in a powerful handheld device — suitable for small animal genomes, targeted sequencing, and gene expression studies.</p>
+          <a class="device-slides__slide-link" href="/products/minion">View products</a>
+        </div>
+      </nano-slide>
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/flongle.png" alt="Flongle">
+          </span>
+          <h4>Flongle</h4>
+          <p>Adapting MinION and GridION for smaller, routine tests and analyses. Low plex targeted sequencing, RNA isoform analysis, and quality control applications.</p>
+          <a class="device-slides__slide-link" href="/products/flongle">View product</a>
+        </div>
+      </nano-slide>
+      <nano-slide class="device-slides__slide">
+        <div class="device-slides__slide-inner">
+          <span class="device-slides__slide-image">
+            <img src="/sites/default/files/s3/devices/voltrax-2023.png" alt="VolTRAX">
+          </span>
+          <h4>VolTRAX</h4>
+          <p>Automated library preparation for nanopore sequencing.</p>
+          <a class="device-slides__slide-link" href="/products/voltrax">View product</a>
+        </div>
+      </nano-slide>
+    </nano-slides>
+  </div>
+</div>
+<script>
+  var slides = document.querySelector('.device-slides');
+</script>
+  <div class="showcase__contact">
+  <div class="showcase__contact-wrapper">
+    <div class="grid">
+      <div class="col col-7 col-md">
+        <div class="showcase__contact-form">
+          <h4>Subscribe</h4>
+          <div>
+            <!--[if lte IE 8]>
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+            <![endif]-->
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+            <script>
+              hbspt.forms.create({
+              portalId: "2427914",
+              formId: "9aa855c9-71ba-4757-b4ff-72793e7e249a",
+              css: '',
+              onFormReady: function(form) { hbsptNpPreprocess(form); }
+            });
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="showcase__contact-details">
+          <h3>Get in touch</h3>
+          <hr>
+          <h4 class="showcase__live-chat">Talk to us</h4>
+          <p>If you have any questions about our products or services, chat directly with a member of our sales team.</p>
+          <a class="button button--primary intercom_launch">Talk to us</a>
+          <hr>
+          <h4 class="showcase__book-call">Book a sales call</h4>
+          <p>To book a call with one of our sales team, please click below.</p>
+          <a class="button button--primary modal-container__link" id="bookCall">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </article>
+
+</div>
+
+
+  
+  </main>
+
+  </div>
+
+          
+                    <footer class="footer">
+
+            <div class="footer__languages">
+              <div class="footer__inner">
+                <a href="http://nanoporetech.net" class="footer__social-flag cn">中文</a>
+                <a href="http://nanoporetech.jp" class="footer__social-flag jp">日本語</a>
+                <a href="/" class="footer__social-flag gb">English</a>
+              </div>
+            </div>
+            <div class="footer__links">
+              <div class="footer__inner">
+                  <div id="block-footercolumn2" class="footer__column">
+    
+  <h4 class="footer__title">Getting started</h4>
+  
+        
+
+                <ul class="nav__footer2">
+                    <li class="nav__menu-item--footer2 nav__menu-item buy_a_minion_starter_pack">
+        <a href="https://store.nanoporetech.com/minion.html" class="buy_a_minion_starter_pack">Buy a MinION starter pack</a>
+              </li>
+                <li class="nav__menu-item--footer2 nav__menu-item nanopore_store">
+        <a href="https://store.nanoporetech.com/" class="nanopore_store">Nanopore store</a>
+              </li>
+                <li class="nav__menu-item--footer2 nav__menu-item sequencing_service_providers">
+        <a href="/services/providers" class="sequencing_service_providers">Sequencing service providers</a>
+              </li>
+                <li class="nav__menu-item--footer2 nav__menu-item global_distributors">
+        <a href="/services/distributors" class="global_distributors">Global distributors</a>
+              </li>
+                <li class="nav__menu-item--footer2 nav__menu-item japanese_dealers">
+        <a href="/jp/dealers" class="japanese_dealers">Japanese dealers</a>
+              </li>
+        </ul>
+  
+
+
+  </div><div id="block-footercolumn1" class="footer__column">
+    
+  <h4 class="footer__title">Nanopore  technology</h4>
+  
+        
+
+                <ul class="nav__footer1">
+                    <li class="nav__menu-item--footer1 nav__menu-item subscribe_to_nanopore_updates">
+        <a href="#subscribe" class="subscribe_to_nanopore_updates">Subscribe to Nanopore updates</a>
+              </li>
+                <li class="nav__menu-item--footer1 nav__menu-item resources_and_publications">
+        <a href="/resource-centre" class="resources_and_publications" data-drupal-link-system-path="node/342961">Resources and publications</a>
+              </li>
+                <li class="nav__menu-item--footer1 nav__menu-item what_is_the_nanopore_community">
+        <a href="/community" class="what_is_the_nanopore_community">What is the Nanopore Community</a>
+              </li>
+        </ul>
+  
+
+
+  </div><div id="block-aboutoxfordnanopore" class="footer__column">
+    
+  <h4 class="footer__title">About Oxford  Nanopore</h4>
+  
+        
+            <div><ul class="nav__footer1">
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/news">News</a>
+              </li>
+                <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/history">Company timeline</a>
+              </li>
+<li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/environmental-and-social-responsibilities">Sustainability</a>
+              </li>
+
+                <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/executive-team">Leadership team</a>
+              </li>
+<li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/for-the-media">Media resources & contacts</a>
+              </li>
+ </li>
+<li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/investors">For investors</a>
+              </li>
+<li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/about-us/for-partners">For partners</a>
+              </li>
+<li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/careers">Working at Oxford Nanopore</a>
+              </li>
+                <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="https://ejnh.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/requisitions">Current vacancies</a>
+              </li>
+<li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/commercial_information">Commercial information</a>
+              </li>
+        </ul></div>
+      
+  </div><div id="block-contactus" class="footer__column">
+    
+  <h4 class="footer__title">Contact us</h4>
+  
+        
+            <div><ul class="nav__footer1">
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">Oxford, UK</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">Harwell, UK</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">New York (NY), USA</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact"> Lexington (MA), USA</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">San Francisco (CA), USA</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">Shanghai, China</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">Tokyo, Japan</a>
+              </li>
+                    <li class="nav__menu-item--footer1 nav__menu-item">
+        <a href="/contact">Singapore, Singapore</a>
+              </li>
+        </ul></div>
+      
+  </div>
+
+              </div>
+              <div class="footer__inner">
+                <div class="footer__extras">
+                  <div class="footer__logo">
+                    <img src="/sites/default/files/s3/footer/ont-logo.svg" alt="Oxford Nanopore Technologies">
+                  </div>
+                  <div class="footer__social">
+                    <div class="footer__social-icons">
+                      <a href="https://twitter.com/nanopore" target="_blank" class="footer__social-icon--twitter"><img src="/sites/default/files/s3/footer/x-twitter.svg" aria-label="Oxford Nanopore on Twitter" /></a>
+                      <a href="https://www.youtube.com/channel/UC5yMlYjHSgFfZ37LYq-dzig" target="_blank" class="footer__social-icon"><i class="fa fa-youtube fa-lg" aria-label="Oxford Nanopore on YouTube"></i></a>
+                      <a href="https://www.facebook.com/Oxford-Nanopore-Technologies-251034380246/" target="_blank" class="footer__social-icon"><i class="fa fa-facebook fa-lg" aria-label="Oxford Nanopore on Facebook"></i></a>
+                      <a href="https://www.linkedin.com/company/oxford-nanopore-technologies" target="_blank" class="footer__social-icon" aria-label="Oxford Nanopore on LinkedIn"><i class="fa fa-linkedin fa-lg"></i></a>
+                      <a href="https://www.instagram.com/oxfordnanopore" target="_blank" class="footer__social-icon"><i class="fa fa-instagram fa-lg" aria-label="Oxford Nanopore on Instagram"></i></a>
+                    </div>
+                  </div>
+                  <a class="footer__quality" href="/commercial_information#tabs-0=policies">
+                    <div class="footer__quality-item">
+                      <img src="/sites/default/files/s3/footer/nanopore-bsi-isoiec-27001.svg" alt="Oxford Nanopore Technologies ISO 27001">
+                    </div>
+                    <div class="footer__quality-item">
+                      <img src="/sites/default/files/s3/footer/nanopore-bsi-iso-9001.svg" alt="Oxford Nanopore TechnologiesISO 9001">
+                    </div>
+                    <div class="footer__quality-item">
+                      <img src="/sites/default/files/s3/footer/bsi-mark-of-trust.svg" alt="Oxford Nanopore Technologies BSI Mark of trust">
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="footer__bottom">
+              <div class="footer__inner">
+                    <div id="block-footer" class="footer__nav">
+  
+  
+        
+
+                <ul class="nav__footer">
+                    <li class="nav__menu-item--footer nav__menu-item intellectual_property">
+        <a href="/about-us/intellectual-property" class="intellectual_property" data-drupal-link-system-path="node/88170">Intellectual property</a>
+              </li>
+                <li class="nav__menu-item--footer nav__menu-item cookie_policy">
+        <a href="/cookie-policy" class="cookie_policy" data-drupal-link-system-path="node/99920">Cookie policy</a>
+              </li>
+                <li class="nav__menu-item--footer nav__menu-item corporate_reporting">
+        <a href="/about-us/corporate-reporting" class="corporate_reporting" data-drupal-link-system-path="node/65027">Corporate reporting</a>
+              </li>
+                <li class="nav__menu-item--footer nav__menu-item privacy_policy">
+        <a href="/privacy-policy" class="privacy_policy" data-drupal-link-system-path="node/315">Privacy policy</a>
+              </li>
+                <li class="nav__menu-item--footer nav__menu-item terms_&amp;_conditions">
+        <a href="/commercial_information" class="terms_&amp;_conditions" data-drupal-link-system-path="node/1118">Terms &amp; conditions</a>
+              </li>
+                <li class="nav__menu-item--footer nav__menu-item accessibility">
+        <a href="/accessibility-statement" class="accessibility" data-drupal-link-system-path="node/404985">Accessibility</a>
+              </li>
+        </ul>
+  
+
+
+  </div>
+
+              </div>
+            </div>
+            <div class="footer__legal">
+              <div class="footer__inner">
+                  <div id="block-globalfooterlegal" class="block block-block-content block-block-content7af8586b-f92d-4020-b900-e3bb3882592c">
+
+
+
+	
+            <div>© 2008 - 2024 Oxford Nanopore Technologies plc. All rights reserved. Registered Office: Gosling Building, Edmund Halley Road, Oxford Science Park, OX4 4DQ, UK | Registered No. 05386273 | VAT No 336942382. Oxford Nanopore Technologies, the Wheel icon, EPI2ME, Flongle, GridION, Metrichor, MinION, MinIT, MinKNOW, Plongle, PromethION, SmidgION, Ubik and VolTRAX are registered trademarks of Oxford Nanopore Technologies plc in various countries. Oxford Nanopore Technologies products are not intended for use for health assessment or to diagnose, treat, mitigate, cure, or prevent any disease or condition.</div>
+      
+
+</div>
+
+
+              </div>
+            </div>
+          </footer>
+
+                  </div>
+      </nano-global-search-results>
+    </nano-global-nav>
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/403444","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"searchObjectId":"entity:node\/403444:en","user":{"uid":0,"permissionsHash":"a4955768414dbef843c287f9741ba6a87df736ebabe5c1696ebdc565d613222d"}}</script>
+<script src="/themes/custom/nanopore/assets/js/vendor.bundle.js?s71n99"></script>
+<script src="/themes/custom/nanopore/assets/js/main.bundle.js?s71n99"></script>
+<script src="/core/misc/drupalSettingsLoader.js?v=9.5.10"></script>
+<script src="/core/misc/drupal.js?v=9.5.10"></script>
+<script src="/core/misc/drupal.init.js?v=9.5.10"></script>
+<script src="/themes/custom/nanopore/js/iframe-utilities.js?v=9.5.10"></script>
+
+
+  <script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+    analytics.load("1J3ljqjaWHIfr6l9o9SAnYkYNcHYlpfC");
+    analytics.page();
+    }}();
+  </script>
+
+  <!-- Global Nav -->
+  <script type="text/javascript">
+    (function() {
+      document.querySelector('nano-global-nav').addEventListener('nanoIsReady', function(e) {
+        let user = e.target.myAccountUser;
+        if (user) {
+          window.analytics.identify(user.uuid, {
+            name: user.name,
+            email: user.email
+          });
+        }
+      });
+    })();
+  </script>
+  </body>
+</html>

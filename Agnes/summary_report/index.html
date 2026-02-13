@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/summary_report/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Summary report - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Summary report";
+        var mkdocs_page_input_path = "summary_report.md";
+        var mkdocs_page_url = "/network_hub/Agnes/summary_report/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Summary report</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+      <li class="breadcrumb-item active">Summary report</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/summary_report.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="running-summary-report">Running Summary Report</h1>
+<p><a class="glightbox" href="../img/summary_report_blank.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Summary Report interface" src="../img/summary_report_blank.png"></a></p>
+<ol>
+<li>
+<p>Double click the Summary Report icon on the Desktop.</p>
+</li>
+<li>
+<p>Select the samples to be added to the Summary Report. This can be achieved by three methods:</p>
+<ul>
+<li>Selecting samples, holding <code>shift</code> or <code>ctrl</code> and move them across to the right panel using the right-facing arrow button.</li>
+<li>Use the search function to subset the available samples and select as above.</li>
+<li>Paste a newline delimited list of sample names, exactly matching the name as it appears in the <code>results</code> directory, to the Paste Bin (Feature 7) and click 'Add Samples'. </li>
+</ul>
+</li>
+<li>
+<p>Decide the output format for the report data.</p>
+</li>
+<li>
+<p>By the 'Output File' section select 'Browse' and choose the destination and appropriate file extension for the output. </p>
+</li>
+<li>
+<p>Click on 'Generate Summary' to build the Summary Report. The bottom-left corner has a status indicator. View the terminal outputs for further information and debugging. </p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Quick Tip</p>
+<p>Note: The tools save files by default to directories on the storage medium or in the analysis environment file structure. Navigate to the top (root) level in any 'save' dialogue box and choose <code>home</code> to save to the host machine's local storage.</p>
+</div>
+<h1 id="description-of-features">Description of features</h1>
+<p>See the diagram below and the associated table for explanations on Summary Report features.</p>
+<p><a class="glightbox" href="../img/summary_report_diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Summary report feature diagram. " src="../img/summary_report_diagram.png"></a></p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Results directory</td>
+<td>Path selection for the Metagenomics Workflow's <code>results</code> directory. Useful if users move/organise outputs for archiving.*</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Output file</td>
+<td>The output file path for Summary Report.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Sample search bar</td>
+<td>Enter key phrases to subset available samples.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Available Samples panel</td>
+<td>Populated automatically from the provided <code>results</code> directory.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sample selection controls</td>
+<td>Move selected or all samples to and from the Selected Samples panel. Clear and refresh to start again.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Selected Samples panel</td>
+<td>A list of the samples included for summary</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Sample paste bin</td>
+<td>Paste a list (newline delimited) of sample names from an external source to quickly load on to Selected Samples.**</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Relative abundance</td>
+<td>Set a threshold of relative abundance for the non-viral taxa. Taxa falling below will be excluded entirely from the report.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Format output</td>
+<td>Change default XLSX output to CSV. Change janky newline delimitation of nested lists to ';' for easier parsing.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Generate summary</td>
+<td>Run the script</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Status indicator</td>
+<td>Data on available samples and selections</td>
+</tr>
+</tbody>
+</table>
+<p>: Summary report diagram legend </p>
+<p><em>Will not be able to see outside of mounted directories of the container (Default: the NHS RMg platform SSD). Modify the launch script to mount additional host directories.
+</em>*No path checking is performed on pasted samples. They will be excluded from the Summary Report if missing. See terminal output for list of missing samples.</p>
+<h1 id="description-of-outputs">Description of outputs</h1>
+<table>
+<thead>
+<tr>
+<th>Column Name</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sample</td>
+<td>LabID provided on launching the Metagenomics Workflow</td>
+</tr>
+<tr>
+<td>Experiment</td>
+<td>The exact name matching the experiment name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data directory.</td>
+</tr>
+<tr>
+<td>SampleID</td>
+<td>The exact name matching the Sample name on MinKNOW entered by the user when initiating a sequencing run. This is populated automatically from the /data/{experiment_id}/</td>
+</tr>
+<tr>
+<td>Barcode</td>
+<td>The ONT library index/barcode used. Green colour indicates the barcode directory has been validated.</td>
+</tr>
+<tr>
+<td>LabID</td>
+<td>LabID provided on launching the Metagenomics Workflow</td>
+</tr>
+<tr>
+<td>biosample_id</td>
+<td>The Sample Accession (if provided). May also be an anonymised study number derived from the Sample Accession.</td>
+</tr>
+<tr>
+<td>biosample_source_id</td>
+<td>The Hospital number provided to the Metagenomics Launcher.  May also be an anonymised study number derived from the Hospital Number.</td>
+</tr>
+<tr>
+<td>Collection Date</td>
+<td>Provided to the Metagenomics Launcher</td>
+</tr>
+<tr>
+<td>SampleClass</td>
+<td>Specimen, postive contol, standard etc. Provided to the launcher.</td>
+</tr>
+<tr>
+<td>SampleType</td>
+<td>Sampling site: BAL, SPT, NDL, ETT, NPA, PFL etc.</td>
+</tr>
+<tr>
+<td>Operator</td>
+<td>Operator initials. Sourced from Launcher.</td>
+</tr>
+<tr>
+<td>Notes</td>
+<td>Additional notes. Sourced from Launcher, shown or reports.</td>
+</tr>
+<tr>
+<td>RunID</td>
+<td>Identifier assigned to the experiment by the sequencing device. Derived from FASTQ.</td>
+</tr>
+<tr>
+<td>Flow_Cell_ID</td>
+<td>Flow cell ID - derived from FASTQ</td>
+</tr>
+<tr>
+<td>Total reads X hrs</td>
+<td>Total reads - pre-human scrubbing</td>
+</tr>
+<tr>
+<td>Human reads X hrs</td>
+<td>Human reads removed</td>
+</tr>
+<tr>
+<td>Human reads (%) X hrs</td>
+<td>Proportion of total reads identified as human and removed</td>
+</tr>
+<tr>
+<td>Total classified reads X hrs</td>
+<td>Total reads post-human scrubbing</td>
+</tr>
+<tr>
+<td>Sequencing N50 (bp) X hrs</td>
+<td>Post human-scrubbing (microbial reads) read length metric</td>
+</tr>
+<tr>
+<td>Proportion &gt;Q15 quality (%) X hrs</td>
+<td>Proportion of microbial reads with a PHRED score &gt;15</td>
+</tr>
+<tr>
+<td>Median read quality (PHRED score) N</td>
+<td>Median PHRED core for microbial reads</td>
+</tr>
+<tr>
+<td>Total bases (bp) X hrs</td>
+<td>Total bases sequenced including human</td>
+</tr>
+<tr>
+<td>Organisms (excluding viruses) X hrs</td>
+<td>A list of organism identified except for viruses</td>
+</tr>
+<tr>
+<td>Organisms (excluding viruses) read counts X hrs</td>
+<td>Counts of reads for each non-viral taxa identified</td>
+</tr>
+<tr>
+<td>Organism (excluding viruses) percentage abundance X hrs</td>
+<td></td>
+</tr>
+<tr>
+<td>Viral organisms X hrs</td>
+<td>Virus taxa list</td>
+</tr>
+<tr>
+<td>Viral read counts X hrs</td>
+<td>Counts of viruses identified</td>
+</tr>
+<tr>
+<td>Auto Query top taxon X hrs</td>
+<td>Auto Query's most supported taxon - note by default taxa below threshold will not be subject to Auto Query an therefore will be shown as 'missing' here. See 'configuration' section for more info.</td>
+</tr>
+<tr>
+<td>Auto Query top percent X hrs</td>
+<td>The percentage of top alignments supporting the the top taxon</td>
+</tr>
+<tr>
+<td>Auto Query 2nd taxon X hrs</td>
+<td></td>
+</tr>
+<tr>
+<td>Auto Query 2nd percent X hrs</td>
+<td>Auto Query's second most supported taxon</td>
+</tr>
+<tr>
+<td>AvgLength 0.5 hrs</td>
+<td>Average length of Auto Query alignments for the top hit</td>
+</tr>
+<tr>
+<td>AvgPID 0.5 hrs</td>
+<td>Average percent identity of Auto Query alignments for the top hit</td>
+</tr>
+<tr>
+<td>IsMatched50 0.5 hrs</td>
+<td>Would a 'green light' be shown on the report</td>
+</tr>
+</tbody>
+</table>
+<p>: Summary report output fields </p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../mSCAPE_integration/" class="btn btn-neutral float-left" title="Uploading to mSCAPE"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../technical_information/" class="btn btn-neutral float-right" title="Technical descriptions">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../mSCAPE_integration/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../technical_information/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

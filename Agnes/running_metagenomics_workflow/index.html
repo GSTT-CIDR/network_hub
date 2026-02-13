@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/running_metagenomics_workflow/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Starting a MinKNOW experiment - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Starting a MinKNOW experiment";
+        var mkdocs_page_input_path = "running_metagenomics_workflow.md";
+        var mkdocs_page_url = "/network_hub/Agnes/running_metagenomics_workflow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Launching a sequencing experiment and analysis</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Starting a MinKNOW experiment</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#running-a-flow-cell-check-minknow">Running a flow cell check MinKNOW</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#starting-a-sequencing-experiment-using-minknow">Starting a sequencing experiment using MinKNOW</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-the-metagenomics-workflow-minknow">Running the Metagenomics Workflow MinKNOW</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-a-flow-cell-check-gourami">Running a flow cell check Gourami</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#starting-a-sequencing-experiment-and-initiating-metagenomics-analysis-gourami">Starting a sequencing experiment and initiating metagenomics analysis Gourami</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+          <li class="breadcrumb-item">Launching a sequencing experiment and analysis</li>
+      <li class="breadcrumb-item active">Starting a MinKNOW experiment</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_metagenomics_workflow.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="starting-metagenomics-experiments">Starting Metagenomics Experiments</h1>
+<p>The NHS RMg platform runs separately to the ONT sequencing software. Users should perform steps in the following order:</p>
+<ol>
+<li>Run a flow cell check.</li>
+<li>Start the sequencing experiment using the relevant ONT software.</li>
+<li>Launch the NHS RMg platform analysis.</li>
+<li>Check the <code>NHS_RMg_platform/results</code> directory for reports.</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Please read the 'Limitations' section before interpreting outputs.</p>
+<p>On a GridION device, only 2 instances of the workflow can be run simultaneously. See the Limitations section for mitigation.</p>
+</div>
+<h2 id="running-a-flow-cell-check-minknow">Running a flow cell check <span class="badge-minknow">MinKNOW</span></h2>
+<p>A flow cell check should always be performed before starting a run. Starting a run with sub-optimal pore availability can produce invalid results. Oxford Nanopore Technologies will replace any flow cell that falls below the warranty number of active pores within three months of purchase, provided that you report the results within two days of performing the flow cell check and you have followed the storage recommendations. A MinION flow cell (used also in the GridION) should have &gt; 800 active pores.</p>
+<ol>
+<li>Select 'Flow Cell Check' from the MinKNOW 'Start' screen. </li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_landing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MinKNOW landing screen" src="../img/minknow_landing.png"></a></p>
+<ol start="2">
+<li>Indicate the corresponding sequencing positions/flow cells you'd like to check by selecting the square icons below the 'Flow Cell Check' title.</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_flowcell_selection.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MinKNOW flow cell check screen" src="../img/minknow_flowcell_selection.png"></a></p>
+<ol start="3">
+<li>Click on the green Start button and wait for the flow cell check to complete.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the pore count is &lt; 800 and the flow cell is still in warranty, contact ONT for a replacement within two days of completing the check.</p>
+</div>
+<h2 id="starting-a-sequencing-experiment-using-minknow">Starting a sequencing experiment using <span class="badge-minknow">MinKNOW</span></h2>
+<ol>
+<li>From the Start screen in MinKNOW select 'Start Sequencing'.</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_landing.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MinKNOW landing screen" src="../img/minknow_landing.png"></a></p>
+<ol start="2">
+<li>Select the position occupied by the flow cell loaded for the sequencing experiment, enter the Experiment and Sample IDs.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend setting the ONT 'Experiment' ID and the 'Sample' ID as identical values. This id must be unique and contain no spaces. We recommend the following scheme:</p>
+<p><code>{date yymmdd}_{device}_{service}_{ascending run count}</code></p>
+<p>For example:</p>
+<p>Experiment: 250131_QLINE3_RMG_0001
+Sample ID: 250131_QLINE3_RMG_0001</p>
+<p>In scenarios where the run is set up to supplement or resume the same library/experiment, use the same Experiment ID and append the Sample ID with an appropriate string:</p>
+<p>Experiment: 250131_QLINE3_RMG_0001
+Sample ID: 250131_QLINE3_RMG_0001_REPEAT</p>
+</div>
+<ol start="3">
+<li>
+<p>Select 'Continue to kit selection' at the bottom of the screen.</p>
+</li>
+<li>
+<p>Select the SQK-RPB004 kit from the Kit selection screen. Click 'Continue to run options' at the bottom of the window.</p>
+</li>
+<li>
+<p>In the run options screen, set the sequencing experiment to last for 24 hours. Leave the read length at 200 bp and select 'Continue to analysis' at the bottom of the window.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_run_setup.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MinKNOW run setup" src="../img/minknow_run_setup.png"></a></p>
+<ol start="6">
+<li>
+<p>On the Analysis window, under barcoding, select 'Edit options'. In the popup window, select ‘Trim Barcodes’ and 'Barcode at both ends'. Select the 'Continue to output' button at the bottom of the window.</p>
+</li>
+<li>
+<p>On the Output window, deselect the FAST5 option. Where the FASTQ checkbox is selected, click the gear icon and set 'Reads per file' to 100. </p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/minknow_run_setup_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="MinKNOW run setup FASTQ Options" src="../img/minknow_run_setup_2.png"></a></p>
+<ol start="8">
+<li>Continue to the 'final review' section and confirm the parameters match the table below:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Selected Kit</strong></td>
+<td>SQK-RPB004</td>
+</tr>
+<tr>
+<td><strong>Run length</strong></td>
+<td>24 hours</td>
+</tr>
+<tr>
+<td><strong>Minimum read length</strong></td>
+<td>200 bp</td>
+</tr>
+<tr>
+<td><strong>Adaptive sampling</strong></td>
+<td>Off</td>
+</tr>
+<tr>
+<td><strong>Basecalling</strong></td>
+<td>On (High accuracy basecalling)</td>
+</tr>
+<tr>
+<td><strong>Barcoding</strong></td>
+<td>On</td>
+</tr>
+<tr>
+<td><strong>Require both ends</strong></td>
+<td>On</td>
+</tr>
+<tr>
+<td><strong>Detect mid-read barcodes</strong></td>
+<td>On</td>
+</tr>
+<tr>
+<td><strong>Alignment</strong></td>
+<td>Off</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>/data</td>
+</tr>
+<tr>
+<td><strong>FAST5</strong></td>
+<td>Off</td>
+</tr>
+<tr>
+<td><strong>FASTQ</strong></td>
+<td>On (Gzip, 100 reads per file)</td>
+</tr>
+<tr>
+<td><strong>Read filtering</strong></td>
+<td>Qscore:10 Readlength: unfiltered, Read splitting: Disabled</td>
+</tr>
+</tbody>
+</table>
+<ol start="9">
+<li>Start the sequencing experiment. After the flow cell reaches temperature, navigate to the barcodes screen to verify data output. </li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For aborted runs, crashes, mislabelling, use the 'Force overwrite' (18) function on the Launcher to delete and replace analysis outputs (results and reports) with a new run. Use this also if a "directory locked" error is observed. Any data deleted by this function will be stored in the <code>./NHS_RMg_platform/recycle_bin</code> directory.</p>
+</div>
+<p>\pagebreak</p>
+<h2 id="running-the-metagenomics-workflow-minknow">Running the Metagenomics Workflow <span class="badge-minknow">MinKNOW</span></h2>
+<p>The Metagenomics Launcher is a tool designed to acquire sample metadata and initiate the analysis of sequencing data to populate PDF/HTML reports. Reports are generated every 0.5, 1, 2, 16 and 24 hours, stored in the <code>./NHS_RMg_platform/reports/{Lab/SampleID}</code> directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before starting:</p>
+<ol>
+<li>
+<p>Visit the 'Limitations' section below and FAQs on the Network Hub for an up-to-date description of issues and solutions affecting the workflow results.</p>
+</li>
+<li>
+<p>Functions referred to in this section will have numeric tag in brackets matching its location on the diagram below. A diagram mapping features is available in the Technical Information section.</p>
+</li>
+<li>
+<p>For <span class="badge-minknow">MinKNOW</span> installations, it is essential that the experiment for analysis has been started and has generated data. If the interface has been launched before data outputs, select Refresh Directories (21) to load new experiments.</p>
+</li>
+</ol>
+</div>
+<ol>
+<li>Double click the Metagenomics Launcher icon on the GridION desktop, the CIDR Metagenomics Launcher should appear alongside a terminal window.</li>
+</ol>
+<p><a class="glightbox" href="../img/metagenomics_interface_diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Metagenomics Worklfow GUI Diagram" src="../img/metagenomics_interface_diagram.png"></a></p>
+<ol start="2">
+<li>
+<p>Select the number of samples to be analysed from the ‘Select number of rows’ dropdown (2).</p>
+</li>
+<li>
+<p>Fill out the ‘Experiment ID’ field (3) with an appropriate identifier for the batch of samples. This field will be used to ease the identification runs in downstream analyses.</p>
+</li>
+<li>
+<p>Populate the launcher fields by either loading an existing sample sheet (see Additional Information for guide), or manually populate fields 4 to 14.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Quick Tip</p>
+<p>Clicking the black triangle to the right of selected column headers will clone the value in row 1 to all below.</p>
+</div>
+<ol start="5">
+<li>
+<p>Where appropriate, run the Anonymisation Functions (15). See the 'Anonymisation' section for more details on set up and usage.</p>
+</li>
+<li>
+<p>Click on Launch pipeline and click ‘OK to start the analysis’. The window will then freeze until the workflow process has completed. After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. </p>
+</li>
+<li>
+<p>Approximately 10-15 minutes after the sequencing timepoint, reports will be published to \
+<code>./NHS_RMg_platform/reports/{Lab/SampleID}/</code></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Reports usually take between 10 - 20 minutes to publish after data acquisition timepoints elapse.</li>
+<li>The workflow generates reports at five timepoints: 0.5, 1, 2, 16, and 24 hours.</li>
+<li>For real-time sequencing runs, the workflow waits for each timepoint to elapse before publishing the corresponding report, spanning a 24-hour period.</li>
+<li>For retrospective analysis of existing datasets, reports are generated immediately for the same timepoints based on when the data was originally acquired, without waiting between timepoints.</li>
+</ul>
+</div>
+<p><a class="glightbox" href="../img/snakemake_terminal_complete.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the terminal after successful completion of the workflow." src="../img/snakemake_terminal_complete.png"></a></p>
+<ol start="8">
+<li>For any errors, missing reports or queries, please go to the Troubleshooting section.</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Do not close the terminal or the Launcher window until all reports have been published or the pipeline has stopped operation.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For aborted runs, crashes, mislabelling, use the 'Force overwrite' (18) function on the Launcher to delete and replace analysis outputs (results and reports) with a new run. Use this also if a "directory locked" error is observed.</p>
+<p>Any data deleted by this function will be stored in the <code>./NHS_RMg_platform/recycle_bin</code> directory.</p>
+</div>
+<h2 id="running-a-flow-cell-check-gourami">Running a flow cell check <span class="badge-gourami">Gourami</span></h2>
+<p>A flow cell check should always be performed before starting a run. Starting a run with sub-optimal pore availability can produce invalid results. Oxford Nanopore Technologies will replace any flow cell that falls below the warranty number of active pores within three months of purchase, provided that you report the results within two days of performing the flow cell check and you have followed the storage recommendations. A MinION flow cell (used also in the GridION) should have &gt; 800 active pores.</p>
+<ol>
+<li>
+<p>From the Gourami ‘Overview’ page, select ‘View Flow Cell’ at the appropriate flow cell position.</p>
+</li>
+<li>
+<p>From the flow cell information screen, select ‘Run flow cell check’ on the right-hand side (see Figure 3).</p>
+</li>
+<li>
+<p>If the pore count is &lt; 800 and the flow cell is still in warranty, contact ONT for a replacement within two days of completing the check.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/gourami_landing_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Gourami flow cell check button" src="../img/gourami_landing_2.png"></a></p>
+<p>\pagebreak</p>
+<h2 id="starting-a-sequencing-experiment-and-initiating-metagenomics-analysis-gourami">Starting a sequencing experiment and initiating metagenomics analysis <span class="badge-gourami">Gourami</span></h2>
+<div class="admonition tip">
+<p class="admonition-title">Quick Tip</p>
+</div>
+<ol>
+<li>
+<p>A video guide is available on the Network Hub website for this procedure.</p>
+</li>
+<li>
+<p>Visit the 'Limitations' section below and FAQs on the Network Hub for an up-to-date description of issues and solutions affecting the workflow results.</p>
+</li>
+<li>
+<p>Functions referred to in this section will have numeric tag in brackets matching its location on the diagram below. A diagram mapping features is available in the Technical Information section.</p>
+</li>
+<li>
+<p>Open Gourami by clicking on the ONT icon in the taskbar to the left of the screen or on the desktop.</p>
+</li>
+<li>
+<p>In the ‘Run Setup’ section, select “RPB004 prerelease” and press continue.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/gourami_experiment_selection.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Selecting an experiment in Gourami" src="../img/gourami_experiment_selection.png"></a></p>
+<ol start="3">
+<li>Select the position of the flow cell intended for the sequencing experiment. A flow cell check will be required if not completed already. </li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Quick Tip</p>
+</div>
+<p>The 'RPB004-prerelease' option may appear differently on your device. Consult with an ONT rep if this option is missing from your device.</p>
+<p><a class="glightbox" href="../img/gourami_sequencing_flowcell_checked.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Selecting a flow cell for sequencing" src="../img/gourami_sequencing_flowcell_checked.png"></a></p>
+<ol start="4">
+<li>Switching applications, open the Metagenomics Launcher from the desktop icon. Fill out the the fields on the launcher in the order listed below:</li>
+</ol>
+<ul>
+<li>Number of rows (2)</li>
+<li>Experiment ID (3)</li>
+<li>ONT Barcode (6)</li>
+<li>Lab/Sample ID (7)</li>
+</ul>
+<p><a class="glightbox" href="../img/metagenomics_interface_diagram.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Metagenomics Worklfow GUI Diagram" src="../img/metagenomics_interface_diagram.png"></a></p>
+<ol start="5">
+<li>Click on the 'Generate Gourami sample sheet' button (17). </li>
+</ol>
+<p><a class="glightbox" href="../img/gourami_shample_sheet_build.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Generating a Gourami sample sheet" src="../img/gourami_shample_sheet_build.png"></a></p>
+<ol start="6">
+<li>Switching back to Gourami, import the generated sample sheet. This can be found within the NHS RMg Metagenomics Platform environment at the following path: <code>NHS_RMg_platform/sample_sheets/gourami/{yyyy_mm_dd@hh_mm_ss_{Experiment ID}</code>. Validate the entries and click 'Continue'.</li>
+</ol>
+<p><a class="glightbox" href="../img/gourami_sample_sheet_view.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Imported sample sheet view in Gourami" src="../img/gourami_sample_sheet_view.png"></a></p>
+<ol start="7">
+<li>
+<p>Prime and load the flow cell as per the relevant laboratory SOP and commence the sequencing experiment. </p>
+</li>
+<li>
+<p>Wait until the the sequencing experiment has started and at least one barcode/sample status has switched to the green 'Found' status.</p>
+</li>
+</ol>
+<p>\pagebreak</p>
+<ol start="9">
+<li>Switch back to the Metagenomics Launcher, click on the 'Refresh Directories' button (21) and populate the remaining fields 8-14.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Quick Tip</p>
+</div>
+<p>Clicking the black triangle to the right of selected column headers will clone the value in row 1 to all below.</p>
+<ol start="10">
+<li>
+<p>Where appropriate, run the Anonymisation Functions (15). See the Anonymisation section for more details on set up and usage.</p>
+</li>
+<li>
+<p>Click on Launch pipeline and click ‘OK to start the analysis’. The window will then freeze until the workflow process has completed. After a minute, the terminal window accompanying the workflow launcher should start displaying log outputs from the workflow. </p>
+</li>
+<li>
+<p>Approximately 10-15 minutes after the sequencing timepoint, reports will be published to \
+<code>./NHS_RMg_platform/reports/{Lab/SampleID}/</code></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<ul>
+<li>Reports usually take between 10 - 20 minutes to publish after data acquisition timepoints elapse.</li>
+<li>The workflow generates reports at five timepoints: 0.5, 1, 2, 16, and 24 hours.</li>
+<li>For real-time sequencing runs, the workflow waits for each timepoint to elapse before publishing the corresponding report, spanning a 24-hour period.</li>
+<li>For retrospective analysis of existing datasets, reports are generated immediately for the same timepoints based on when the data was originally acquired, without waiting between timepoints.</li>
+</ul>
+<p><a class="glightbox" href="../img/snakemake_terminal_complete.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the terminal after successful completion of the workflow." src="../img/snakemake_terminal_complete.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>For aborted runs, crashes, mislabelling, use the 'Force overwrite' (18) function on the Launcher to delete and replace analysis outputs (results and reports) with a new run. Use this also if a "directory locked" error is observed.</p>
+<p>Any data deleted by this function will be stored in the <code>./NHS_RMg_platform/recycle_bin</code> directory.</p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+</div>
+<p>Do not close the terminal or the Launcher window until all reports have been published or the pipeline has stopped operation.</p>
+<p>For any errors, missing reports or queries, please go to the Troubleshooting section.</p></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../bioinformatics_install/" class="btn btn-neutral float-left" title="Installation and validation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../running_metagenomics_workflow_gourami/" class="btn btn-neutral float-right" title="Starting a Gourami experiment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../bioinformatics_install/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../running_metagenomics_workflow_gourami/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

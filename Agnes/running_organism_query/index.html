@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/running_organism_query/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Running organism queries - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Running organism queries";
+        var mkdocs_page_input_path = "running_organism_query.md";
+        var mkdocs_page_url = "/network_hub/Agnes/running_organism_query/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Orthogonal analysis</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Running organism queries</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#auto-query">Auto Query</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#organism-query">Organism Query</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#initiating-an-organism-query">Initiating an Organism Query</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Bioinformatics</li>
+          <li class="breadcrumb-item">Orthogonal analysis</li>
+      <li class="breadcrumb-item active">Running organism queries</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/running_organism_query.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="secondary-orthogonal-classification-analysis">Secondary (orthogonal) classification analysis</h1>
+<p>The Organism Query platform is provided to enable further scrutiny of taxonomic classification outputs from the CIDR metagenomics workflow. This tool serves both the Auto Query (<em>traffic light</em>) function on the Metagenomics Workflow outputs and the manual Organism Query interface. It leverages a local (offline) implementation of NCBI BLASTn to analyse a subset of reads from a given detection, summarised in a portable HTML report, with added analyses and logic to consolidate and visualise results.</p>
+<h2 id="auto-query">Auto Query</h2>
+<p>The Metagenomics Workflow submits reads to Organism Query automatically for non-viral detections above threshold or organisms on the Exception List (See 'Technical information -&gt; Metagenomics Workflow' for more information and configuration). Auto Query results are summarised on the Metagenomics Reports in two tiers. First, the <em>traffic light</em> system, which communicates concordance between primary classification (k-mer - centrifuge) and secondary (orthogonal) classification Auto Query results. Importantly, like all outputs of this workflow, indications made by this function are not guaranteed to be accurate. A green light indicates that no discrepancy was detected between classification stages, it does not infer certainty. </p>
+<ul>
+<li>A <span style="color: ForestGreen;">green circle</span> indicates that &gt; 50% of the highest ranking BLAST alignments in the analysis match the taxon identified in primary classification. i.e. In a standard 25 read subsample, &gt; 12 of the reads' best alignments match the taxon indicated on the report. </li>
+<li>A <span style="color: orange;">yellow circle</span> indicates that &lt; 50% of the highest ranking BLAST alignments in the analysis match the taxon identified in primary classification. Amber indicators on clinically-relevant detections should always be investigated further. </li>
+<li>A <span style="color: gray;">gray circle</span> indicates that either the analysis/process failed or there were no alignments resulting from the query reads provided. Repeat the analysis using a larger database via the Organism Query tool.</li>
+<li>A <span style="color: RoyalBlue;">blue circle</span> indicates the taxon in question was not eligible for Auto Query analysis, due to it being below threshold. Use the manual Organism Query tool to analyse these taxa further. </li>
+</ul>
+<p>The auto query database contains a similar set of sequences to the primary classification database, with the addition of RefSeq prokaryote and virus representatives.</p>
+<p>Take a look at an example report here to familiarise yourself with the interface: <a href="../reports/demonstration_2/demonstration_2_24_hours_report.html">See report</a></p>
+<p><strong>More information on configuring this function and its thresholds can be found in the 'Technical Information -&gt; Metagenomics config parameters' section.</strong></p>
+<p><a class="glightbox" href="../img/auto_query_report.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the Organism Query interface." src="../img/auto_query_report.png"></a></p>
+<p>The second tier of results are revealed when the <em>traffic light</em> is clicked on. The popover contains a brief summary of the Organism Query metrics, which are <strong>derived only from the best (highest scoring) BLAST alignment</strong> for each query read. These include:</p>
+<ul>
+<li><strong>'First'</strong> - The most frequently observed alignment subject taxon, and the percentage representation of that taxon in the Query subsample.</li>
+<li><strong>Second</strong> - The second-most frequently observed alignment subject taxon, and the percentage representation of that taxon in the Query dataset.</li>
+<li><strong>Avg length</strong> - The average length (sequence overlap) of the alignments.</li>
+<li><strong>Avg identity</strong> - Average percentage of identical positions across alignments.</li>
+</ul>
+<p>The 'Open Report' button links to the full Organism Query report. Go to the 'Interpreting an Organism Query report' section for a guide on Auto Query reports.</p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>The Auto Query traffic light tooltip popups will not appear when clicked if there is insufficient room on the browser window. Increase the size of the window, scroll up/down or zoom out if the tooltip is not appearing.</p>
+</div>
+<h2 id="organism-query">Organism Query</h2>
+<p>Organism Query is an interface for manually initiating BLAST analyses on taxa identified in Metagenomics reports. Its main uses, aside from those covered by Auto Query, are:</p>
+<ul>
+<li>Users can query reads from taxa above or below threshold at any timepoint.</li>
+<li>Users can select which BLAST database to use, including domain-specific Refseq databases, nt-core and nt.</li>
+<li>Users can query a small subset of unclassified reads.</li>
+<li>Organism Query by default analyses 50 reads.</li>
+</ul>
+<h3 id="initiating-an-organism-query">Initiating an Organism Query</h3>
+<ol>
+<li>
+<p>Double click on the 'Organism Query' icon on the desktop.</p>
+</li>
+<li>
+<p>Open the Metagenomics Report with the taxon on you'd like to query.</p>
+</li>
+<li>
+<p>Fill out the four fields (highlighted on the image below):</p>
+</li>
+<li>
+<p>Lab/Sample ID.</p>
+</li>
+<li>Workflow interval (timepoint).</li>
+<li>Organism Keyword - Copy and paste as it appears on the report. Any taxa below the rank of the keyword will be included in the search. </li>
+<li>
+<p>Choose the BLAST subject database. (See below)</p>
+</li>
+<li>
+<p>Click on 'Launch Script' to begin. The attached debugging output will display analysis progress.</p>
+</li>
+<li>
+<p>The Organism Report should appear automatically. If it does not, navigate to the <code>NHS_RMg_platform/reports/{sample_id}/organism_query_{query_organism}_{datetime}/organism_report.html</code> and open in browser.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Quick Tip</p>
+<p>In addition to exact organism names, uses can put a genus, strain or 'Unclassified' in to the Organism Keyword field. The latter will query Unclassified reads.</p>
+</div>
+<p><a class="glightbox" href="../img/organism_query_blank.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="A screenshot of the Organism Query interface." src="../img/organism_query_blank.png"></a></p>
+<h4 id="choosing-a-blast-database">Choosing a BLAST database</h4>
+<p>BLAST databases contain the reference sequences used to screen queries. Results can be vastly different and possibly misleading if the wrong database is chosen. A conventional NCBI Online BLAST search utilises the 'core-nt' database. We recommend a tiered approach when choosing a database for Queries. Starting your investigation with fast and curated databases, ending with the largest and most inclusive, balancing reliability and turn-around-time. It's important to consider that the 'nt' databases are not curated and therefore could produce misleading results.</p>
+<ol>
+<li>
+<p>Auto Query database (CIDR_vXX) - Curated, inclusive and fast. Will produce similar results to Auto Query results. Contains a mirror of the CIDR_v16 Centrifuge database (Human, parasites, fungi, virus and prokaryote genomes), with the addition of Refseq virus and prokaryotic databases.</p>
+</li>
+<li>
+<p>RefSeq - euk, prok, viruses or all. NCBI Refseq (a curated database) representative genomes split by domain or all together. Using the 'Refseq Viruses' database takes &lt; 1 minute and is perfect for investigating high-confidence viral detections further.</p>
+</li>
+<li>
+<p>core-nt and nt - nucleotide sequence database, with entries from all traditional divisions of GenBank, EMBL, and DDBJ; excluding bulk divisions (gss, sts, pat, est, htg). core-nt is more compact, and therefore runs faster. It enables faster searches, but is lacking large eukaryotic chromosomal assemblies.</p>
+</li>
+</ol>
+<p><a class="glightbox" href="../img/blast_timig_plot.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Time taken to complete Organism Queries using different BLAST databases." src="../img/blast_timig_plot.png" width="50%"></a></p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>Misclassification can occur when no representaive for a query read is present in a reference database.</p>
+<p>Choosing a domain-specific databases can produce misleading results if the true query origin is not contained within the database/domain chosen.</p>
+</div></div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../anonymisation/" class="btn btn-neutral float-left" title="Anonymising specimen data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../interpreting_query/" class="btn btn-neutral float-right" title="Interpreting organism query results">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../anonymisation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../interpreting_query/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-jvectormap.js"></script>
+      <script src="../assets/js/jquery-mousewheel.js"></script>
+      <script src="../assets/js/jvectormap.js"></script>
+      <script src="../assets/js/abstract-element.js"></script>
+      <script src="../assets/js/abstract-canvas-element.js"></script>
+      <script src="../assets/js/abstract-shape-element.js"></script>
+      <script src="../assets/js/svg-element.js"></script>
+      <script src="../assets/js/svg-group-element.js"></script>
+      <script src="../assets/js/svg-canvas-element.js"></script>
+      <script src="../assets/js/svg-shape-element.js"></script>
+      <script src="../assets/js/svg-path-element.js"></script>
+      <script src="../assets/js/svg-circle-element.js"></script>
+      <script src="../assets/js/svg-image-element.js"></script>
+      <script src="../assets/js/svg-text-element.js"></script>
+      <script src="../assets/js/vml-element.js"></script>
+      <script src="../assets/js/vml-group-element.js"></script>
+      <script src="../assets/js/vml-canvas-element.js"></script>
+      <script src="../assets/js/vml-shape-element.js"></script>
+      <script src="../assets/js/vml-path-element.js"></script>
+      <script src="../assets/js/vml-circle-element.js"></script>
+      <script src="../assets/js/vml-image-element.js"></script>
+      <script src="../assets/js/map-object.js"></script>
+      <script src="../assets/js/region.js"></script>
+      <script src="../assets/js/marker.js"></script>
+      <script src="../assets/js/vector-canvas.js"></script>
+      <script src="../assets/js/simple-scale.js"></script>
+      <script src="../assets/js/ordinal-scale.js"></script>
+      <script src="../assets/js/numeric-scale.js"></script>
+      <script src="../assets/js/color-scale.js"></script>
+      <script src="../assets/js/legend.js"></script>
+      <script src="../assets/js/data-series.js"></script>
+      <script src="../assets/js/proj.js"></script>
+      <script src="../assets/js/map.js"></script>
+      <script src="../assets/js/uk_mill.js"></script>
+      <script src="../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

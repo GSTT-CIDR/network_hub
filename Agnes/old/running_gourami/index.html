@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="CIDR" /><link rel="canonical" href="https://gstt-cidr.github.io/network_hub/Agnes/old/running_gourami/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Starting a sequencing experiment in Gourami - CIDR Metagenomics Hub</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../../assets/js/jquery-jvectormap.css" rel="stylesheet" />
+        <link href="../../assets/stylesheets/width.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" rel="stylesheet" />
+        <link href="../../stylesheets/genome-database.css" rel="stylesheet" />
+        <link href="../../stylesheets/custom.css" rel="stylesheet" />
+        <link href="../../css/version-select.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Starting a sequencing experiment in Gourami";
+        var mkdocs_page_input_path = "old/running_gourami.md";
+        var mkdocs_page_url = "/network_hub/Agnes/old/running_gourami/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+ <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CIDR Metagenomics Hub
+        </a>
+        <div class="version">
+          {'provider': 'mike', 'default': 'latest'}
+        </div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../..">Clinical metagenomics</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../panmetagenomics_protocol/">Lab protocols</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../clinical_interpretation/">Clinical evaluation SOP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../validation_outline/">Validation outline</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../changelog.md">Changelog</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Bioinformatics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bioinformatics_outline/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../bioinformatics_install/">Installation and validation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Launching a sequencing experiment and analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../running_metagenomics_workflow/">Starting a MinKNOW experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../running_metagenomics_workflow_gourami/">Starting a Gourami experiment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../anonymisation/">Anonymising specimen data</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Orthogonal analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../running_organism_query/">Running organism queries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../interpreting_query/">Interpreting organism query results</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../limitations/">Limitations and bugs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mSCAPE_integration/">Uploading to mSCAPE</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../summary_report/">Summary report</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Additional information</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../technical_information/">Technical descriptions</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../genome_database/">Metagenomics sequence database</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Frequently asked questions</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../faq/">FAQ</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CIDR Metagenomics Hub</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Starting a sequencing experiment in Gourami</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/GSTT-CIDR/network_hub/edit/master/docs/old/running_gourami.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <div><h1 id="starting-a-sequencing-experiment-in-gourami">Starting a sequencing experiment in Gourami</h1>
+<h2 id="introduction">Introduction</h2>
+<div class="admonition danger">
+<p class="admonition-title">Important</p>
+<p>This section applies only to users with GridION version 1.1 or greater. For users with MinION or GridION RUO/1.0 platforms, please refer to the MinKNOW sections.</p>
+</div>
+<p>This document instructs users on how to use the Goruami interface. These tools are used to initialise and control sequencing experiments on the GridION device. Following completion of the relevant section, proceed to the <a href="./running_metagenomics_workflow.md">Running the metagenomics workflow</a> section to start the metagenomics analysis.</p>
+<h2 id="launching-a-sequencing-experiment-using-gourami">Launching a sequencing experiment using Gourami</h2>
+<ol>
+<li>Open the Sequencing Software by selecting the icon on the taskbar to the right as shown in the screenshot below.</li>
+</ol>
+<p><a class="glightbox" href="./img/gourami/taskbar.png" data-type="image" data-width="auto" data-height="auto" data-title="GridION taskbar" data-desc-position="bottom"><img alt="image" data-description="" data-title="GridION taskbar" src="./img/gourami/taskbar.png"></a></p>
+<ol start="2">
+<li>From assay selection, select “RPB004 prerelease” and press continue.</li>
+</ol>
+<p><a class="glightbox" href="./img/gourami/protocol.png" data-type="image" data-width="auto" data-height="auto" data-title="Selecting a protocol on Gourami" data-desc-position="bottom"><img alt="image" data-description="" data-title="Selecting a protocol on Gourami" src="./img/gourami/protocol.png"></a></p>
+<ol start="3">
+<li>Select the position of the flow cell on the interface. If you have not already run a flow cell check, you will have to run that now by selecting “Check flow cell”. After it is complete you can press continue.</li>
+</ol>
+<p><a class="glightbox" href="./img/gourami/flow_cell.png" data-type="image" data-width="auto" data-height="auto" data-title="Flow cell dashboard" data-desc-position="bottom"><img alt="image" data-description="" data-title="Flow cell dashboard" src="./img/gourami/flow_cell.png"></a></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The sample sheet step is only necessary if you are using the 'Gourami' software.</p>
+</div>
+<ol start="4">
+<li>Open the Metagenomics launcher application and enter: <ol>
+<li>Number of samples (rows)</li>
+<li>Experiment ID</li>
+<li>'ONT barcode' (for each sample in the library)</li>
+<li>'Lab/Sample ID' (for each sample in the library)</li>
+</ol>
+</li>
+</ol>
+<p>After filling out the above fields, click <strong>Generate Gourami sample sheet (5)</strong>. This will create a sample sheet in the 'sample_sheet' directory in 'metagenomics'. The sample sheet will be named with the date/time and the text in the Experiment ID field. </p>
+<p><a class="glightbox" href="./img/gourami/sample_sheet.png" data-type="image" data-width="auto" data-height="auto" data-title="CIDR metagenomics launcher - building a sample sheet" data-desc-position="bottom"><img alt="image" data-description="" data-title="CIDR metagenomics launcher - building a sample sheet" src="./img/gourami/sample_sheet.png"></a></p>
+<ol start="5">
+<li>Switching back to the Gourami sequencing software, select “Import” on the select sample sheet screen and import the sample sheet you have just created. Then make sure it is selected and the validation status says “Pass”, then press continue.</li>
+</ol>
+<p><a class="glightbox" href="./img/gourami/running_dashboard.png" data-type="image" data-width="auto" data-height="auto" data-title="Sample sheet loading screen" data-desc-position="bottom"><img alt="image" data-description="" data-title="Sample sheet loading screen" src="./img/gourami/running_dashboard.png"></a></p>
+<ol start="6">
+<li>
+<p>On the “Prime and load” screen ensure flow cell is correctly loaded as per SOP and press continue.</p>
+</li>
+<li>
+<p>On the final “Review and start” screen, select “Run assay” to begin the run. Please wait all the sample barcodes to appear as found before starting the metagenomics pipeline. </p>
+</li>
+<li>
+<p>Proceed to the <a href="./running_metagenomics_workflow.md">Running the metagenomics workflow</a> section to start the analysis.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Success!</p>
+<p>After reads start to appear on the barcoding screen you can advance to <a href="./running_metagenomics_workflow.md">Starting the metagenomics workflow</a>.</p>
+</div></div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/GSTT-CIDR/network_hub" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
+      <script src="../../assets/js/jquery-jvectormap.js"></script>
+      <script src="../../assets/js/jquery-mousewheel.js"></script>
+      <script src="../../assets/js/jvectormap.js"></script>
+      <script src="../../assets/js/abstract-element.js"></script>
+      <script src="../../assets/js/abstract-canvas-element.js"></script>
+      <script src="../../assets/js/abstract-shape-element.js"></script>
+      <script src="../../assets/js/svg-element.js"></script>
+      <script src="../../assets/js/svg-group-element.js"></script>
+      <script src="../../assets/js/svg-canvas-element.js"></script>
+      <script src="../../assets/js/svg-shape-element.js"></script>
+      <script src="../../assets/js/svg-path-element.js"></script>
+      <script src="../../assets/js/svg-circle-element.js"></script>
+      <script src="../../assets/js/svg-image-element.js"></script>
+      <script src="../../assets/js/svg-text-element.js"></script>
+      <script src="../../assets/js/vml-element.js"></script>
+      <script src="../../assets/js/vml-group-element.js"></script>
+      <script src="../../assets/js/vml-canvas-element.js"></script>
+      <script src="../../assets/js/vml-shape-element.js"></script>
+      <script src="../../assets/js/vml-path-element.js"></script>
+      <script src="../../assets/js/vml-circle-element.js"></script>
+      <script src="../../assets/js/vml-image-element.js"></script>
+      <script src="../../assets/js/map-object.js"></script>
+      <script src="../../assets/js/region.js"></script>
+      <script src="../../assets/js/marker.js"></script>
+      <script src="../../assets/js/vector-canvas.js"></script>
+      <script src="../../assets/js/simple-scale.js"></script>
+      <script src="../../assets/js/ordinal-scale.js"></script>
+      <script src="../../assets/js/numeric-scale.js"></script>
+      <script src="../../assets/js/color-scale.js"></script>
+      <script src="../../assets/js/legend.js"></script>
+      <script src="../../assets/js/data-series.js"></script>
+      <script src="../../assets/js/proj.js"></script>
+      <script src="../../assets/js/map.js"></script>
+      <script src="../../assets/js/uk_mill.js"></script>
+      <script src="../../js/version-select.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+<script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>
