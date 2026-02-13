@@ -86,3 +86,20 @@ a:hover {
 .btn-neutral:hover {
     background-color: #150d3a !important;
 }
+
+/* Mike version selector adjustments */
+#version-selector {
+    display: block;
+    margin: 20px auto 0.809em !important; /* Move down to avoid logo overlap */
+    padding: 2px;
+}
+
+/* Add "Select version" label before the dropdown */
+#version-selector::before {
+    content: "Select version";
+    display: block;
+    color: white;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
