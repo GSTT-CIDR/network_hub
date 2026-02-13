@@ -57,7 +57,7 @@ ol li:last-child {
     color: white; /* Site title in mobile nav */
 }
 
-.wy-menu-vertical header {
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
     color: white; /* Navigation section headers */
 }
 
