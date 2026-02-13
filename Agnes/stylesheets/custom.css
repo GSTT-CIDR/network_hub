@@ -61,6 +61,9 @@ ol li:last-child {
     color: white; /* Navigation section headers */
 }
 
+.wy-nav-side {
+    background-color: #201452; /* Mobile top nav background */
+}
 /* Change link colors */
 a {
     color: #201452;
