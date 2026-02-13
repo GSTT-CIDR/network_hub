@@ -1,3 +1,7 @@
 .wy-nav-content {
     max-width: 70%;
 }
+
+html {
+    font-size: 80%;
+}
