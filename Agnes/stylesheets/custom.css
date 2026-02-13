@@ -38,3 +38,36 @@ ol li {
 ol li:last-child {
   margin-bottom: 0;
 }
+
+/* Theme color customization */
+/* Change the primary/accent color to #201452 */
+.wy-side-nav-search {
+    background-color: #201452; /* Sidebar header background */
+}
+
+.wy-nav-top {
+    background-color: #201452; /* Mobile top nav background */
+}
+
+/* Change link colors */
+a {
+    color: #201452;
+}
+
+a:hover {
+    color: #150d3a; /* Darker shade for hover */
+}
+
+/* Change navigation active item */
+.wy-menu-vertical li.current a {
+    border-right: solid 2px #201452;
+}
+
+/* Change button colors */
+.btn-neutral {
+    background-color: #201452 !important;
+}
+
+.btn-neutral:hover {
+    background-color: #150d3a !important;
+}
