@@ -100,6 +100,12 @@ a:hover {
     background-position: center;
 }
 
+/* Reduce navbar font size */
+.wy-menu-vertical a,
+.wy-menu-vertical p.caption {
+    font-size: 85%;
+}
+
 /* Mike version selector adjustments */
 #version-selector {
     display: block !important;
