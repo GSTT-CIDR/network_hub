@@ -87,30 +87,6 @@ a:hover {
     background-color: #150d3a !important;
 }
 
-
-/* Reduce navbar font size */
-.wy-menu-vertical a,
-.wy-menu-vertical p.caption {
-    font-size: 80%;
-}
-
-/* Reduce navbar item spacing */
-.wy-menu-vertical li a,
-.wy-menu-vertical li.toctree-l1 > a,
-.wy-menu-vertical li.toctree-l2 > a,
-.wy-menu-vertical li.toctree-l3 > a {
-    padding: 0.2em 1.2em;
-}
-
-/* Mike version selector adjustments */
-#version-selector {
-    display: block !important;
-    margin: 10px auto 0.809em !important;
-    padding: 2px;
-    position: relative !important;
-    z-index: 100 !important;
-}
-
 /* Add "Select version" label before the dropdown */
 #version-selector::before {
     content: "Select version";
