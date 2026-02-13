@@ -103,17 +103,18 @@ a:hover {
 /* Mike version selector adjustments */
 #version-selector {
     display: block !important;
-    margin: 0 auto 0.809em !important;
+    margin: 10px auto 0.809em !important;
     padding: 2px;
     position: relative !important;
     z-index: 100 !important;
 }
 
-/* Style for the version label injected by JS */
-.version-label {
+/* Add "Select version" label before the dropdown */
+#version-selector::before {
+    content: "Select version";
+    display: block;
     color: white;
     font-size: 0.9em;
     margin-bottom: 5px;
-    text-align: center;
-    display: block;
+    font-weight: normal;
 }
