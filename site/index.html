@@ -157,6 +157,12 @@
 <p>Visit our new website for more information on the programme: <a href="https://metagenomics.nhs.uk/">https://metagenomics.nhs.uk/</a></p>
 <h2 id="network-sites">Network Sites</h2>
 <style>
+.map-outer {
+    overflow: hidden;
+    margin-left: -200px;
+    width: calc(100% + 200px);
+}
+
 .map-container {
     position: relative;
     display: flex;
@@ -247,6 +253,7 @@
 }
 </style>
 
+<div class="map-outer">
 <div class="map-container" id="mapContainer">
 
     <svg class="connector-svg" id="connectorSvg"></svg>
@@ -255,6 +262,7 @@
         <div id="ukMap"></div>
     </div>
     <div class="annotation-column right" id="rightColumn"></div>
+</div>
 </div>
 
 <script>
@@ -664,6 +672,7 @@ $(document).ready(function(){
     <script>var base_url = ".";</script>
     <script src="js/theme_extra.js"></script>
     <script src="js/theme.js"></script>
+      <script src="assets/js/version-select.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>

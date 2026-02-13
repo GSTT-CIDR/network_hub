@@ -10,6 +10,12 @@ Visit our new website for more information on the programme: [https://metagenomi
 ## Network Sites
 
 <style>
+.map-outer {
+    overflow: hidden;
+    margin-left: -200px;
+    width: calc(100% + 200px);
+}
+
 .map-container {
     position: relative;
     display: flex;
@@ -100,6 +106,7 @@ Visit our new website for more information on the programme: [https://metagenomi
 }
 </style>
 
+<div class="map-outer">
 <div class="map-container" id="mapContainer">
 
     <svg class="connector-svg" id="connectorSvg"></svg>
@@ -108,6 +115,7 @@ Visit our new website for more information on the programme: [https://metagenomi
         <div id="ukMap"></div>
     </div>
     <div class="annotation-column right" id="rightColumn"></div>
+</div>
 </div>
 
 <script>

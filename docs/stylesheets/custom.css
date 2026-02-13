@@ -100,21 +100,17 @@ a:hover {
     background-position: center;
 }
 
-/* Mike version selector adjustments */
-#version-selector {
-    display: block !important;
-    margin: 10px auto 0.809em !important;
-    padding: 2px;
-    position: relative !important;
-    z-index: 100 !important;
+/* Reduce navbar font size */
+.wy-menu-vertical a,
+.wy-menu-vertical p.caption {
+    font-size: 80%;
 }
 
-/* Add "Select version" label before the dropdown */
-#version-selector::before {
-    content: "Select version";
-    display: block;
-    color: white;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-    font-weight: normal;
+/* Reduce navbar item spacing */
+.wy-menu-vertical li a,
+.wy-menu-vertical li.toctree-l1 > a,
+.wy-menu-vertical li.toctree-l2 > a,
+.wy-menu-vertical li.toctree-l3 > a {
+    padding: 0.2em 1.2em;
 }
+

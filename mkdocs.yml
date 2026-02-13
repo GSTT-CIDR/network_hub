@@ -4,8 +4,6 @@ repo_url: https://github.com/GSTT-CIDR/network_hub
 site_author: CIDR
 theme:
   name: readthedocs
-  features:
-    - navigation.expand
 
 
 markdown_extensions:
@@ -66,6 +64,7 @@ nav:
 
 
 extra_javascript:
+  - assets/js/version-select-fix.js
   - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
   - https://cdn.datatables.net/2.2.2/js/dataTables.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js
