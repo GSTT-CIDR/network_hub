@@ -159,7 +159,7 @@ zcat centrifuge/centrifuge_raw.tsv.gz | grep unclassified | cut -f1 | seqkit gre
 </code></pre>
 <h2 id="im-seeing-red-text-on-the-metagenomics-workflow-terminal-output">I'm seeing red text on the metagenomics workflow terminal output:</h2>
 <h3 id="directory-locked">"directory locked..."</h3>
-<p>Rerun the samples with the 'Force overwrite' function checked on the Metagenomics launcher. This will delete any existing reports matching the Lab IDs provided to the launcher and re-analyse the datasets.</p>
+<p>Load the latest sample sheet using the 'Load existing sample sheet' function. Rerun the samples with the 'Force overwrite' function checked on the Metagenomics launcher. This will delete any existing reports matching the Lab IDs provided to the launcher and re-analyse the datasets.</p>
 <h3 id="could-not-locate-a-centrifuge-index-corresponding-to-basename">"Could not locate a Centrifuge index corresponding to basename"</h3>
 <p>The install script caches the classification databases at <code>"/data/metagenomics_workflow_databases/</code>. Check this is present and the size is ~64 GB. If this is not the case, ensure there is adequate space on the target volume and rerun the install script.</p>
 <p>You can reconfigure the chance directory by moving this directory and changing the <code>parameters.centrifuge.index.cmg</code> and <code>blast.db</code> configs. See the 'Technical information -&gt; Metagenomics config parameters' section for more info on configurations.</p>
@@ -215,7 +215,6 @@ zcat centrifuge/centrifuge_raw.tsv.gz | grep unclassified | cut -f1 | seqkit gre
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
-      <script src="../assets/javascripts/version-label.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
