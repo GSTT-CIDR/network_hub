@@ -43,8 +43,6 @@ ol li:last-child {
 /* Change the primary/accent color to #201452 */
 .wy-side-nav-search {
     background-color: #201452; /* Sidebar header background */
-    overflow: visible !important; /* Allow version selector to be visible */
-    padding-bottom: 10px !important; /* Add space at bottom */
 }
 
 .wy-side-nav-search a {
@@ -92,13 +90,10 @@ a:hover {
 /* Mike version selector adjustments */
 #version-selector {
     display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
     margin: 20px auto 0.809em !important; /* Move down to avoid logo overlap */
     padding: 2px;
     position: relative !important;
-    z-index: 1000 !important; /* Ensure it stays above the logo */
-    clear: both !important;
+    z-index: 100 !important; /* Ensure it stays above the logo */
 }
 
 /* Add "Select version" label before the dropdown */
@@ -114,15 +109,7 @@ a:hover {
 /* Adjust logo positioning to make room for version selector */
 .wy-side-nav-search > a img.logo, .wy-side-nav-search .wy-dropdown > a img.logo {
     display: block;
-    margin: 10px auto 10px;
+    margin: auto auto 10px;
     max-width: 100%;
-    max-height: 80px; /* Limit logo height */
     height: auto;
-    width: auto;
-}
-
-/* Ensure logo link doesn't cover version selector */
-.wy-side-nav-search > a {
-    display: block;
-    margin-bottom: 0;
 }
