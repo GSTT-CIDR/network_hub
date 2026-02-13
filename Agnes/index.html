@@ -494,6 +494,9 @@ $(document).ready(function(){
         var $svg = $('#connectorSvg');
         $svg.empty();
 
+        // Account for CSS zoom on body (getBoundingClientRect returns zoomed coords)
+        var zoomLevel = parseFloat(document.body.style.zoom) || 1;
+
         var $container = $('#mapContainer');
         var containerOffset = $container.offset();
         var $mapDiv = $('#ukMap');
@@ -513,15 +516,16 @@ $(document).ready(function(){
             var markerY = markerPos.y + (mapOffset.top - containerOffset.top);
 
             // Card connection point relative to container
+            // Divide getBoundingClientRect values by zoom to get unzoomed coordinates
             var cardX, cardY;
             var offsetX = site.lineOffsetX || 0;
             var offsetY = site.lineOffsetY || 0;
             if (site.side === 'left') {
-                cardX = cardRect.right - containerOffset.left + window.scrollX + offsetX;
-                cardY = cardRect.top + cardRect.height / 2 - containerOffset.top + window.scrollY + offsetY;
+                cardX = cardRect.right / zoomLevel - containerOffset.left + window.scrollX / zoomLevel + offsetX;
+                cardY = (cardRect.top + cardRect.height / 2) / zoomLevel - containerOffset.top + window.scrollY / zoomLevel + offsetY;
             } else {
-                cardX = cardRect.left - containerOffset.left + window.scrollX + offsetX;
-                cardY = cardRect.top + cardRect.height / 2 - containerOffset.top + window.scrollY + offsetY;
+                cardX = cardRect.left / zoomLevel - containerOffset.left + window.scrollX / zoomLevel + offsetX;
+                cardY = (cardRect.top + cardRect.height / 2) / zoomLevel - containerOffset.top + window.scrollY / zoomLevel + offsetY;
             }
 
             // Create line
