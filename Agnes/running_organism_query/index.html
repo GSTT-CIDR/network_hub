@@ -143,6 +143,10 @@
               
                 <div><h1 id="secondary-orthogonal-classification-analysis">Secondary (orthogonal) classification analysis</h1>
 <p>The Organism Query platform is provided to enable further scrutiny of taxonomic classification outputs from the CIDR metagenomics workflow. This tool serves both the Auto Query (<em>traffic light</em>) function on the Metagenomics Workflow outputs and the manual Organism Query interface. It leverages a local (offline) implementation of NCBI BLASTn to analyse a subset of reads from a given detection, summarised in a portable HTML report, with added analyses and logic to consolidate and visualise results.</p>
+<div class="admonition danger">
+<p class="admonition-title">Warning</p>
+<p>The 'Unclassified' analysis function in some releases may not be able to find unclassified reads despite them being present. Go to the FAQ section on the network hub for the fix.</p>
+</div>
 <h2 id="auto-query">Auto Query</h2>
 <p>The Metagenomics Workflow submits reads to Organism Query automatically for non-viral detections above threshold or organisms on the Exception List (See 'Technical information -&gt; Metagenomics Workflow' for more information and configuration). Auto Query results are summarised on the Metagenomics Reports in two tiers. First, the <em>traffic light</em> system, which communicates concordance between primary classification (k-mer - centrifuge) and secondary (orthogonal) classification Auto Query results. Importantly, like all outputs of this workflow, indications made by this function are not guaranteed to be accurate. A green light indicates that no discrepancy was detected between classification stages, it does not infer certainty. </p>
 <ul>
@@ -268,7 +272,7 @@
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
-      <script src="../assets/js/version-select.js"></script>
+      <script src="../assets/js/version-select-fix.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>
