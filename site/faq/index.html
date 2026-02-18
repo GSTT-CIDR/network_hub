@@ -120,6 +120,14 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#the-nhs_rmg_platform-disk-or-directory-is-using-up-too-much-space">The NHS_RMg_platform disk or directory is using up too much space</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#our-site-has-a-firewall-how-do-i-know-i-can-upload-to-mscape">Our site has a firewall - how do I know I can upload to mSCAPE</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#organism-query-is-not-able-to-find-my-unclassified-reads">Organism Query is not able to find my 'Unclassified' reads</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-summary-report-tool-is-not-launching">The summary report tool is not launching</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#can-i-run-multiple-instances-of-the-organism-query-to-sample-more-than-50-reads">Can I run multiple instances of the Organism Query to sample more than 50 reads?</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -174,7 +182,32 @@ zcat centrifuge/centrifuge_raw.tsv.gz | grep unclassified | cut -f1 | seqkit gre
 <p>If using removable storage, the drive should be of a high specification and it should be plugged in to a USB 3.0 or greater port (often blue or red in colour).</p>
 <p>We use the <a href="https://shop.sandisk.com/en-gb/products/ssd/external-ssd/portable-ssd-sandisk-extreme-pro-usb-3-2?sku=SDSSDE81-4T00-G25">SanDisk Extreme PRO Portable SSD - 4 TB</a> which performs well and adds significant storage for analysis on sequencing devices.</p>
 <h2 id="the-nhs_rmg_platform-disk-or-directory-is-using-up-too-much-space">The NHS_RMg_platform disk or directory is using up too much space</h2>
-<p>Check the <code>NHS_RMg_platform/recycle_bin</code> directory is not full of old overwritten analyses. This should be purged periodically. </p></div>
+<p>Check the <code>NHS_RMg_platform/recycle_bin</code> directory is not full of old overwritten analyses. This should be purged periodically. </p>
+<h2 id="our-site-has-a-firewall-how-do-i-know-i-can-upload-to-mscape">Our site has a firewall - how do I know I can upload to mSCAPE</h2>
+<p>Configure </p>
+<p><code>apptainer exec  --bind ./:/mnt --bind ~/.aws:/root/.aws   ./containers/mSCAPE_uploader_v0.5.sif bash -c 'source /opt/conda/etc/profile.d/conda.sh &amp;&amp; conda activate cmg  ; aws --profile climb --endpoint https://s3.climb.ac.uk s3 ls'</code></p>
+<h2 id="organism-query-is-not-able-to-find-my-unclassified-reads">Organism Query is not able to find my 'Unclassified' reads</h2>
+<p>Reach out to the team at GSTT and request a fixed version of the container. To update, make the two following changes:</p>
+<ol>
+<li>copy <code>organism_query_v1.7.2.sif</code> in to <code>NHS_RMg_platform/containers</code></li>
+<li>Replace <code>launch_organism_query_agnes.sh</code> with the updated version, or edit it to point to the updated v1.7.2 container version.</li>
+</ol>
+<h2 id="the-summary-report-tool-is-not-launching">The summary report tool is not launching</h2>
+<p>Try starting the <code>launcher</code> from the terminal in the NHS_RMg_platform directory. The output error might look something like this:</p>
+<pre><code>./launch_summary_report_agnes.sh 
+Starting Summary Report...
+WARNING: skipping mount of /home/username/.aws: stat /home/username/.aws: no such file or directory
+INFO:    Terminating squashfuse_ll after timeout
+INFO:    Timeouts can be caused by a running background process
+FATAL:   container creation failed: mount hook function failure: mount /home/username/.aws-&gt;/root/.aws error: while mounting /home/username/.aws: mount source /home/username/.aws doesn't exist
+</code></pre>
+<p>If this is the case, you can fix it using one of the two methods:</p>
+<ol>
+<li>Create a dummy directory in your gru home directory called .aws running the command <code>mkdir ~/.aws</code> in the terminal.</li>
+<li>Edit the launch_summary_report_agnes.sh script in the NHS_RMg_platform folder and remove the <code>--bind ~/.aws:/root/.aws</code> section in the apptainer call.</li>
+</ol>
+<h2 id="can-i-run-multiple-instances-of-the-organism-query-to-sample-more-than-50-reads">Can I run multiple instances of the Organism Query to sample more than 50 reads?</h2>
+<p>Yes, Organism Query uses a randomisation function. Entering the same taxon (or unclassified) in multiple query fields will increase the data sampled, providing there are sufficient reads. Importantly, being randomised, there may be overlap in samples depending on number of available reads. </p></div>
               
             </div>
           </div><footer>
@@ -215,7 +248,7 @@ zcat centrifuge/centrifuge_raw.tsv.gz | grep unclassified | cut -f1 | seqkit gre
     <script>var base_url = "..";</script>
     <script src="../js/theme_extra.js"></script>
     <script src="../js/theme.js"></script>
-      <script src="../assets/js/version-select.js"></script>
+      <script src="../assets/js/version-select-fix.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.js"></script>

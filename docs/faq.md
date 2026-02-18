@@ -49,3 +49,38 @@ We use the [SanDisk Extreme PRO Portable SSD - 4 TB](https://shop.sandisk.com/en
 ## The NHS_RMg_platform disk or directory is using up too much space
 
 Check the `NHS_RMg_platform/recycle_bin` directory is not full of old overwritten analyses. This should be purged periodically. 
+
+## Our site has a firewall - how do I know I can upload to mSCAPE
+
+Configure 
+
+`apptainer exec  --bind ./:/mnt --bind ~/.aws:/root/.aws   ./containers/mSCAPE_uploader_v0.5.sif bash -c 'source /opt/conda/etc/profile.d/conda.sh && conda activate cmg  ; aws --profile climb --endpoint https://s3.climb.ac.uk s3 ls'`
+
+## Organism Query is not able to find my 'Unclassified' reads
+
+Reach out to the team at GSTT and request a fixed version of the container. To update, make the two following changes:
+
+1. copy `organism_query_v1.7.2.sif` in to `NHS_RMg_platform/containers`
+2. Replace `launch_organism_query_agnes.sh` with the updated version, or edit it to point to the updated v1.7.2 container version.
+
+## The summary report tool is not launching
+
+Try starting the `launcher` from the terminal in the NHS_RMg_platform directory. The output error might look something like this:
+
+```
+./launch_summary_report_agnes.sh 
+Starting Summary Report...
+WARNING: skipping mount of /home/username/.aws: stat /home/username/.aws: no such file or directory
+INFO:    Terminating squashfuse_ll after timeout
+INFO:    Timeouts can be caused by a running background process
+FATAL:   container creation failed: mount hook function failure: mount /home/username/.aws->/root/.aws error: while mounting /home/username/.aws: mount source /home/username/.aws doesn't exist
+```
+
+If this is the case, you can fix it using one of the two methods:
+
+1.	Create a dummy directory in your gru home directory called .aws running the command `mkdir ~/.aws` in the terminal.
+2.	Edit the launch_summary_report_agnes.sh script in the NHS_RMg_platform folder and remove the `--bind ~/.aws:/root/.aws` section in the apptainer call.
+
+## Can I run multiple instances of the Organism Query to sample more than 50 reads?
+
+Yes, Organism Query uses a randomisation function. Entering the same taxon (or unclassified) in multiple query fields will increase the data sampled, providing there are sufficient reads. Importantly, being randomised, there may be overlap in samples depending on number of available reads. 

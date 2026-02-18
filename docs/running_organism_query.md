@@ -2,6 +2,8 @@
 
 The Organism Query platform is provided to enable further scrutiny of taxonomic classification outputs from the CIDR metagenomics workflow. This tool serves both the Auto Query (*traffic light*) function on the Metagenomics Workflow outputs and the manual Organism Query interface. It leverages a local (offline) implementation of NCBI BLASTn to analyse a subset of reads from a given detection, summarised in a portable HTML report, with added analyses and logic to consolidate and visualise results.
 
+!!! danger "Warning"
+    The 'Unclassified' analysis function in the v1.7.1 release may not be able to find unclassified reads despite them being present. Go to the FAQ section on the network hub for the fix.
 
 ## Auto Query
 
